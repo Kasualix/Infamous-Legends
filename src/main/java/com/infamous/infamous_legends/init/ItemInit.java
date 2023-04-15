@@ -7,13 +7,18 @@ import com.infamous.infamous_legends.items.ExplosiveFungusItem;
 import com.infamous.infamous_legends.items.PiglinBombItem;
 import com.infamous.infamous_legends.items.PiglinMaceItem;
 
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import java.util.function.Function;
+import java.util.function.Supplier;
 
 public class ItemInit {
 
@@ -97,5 +102,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> EXPLOSIVE_FUNGUS = ITEMS.register("explosive_fungus",
 			() -> new ExplosiveFungusItem(new Item.Properties().stacksTo(16).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+
+	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
+		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));
+	}
 
 }
