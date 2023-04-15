@@ -5,6 +5,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.EntityBlock;
@@ -38,10 +39,18 @@ public class LegendsSpawnerBlock extends Block implements EntityBlock {
 
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand, BlockHitResult pHit) {
+        if(pHand == InteractionHand.OFF_HAND){
+            return InteractionResult.PASS;
+        }
         BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
+        ItemStack itemInHand = pPlayer.getItemInHand(pHand);
         boolean succes = false;
         if (blockEntity instanceof LegendsSpawnerBlockEntity spawnerBlockEntity) {
-            succes = spawnerBlockEntity.addItem(pPlayer.getItemInHand(pHand));
+            if (itemInHand.isEmpty()) {
+                succes = spawnerBlockEntity.spawnEntity();
+            } else {
+                succes = spawnerBlockEntity.addItem(itemInHand);
+            }
         }
         if(succes){
             return InteractionResult.sidedSuccess(pLevel.isClientSide);

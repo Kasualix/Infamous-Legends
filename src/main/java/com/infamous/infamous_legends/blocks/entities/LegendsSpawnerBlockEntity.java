@@ -77,7 +77,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
     }
 
     private void ejectItems(ServerLevel level, BlockPos blockPos) {
-        addedItems.forEach(itemStack -> level.addFreshEntity(new ItemEntity(level, blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), itemStack)));
+        addedItems.forEach(itemStack -> {if(!itemStack.equals(ItemStack.EMPTY)) level.addFreshEntity(new ItemEntity(level, blockPos.getX(), blockPos.getY() + 1, blockPos.getZ(), itemStack));});
         addedItems.clear();
     }
 
@@ -101,11 +101,10 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
             addedItems.set(firstEmptySlot, itemStack.copy());
             itemStack.shrink(itemStack.getCount());
         }
-        spawnEntity();
         return true;
     }
 
-    private void spawnEntity() {
+    public boolean spawnEntity() {
         if(legendsSpawnerData != null && level instanceof ServerLevel serverLevel) {
             boolean validSpawnCost = legendsSpawnerData.validateSpawnCost(addedItems);
             if(validSpawnCost){
@@ -123,10 +122,11 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
                             }
                         }
                     });
+                    return true;
                 }
-                spawnEntity();
             }
         }
+        return false;
     }
 
     private BlockPos getSpawnPos(BlockPos blockPos) {
