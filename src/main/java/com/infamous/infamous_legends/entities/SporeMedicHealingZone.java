@@ -24,7 +24,7 @@ public class SporeMedicHealingZone extends PartEntity<SporeMedic> {
 		if (!this.level.isClientSide && this.parentMob.shooting) {		
 			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forNonCombat(), this.parentMob, this.getBoundingBox())) {
 				if (entity != this.parentMob && MiscUtils.piglinAllies(this.parentMob, entity)) {
-					if (entity.tickCount % 10 == 0) {
+					if (this.parentMob.tickCount % 10 == 0) {
 						entity.heal(1);
 					}
 				}

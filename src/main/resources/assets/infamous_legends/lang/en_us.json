@@ -14,12 +14,14 @@
 	"entity.infamous_legends.piglin_bomb" : "Piglin Bomb",
 	"entity.infamous_legends.explosive_fungus" : "Explosive Fungus",
 	"entity.infamous_legends.portal_guard_wrecking_ball" : "Portal Guard Wrecking Ball",
-	"entity.infamous_legends.magma_cube_projectile" : "Magma Cube Projectile",
+	"entity.infamous_legends.magma_cube_projectile" : "Magma Cube",
 	"entity.infamous_legends.cobblestone_golem" : "Cobblestone Golem",
 	"entity.infamous_legends.plank_golem" : "Plank Golem",
 	"entity.infamous_legends.plank_golem_bolt" : "Plank Golem Bolt",
 	"entity.infamous_legends.grindstone_golem" : "Grindstone Golem",
 	"entity.infamous_legends.mossy_golem" : "Mossy Golem",
+	"entity.infamous_legends.first_of_stone" : "First of Stone",
+	"entity.infamous_legends.boulder_projectile" : "Boulder",
 	
 	"item.infamous_legends.mace_runt_spawn_egg" : "Mace Runt Spawn Egg",
 	"item.infamous_legends.blaze_runt_spawn_egg" : "Blaze Runt Spawn Egg",
@@ -36,6 +38,7 @@
 	"item.infamous_legends.plank_golem_spawn_egg" : "Plank Golem Spawn Egg",
 	"item.infamous_legends.grindstone_golem_spawn_egg" : "Grindstone Golem Spawn Egg",
 	"item.infamous_legends.mossy_golem_spawn_egg" : "Mossy Golem Spawn Egg",
+	"item.infamous_legends.first_of_stone_spawn_egg" : "First of Stone Spawn Egg",
 	
 	"item.infamous_legends.piglin_mace" : "Piglin Mace",
 	"item.infamous_legends.piglin_saw" : "Piglin Saw",

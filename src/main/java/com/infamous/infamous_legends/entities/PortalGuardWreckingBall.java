@@ -116,7 +116,7 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	    	  this.inGround = false;
 	    	  
 	    	  this.playSound(SoundEvents.CHAIN_PLACE, 1.0F, MiscUtils.randomSoundPitch() * 0.75F);
-	    	  this.playSound(SoundEvents.GRASS_STEP, 1.25F, MiscUtils.randomSoundPitch() * 0.005F);
+	    	  this.playSound(SoundEvents.GRAVEL_STEP, 1.25F, MiscUtils.randomSoundPitch() * 0.005F);
 	    	  
 	    	  double speed = 0.325 * (this.distanceTo(this.getPortalGuardOwner()) * 0.25);
 	    	  

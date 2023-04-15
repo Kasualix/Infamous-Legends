@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.models.BigFungusThrowerModel;
 import com.infamous.infamous_legends.models.BlazeRuntModel;
 import com.infamous.infamous_legends.models.CobblestoneGolemModel;
 import com.infamous.infamous_legends.models.ExplosiveFungusModel;
+import com.infamous.infamous_legends.models.FirstOfStoneModel;
 import com.infamous.infamous_legends.models.GrindstoneGolemModel;
 import com.infamous.infamous_legends.models.LavaLauncherModel;
 import com.infamous.infamous_legends.models.MaceRuntModel;
@@ -26,8 +27,10 @@ import com.infamous.infamous_legends.models.WarBoarModel;
 import com.infamous.infamous_legends.models.WarpedBomberModel;
 import com.infamous.infamous_legends.renderers.BigFungusThrowerRenderer;
 import com.infamous.infamous_legends.renderers.BlazeRuntRenderer;
+import com.infamous.infamous_legends.renderers.BoulderProjectileRenderer;
 import com.infamous.infamous_legends.renderers.CobblestoneGolemRenderer;
 import com.infamous.infamous_legends.renderers.ExplosiveFungusRenderer;
+import com.infamous.infamous_legends.renderers.FirstOfStoneRenderer;
 import com.infamous.infamous_legends.renderers.GrindstoneGolemRenderer;
 import com.infamous.infamous_legends.renderers.LavaLauncherRenderer;
 import com.infamous.infamous_legends.renderers.MaceRuntRenderer;
@@ -107,6 +110,9 @@ public class ClientEventBusSubscriber {
         event.registerLayerDefinition(ModelLayerInit.MOSSY_GOLEM, MossyGolemModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.MOSSY_GOLEM_INNER_ARMOUR, ClientEventBusSubscriber::createInnerArmourLayer);
         event.registerLayerDefinition(ModelLayerInit.MOSSY_GOLEM_OUTER_ARMOUR, ClientEventBusSubscriber::createOuterArmourLayer);
+        event.registerLayerDefinition(ModelLayerInit.FIRST_OF_STONE, FirstOfStoneModel::createBodyLayer);
+        event.registerLayerDefinition(ModelLayerInit.FIRST_OF_STONE_INNER_ARMOUR, ClientEventBusSubscriber::createInnerArmourLayer);
+        event.registerLayerDefinition(ModelLayerInit.FIRST_OF_STONE_OUTER_ARMOUR, ClientEventBusSubscriber::createOuterArmourLayer);
         event.registerLayerDefinition(ModelLayerInit.THROWN_BLAZE_ROD, ThrownBlazeRodModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.PIGLIN_BOMB, PiglinBombModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.EXPLOSIVE_FUNGUS, ExplosiveFungusModel::createBodyLayer);
@@ -140,12 +146,14 @@ public class ClientEventBusSubscriber {
 		event.registerEntityRenderer(EntityTypeInit.PLANK_GOLEM.get(), PlankGolemRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.GRINDSTONE_GOLEM.get(), GrindstoneGolemRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.MOSSY_GOLEM.get(), MossyGolemRenderer::new);
+		event.registerEntityRenderer(EntityTypeInit.FIRST_OF_STONE.get(), FirstOfStoneRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.THROWN_BLAZE_ROD.get(), ThrownBlazeRodRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PIGLIN_BOMB.get(), PiglinBombRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.EXPLOSIVE_FUNGUS.get(), ExplosiveFungusRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PORTAL_GUARD_WRECKING_BALL.get(), PortalGuardWreckingBallRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.MAGMA_CUBE_PROJECTILE.get(), MagmaCubeProjectileRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PLANK_GOLEM_BOLT.get(), PlankGolemBoltRenderer::new);
+		event.registerEntityRenderer(EntityTypeInit.BOULDER_PROJECTILE.get(), BoulderProjectileRenderer::new);
 	}
 	
 	@SubscribeEvent

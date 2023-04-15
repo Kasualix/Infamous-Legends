@@ -31,15 +31,15 @@ public class MossyGolemHealingZone extends PartEntity<MossyGolem> {
 		if (!this.level.isClientSide && this.parentMob.shooting) {		
 			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forNonCombat(), this.parentMob, this.getBoundingBox())) {
 				if (entity != this.parentMob && MiscUtils.golemAllies(this.parentMob, entity)) {
-					if (entity.tickCount % 10 == 0) {
-						entity.heal(1);
+					if (this.parentMob.tickCount % 10 == 0) {
+						entity.heal(0.5F);
 						if (entity.isOnFire()) {
 							entity.clearFire();
 							entity.playSound(SoundEvents.GENERIC_EXTINGUISH_FIRE);
 						}
 					}
-				} else if (entity != this.parentMob && !MiscUtils.golemAllies(this.parentMob, entity) && entity.isSensitiveToWater() && entity.tickCount % 10 == 0) {
-					entity.hurt(DamageSource.DROWN, 1.0F);
+				} else if (entity != this.parentMob && !MiscUtils.golemAllies(this.parentMob, entity) && entity.isSensitiveToWater() && this.parentMob.tickCount % 10 == 0) {
+					entity.hurt(DamageSource.DROWN, 0.5F);
 				}
 			}
 		}

@@ -3,8 +3,10 @@ package com.infamous.infamous_legends.init;
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.entities.BigFungusThrower;
 import com.infamous.infamous_legends.entities.BlazeRunt;
+import com.infamous.infamous_legends.entities.BoulderProjectile;
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
 import com.infamous.infamous_legends.entities.ExplosiveFungus;
+import com.infamous.infamous_legends.entities.FirstOfStone;
 import com.infamous.infamous_legends.entities.GrindstoneGolem;
 import com.infamous.infamous_legends.entities.LavaLauncher;
 import com.infamous.infamous_legends.entities.MaceRunt;
@@ -99,6 +101,10 @@ public class EntityTypeInit {
 			() -> EntityType.Builder.<MossyGolem>of(MossyGolem::new, MobCategory.MISC).sized(0.9F, 1.3F)
 					.build(new ResourceLocation(InfamousLegends.MOD_ID, "mossy_golem").toString()));
 	
+	public static final RegistryObject<EntityType<FirstOfStone>> FIRST_OF_STONE = ENTITY_TYPES.register("first_of_stone",
+			() -> EntityType.Builder.<FirstOfStone>of(FirstOfStone::new, MobCategory.MISC).sized(2.25F, 4.25F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "first_of_stone").toString()));
+	
 	// PROJECTILES
 
 	public static final RegistryObject<EntityType<ThrownBlazeRod>> THROWN_BLAZE_ROD = ENTITY_TYPES.register("thrown_blaze_rod",
@@ -120,6 +126,10 @@ public class EntityTypeInit {
 	public static final RegistryObject<EntityType<MagmaCubeProjectile>> MAGMA_CUBE_PROJECTILE = ENTITY_TYPES.register("magma_cube_projectile",
 			() -> EntityType.Builder.<MagmaCubeProjectile>of(MagmaCubeProjectile::new, MobCategory.MISC).sized(1.25F, 1.25F)
 					.build(new ResourceLocation(InfamousLegends.MOD_ID, "magma_cube_projectile").toString()));
+	
+	public static final RegistryObject<EntityType<BoulderProjectile>> BOULDER_PROJECTILE = ENTITY_TYPES.register("boulder_projectile",
+			() -> EntityType.Builder.<BoulderProjectile>of(BoulderProjectile::new, MobCategory.MISC).sized(1.5F, 1.5F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "boulder_projectile").toString()));
 	
 	public static final RegistryObject<EntityType<PlankGolemBolt>> PLANK_GOLEM_BOLT = ENTITY_TYPES.register("plank_golem_bolt",
 			() -> EntityType.Builder.<PlankGolemBolt>of(PlankGolemBolt::new, MobCategory.MISC).sized(0.5F, 0.5F)
