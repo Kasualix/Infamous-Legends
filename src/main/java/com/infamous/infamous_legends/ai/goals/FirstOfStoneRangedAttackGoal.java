@@ -46,7 +46,7 @@ public class FirstOfStoneRangedAttackGoal extends Goal {
 		@Override
 		public boolean canUse() {
 			target = mob.getTarget();
-			return target != null && mob.tickCount >= this.nextUseTime && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 25 && animationsUseable() && mob.hasLineOfSight(target);
+			return target != null && mob.tickCount >= this.nextUseTime && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) > 5 && mob.distanceTo(target) <= 25 && animationsUseable() && mob.hasLineOfSight(target);
 		}
 
 		@Override
@@ -130,7 +130,7 @@ public class FirstOfStoneRangedAttackGoal extends Goal {
 		@Override
 		public void stop() {
 			super.stop();
-			this.nextUseTime = mob.tickCount + 40;
+			this.nextUseTime = mob.tickCount + 20;
 		}
 
 		public boolean animationsUseable() {

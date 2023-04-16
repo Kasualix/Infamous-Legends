@@ -96,7 +96,7 @@ public class FirstOfStone extends AbstractGolem {
 	
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 150.0D).add(Attributes.ARMOR, 10.0D).add(Attributes.MOVEMENT_SPEED, 0.3D)
-				.add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ATTACK_DAMAGE, 15.0D)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ATTACK_DAMAGE, 18.0D)
 				.add(Attributes.ATTACK_KNOCKBACK, 2D).add(Attributes.FOLLOW_RANGE, 35.0D);
 	}
 	

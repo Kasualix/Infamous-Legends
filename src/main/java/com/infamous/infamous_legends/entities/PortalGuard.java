@@ -51,8 +51,8 @@ public class PortalGuard extends AbstractPiglin {
 
 	public AnimationState attackAnimationState = new AnimationState();
 	public int attackAnimationTick;
-	public final int attackAnimationLength = 45;
-	public final int attackAnimationActionPoint = 23;
+	public final int attackAnimationLength = (int) ((int)45 * 0.85);
+	public final int attackAnimationActionPoint = (int) ((int)23 * 0.85);
 	
 	public AnimationState shootAnimationState = new AnimationState();
 	public int shootAnimationTick;
@@ -99,7 +99,7 @@ public class PortalGuard extends AbstractPiglin {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 150.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.275F).add(Attributes.FOLLOW_RANGE, 25.0D).add(Attributes.ATTACK_DAMAGE, 17.5D).add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ARMOR, 12.5D);
+				.add(Attributes.MOVEMENT_SPEED, (double) 0.275F).add(Attributes.FOLLOW_RANGE, 25.0D).add(Attributes.ATTACK_DAMAGE, 15D).add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ARMOR, 12.5D);
 	}
 	
 	@Override

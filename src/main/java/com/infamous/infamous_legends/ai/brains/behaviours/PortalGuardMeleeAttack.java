@@ -47,7 +47,7 @@ public class PortalGuardMeleeAttack extends Behavior<PortalGuard> {
 		
 		p_22552_.getNavigation().stop();
 		
-		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationLength - 20) {
+		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationLength - (20 * 0.85)) {
 			p_22552_.playSound(SoundEvents.IRON_GOLEM_ATTACK);
 		}
 		

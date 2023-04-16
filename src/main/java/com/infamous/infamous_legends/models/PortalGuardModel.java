@@ -185,7 +185,7 @@ public class PortalGuardModel<T extends PortalGuard> extends HierarchicalModel<T
 		PortalGuardSineWaveAnimations.portalGuardIdleShootingAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleShootingAnimation ? 1 : 0);
 		PortalGuardSineWaveAnimations.portalGuardWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 10F, shouldPlayWalkAnimation ? 1 : 0);
 		PortalGuardSineWaveAnimations.portalGuardIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
-		this.animate(entity.attackAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_ATTACK, ageInTicks);
+		this.animate(entity.attackAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_ATTACK, ageInTicks, 1.15F);
 		this.animate(entity.shootAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_SHOOT, ageInTicks);
 		this.animate(entity.reelInBallAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_REEL_IN_BALL, ageInTicks);
 	}

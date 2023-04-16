@@ -44,7 +44,7 @@ public class FirstOfStoneMeleeAttackGoal extends Goal {
 		@Override
 		public boolean canUse() {
 			target = mob.getTarget();
-			return target != null && mob.tickCount >= this.nextUseTime && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 4 && animationsUseable() && mob.hasLineOfSight(target);
+			return target != null && mob.tickCount >= this.nextUseTime && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 5 && animationsUseable() && mob.hasLineOfSight(target);
 		}
 
 		@Override
@@ -76,7 +76,7 @@ public class FirstOfStoneMeleeAttackGoal extends Goal {
 						particlePos.z, 60, 1.5D, 0.2D, 1.5D, 0.0D);
 			}
 			
-			if (target != null && mob.distanceTo(target) <= 6 && mob.attackAnimationTick == mob.attackAnimationActionPoint && mob.hasLineOfSight(target)) {
+			if (target != null && mob.distanceTo(target) <= 7 && mob.attackAnimationTick == mob.attackAnimationActionPoint && mob.hasLineOfSight(target)) {
 				mob.doHurtTarget(target);
 				for (LivingEntity entity : mob.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), mob, target.getBoundingBox().inflate(4, 0, 4))) {
 					if (!MiscUtils.nonEnemy(mob, entity) && entity != target) {

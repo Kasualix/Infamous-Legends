@@ -133,7 +133,7 @@ public class BoulderProjectile extends ThrowableProjectile {
 				this.playSound(SoundEvents.GENERIC_EXPLODE, 2.0F, 0.75F);
 				for (Entity entity : this.level.getEntities(this, this.getBoundingBox().inflate(3))) {
 					if (entity instanceof LivingEntity && !MiscUtils.nonEnemy(this, entity)) {
-						boolean flag = entity.hurt(DamageSource.explosion(this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null), 30);
+						boolean flag = entity.hurt(DamageSource.explosion(this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null), 18);
 						if (this.distanceTo(entity) > 0.2) {
 							double d0 = entity.getX() - this.getX();
 							double d1 = entity.getZ() - this.getZ();

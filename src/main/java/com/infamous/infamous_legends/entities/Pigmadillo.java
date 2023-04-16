@@ -112,7 +112,7 @@ public class Pigmadillo extends AbstractPiglin {
 	   
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 75.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.35F).add(Attributes.ATTACK_DAMAGE, 15.0D).add(Attributes.ARMOR, 15.0D).add(Attributes.FOLLOW_RANGE, 30D).add(Attributes.KNOCKBACK_RESISTANCE, 1D);
+				.add(Attributes.MOVEMENT_SPEED, (double) 0.35F).add(Attributes.ATTACK_DAMAGE, 15.0D).add(Attributes.ARMOR, 8.0D).add(Attributes.FOLLOW_RANGE, 30D).add(Attributes.KNOCKBACK_RESISTANCE, 1D);
 	}
 	
 	@Nullable

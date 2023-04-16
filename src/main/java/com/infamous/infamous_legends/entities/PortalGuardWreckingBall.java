@@ -176,13 +176,13 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 					this.playSound(SoundEvents.GENERIC_EXPLODE, 2.0F, 0.75F);
 					for (Entity entity : this.level.getEntities(this, this.getBoundingBox().inflate(2))) {
 						if (entity instanceof LivingEntity && !MiscUtils.piglinAllies(this, entity)) {
-							boolean flag = entity.hurt(DamageSource.explosion(this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null), 20);
+							boolean flag = entity.hurt(DamageSource.explosion(this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null), 18);
 							MiscUtils.disableShield(((LivingEntity)entity), 150);
 							if (this.distanceTo(entity) > 0.2) {
 								double d0 = entity.getX() - this.getX();
 								double d1 = entity.getZ() - this.getZ();
 								double d2 = Math.max(d0 * d0 + d1 * d1, 0.001D);
-								entity.push(d0 / d2 * 2.0D, 0.3D, d1 / d2 * 2.0D);
+								entity.push(d0 / d2 * 1.5D, 0.3D, d1 / d2 * 1.5D);
 							}
 						}
 					}
@@ -195,7 +195,7 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	   protected void onHitEntity(EntityHitResult p_37573_) {
 		  if (!this.hasLanded && !this.level.isClientSide) {
 		      Entity entity = p_37573_.getEntity();
-		      float f = 25F;
+		      float f = 20F;
 		      Entity entity1 = this.getOwner();
 		      DamageSource damagesource = DamageSource.thrown(this, (Entity)(entity1 == null ? this : entity1));
 		      SoundEvent soundevent = SoundEvents.ANVIL_LAND;
