@@ -1,8 +1,13 @@
 package com.infamous.infamous_legends.itemgroups;
 
+import com.infamous.infamous_legends.InfamousLegends;
+
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
+import net.minecraftforge.registries.ForgeRegistries;
 
 public class InfamousLegendsBlocksItemGroup extends CreativeModeTab {
 	
@@ -14,7 +19,8 @@ public class InfamousLegendsBlocksItemGroup extends CreativeModeTab {
 
 	@Override
 	public ItemStack makeIcon() {
-		return new ItemStack(Items.SPAWNER);
+		Item defaultItem = ForgeRegistries.ITEMS.getValue(new ResourceLocation(InfamousLegends.MOD_ID, "legends_spawner_block"));
+		return defaultItem != null ? new ItemStack(defaultItem) : new ItemStack(Items.SPAWNER);
 	}
 
 }

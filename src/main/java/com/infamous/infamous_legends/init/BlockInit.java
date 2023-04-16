@@ -32,7 +32,7 @@ public class BlockInit {
 
 
     public static void initRenderTypes(){
-        ItemBlockRenderTypes.setRenderLayer(LEGENDS_SPAWNER_BLOCK.get(), RenderType.translucent());
+        ItemBlockRenderTypes.setRenderLayer(LEGENDS_SPAWNER_BLOCK.get(), RenderType.cutout());
     }
 
 }

@@ -1,0 +1,12 @@
+{
+  "entity_type": "infamous_legends:cobblestone_golem",
+  "spawn_cost": [
+    {
+      "item": "minecraft:lapis_lazuli",
+      "count": 5
+    }
+  ],
+  "corner_block": "minecraft:chiseled_stone_bricks",
+  "center_block": "minecraft:cobblestone",
+  "max_spawns": 4
+}

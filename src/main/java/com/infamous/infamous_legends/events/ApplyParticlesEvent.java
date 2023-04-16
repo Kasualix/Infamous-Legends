@@ -4,6 +4,9 @@ import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.particles.DustParticle;
 import com.infamous.infamous_legends.particles.SparkParticle;
+import com.infamous.infamous_legends.particles.SpawnerFlameParticle;
+import com.infamous.infamous_legends.particles.SpawnerMagicParticle;
+import com.infamous.infamous_legends.particles.SpawnerMagicSwirlParticle;
 import com.infamous.infamous_legends.particles.SporeCloudParticle;
 import com.infamous.infamous_legends.particles.WaterParticle;
 import com.infamous.infamous_legends.particles.WaterSplashParticle;
@@ -28,5 +31,11 @@ public class ApplyParticlesEvent {
                 WaterSplashParticle.Provider::new);
     	event.register(ParticleTypeInit.WATER.get(),
                 WaterParticle.Provider::new);
+    	event.register(ParticleTypeInit.SPAWNER_FLAME.get(),
+                SpawnerFlameParticle.Provider::new);
+    	event.register(ParticleTypeInit.SPAWNER_MAGIC_SWIRL.get(),
+                SpawnerMagicSwirlParticle.Provider::new);
+    	event.register(ParticleTypeInit.SPAWNER_MAGIC.get(),
+                SpawnerMagicParticle.Provider::new);
     }
 }

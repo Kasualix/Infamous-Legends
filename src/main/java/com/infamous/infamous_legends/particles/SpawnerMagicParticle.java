@@ -6,38 +6,43 @@ import net.minecraft.client.particle.ParticleProvider;
 import net.minecraft.client.particle.ParticleRenderType;
 import net.minecraft.client.particle.SpriteSet;
 import net.minecraft.client.particle.TextureSheetParticle;
+import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.SimpleParticleType;
+import net.minecraft.tags.FluidTags;
+import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
-public class SparkParticle extends TextureSheetParticle {
+
+public class SpawnerMagicParticle extends TextureSheetParticle {
 	
-	private final SpriteSet sprites;
-	
-    protected SparkParticle(ClientLevel level, double xCoord, double yCoord, double zCoord,
-                               SpriteSet spriteSet, double xd, double yd, double zd) {
+	private float angle;
+	   
+    protected SpawnerMagicParticle(ClientLevel level, double xCoord, double yCoord, double zCoord,
+    		SpriteSet spriteSet, double xd, double yd, double zd) {
         super(level, xCoord, yCoord, zCoord, xd, yd, zd);
 
-        this.sprites = spriteSet;
+        this.quadSize *= 2.5F;
+        this.lifetime = 10 + this.random.nextInt(10);
+        this.hasPhysics = false;
         
-        this.xd = xd - 0.1 + this.random.nextFloat() * 0.2;
-        this.yd = yd + this.random.nextFloat() * 0.25;
-        this.zd = zd - 0.1 + this.random.nextFloat() * 0.2;
-        this.quadSize *= 1.75F;
-        this.lifetime = 10;
-        this.hasPhysics = true;
-        this.gravity = 1.0F;
         this.pickSprite(spriteSet);
-
-        this.rCol = 1f;
-        this.gCol = 1f;
-        this.bCol = 1f;
     }
 
-    @Override
+    public ParticleRenderType getRenderType() {
+        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
+    }
+
     public void tick() {
-        super.tick();
-        this.roll = this.roll + 0.1F;
+    	super.tick();
+        this.xd = this.xd * 0.95F;
+        this.yd = this.yd * 0.75F;
+        this.zd = this.zd * 0.95F;
+        fadeOut();
+     }
+
+    private void fadeOut() {
+        this.alpha = (-(1/(float)lifetime) * age + 1);
     }
     
     public int getLightColor(float pPartialTick) {
@@ -46,11 +51,6 @@ public class SparkParticle extends TextureSheetParticle {
         int k = i >> 16 & 255;
         return 240 | k << 16;
      }
-
-    @Override
-    public ParticleRenderType getRenderType() {
-        return ParticleRenderType.PARTICLE_SHEET_TRANSLUCENT;
-    }
 
     @OnlyIn(Dist.CLIENT)
     public static class Provider implements ParticleProvider<SimpleParticleType> {
@@ -63,7 +63,7 @@ public class SparkParticle extends TextureSheetParticle {
         public Particle createParticle(SimpleParticleType particleType, ClientLevel level,
                                        double x, double y, double z,
                                        double dx, double dy, double dz) {
-            return new SparkParticle(level, x, y, z, this.sprites, dx, dy, dz);
+            return new SpawnerMagicParticle(level, x, y, z, this.sprites, dx, dy, dz);
         }
     }
 }

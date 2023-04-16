@@ -27,6 +27,12 @@ public class ParticleTypeInit {
             PARTICLE_TYPES.register("water_splash", () -> new SimpleParticleType(true));
     public static final RegistryObject<SimpleParticleType> WATER =
             PARTICLE_TYPES.register("water", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> SPAWNER_FLAME =
+            PARTICLE_TYPES.register("spawner_flame", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> SPAWNER_MAGIC_SWIRL =
+            PARTICLE_TYPES.register("spawner_magic_swirl", () -> new SimpleParticleType(true));
+    public static final RegistryObject<SimpleParticleType> SPAWNER_MAGIC =
+            PARTICLE_TYPES.register("spawner_magic", () -> new SimpleParticleType(true));
 	
 	   private static <T extends ParticleOptions> RegistryObject<ParticleType<T>> registerAdvancedParticle(String p_235906_, boolean p_235907_, ParticleOptions.Deserializer<T> p_235908_, final Function<ParticleType<T>, Codec<T>> p_235909_) {
 		      return PARTICLE_TYPES.register(p_235906_, () -> new ParticleType<T>(p_235907_, p_235908_) {

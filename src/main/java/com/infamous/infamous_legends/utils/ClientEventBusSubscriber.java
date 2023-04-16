@@ -1,6 +1,7 @@
 package com.infamous.infamous_legends.utils;
 
 import com.infamous.infamous_legends.InfamousLegends;
+import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.ModelLayerInit;
 import com.infamous.infamous_legends.models.BigFungusThrowerModel;
@@ -48,6 +49,7 @@ import com.infamous.infamous_legends.renderers.SporeMedicRenderer;
 import com.infamous.infamous_legends.renderers.ThrownBlazeRodRenderer;
 import com.infamous.infamous_legends.renderers.WarBoarRenderer;
 import com.infamous.infamous_legends.renderers.WarpedBomberRenderer;
+import com.infamous.infamous_legends.renderers.blocks.LegendsSpawnerRenderer;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
@@ -154,6 +156,8 @@ public class ClientEventBusSubscriber {
 		event.registerEntityRenderer(EntityTypeInit.MAGMA_CUBE_PROJECTILE.get(), MagmaCubeProjectileRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PLANK_GOLEM_BOLT.get(), PlankGolemBoltRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.BOULDER_PROJECTILE.get(), BoulderProjectileRenderer::new);
+		
+		event.registerBlockEntityRenderer(BlockEntityTypeInit.LEGENDS_SPAWNER.get(), LegendsSpawnerRenderer::new);
 	}
 	
 	@SubscribeEvent

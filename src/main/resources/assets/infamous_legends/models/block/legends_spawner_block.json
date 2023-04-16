@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/cube_bottom_top",
+  "textures": {
+    "bottom": "infamous_legends:blocks/legends_spawner_block_top",
+    "side": "infamous_legends:blocks/legends_spawner_block",
+    "top": "infamous_legends:blocks/legends_spawner_block_top"
+  }
+}

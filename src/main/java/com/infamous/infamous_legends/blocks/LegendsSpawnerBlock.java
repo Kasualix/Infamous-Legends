@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.blocks;
 
 import com.infamous.infamous_legends.blocks.entities.LegendsSpawnerBlockEntity;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
@@ -44,17 +45,28 @@ public class LegendsSpawnerBlock extends Block implements EntityBlock {
         }
         BlockEntity blockEntity = pLevel.getBlockEntity(pPos);
         ItemStack itemInHand = pPlayer.getItemInHand(pHand);
-        boolean succes = false;
+        boolean success = false;
         if (blockEntity instanceof LegendsSpawnerBlockEntity spawnerBlockEntity) {
             if (itemInHand.isEmpty()) {
-                succes = spawnerBlockEntity.spawnEntity();
+            	pPlayer.swing(pHand);
+                success = spawnerBlockEntity.spawnEntity(pPos, pPlayer, pHand);
             } else {
-                succes = spawnerBlockEntity.addItem(itemInHand);
+                success = spawnerBlockEntity.addItem(itemInHand, pPos, pPlayer);
+                if (success) {
+                	for (int i = 0; i < 10; i++) {
+	                    double d0 = (double)pPos.getX() + spawnerBlockEntity.random.nextDouble();
+	                    double d1 = (double)pPos.getY() + spawnerBlockEntity.random.nextDouble();
+	                    double d2 = (double)pPos.getZ() + spawnerBlockEntity.random.nextDouble();
+	                    pLevel.addParticle(ParticleTypes.SMOKE, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+	                    pLevel.addParticle(ParticleTypes.FLAME, d0, d1, d2, 0.0D, 0.0D, 0.0D);
+                	}
+                }
             }
         }
-        if(succes){
+        if (success) {
+            pPlayer.swing(pHand);
             return InteractionResult.sidedSuccess(pLevel.isClientSide);
-        }else{
+        } else {
             return InteractionResult.PASS;
         }
     }

@@ -1,0 +1,12 @@
+{
+  "entity_type": "infamous_legends:grindstone_golem",
+  "spawn_cost": [
+    {
+      "item": "minecraft:lapis_lazuli",
+      "count": 10
+    }
+  ],
+  "corner_block": "minecraft:grindstone",
+  "center_block": "minecraft:stone_bricks",
+  "max_spawns": 4
+}

@@ -1,0 +1,12 @@
+{
+  "entity_type": "infamous_legends:mossy_golem",
+  "spawn_cost": [
+    {
+      "item": "minecraft:lapis_lazuli",
+      "count": 10
+    }
+  ],
+  "corner_block": "minecraft:moss_block",
+  "center_block": "minecraft:clay",
+  "max_spawns": 4
+}
