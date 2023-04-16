@@ -1,4 +1,4 @@
-package com.infamous.infamous_legends.network;
+package com.infamous.infamous_legends.network.message;
 
 import java.util.function.Supplier;
 

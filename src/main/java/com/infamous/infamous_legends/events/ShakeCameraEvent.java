@@ -4,7 +4,7 @@ import java.util.Random;
 
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.network.Messages;
-import com.infamous.infamous_legends.network.ServerToClientShakeCameraPacket;
+import com.infamous.infamous_legends.network.message.ServerToClientShakeCameraPacket;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.client.Minecraft;

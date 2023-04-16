@@ -1,5 +1,7 @@
 package com.infamous.infamous_legends;
 
+import static com.infamous.infamous_legends.init.LegendsSpawnerDataInit.LEGENDS_SPAWNER_DATA_REGISTRY;
+
 import com.infamous.infamous_legends.entities.BigFungusThrower;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
@@ -17,8 +19,11 @@ import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.entities.WarBoar;
 import com.infamous.infamous_legends.entities.WarpedBomber;
 import com.infamous.infamous_legends.init.ActivityInit;
+import com.infamous.infamous_legends.init.BlockEntityTypeInit;
+import com.infamous.infamous_legends.init.BlockInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.ItemInit;
+import com.infamous.infamous_legends.init.LegendsSpawnerDataInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
@@ -30,6 +35,7 @@ import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 
@@ -37,27 +43,31 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 @Mod.EventBusSubscriber(modid = InfamousLegends.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
 public class InfamousLegends {
 
-	public static final String MOD_ID = "infamous_legends";
+    public static final String MOD_ID = "infamous_legends";
 
-	public InfamousLegends() {
-			
-			IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
-			
-			bus.addListener(this::addAttributes);
-		
-			ActivityInit.ACTIVITIES.register(bus);
-			EntityTypeInit.ENTITY_TYPES.register(bus);
-			ItemInit.ITEMS.register(bus);
-			ParticleTypeInit.PARTICLE_TYPES.register(bus);
-			MemoryModuleTypeInit.MEMORY_MODULE_TYPES.register(bus);
-			SensorTypeInit.SENSOR_TYPES.register(bus);
-			
-			bus.addListener(this::commonSetup);
-			
-			MinecraftForge.EVENT_BUS.register(this);
+    public InfamousLegends() {
 
-		}
+        IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        bus.addListener(this::addAttributes);
+        bus.addListener(this::clientSetup);
+
+        ActivityInit.ACTIVITIES.register(bus);
+        EntityTypeInit.ENTITY_TYPES.register(bus);
+        BlockInit.BLOCKS.register(bus);
+        BlockEntityTypeInit.BLOCK_ENTITY_TYPES.register(bus);
+        ItemInit.ITEMS.register(bus);
+        ParticleTypeInit.PARTICLE_TYPES.register(bus);
+        MemoryModuleTypeInit.MEMORY_MODULE_TYPES.register(bus);
+        SensorTypeInit.SENSOR_TYPES.register(bus);
+
+        bus.addListener(this::commonSetup);
+
+        LEGENDS_SPAWNER_DATA_REGISTRY.subscribeAsSyncable(Messages.INSTANCE, LegendsSpawnerDataInit::toPacket);
+
+        MinecraftForge.EVENT_BUS.register(this);
+    }
+    
 	private void addAttributes(final EntityAttributeCreationEvent event) {
 	        event.put(EntityTypeInit.MACE_RUNT.get(), MaceRunt.createAttributes().build());
 	        event.put(EntityTypeInit.BLAZE_RUNT.get(), BlazeRunt.createAttributes().build());
@@ -79,5 +89,10 @@ public class InfamousLegends {
 	
     public void commonSetup(final FMLCommonSetupEvent event) {    
     	Messages.register();
+        event.enqueueWork(Messages::register);
+    }
+
+    private void clientSetup(final FMLClientSetupEvent event) {
+        BlockInit.initRenderTypes();
     }
 }

@@ -1,0 +1,12 @@
+{
+  "entity_type": "infamous_legends:plank_golem",
+  "spawn_cost": [
+    {
+      "item": "minecraft:lapis_lazuli",
+      "count": 1
+    }
+  ],
+  "corner_block": "minecraft:oak_planks",
+  "center_block": "minecraft:oak_planks",
+  "max_spawns": 4
+}
