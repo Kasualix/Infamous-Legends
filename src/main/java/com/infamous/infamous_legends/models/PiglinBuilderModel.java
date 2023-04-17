@@ -1,9 +1,9 @@
 package com.infamous.infamous_legends.models;
 
-import com.infamous.infamous_legends.animation.keyframe_animations.definition.PiglinEngineerKeyframeAnimations;
+import com.infamous.infamous_legends.animation.keyframe_animations.definition.PiglinBuilderKeyframeAnimations;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
-import com.infamous.infamous_legends.animation.sine_wave_animations.definition.PiglinEngineerSineWaveAnimations;
-import com.infamous.infamous_legends.entities.PiglinEngineer;
+import com.infamous.infamous_legends.animation.sine_wave_animations.definition.PiglinBuilderSineWaveAnimations;
+import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.interfaces.ArmourWearingModel;
 import com.infamous.infamous_legends.interfaces.CustomHeadedModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer.ArmourModelPart;
@@ -28,7 +28,7 @@ import net.minecraft.world.phys.Vec3;
 // Paste this class into your mod and generate all required imports
 
 
-public class PiglinEngineerModel<T extends PiglinEngineer> extends HierarchicalModel<T> implements ArmedModel, CustomHeadedModel, ArmourWearingModel {
+public class PiglinBuilderModel<T extends PiglinBuilder> extends HierarchicalModel<T> implements ArmedModel, CustomHeadedModel, ArmourWearingModel {
 	private final ModelPart root;
 	public final ModelPart everything;
 	public final ModelPart body;
@@ -50,7 +50,7 @@ public class PiglinEngineerModel<T extends PiglinEngineer> extends HierarchicalM
 	public final ModelPart helmetExtention;
 	public final ModelPart helmetExtentionRotation;
 
-	public PiglinEngineerModel(ModelPart root) {
+	public PiglinBuilderModel(ModelPart root) {
 		this.root = root;
 		this.everything = root.getChild("everything");
 		this.body = everything.getChild("body");
@@ -158,9 +158,9 @@ public class PiglinEngineerModel<T extends PiglinEngineer> extends HierarchicalM
 		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.throwAnimationTick <= 0;	
 		
 		this.animateHeadLookTarget(netHeadYaw, headPitch);
-		PiglinEngineerSineWaveAnimations.piglinEngineerWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 17, shouldPlayWalkAnimation ? 1 : 0);
-		PiglinEngineerSineWaveAnimations.piglinEngineerIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
-		this.animate(entity.throwAnimationState, PiglinEngineerKeyframeAnimations.ENGINEER_THROW, ageInTicks);
+		PiglinBuilderSineWaveAnimations.piglinBuilderWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 17, shouldPlayWalkAnimation ? 1 : 0);
+		PiglinBuilderSineWaveAnimations.piglinBuilderIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
+		this.animate(entity.throwAnimationState, PiglinBuilderKeyframeAnimations.BUILDER_THROW, ageInTicks);
 	}
 	
 	private void animateHeadLookTarget(float yRot, float xRot) {

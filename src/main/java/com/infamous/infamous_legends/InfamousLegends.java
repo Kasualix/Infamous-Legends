@@ -2,7 +2,7 @@ package com.infamous.infamous_legends;
 
 import static com.infamous.infamous_legends.init.LegendsSpawnerDataInit.LEGENDS_SPAWNER_DATA_REGISTRY;
 
-import com.infamous.infamous_legends.entities.BigFungusThrower;
+import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
 import com.infamous.infamous_legends.entities.FirstOfStone;
@@ -11,13 +11,13 @@ import com.infamous.infamous_legends.entities.LavaLauncher;
 import com.infamous.infamous_legends.entities.MaceRunt;
 import com.infamous.infamous_legends.entities.MossyGolem;
 import com.infamous.infamous_legends.entities.PiglinBruiser;
-import com.infamous.infamous_legends.entities.PiglinEngineer;
+import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.entities.Pigmadillo;
 import com.infamous.infamous_legends.entities.PlankGolem;
 import com.infamous.infamous_legends.entities.PortalGuard;
 import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.entities.WarBoar;
-import com.infamous.infamous_legends.entities.WarpedBomber;
+import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.init.ActivityInit;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.BlockInit;
@@ -76,9 +76,9 @@ public class InfamousLegends {
 	        event.put(EntityTypeInit.SPORE_MEDIC.get(), SporeMedic.createAttributes().build());
 	        event.put(EntityTypeInit.PIGLIN_BRUISER.get(), PiglinBruiser.createAttributes().build());
 	        event.put(EntityTypeInit.WAR_BOAR.get(), WarBoar.createAttributes().build());
-	        event.put(EntityTypeInit.PIGLIN_ENGINEER.get(), PiglinEngineer.createAttributes().build());
-	        event.put(EntityTypeInit.WARPED_BOMBER.get(), WarpedBomber.createAttributes().build());
-	        event.put(EntityTypeInit.BIG_FUNGUS_THROWER.get(), BigFungusThrower.createAttributes().build());
+	        event.put(EntityTypeInit.PIGLIN_BUILDER.get(), PiglinBuilder.createAttributes().build());
+	        event.put(EntityTypeInit.SEEKER.get(), Seeker.createAttributes().build());
+	        event.put(EntityTypeInit.SPOREBACK.get(), Sporeback.createAttributes().build());
 	        event.put(EntityTypeInit.LAVA_LAUNCHER.get(), LavaLauncher.createAttributes().build());
 	        event.put(EntityTypeInit.PIGMADILLO.get(), Pigmadillo.createAttributes().build());
 	        event.put(EntityTypeInit.PORTAL_GUARD.get(), PortalGuard.createAttributes().build());

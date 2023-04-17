@@ -1,10 +1,10 @@
 package com.infamous.infamous_legends.renderers;
 
 import com.infamous.infamous_legends.InfamousLegends;
-import com.infamous.infamous_legends.entities.PiglinEngineer;
+import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.ModelLayerInit;
-import com.infamous.infamous_legends.models.PiglinEngineerModel;
+import com.infamous.infamous_legends.models.PiglinBuilderModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer;
 import com.infamous.infamous_legends.renderers.layers.HeadItemLayer;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -21,11 +21,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.item.ItemStack;
 
-public class PiglinEngineerRenderer extends MobRenderer<PiglinEngineer, PiglinEngineerModel<PiglinEngineer>> {
+public class PiglinBuilderRenderer extends MobRenderer<PiglinBuilder, PiglinBuilderModel<PiglinBuilder>> {
 
-	public PiglinEngineerRenderer(EntityRendererProvider.Context context) {
-		super(context, new PiglinEngineerModel<>(context.bakeLayer(ModelLayerInit.PIGLIN_ENGINEER)), 1F);
-		CustomArmourLayer.addCustomArmourLayers(this, context, ModelLayerInit.PIGLIN_ENGINEER_INNER_ARMOUR, ModelLayerInit.PIGLIN_ENGINEER_OUTER_ARMOUR);
+	public PiglinBuilderRenderer(EntityRendererProvider.Context context) {
+		super(context, new PiglinBuilderModel<>(context.bakeLayer(ModelLayerInit.PIGLIN_BUILDER)), 1F);
+		CustomArmourLayer.addCustomArmourLayers(this, context, ModelLayerInit.PIGLIN_BUILDER_INNER_ARMOUR, ModelLayerInit.PIGLIN_BUILDER_OUTER_ARMOUR);
 	    this.addLayer(new HeadItemLayer<>(this, context.getModelSet(), context.getItemInHandRenderer()));
 		this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()) {		
 			@Override
@@ -40,13 +40,13 @@ public class PiglinEngineerRenderer extends MobRenderer<PiglinEngineer, PiglinEn
 		});
 	}
 	
-	protected boolean isShaking(PiglinEngineer entity) {
+	protected boolean isShaking(PiglinBuilder entity) {
 		return super.isShaking(entity) || entity instanceof AbstractPiglin && ((AbstractPiglin) entity).isConverting();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(PiglinEngineer p_114482_) {
-		return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/piglin_engineer_" + p_114482_.textureChange % 2 + ".png");
+	public ResourceLocation getTextureLocation(PiglinBuilder p_114482_) {
+		return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/piglin_builder_" + p_114482_.textureChange % 2 + ".png");
 	}
 
 }

@@ -47,16 +47,16 @@ public class ItemInit {
 			() -> new ForgeSpawnEggItem(EntityTypeInit.WAR_BOAR, 0xbb725b, 0xf5c650,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
-	public static final RegistryObject<Item> PIGLIN_ENGINEER_SPAWN_EGG = ITEMS.register("piglin_engineer_spawn_egg",
-			() -> new ForgeSpawnEggItem(EntityTypeInit.PIGLIN_ENGINEER, 0x4d494d, 0xffd83d,
+	public static final RegistryObject<Item> PIGLIN_BUILDER_SPAWN_EGG = ITEMS.register("piglin_builder_spawn_egg",
+			() -> new ForgeSpawnEggItem(EntityTypeInit.PIGLIN_BUILDER, 0x4d494d, 0xffd83d,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
-	public static final RegistryObject<Item> WARPED_BOMBER_SPAWN_EGG = ITEMS.register("warped_bomber_spawn_egg",
-			() -> new ForgeSpawnEggItem(EntityTypeInit.WARPED_BOMBER, 0x986c7c, 0x119b85,
+	public static final RegistryObject<Item> SEEKER_SPAWN_EGG = ITEMS.register("seeker_spawn_egg",
+			() -> new ForgeSpawnEggItem(EntityTypeInit.SEEKER, 0x986c7c, 0x119b85,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
-	public static final RegistryObject<Item> BIG_FUNGUS_THROWER_SPAWN_EGG = ITEMS.register("big_fungus_thrower_spawn_egg",
-			() -> new ForgeSpawnEggItem(EntityTypeInit.BIG_FUNGUS_THROWER, 0xe5d3c7, 0x119b85,
+	public static final RegistryObject<Item> SPOREBACK_SPAWN_EGG = ITEMS.register("sporeback_spawn_egg",
+			() -> new ForgeSpawnEggItem(EntityTypeInit.SPOREBACK, 0xe5d3c7, 0x119b85,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
 	public static final RegistryObject<Item> LAVA_LAUNCHER_SPAWN_EGG = ITEMS.register("lava_launcher_spawn_egg",

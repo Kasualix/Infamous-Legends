@@ -8,9 +8,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class BigFungusThrowerKeyframeAnimations {
+public class SporebackKeyframeAnimations {
 
-	public static final AnimationDefinition BIG_FUNGUS_THROWER_NOVELTY = AnimationDefinition.Builder.withLength(1.375f)
+	public static final AnimationDefinition SPOREBACK_NOVELTY = AnimationDefinition.Builder.withLength(1.375f)
 	.addAnimation("body",
 		new AnimationChannel(AnimationChannel.Targets.ROTATION,
 			new Keyframe(0f, KeyframeAnimations.degreeVec(15f, 0f, 0f),
@@ -138,7 +138,7 @@ public class BigFungusThrowerKeyframeAnimations {
 			new Keyframe(1.375f, KeyframeAnimations.degreeVec(-15f, 0f, 0f),
 				AnimationChannel.Interpolations.CATMULLROM))).build();
 	
-	public static final AnimationDefinition BIG_FUNGUS_THROWER_THROW = AnimationDefinition.Builder.withLength(4f)
+	public static final AnimationDefinition SPOREBACK_THROW = AnimationDefinition.Builder.withLength(4f)
 	.addAnimation("body",
 		new AnimationChannel(AnimationChannel.Targets.POSITION, 
 			new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),

@@ -8,9 +8,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class WarpedBomberKeyframeAnimations {
+public class SeekerKeyframeAnimations {
 
-	public static final AnimationDefinition WARPED_BOMBER_ATTACK = AnimationDefinition.Builder.withLength(0.375f)
+	public static final AnimationDefinition SEEKER_ATTACK = AnimationDefinition.Builder.withLength(0.375f)
 			.addAnimation("body",
 					new AnimationChannel(AnimationChannel.Targets.POSITION,
 							new Keyframe(0f, KeyframeAnimations.posVec(0f, 0f, 0f),

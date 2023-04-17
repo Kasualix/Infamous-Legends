@@ -1,10 +1,10 @@
 package com.infamous.infamous_legends.renderers;
 
 import com.infamous.infamous_legends.InfamousLegends;
-import com.infamous.infamous_legends.entities.BigFungusThrower;
+import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.ModelLayerInit;
-import com.infamous.infamous_legends.models.BigFungusThrowerModel;
+import com.infamous.infamous_legends.models.SporebackModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer;
 import com.infamous.infamous_legends.renderers.layers.HeadItemLayer;
 import com.mojang.blaze3d.vertex.PoseStack;
@@ -21,11 +21,11 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.item.ItemStack;
 
-public class BigFungusThrowerRenderer extends MobRenderer<BigFungusThrower, BigFungusThrowerModel<BigFungusThrower>> {
+public class SporebackRenderer extends MobRenderer<Sporeback, SporebackModel<Sporeback>> {
 
-	public BigFungusThrowerRenderer(EntityRendererProvider.Context context) {
-		super(context, new BigFungusThrowerModel<>(context.bakeLayer(ModelLayerInit.BIG_FUNGUS_THROWER)), 1F);
-		CustomArmourLayer.addCustomArmourLayers(this, context, ModelLayerInit.BIG_FUNGUS_THROWER_INNER_ARMOUR, ModelLayerInit.BIG_FUNGUS_THROWER_OUTER_ARMOUR);
+	public SporebackRenderer(EntityRendererProvider.Context context) {
+		super(context, new SporebackModel<>(context.bakeLayer(ModelLayerInit.SPOREBACK)), 1F);
+		CustomArmourLayer.addCustomArmourLayers(this, context, ModelLayerInit.SPOREBACK_INNER_ARMOUR, ModelLayerInit.SPOREBACK_OUTER_ARMOUR);
 	    this.addLayer(new HeadItemLayer<>(this, context.getModelSet(), context.getItemInHandRenderer()));
 		this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()) {		
 			@Override
@@ -40,13 +40,13 @@ public class BigFungusThrowerRenderer extends MobRenderer<BigFungusThrower, BigF
 		});
 	}
 	
-	protected boolean isShaking(BigFungusThrower entity) {
+	protected boolean isShaking(Sporeback entity) {
 		return super.isShaking(entity) || entity instanceof AbstractPiglin && ((AbstractPiglin) entity).isConverting();
 	}
 
 	@Override
-	public ResourceLocation getTextureLocation(BigFungusThrower p_114482_) {
-		return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/big_fungus_thrower.png");
+	public ResourceLocation getTextureLocation(Sporeback p_114482_) {
+		return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/sporeback.png");
 	}
 
 }

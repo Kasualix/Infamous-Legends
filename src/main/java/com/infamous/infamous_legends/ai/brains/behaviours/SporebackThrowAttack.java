@@ -2,7 +2,7 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.PiglinBomb;
-import com.infamous.infamous_legends.entities.BigFungusThrower;
+import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.ExplosiveFungus;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.utils.PositionUtils;
@@ -19,20 +19,20 @@ import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Explosion;
 import net.minecraft.world.phys.Vec3;
 
-public class BigFungusThrowerThrowAttack extends Behavior<BigFungusThrower> {
+public class SporebackThrowAttack extends Behavior<Sporeback> {
    private final int cooldownBetweenAttacks;
 
-   public BigFungusThrowerThrowAttack(int p_23512_) {
+   public SporebackThrowAttack(int p_23512_) {
       super(ImmutableMap.of(MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED, MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT), 600, 600);
       this.cooldownBetweenAttacks = p_23512_;
    }
 
-   protected boolean checkExtraStartConditions(ServerLevel level, BigFungusThrower mob) {
+   protected boolean checkExtraStartConditions(ServerLevel level, Sporeback mob) {
       LivingEntity livingentity = this.getAttackTarget(mob);
       return mob.isHolding(ItemInit.EXPLOSIVE_FUNGUS.get()) && mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 25;
    }
 
-   protected void start(ServerLevel p_23524_, BigFungusThrower p_23525_, long p_23526_) {
+   protected void start(ServerLevel p_23524_, Sporeback p_23525_, long p_23526_) {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
@@ -42,7 +42,7 @@ public class BigFungusThrowerThrowAttack extends Behavior<BigFungusThrower> {
    }
    
    @Override
-	protected void tick(ServerLevel p_22551_, BigFungusThrower p_22552_, long p_22553_) {
+	protected void tick(ServerLevel p_22551_, Sporeback p_22552_, long p_22553_) {
 		super.tick(p_22551_, p_22552_, p_22553_);
 		
 		LivingEntity livingentity = this.getAttackTarget(p_22552_);
@@ -71,17 +71,17 @@ public class BigFungusThrowerThrowAttack extends Behavior<BigFungusThrower> {
 	}
    
    @Override
-	protected boolean canStillUse(ServerLevel p_22545_, BigFungusThrower p_22546_, long p_22547_) {
+	protected boolean canStillUse(ServerLevel p_22545_, Sporeback p_22546_, long p_22547_) {
 		return p_22546_.throwAnimationTick > 0;
 	}
    
    @Override
-	protected void stop(ServerLevel p_22548_, BigFungusThrower p_22549_, long p_22550_) {
+	protected void stop(ServerLevel p_22548_, Sporeback p_22549_, long p_22550_) {
 		super.stop(p_22548_, p_22549_, p_22550_);
 		p_22549_.getBrain().setMemoryWithExpiry(MemoryModuleType.ATTACK_COOLING_DOWN, true, (long)this.cooldownBetweenAttacks);
 	}
 
-   private LivingEntity getAttackTarget(BigFungusThrower p_23533_) {
+   private LivingEntity getAttackTarget(Sporeback p_23533_) {
       return p_23533_.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).isPresent() ? p_23533_.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).get() : null;
    }
 }

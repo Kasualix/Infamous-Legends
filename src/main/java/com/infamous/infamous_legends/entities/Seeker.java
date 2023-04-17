@@ -3,7 +3,7 @@ package com.infamous.infamous_legends.entities;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
-import com.infamous.infamous_legends.ai.brains.WarpedBomberAi;
+import com.infamous.infamous_legends.ai.brains.SeekerAi;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
@@ -44,14 +44,14 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class WarpedBomber extends AbstractPiglin implements IHasCustomExplosion {
+public class Seeker extends AbstractPiglin implements IHasCustomExplosion {
 
 	public AnimationState attackAnimationState = new AnimationState();
 	public int attackAnimationTick;
 	public final int attackAnimationLength = 7;
 	public final int attackAnimationActionPoint = 1;
 	
-	protected static final ImmutableList<SensorType<? extends Sensor<? super WarpedBomber>>> SENSOR_TYPES = ImmutableList
+	protected static final ImmutableList<SensorType<? extends Sensor<? super Seeker>>> SENSOR_TYPES = ImmutableList
 			.of(SensorTypeInit.CUSTOM_NEAREST_LIVING_ENTITIES.get(), SensorTypeInit.CUSTOM_NEAREST_PLAYERS.get(), SensorType.NEAREST_ITEMS,
 					SensorType.HURT_BY, SensorTypeInit.LEGENDS_PIGLIN_SPECIFIC_SENSOR.get());
 	protected static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
@@ -64,7 +64,7 @@ public class WarpedBomber extends AbstractPiglin implements IHasCustomExplosion 
 			MemoryModuleType.ANGRY_AT, MemoryModuleType.NEAREST_VISIBLE_NEMESIS, MemoryModuleType.HOME,
 			MemoryModuleTypeInit.NEARBY_ALLIES.get());
 	   
-	public WarpedBomber(EntityType<? extends WarpedBomber> type, Level level) {
+	public Seeker(EntityType<? extends Seeker> type, Level level) {
 		super(type, level);		
 		this.xpReward = 7;
 	}
@@ -82,7 +82,7 @@ public class WarpedBomber extends AbstractPiglin implements IHasCustomExplosion 
 	@Nullable
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_35058_, DifficultyInstance p_35059_,
 			MobSpawnType p_35060_, @Nullable SpawnGroupData p_35061_, @Nullable CompoundTag p_35062_) {
-		WarpedBomberAi.initMemories(this);
+		SeekerAi.initMemories(this);
 		return super.finalizeSpawn(p_35058_, p_35059_, p_35060_, p_35061_, p_35062_);
 	}
 	
@@ -121,16 +121,16 @@ public class WarpedBomber extends AbstractPiglin implements IHasCustomExplosion 
 
 	}
 
-	protected Brain.Provider<WarpedBomber> brainProvider() {
+	protected Brain.Provider<Seeker> brainProvider() {
 		return Brain.provider(MEMORY_TYPES, SENSOR_TYPES);
 	}
 
 	protected Brain<?> makeBrain(Dynamic<?> p_35064_) {
-		return WarpedBomberAi.makeBrain(this, this.brainProvider().makeBrain(p_35064_));
+		return SeekerAi.makeBrain(this, this.brainProvider().makeBrain(p_35064_));
 	}
 
-	public Brain<WarpedBomber> getBrain() {
-		return (Brain<WarpedBomber>) super.getBrain();
+	public Brain<Seeker> getBrain() {
+		return (Brain<Seeker>) super.getBrain();
 	}
 	
 	@Override
@@ -153,11 +153,11 @@ public class WarpedBomber extends AbstractPiglin implements IHasCustomExplosion 
     }
 
 	protected void customServerAiStep() {
-		this.level.getProfiler().push("warpedBomberBrain");
+		this.level.getProfiler().push("seekerBrain");
 		this.getBrain().tick((ServerLevel) this.level, this);
 		this.level.getProfiler().pop();
-		WarpedBomberAi.updateActivity(this);
-		WarpedBomberAi.maybePlayActivitySound(this);
+		SeekerAi.updateActivity(this);
+		SeekerAi.maybePlayActivitySound(this);
 		super.customServerAiStep();
 	}
 	
@@ -178,7 +178,7 @@ public class WarpedBomber extends AbstractPiglin implements IHasCustomExplosion 
 			return false;
 		} else {
 			if (flag && p_35055_.getEntity() instanceof LivingEntity) {
-				WarpedBomberAi.wasHurtBy(this, (LivingEntity) p_35055_.getEntity());
+				SeekerAi.wasHurtBy(this, (LivingEntity) p_35055_.getEntity());
 			}
 
 			return flag;

@@ -1,7 +1,7 @@
 package com.infamous.infamous_legends.ai.brains.behaviours;
 
 import com.google.common.collect.ImmutableMap;
-import com.infamous.infamous_legends.entities.WarpedBomber;
+import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
@@ -23,20 +23,20 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ProjectileWeaponItem;
 import net.minecraft.world.level.Explosion;
 
-public class WarpedBomberMeleeAttack extends Behavior<WarpedBomber> {
+public class SeekerMeleeAttack extends Behavior<Seeker> {
    private final int cooldownBetweenAttacks;
 
-   public WarpedBomberMeleeAttack(int p_23512_) {
+   public SeekerMeleeAttack(int p_23512_) {
       super(ImmutableMap.of(MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED, MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT), 600, 600);
       this.cooldownBetweenAttacks = p_23512_;
    }
 
-   protected boolean checkExtraStartConditions(ServerLevel level, WarpedBomber mob) {
+   protected boolean checkExtraStartConditions(ServerLevel level, Seeker mob) {
       LivingEntity livingentity = this.getAttackTarget(mob);
       return mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 2;
    }
 
-   protected void start(ServerLevel p_23524_, WarpedBomber p_23525_, long p_23526_) {
+   protected void start(ServerLevel p_23524_, Seeker p_23525_, long p_23526_) {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
@@ -46,7 +46,7 @@ public class WarpedBomberMeleeAttack extends Behavior<WarpedBomber> {
    }
    
    @Override
-	protected void tick(ServerLevel p_22551_, WarpedBomber p_22552_, long p_22553_) {
+	protected void tick(ServerLevel p_22551_, Seeker p_22552_, long p_22553_) {
 		super.tick(p_22551_, p_22552_, p_22553_);
 		
 		LivingEntity livingentity = this.getAttackTarget(p_22552_);
@@ -67,17 +67,17 @@ public class WarpedBomberMeleeAttack extends Behavior<WarpedBomber> {
 	}
    
    @Override
-	protected boolean canStillUse(ServerLevel p_22545_, WarpedBomber p_22546_, long p_22547_) {
+	protected boolean canStillUse(ServerLevel p_22545_, Seeker p_22546_, long p_22547_) {
 		return p_22546_.attackAnimationTick > 0;
 	}
    
    @Override
-	protected void stop(ServerLevel p_22548_, WarpedBomber p_22549_, long p_22550_) {
+	protected void stop(ServerLevel p_22548_, Seeker p_22549_, long p_22550_) {
 		super.stop(p_22548_, p_22549_, p_22550_);
 		p_22549_.getBrain().setMemoryWithExpiry(MemoryModuleType.ATTACK_COOLING_DOWN, true, (long)this.cooldownBetweenAttacks);
 	}
 
-   private LivingEntity getAttackTarget(WarpedBomber p_23533_) {
+   private LivingEntity getAttackTarget(Seeker p_23533_) {
       return p_23533_.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).isPresent() ? p_23533_.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).get() : null;
    }
 }

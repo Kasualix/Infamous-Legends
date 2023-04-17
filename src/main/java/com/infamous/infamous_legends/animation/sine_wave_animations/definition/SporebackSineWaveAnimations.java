@@ -2,14 +2,14 @@ package com.infamous.infamous_legends.animation.sine_wave_animations.definition;
 
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveMotionTypes;
-import com.infamous.infamous_legends.models.BigFungusThrowerModel;
+import com.infamous.infamous_legends.models.SporebackModel;
 import com.infamous.infamous_legends.models.PiglinBruiserModel;
 
-public class BigFungusThrowerSineWaveAnimations {
+public class SporebackSineWaveAnimations {
 
 	private static float floatMax = Float.MAX_VALUE;
 	
-	public static void bigFungusThrowerIdleAnimation(BigFungusThrowerModel model, float tick, float speedMultiplier, float amountMultiplier) {
+	public static void sporebackIdleAnimation(SporebackModel model, float tick, float speedMultiplier, float amountMultiplier) {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 2F, 75, tick, -floatMax, floatMax, 0, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 0.1F, 1000, tick, -floatMax, floatMax, 0, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.body, 15, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
@@ -43,7 +43,7 @@ public class BigFungusThrowerSineWaveAnimations {
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.bodyOverlayLower, -15, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 	}
 	
-	public static void bigFungusThrowerWalkAnimation(BigFungusThrowerModel model, float tick, float speedMultiplier, float amountMultiplier) {
+	public static void sporebackWalkAnimation(SporebackModel model, float tick, float speedMultiplier, float amountMultiplier) {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 2.5F, 500, tick, -floatMax, floatMax, -125, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 5F, 250, tick, -floatMax, floatMax, -125, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 0.25F, 2000, tick, -floatMax, floatMax, -125, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);

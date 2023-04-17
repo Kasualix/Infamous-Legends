@@ -3,7 +3,7 @@ package com.infamous.infamous_legends.entities;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
-import com.infamous.infamous_legends.ai.brains.BigFungusThrowerAi;
+import com.infamous.infamous_legends.ai.brains.PiglinBuilderAi;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
@@ -18,7 +18,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
-import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
@@ -45,18 +44,16 @@ import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplosion {
+public class PiglinBuilder extends AbstractPiglin implements IHasCustomExplosion {
 
 	public AnimationState throwAnimationState = new AnimationState();
 	public int throwAnimationTick;
-	public final int throwAnimationLength = 80;
-	public final int throwAnimationActionPoint = 67;
+	public final int throwAnimationLength = 110;
+	public final int throwAnimationActionPoint = 18;
 	
-	public AnimationState noveltyAnimationState = new AnimationState();
-	public int noveltyAnimationTick;
-	public final int noveltyAnimationLength = 27;
+	public int textureChange;
 	
-	protected static final ImmutableList<SensorType<? extends Sensor<? super BigFungusThrower>>> SENSOR_TYPES = ImmutableList
+	protected static final ImmutableList<SensorType<? extends Sensor<? super PiglinBuilder>>> SENSOR_TYPES = ImmutableList
 			.of(SensorTypeInit.CUSTOM_NEAREST_LIVING_ENTITIES.get(), SensorTypeInit.CUSTOM_NEAREST_PLAYERS.get(), SensorType.NEAREST_ITEMS,
 					SensorType.HURT_BY, SensorTypeInit.LEGENDS_PIGLIN_SPECIFIC_SENSOR.get());
 	protected static final ImmutableList<MemoryModuleType<?>> MEMORY_TYPES = ImmutableList.of(
@@ -69,32 +66,45 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 			MemoryModuleType.ANGRY_AT, MemoryModuleType.NEAREST_VISIBLE_NEMESIS, MemoryModuleType.HOME,
 			MemoryModuleTypeInit.NEARBY_ALLIES.get());
 	   
-	public BigFungusThrower(EntityType<? extends BigFungusThrower> type, Level level) {
+	public PiglinBuilder(EntityType<? extends PiglinBuilder> type, Level level) {
 		super(type, level);		
 		this.xpReward = 10;
 	}
 	
+	   @Override
+	public void tick() {
+		super.tick();	
+		if (this.tickCount % 3 == 0) {
+			this.textureChange ++;
+		}
+		
+		if (this.level.isClientSide && this.random.nextBoolean() && !this.isInWaterRainOrBubble()) {
+			Vec3 particlePos = PositionUtils.getOffsetPos(this, -14 / 16.0F, 33 / 16.0F, -12 / 16.0F, this.yBodyRot);
+			this.level.addParticle(ParticleTypes.LARGE_SMOKE, particlePos.x, particlePos.y, particlePos.z, 0, 0.05, 0.0);
+		}
+	}
+	
 	@Override
 	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.65F;
+		return super.getVoicePitch() * 1.4F;
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 30.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.25F).add(Attributes.FOLLOW_RANGE, 30.0D).add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
+		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.ARMOR, 10.0D)
+				.add(Attributes.MOVEMENT_SPEED, (double) 0.2F).add(Attributes.FOLLOW_RANGE, 25.0D).add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
 	}
 	
 	@Nullable
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_35058_, DifficultyInstance p_35059_,
 			MobSpawnType p_35060_, @Nullable SpawnGroupData p_35061_, @Nullable CompoundTag p_35062_) {
-		BigFungusThrowerAi.initMemories(this);
+		PiglinBuilderAi.initMemories(this);
 		this.populateDefaultEquipmentSlots(p_35058_.getRandom(), p_35059_);
 		return super.finalizeSpawn(p_35058_, p_35059_, p_35060_, p_35061_, p_35062_);
 	}
 	
 	@Override
 	protected void populateDefaultEquipmentSlots(RandomSource p_219209_, DifficultyInstance p_219210_) {
-		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemInit.EXPLOSIVE_FUNGUS.get()));
+		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemInit.PIGLIN_BOMB.get()));
 		this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
 	}
 	
@@ -109,30 +119,6 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 		if (this.level.isClientSide && this.throwAnimationTick <= 0) {
 			this.throwAnimationState.stop();
 		}
-		
-		Vec3 velocity = this.getDeltaMovement();
-		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
-		
-		boolean shouldPlayWalkAnimation = speed > 0 && this.throwAnimationTick <= 0;
-		
-		if (this.noveltyAnimationTick > 0) {
-			this.noveltyAnimationTick--;
-		}
-		
-		if (this.level.isClientSide && this.random.nextInt(200) == 0 && !shouldPlayWalkAnimation && this.throwAnimationTick <= 0) {
-			this.noveltyAnimationTick = this.noveltyAnimationLength;
-			this.noveltyAnimationState.start(this.tickCount);
-		}
-		
-		if (this.level.isClientSide && (this.noveltyAnimationTick <= 0 || shouldPlayWalkAnimation || this.throwAnimationTick > 0)) {
-			this.noveltyAnimationTick = 0;
-			this.noveltyAnimationState.stop();
-		}
-		
-		if (this.level.isClientSide && !this.isInWaterRainOrBubble()) {
-			Vec3 particlePos = PositionUtils.getOffsetPos(this, 0 + this.random.nextGaussian() * 0.5, (26 / 16.0F) + this.random.nextGaussian() * 0.5, -8 / 16.0F, this.yBodyRot);
-			this.level.addParticle(ParticleTypes.WARPED_SPORE, particlePos.x, particlePos.y, particlePos.z, 0, 0.05, 0.025);
-		}
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
@@ -145,16 +131,16 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 
 	}
 
-	protected Brain.Provider<BigFungusThrower> brainProvider() {
+	protected Brain.Provider<PiglinBuilder> brainProvider() {
 		return Brain.provider(MEMORY_TYPES, SENSOR_TYPES);
 	}
 
 	protected Brain<?> makeBrain(Dynamic<?> p_35064_) {
-		return BigFungusThrowerAi.makeBrain(this, this.brainProvider().makeBrain(p_35064_));
+		return PiglinBuilderAi.makeBrain(this, this.brainProvider().makeBrain(p_35064_));
 	}
 
-	public Brain<BigFungusThrower> getBrain() {
-		return (Brain<BigFungusThrower>) super.getBrain();
+	public Brain<PiglinBuilder> getBrain() {
+		return (Brain<PiglinBuilder>) super.getBrain();
 	}
 		   
 	@Override
@@ -163,15 +149,15 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 	}
 
 	public boolean wantsToPickUp(ItemStack p_35078_) {
-		return p_35078_.is(ItemInit.EXPLOSIVE_FUNGUS.get()) ? super.wantsToPickUp(p_35078_) : false;
+		return p_35078_.is(ItemInit.PIGLIN_BOMB.get()) ? super.wantsToPickUp(p_35078_) : false;
 	}
 
 	protected void customServerAiStep() {
-		this.level.getProfiler().push("bigFungusThrowerBrain");
+		this.level.getProfiler().push("piglinBuilderBrain");
 		this.getBrain().tick((ServerLevel) this.level, this);
 		this.level.getProfiler().pop();
-		BigFungusThrowerAi.updateActivity(this);
-		BigFungusThrowerAi.maybePlayActivitySound(this);
+		PiglinBuilderAi.updateActivity(this);
+		PiglinBuilderAi.maybePlayActivitySound(this);
 		super.customServerAiStep();
 	}
 	
@@ -192,7 +178,7 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 			return false;
 		} else {
 			if (flag && p_35055_.getEntity() instanceof LivingEntity) {
-				BigFungusThrowerAi.wasHurtBy(this, (LivingEntity) p_35055_.getEntity());
+				PiglinBuilderAi.wasHurtBy(this, (LivingEntity) p_35055_.getEntity());
 			}
 
 			return flag;
@@ -209,7 +195,7 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+		return SoundEvents.BLAZE_HURT;
 	}
 
 	protected SoundEvent getDeathSound() {
@@ -217,7 +203,7 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 0.15F, 1.0F);
+		this.playSound(SoundEvents.RAVAGER_STEP, 0.15F, 1.0F);
 	}
 
 	public void playAngrySound() {
@@ -227,9 +213,10 @@ public class BigFungusThrower extends AbstractPiglin implements IHasCustomExplos
 	protected void playConvertedSound() {
 		this.playSound(SoundEvents.PIGLIN_BRUTE_CONVERTED_TO_ZOMBIFIED, 1.0F, this.getVoicePitch());
 	}
-	
+
 	@Override
 	public boolean canHarmWithExplosion(Entity target) {
 		return MiscUtils.piglinAllies(this, target) ? false : true;
 	}
+	   
 }

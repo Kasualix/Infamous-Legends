@@ -1,7 +1,7 @@
 package com.infamous.infamous_legends.init;
 
 import com.infamous.infamous_legends.InfamousLegends;
-import com.infamous.infamous_legends.entities.BigFungusThrower;
+import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.BoulderProjectile;
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
@@ -14,7 +14,7 @@ import com.infamous.infamous_legends.entities.MagmaCubeProjectile;
 import com.infamous.infamous_legends.entities.MossyGolem;
 import com.infamous.infamous_legends.entities.PiglinBomb;
 import com.infamous.infamous_legends.entities.PiglinBruiser;
-import com.infamous.infamous_legends.entities.PiglinEngineer;
+import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.entities.Pigmadillo;
 import com.infamous.infamous_legends.entities.PlankGolem;
 import com.infamous.infamous_legends.entities.PlankGolemBolt;
@@ -23,7 +23,7 @@ import com.infamous.infamous_legends.entities.PortalGuardWreckingBall;
 import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.entities.ThrownBlazeRod;
 import com.infamous.infamous_legends.entities.WarBoar;
-import com.infamous.infamous_legends.entities.WarpedBomber;
+import com.infamous.infamous_legends.entities.Seeker;
 
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
@@ -59,17 +59,17 @@ public class EntityTypeInit {
 			() -> EntityType.Builder.<WarBoar>of(WarBoar::new, MobCategory.MONSTER).sized(1.6F, 1.8F)
 					.build(new ResourceLocation(InfamousLegends.MOD_ID, "war_boar").toString()));
 	
-	public static final RegistryObject<EntityType<PiglinEngineer>> PIGLIN_ENGINEER = ENTITY_TYPES.register("piglin_engineer",
-			() -> EntityType.Builder.<PiglinEngineer>of(PiglinEngineer::new, MobCategory.MONSTER).sized(0.6F, 1.4F)
-					.build(new ResourceLocation(InfamousLegends.MOD_ID, "piglin_engineer").toString()));
+	public static final RegistryObject<EntityType<PiglinBuilder>> PIGLIN_BUILDER = ENTITY_TYPES.register("piglin_builder",
+			() -> EntityType.Builder.<PiglinBuilder>of(PiglinBuilder::new, MobCategory.MONSTER).sized(0.6F, 1.4F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "piglin_builder").toString()));
 	
-	public static final RegistryObject<EntityType<WarpedBomber>> WARPED_BOMBER = ENTITY_TYPES.register("warped_bomber",
-			() -> EntityType.Builder.<WarpedBomber>of(WarpedBomber::new, MobCategory.MONSTER).sized(0.7F, 2.3F)
-					.build(new ResourceLocation(InfamousLegends.MOD_ID, "warped_bomber").toString()));
+	public static final RegistryObject<EntityType<Seeker>> SEEKER = ENTITY_TYPES.register("seeker",
+			() -> EntityType.Builder.<Seeker>of(Seeker::new, MobCategory.MONSTER).sized(0.7F, 2.3F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "seeker").toString()));
 	
-	public static final RegistryObject<EntityType<BigFungusThrower>> BIG_FUNGUS_THROWER = ENTITY_TYPES.register("big_fungus_thrower",
-			() -> EntityType.Builder.<BigFungusThrower>of(BigFungusThrower::new, MobCategory.MONSTER).sized(0.8F, 2.4F)
-					.build(new ResourceLocation(InfamousLegends.MOD_ID, "warped_bomber").toString()));
+	public static final RegistryObject<EntityType<Sporeback>> SPOREBACK = ENTITY_TYPES.register("sporeback",
+			() -> EntityType.Builder.<Sporeback>of(Sporeback::new, MobCategory.MONSTER).sized(0.8F, 2.4F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "sporeback").toString()));
 	
 	public static final RegistryObject<EntityType<LavaLauncher>> LAVA_LAUNCHER = ENTITY_TYPES.register("lava_launcher",
 			() -> EntityType.Builder.<LavaLauncher>of(LavaLauncher::new, MobCategory.MONSTER).sized(4.5F, 5.0F)

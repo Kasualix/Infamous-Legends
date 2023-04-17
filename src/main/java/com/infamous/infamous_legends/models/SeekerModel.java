@@ -1,9 +1,9 @@
 package com.infamous.infamous_legends.models;
 
-import com.infamous.infamous_legends.animation.keyframe_animations.definition.WarpedBomberKeyframeAnimations;
+import com.infamous.infamous_legends.animation.keyframe_animations.definition.SeekerKeyframeAnimations;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
-import com.infamous.infamous_legends.animation.sine_wave_animations.definition.WarpedBomberSineWaveAnimations;
-import com.infamous.infamous_legends.entities.WarpedBomber;
+import com.infamous.infamous_legends.animation.sine_wave_animations.definition.SeekerSineWaveAnimations;
+import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.interfaces.ArmourWearingModel;
 import com.infamous.infamous_legends.interfaces.CustomHeadedModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer.ArmourModelPart;
@@ -28,7 +28,7 @@ import net.minecraft.world.phys.Vec3;
 // Paste this class into your mod and generate all required imports
 
 
-public class WarpedBomberModel<T extends WarpedBomber> extends HierarchicalModel<T> implements ArmedModel, CustomHeadedModel, ArmourWearingModel {
+public class SeekerModel<T extends Seeker> extends HierarchicalModel<T> implements ArmedModel, CustomHeadedModel, ArmourWearingModel {
 	private final ModelPart root;
 	public final ModelPart everything;
 	public final ModelPart body;
@@ -48,7 +48,7 @@ public class WarpedBomberModel<T extends WarpedBomber> extends HierarchicalModel
 	public final ModelPart leftLeg;
 	public final ModelPart rightLeg;
 
-	public WarpedBomberModel(ModelPart root) {
+	public SeekerModel(ModelPart root) {
 		this.root = root;
 		this.everything = root.getChild("everything");
 		this.body = everything.getChild("body");
@@ -144,10 +144,10 @@ public class WarpedBomberModel<T extends WarpedBomber> extends HierarchicalModel
 		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && !shouldPlayRunAnimation && entity.attackAnimationTick <= 0;	
 		
 		this.animateHeadLookTarget(netHeadYaw, headPitch);
-		WarpedBomberSineWaveAnimations.warpedBomberRunAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 20, shouldPlayRunAnimation ? 1 : 0);
-		WarpedBomberSineWaveAnimations.warpedBomberWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 15, shouldPlayWalkAnimation ? 1 : 0);
-		WarpedBomberSineWaveAnimations.warpedBomberIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
-		this.animate(entity.attackAnimationState, WarpedBomberKeyframeAnimations.WARPED_BOMBER_ATTACK, ageInTicks);
+		SeekerSineWaveAnimations.seekerRunAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 20, shouldPlayRunAnimation ? 1 : 0);
+		SeekerSineWaveAnimations.seekerWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 15, shouldPlayWalkAnimation ? 1 : 0);
+		SeekerSineWaveAnimations.seekerIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
+		this.animate(entity.attackAnimationState, SeekerKeyframeAnimations.SEEKER_ATTACK, ageInTicks);
 	}
 	
 	private void animateHeadLookTarget(float yRot, float xRot) {

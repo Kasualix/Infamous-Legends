@@ -6,10 +6,10 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.infamous.infamous_legends.ai.brains.behaviours.InteractWithTag;
 import com.infamous.infamous_legends.ai.brains.behaviours.LookAtAttackTarget;
-import com.infamous.infamous_legends.ai.brains.behaviours.PiglinEngineerThrowAttack;
+import com.infamous.infamous_legends.ai.brains.behaviours.PiglinBuilderThrowAttack;
 import com.infamous.infamous_legends.ai.brains.behaviours.StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach;
 import com.infamous.infamous_legends.ai.brains.sensors.CustomSensor;
-import com.infamous.infamous_legends.entities.PiglinEngineer;
+import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.BrainUtils;
 import com.infamous.infamous_legends.utils.MiscUtils;
@@ -39,9 +39,9 @@ import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.schedule.Activity;
 
-public class PiglinEngineerAi {
+public class PiglinBuilderAi {
 
-	  public static Brain<?> makeBrain(PiglinEngineer p_35100_, Brain<PiglinEngineer> p_35101_) {
+	  public static Brain<?> makeBrain(PiglinBuilder p_35100_, Brain<PiglinBuilder> p_35101_) {
 	      initCoreActivity(p_35100_, p_35101_);
 	      initIdleActivity(p_35100_, p_35101_);
 	      initFightActivity(p_35100_, p_35101_);
@@ -51,35 +51,35 @@ public class PiglinEngineerAi {
 	      return p_35101_;
 	   }
 
-	   public static void initMemories(PiglinEngineer p_35095_) {
+	   public static void initMemories(PiglinBuilder p_35095_) {
 	      GlobalPos globalpos = GlobalPos.of(p_35095_.level.dimension(), p_35095_.blockPosition());
 	      p_35095_.getBrain().setMemory(MemoryModuleType.HOME, globalpos);
 	   }
 
-	   private static void initCoreActivity(PiglinEngineer p_35112_, Brain<PiglinEngineer> p_35113_) {
+	   private static void initCoreActivity(PiglinBuilder p_35112_, Brain<PiglinBuilder> p_35113_) {
 	      p_35113_.addActivity(Activity.CORE, 0, ImmutableList.of(new LookAtTargetSink(45, 90), new MoveToTargetSink(), new InteractWithDoor(), new StopBeingAngryIfTargetDead<>()));
 	   }
 
-	   private static void initIdleActivity(PiglinEngineer p_35120_, Brain<PiglinEngineer> p_35121_) {
-	      p_35121_.addActivity(Activity.IDLE, 10, ImmutableList.of(new StartAttacking<>(PiglinEngineerAi::findNearestValidAttackTarget), createIdleLookBehaviors(), createIdleMovementBehaviors(), new SetLookAndInteract(EntityType.PLAYER, 4)));
+	   private static void initIdleActivity(PiglinBuilder p_35120_, Brain<PiglinBuilder> p_35121_) {
+	      p_35121_.addActivity(Activity.IDLE, 10, ImmutableList.of(new StartAttacking<>(PiglinBuilderAi::findNearestValidAttackTarget), createIdleLookBehaviors(), createIdleMovementBehaviors(), new SetLookAndInteract(EntityType.PLAYER, 4)));
 	   }
 
-	   private static void initFightActivity(PiglinEngineer p_35125_, Brain<PiglinEngineer> p_35126_) {
+	   private static void initFightActivity(PiglinBuilder p_35125_, Brain<PiglinBuilder> p_35126_) {
 		      p_35126_.addActivityAndRemoveMemoryWhenStopped(Activity.FIGHT, 10, ImmutableList.of(new StopAttackingIfTargetInvalid<>((p_35118_) -> {
 		         return !isNearestValidAttackTarget(p_35125_, p_35118_);
-		      }), new StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F, 10), new PiglinEngineerThrowAttack(20), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
+		      }), new StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F, 10), new PiglinBuilderThrowAttack(20), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
 		   }
 
-	   private static RunOne<PiglinEngineer> createIdleLookBehaviors() {
+	   private static RunOne<PiglinBuilder> createIdleLookBehaviors() {
 		      return new RunOne<>(ImmutableList.of(Pair.of(new SetEntityLookTarget(EntityType.PLAYER, 8.0F), 1), Pair.of(new SetEntityLookTarget(TagInit.EntityTypes.PIGLIN_ALLIES, 8.0F), 1), Pair.of(new SetEntityLookTarget(8.0F), 1), Pair.of(new DoNothing(30, 60), 1)));
 		   }
 
-		   private static RunOne<PiglinEngineer> createIdleMovementBehaviors() {
+		   private static RunOne<PiglinBuilder> createIdleMovementBehaviors() {
 		      return new RunOne<>(ImmutableList.of(Pair.of(new RandomStroll(0.6F), 2), Pair.of(InteractWithTag.of(TagInit.EntityTypes.PIGLIN_ALLIES, 8, MemoryModuleType.INTERACTION_TARGET, 0.6F, 2), 2), Pair.of(new StrollToPoi(MemoryModuleType.HOME, 0.6F, 2, 100), 2), Pair.of(new StrollAroundPoi(MemoryModuleType.HOME, 0.6F, 5), 2), Pair.of(new DoNothing(30, 60), 1)));
 		   }
 
-	   public static void updateActivity(PiglinEngineer p_35110_) {
-	      Brain<PiglinEngineer> brain = p_35110_.getBrain();
+	   public static void updateActivity(PiglinBuilder p_35110_) {
+	      Brain<PiglinBuilder> brain = p_35110_.getBrain();
 	      Activity activity = brain.getActiveNonCoreActivity().orElse((Activity)null);
 	      brain.setActiveActivityToFirstValid(ImmutableList.of(Activity.FIGHT, Activity.IDLE));
 	      Activity activity1 = brain.getActiveNonCoreActivity().orElse((Activity)null);
@@ -112,23 +112,23 @@ public class PiglinEngineerAi {
 	      });
 	   }
 
-	   public static void wasHurtBy(PiglinEngineer p_35097_, LivingEntity p_35098_) {
+	   public static void wasHurtBy(PiglinBuilder p_35097_, LivingEntity p_35098_) {
 		      BrainUtils.piglinMaybeRetaliate(p_35097_, p_35098_);
 	   }
 
-	   protected static void setAngerTarget(PiglinEngineer p_149989_, LivingEntity p_149990_) {
+	   protected static void setAngerTarget(PiglinBuilder p_149989_, LivingEntity p_149990_) {
 	      p_149989_.getBrain().eraseMemory(MemoryModuleType.CANT_REACH_WALK_TARGET_SINCE);
 	      p_149989_.getBrain().setMemoryWithExpiry(MemoryModuleType.ANGRY_AT, p_149990_.getUUID(), 600L);
 	   }
 
-	   public static void maybePlayActivitySound(PiglinEngineer p_35115_) {
+	   public static void maybePlayActivitySound(PiglinBuilder p_35115_) {
 	      if ((double)p_35115_.level.random.nextFloat() < 0.0125D) {
 	         playActivitySound(p_35115_);
 	      }
 
 	   }
 
-	   private static void playActivitySound(PiglinEngineer p_35123_) {
+	   private static void playActivitySound(PiglinBuilder p_35123_) {
 	      p_35123_.getBrain().getActiveNonCoreActivity().ifPresent((p_35104_) -> {
 	         if (p_35104_ == Activity.FIGHT) {
 	            p_35123_.playAngrySound();

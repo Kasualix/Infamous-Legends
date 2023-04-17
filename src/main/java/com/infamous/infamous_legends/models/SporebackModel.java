@@ -1,9 +1,9 @@
 package com.infamous.infamous_legends.models;
 
-import com.infamous.infamous_legends.animation.keyframe_animations.definition.BigFungusThrowerKeyframeAnimations;
+import com.infamous.infamous_legends.animation.keyframe_animations.definition.SporebackKeyframeAnimations;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
-import com.infamous.infamous_legends.animation.sine_wave_animations.definition.BigFungusThrowerSineWaveAnimations;
-import com.infamous.infamous_legends.entities.BigFungusThrower;
+import com.infamous.infamous_legends.animation.sine_wave_animations.definition.SporebackSineWaveAnimations;
+import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.interfaces.ArmourWearingModel;
 import com.infamous.infamous_legends.interfaces.CustomHeadedModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer.ArmourModelPart;
@@ -29,7 +29,7 @@ import net.minecraft.world.phys.Vec3;
 // Paste this class into your mod and generate all required imports
 
 
-public class BigFungusThrowerModel<T extends BigFungusThrower> extends HierarchicalModel<T> implements ArmedModel, CustomHeadedModel, ArmourWearingModel {
+public class SporebackModel<T extends Sporeback> extends HierarchicalModel<T> implements ArmedModel, CustomHeadedModel, ArmourWearingModel {
 	private final ModelPart root;
 	public final ModelPart everything;
 	public final ModelPart body;
@@ -46,7 +46,7 @@ public class BigFungusThrowerModel<T extends BigFungusThrower> extends Hierarchi
 	public final ModelPart leftLeg;
 	public final ModelPart rightLeg;
 
-	public BigFungusThrowerModel(ModelPart root) {
+	public SporebackModel(ModelPart root) {
 		super(RenderType::entityTranslucent);
 		this.root = root;
 		this.everything = root.getChild("everything");
@@ -138,10 +138,10 @@ public class BigFungusThrowerModel<T extends BigFungusThrower> extends Hierarchi
 		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.throwAnimationTick <= 0 && entity.noveltyAnimationTick <= 0;	
 		
 		this.animateHeadLookTarget(netHeadYaw, headPitch);
-		BigFungusThrowerSineWaveAnimations.bigFungusThrowerWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 17, shouldPlayWalkAnimation ? 1 : 0);
-		BigFungusThrowerSineWaveAnimations.bigFungusThrowerIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
-		this.animate(entity.throwAnimationState, BigFungusThrowerKeyframeAnimations.BIG_FUNGUS_THROWER_THROW, ageInTicks);
-		this.animate(entity.noveltyAnimationState, BigFungusThrowerKeyframeAnimations.BIG_FUNGUS_THROWER_NOVELTY, ageInTicks);
+		SporebackSineWaveAnimations.sporebackWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 17, shouldPlayWalkAnimation ? 1 : 0);
+		SporebackSineWaveAnimations.sporebackIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
+		this.animate(entity.throwAnimationState, SporebackKeyframeAnimations.SPOREBACK_THROW, ageInTicks);
+		this.animate(entity.noveltyAnimationState, SporebackKeyframeAnimations.SPOREBACK_NOVELTY, ageInTicks);
 	}
 	
 	private void animateHeadLookTarget(float yRot, float xRot) {

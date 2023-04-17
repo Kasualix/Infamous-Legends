@@ -9,7 +9,7 @@ import com.infamous.infamous_legends.ai.brains.behaviours.LookAtAttackTarget;
 import com.infamous.infamous_legends.ai.brains.behaviours.BlazeRuntThrowAttack;
 import com.infamous.infamous_legends.ai.brains.behaviours.StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach;
 import com.infamous.infamous_legends.ai.brains.sensors.CustomSensor;
-import com.infamous.infamous_legends.entities.BigFungusThrower;
+import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.MiscUtils;

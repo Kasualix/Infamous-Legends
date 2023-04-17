@@ -1,7 +1,7 @@
 package com.infamous.infamous_legends.entities;
 
 import com.google.common.collect.ImmutableList;
-import com.infamous.infamous_legends.ai.brains.BigFungusThrowerAi;
+import com.infamous.infamous_legends.ai.brains.SporebackAi;
 import com.infamous.infamous_legends.ai.brains.MaceRuntAi;
 import com.infamous.infamous_legends.ai.brains.WarBoarAi;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;

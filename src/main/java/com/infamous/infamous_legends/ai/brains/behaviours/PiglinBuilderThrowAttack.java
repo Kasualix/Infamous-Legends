@@ -2,7 +2,7 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.PiglinBomb;
-import com.infamous.infamous_legends.entities.PiglinEngineer;
+import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.init.ItemInit;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
@@ -16,20 +16,20 @@ import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Explosion;
 
-public class PiglinEngineerThrowAttack extends Behavior<PiglinEngineer> {
+public class PiglinBuilderThrowAttack extends Behavior<PiglinBuilder> {
    private final int cooldownBetweenAttacks;
 
-   public PiglinEngineerThrowAttack(int p_23512_) {
+   public PiglinBuilderThrowAttack(int p_23512_) {
       super(ImmutableMap.of(MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED, MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT), 600, 600);
       this.cooldownBetweenAttacks = p_23512_;
    }
 
-   protected boolean checkExtraStartConditions(ServerLevel level, PiglinEngineer mob) {
+   protected boolean checkExtraStartConditions(ServerLevel level, PiglinBuilder mob) {
       LivingEntity livingentity = this.getAttackTarget(mob);
       return mob.isHolding(ItemInit.PIGLIN_BOMB.get()) && mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 15;
    }
 
-   protected void start(ServerLevel p_23524_, PiglinEngineer p_23525_, long p_23526_) {
+   protected void start(ServerLevel p_23524_, PiglinBuilder p_23525_, long p_23526_) {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
@@ -39,7 +39,7 @@ public class PiglinEngineerThrowAttack extends Behavior<PiglinEngineer> {
    }
    
    @Override
-	protected void tick(ServerLevel p_22551_, PiglinEngineer p_22552_, long p_22553_) {
+	protected void tick(ServerLevel p_22551_, PiglinBuilder p_22552_, long p_22553_) {
 		super.tick(p_22551_, p_22552_, p_22553_);
 		
 		LivingEntity livingentity = this.getAttackTarget(p_22552_);
@@ -69,17 +69,17 @@ public class PiglinEngineerThrowAttack extends Behavior<PiglinEngineer> {
 	}
    
    @Override
-	protected boolean canStillUse(ServerLevel p_22545_, PiglinEngineer p_22546_, long p_22547_) {
+	protected boolean canStillUse(ServerLevel p_22545_, PiglinBuilder p_22546_, long p_22547_) {
 		return p_22546_.throwAnimationTick > 0;
 	}
    
    @Override
-	protected void stop(ServerLevel p_22548_, PiglinEngineer p_22549_, long p_22550_) {
+	protected void stop(ServerLevel p_22548_, PiglinBuilder p_22549_, long p_22550_) {
 		super.stop(p_22548_, p_22549_, p_22550_);
 		p_22549_.getBrain().setMemoryWithExpiry(MemoryModuleType.ATTACK_COOLING_DOWN, true, (long)this.cooldownBetweenAttacks);
 	}
 
-   private LivingEntity getAttackTarget(PiglinEngineer p_23533_) {
+   private LivingEntity getAttackTarget(PiglinBuilder p_23533_) {
       return p_23533_.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).isPresent() ? p_23533_.getBrain().getMemory(MemoryModuleType.ATTACK_TARGET).get() : null;
    }
 }

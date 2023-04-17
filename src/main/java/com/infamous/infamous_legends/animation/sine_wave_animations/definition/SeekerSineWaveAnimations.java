@@ -3,13 +3,13 @@ package com.infamous.infamous_legends.animation.sine_wave_animations.definition;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveMotionTypes;
 import com.infamous.infamous_legends.models.BlazeRuntModel;
-import com.infamous.infamous_legends.models.WarpedBomberModel;
+import com.infamous.infamous_legends.models.SeekerModel;
 
-public class WarpedBomberSineWaveAnimations {
+public class SeekerSineWaveAnimations {
 
 	private static float floatMax = Float.MAX_VALUE;
 	
-	public static void warpedBomberIdleAnimation(WarpedBomberModel model, float tick, float speedMultiplier, float amountMultiplier) {
+	public static void seekerIdleAnimation(SeekerModel model, float tick, float speedMultiplier, float amountMultiplier) {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 2.5F, 75, tick, -floatMax, floatMax, 0, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 1.0F, 75, tick, -floatMax, floatMax, -100, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.body, -7.5F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
@@ -67,7 +67,7 @@ public class WarpedBomberSineWaveAnimations {
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.root4, -95F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 	}
 	
-	public static void warpedBomberWalkAnimation(WarpedBomberModel model, float tick, float speedMultiplier, float amountMultiplier) {
+	public static void seekerWalkAnimation(SeekerModel model, float tick, float speedMultiplier, float amountMultiplier) {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, -2.5F, 500, tick, -floatMax, floatMax, -75, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 2.5F, 500, tick, -floatMax, floatMax, -25, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.body, -10F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
@@ -142,7 +142,7 @@ public class WarpedBomberSineWaveAnimations {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.leftLeg, -1.0F, 250, tick, -floatMax, floatMax, -50, speedMultiplier, amountMultiplier, SineWaveMotionTypes.POSITION_Z);
 	}
 	
-	public static void warpedBomberRunAnimation(WarpedBomberModel model, float tick, float speedMultiplier, float amountMultiplier) {
+	public static void seekerRunAnimation(SeekerModel model, float tick, float speedMultiplier, float amountMultiplier) {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, -5F, 500, tick, -floatMax, floatMax, -100, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.body, -10F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 2.0F, 250, tick, -0, floatMax, -25, speedMultiplier, amountMultiplier, SineWaveMotionTypes.POSITION_Y);

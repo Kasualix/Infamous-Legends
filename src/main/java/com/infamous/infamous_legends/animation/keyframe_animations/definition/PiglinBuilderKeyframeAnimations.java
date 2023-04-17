@@ -8,9 +8,9 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
-public class PiglinEngineerKeyframeAnimations {
+public class PiglinBuilderKeyframeAnimations {
 
-	public static final AnimationDefinition ENGINEER_THROW = AnimationDefinition.Builder.withLength(5.5f)
+	public static final AnimationDefinition BUILDER_THROW = AnimationDefinition.Builder.withLength(5.5f)
 			.addAnimation("body", new AnimationChannel(AnimationChannel.Targets.POSITION,
 					new Keyframe(4.583433f, KeyframeAnimations.posVec(0f, 0f, 0f),
 							AnimationChannel.Interpolations.LINEAR),

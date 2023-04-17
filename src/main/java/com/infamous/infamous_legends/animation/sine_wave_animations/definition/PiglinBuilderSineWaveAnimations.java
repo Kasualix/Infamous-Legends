@@ -2,13 +2,13 @@ package com.infamous.infamous_legends.animation.sine_wave_animations.definition;
 
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveMotionTypes;
-import com.infamous.infamous_legends.models.PiglinEngineerModel;
+import com.infamous.infamous_legends.models.PiglinBuilderModel;
 
-public class PiglinEngineerSineWaveAnimations {
+public class PiglinBuilderSineWaveAnimations {
 
 	private static float floatMax = Float.MAX_VALUE;
 	
-	public static void piglinEngineerIdleAnimation(PiglinEngineerModel model, float tick, float speedMultiplier, float amountMultiplier) {
+	public static void piglinBuilderIdleAnimation(PiglinBuilderModel model, float tick, float speedMultiplier, float amountMultiplier) {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, 1.5F, 100, tick, -floatMax, floatMax, 0, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.body, 12.5F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		
@@ -48,7 +48,7 @@ public class PiglinEngineerSineWaveAnimations {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.helmetExtention, 2F, 100, tick, -floatMax, 0, -250, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 	}
 	
-	public static void piglinEngineerWalkAnimation(PiglinEngineerModel model, float tick, float speedMultiplier, float amountMultiplier) {
+	public static void piglinBuilderWalkAnimation(PiglinBuilderModel model, float tick, float speedMultiplier, float amountMultiplier) {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, -3.0F, 500, tick, -floatMax, floatMax, -50, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.body, -2.5F, 250, tick, -floatMax, floatMax, -0, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.body, 20.0F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
