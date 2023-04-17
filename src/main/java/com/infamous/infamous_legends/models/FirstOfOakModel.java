@@ -116,9 +116,10 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 	public void translateToHand(HumanoidArm arm, PoseStack stack) {
 		this.root().translateAndRotate(stack);
 		this.everything.translateAndRotate(stack);
+		this.pelvis.translateAndRotate(stack);
 		this.body.translateAndRotate(stack);
 		this.getArm(arm).translateAndRotate(stack);
-		stack.translate(arm == HumanoidArm.RIGHT ? -5F / 16.0F : 5F / 16.0F, 70 / 16.0F, 14 / 16.0F);
+		stack.translate(arm == HumanoidArm.RIGHT ? -5F / 16.0F : 5F / 16.0F, 64 / 16.0F, 4 / 16.0F);
 		stack.mulPose(Vector3f.XP.rotationDegrees(180));
 		stack.scale(2F, 2F, 2F);
 	}
@@ -127,6 +128,7 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 	public void translateToHead(PoseStack stack) {
 		this.root().translateAndRotate(stack);
 		this.everything.translateAndRotate(stack);
+		this.pelvis.translateAndRotate(stack);
 		this.body.translateAndRotate(stack);
 	}
 
@@ -136,6 +138,7 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 		case HEAD:
 			this.root().translateAndRotate(stack);
 			this.everything.translateAndRotate(stack);
+			this.pelvis.translateAndRotate(stack);
 			this.body.translateAndRotate(stack);
 			stack.translate(0, -12 / 16.0F, 0);
 			stack.scale(4F, 3F, 4F);
@@ -144,14 +147,15 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 			if (!innerModel) {
 				this.root().translateAndRotate(stack);
 				this.everything.translateAndRotate(stack);
+				this.pelvis.translateAndRotate(stack);
 				this.body.translateAndRotate(stack);
 				stack.translate(0, -12 / 16.0F, 0);
 				stack.scale(4F, 1.25F, 6.5F);
 			} else {
 				this.root().translateAndRotate(stack);
 				this.everything.translateAndRotate(stack);
-				this.body.translateAndRotate(stack);
 				this.pelvis.translateAndRotate(stack);
+				this.body.translateAndRotate(stack);
 				stack.translate(0, -14.5 / 16.0F, 0);
 				stack.scale(3F, 2.0F, 3F);
 			}
@@ -159,6 +163,7 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 		case RIGHT_ARM:
 			this.root().translateAndRotate(stack);
 			this.everything.translateAndRotate(stack);
+			this.pelvis.translateAndRotate(stack);
 			this.body.translateAndRotate(stack);
 			this.rightArm.translateAndRotate(stack);
 			stack.translate(8 / 16.0F, -6 / 16.0F, 0);
@@ -167,6 +172,7 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 		case LEFT_ARM:
 			this.root().translateAndRotate(stack);
 			this.everything.translateAndRotate(stack);
+			this.pelvis.translateAndRotate(stack);
 			this.body.translateAndRotate(stack);
 			this.leftArm.translateAndRotate(stack);
 			stack.translate(-8 / 16.0F, -6 / 16.0F, 0);
@@ -175,8 +181,6 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 		case RIGHT_LEG:
 			this.root().translateAndRotate(stack);
 			this.everything.translateAndRotate(stack);
-			this.body.translateAndRotate(stack);
-			this.pelvis.translateAndRotate(stack);
 			this.rightLeg.translateAndRotate(stack);
 			stack.translate(2.5F / 16.0F, -28 / 16.0F, 0);
 			stack.scale(2, 2F, 4F);
@@ -185,8 +189,6 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 			if (innerModel) {
 				this.root().translateAndRotate(stack);
 				this.everything.translateAndRotate(stack);
-				this.body.translateAndRotate(stack);
-				this.pelvis.translateAndRotate(stack);
 				this.leftLeg.translateAndRotate(stack);
 				stack.translate(-5F / 16.0F, -28 / 16.0F, 0);
 				stack.scale(2, 2F, 4F);
