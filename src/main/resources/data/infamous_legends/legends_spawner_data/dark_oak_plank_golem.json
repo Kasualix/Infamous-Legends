@@ -1,0 +1,13 @@
+{
+  "entity_type": "infamous_legends:plank_golem",
+  "tag": { "Type": "dark_oak" },
+  "spawn_cost": [
+    {
+      "item": "minecraft:lapis_lazuli",
+      "count": 5
+    }
+  ],
+  "corner_block": "minecraft:barrel",
+  "center_block": "minecraft:dark_oak_planks",
+  "max_spawns": 4
+}

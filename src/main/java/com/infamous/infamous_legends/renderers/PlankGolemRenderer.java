@@ -22,7 +22,7 @@ public class PlankGolemRenderer extends MobRenderer<PlankGolem, PlankGolemModel<
 
 	@Override
 	public ResourceLocation getTextureLocation(PlankGolem p_114482_) {
-		return p_114482_.getPlankGolemType().getTextureLocation();
+		return new ResourceLocation(p_114482_.getPlankGolemType().getTextureLocation());
 	}
 
 }

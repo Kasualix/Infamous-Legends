@@ -2,7 +2,9 @@ package com.infamous.infamous_legends.network;
 
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.network.message.LegendsSpawnerDataSyncPacket;
+import com.infamous.infamous_legends.network.message.PlankGolemTypeSyncPacket;
 import com.infamous.infamous_legends.network.message.ServerToClientShakeCameraPacket;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -37,6 +39,11 @@ public class Messages {
                 .encoder(LegendsSpawnerDataSyncPacket::encode).decoder(LegendsSpawnerDataSyncPacket::decode)
                 .consumerMainThread(LegendsSpawnerDataSyncPacket::onPacketReceived)
                 .add();
+        
+        INSTANCE.messageBuilder(PlankGolemTypeSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+        .encoder(PlankGolemTypeSyncPacket::encode).decoder(PlankGolemTypeSyncPacket::decode)
+        .consumerMainThread(PlankGolemTypeSyncPacket::onPacketReceived)
+        .add();
 
 
     }

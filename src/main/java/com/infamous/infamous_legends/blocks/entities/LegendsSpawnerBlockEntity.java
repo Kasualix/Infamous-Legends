@@ -48,12 +48,10 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
 
     public static void clientTick(Level level, BlockPos blockPos, BlockState blockState, LegendsSpawnerBlockEntity blockEntity) {
         blockEntity.doClientTick(level, blockPos);
-        System.out.print("\r\n" + "client: " + blockEntity.addedItems);
     }
 
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, LegendsSpawnerBlockEntity blockEntity) {
         blockEntity.doServerTick((ServerLevel) level, blockPos);
-        System.out.print("\r\n" + "server: " + blockEntity.addedItems);
     }
 
     private void doServerTick(ServerLevel level, BlockPos blockPos) {

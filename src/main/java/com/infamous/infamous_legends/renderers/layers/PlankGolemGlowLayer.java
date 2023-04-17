@@ -10,6 +10,7 @@ import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.entity.RenderLayerParent;
 import net.minecraft.client.renderer.entity.layers.RenderLayer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
@@ -23,8 +24,8 @@ public class PlankGolemGlowLayer<T extends PlankGolem> extends RenderLayer<T, Pl
 	public void render(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, T pLivingEntity,
 			float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw,
 			float pHeadPitch) {
-		if (pLivingEntity.getPlankGolemType().getGlowTextureLocation() != null) {
-			VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.eyes(pLivingEntity.getPlankGolemType().getGlowTextureLocation()));
+		if (pLivingEntity.getPlankGolemType().getGlowTextureLocation() != null && !pLivingEntity.getPlankGolemType().getGlowTextureLocation().isEmpty() && !pLivingEntity.getPlankGolemType().getGlowTextureLocation().isBlank()) {
+			VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.eyes(new ResourceLocation(pLivingEntity.getPlankGolemType().getGlowTextureLocation())));
 			this.getParentModel().renderToBuffer(pMatrixStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F,
 					1.0F, 1.0F, 1.0F);
 		}

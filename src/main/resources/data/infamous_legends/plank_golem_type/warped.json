@@ -1,0 +1,6 @@
+{
+  "planks": "minecraft:warped_planks",
+  "name": "warped",
+  "textureLocation": "infamous_legends:textures/entities/warped_plank_golem.png",
+  "glowTextureLocation": "infamous_legends:textures/entities/nether_plank_golem_eyes.png"
+}

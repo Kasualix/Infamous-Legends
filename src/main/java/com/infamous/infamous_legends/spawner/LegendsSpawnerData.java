@@ -70,12 +70,10 @@ public class LegendsSpawnerData {
 
     public Entity spawnEntity(ServerLevel level, BlockPos spawnPos, MobSpawnType spawnReason) {
         Entity entity;
+        entity = entityType.create(level);
         if (!this.getTag().isEmpty()) {
             CompoundTag compoundnbt = this.getTag().copy();
-            compoundnbt.putString("id", this.getEntityType().toString());
-            entity = EntityType.loadEntityRecursive(compoundnbt, level, createdEntity -> createdEntity);
-        } else {
-            entity = entityType.create(level);
+            entity.load(compoundnbt);;
         }
         if (entity == null) {
             return null;

@@ -1,6 +1,8 @@
 package com.infamous.infamous_legends.entities;
 
+import com.infamous.infamous_legends.golem_types.PlankGolemType;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.PlankGolemTypeInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.nbt.CompoundTag;
@@ -25,7 +27,7 @@ import net.minecraftforge.network.NetworkHooks;
 
 public class PlankGolemBolt extends AbstractArrow {
 
-	private static final EntityDataAccessor<Integer> TYPE = SynchedEntityData.defineId(PlankGolemBolt.class, EntityDataSerializers.INT);
+	private static final EntityDataAccessor<String> TYPE = SynchedEntityData.defineId(PlankGolemBolt.class, EntityDataSerializers.STRING);
 	
 	private int life;
 	   
@@ -77,7 +79,7 @@ public class PlankGolemBolt extends AbstractArrow {
 	
 	protected void defineSynchedData() {
 	    super.defineSynchedData();
-		this.entityData.define(TYPE, PlankGolem.Type.OAK.ordinal());
+		this.entityData.define(TYPE, "oak");
 	}
 	
 	public void addAdditionalSaveData(CompoundTag pCompound) {
@@ -88,16 +90,21 @@ public class PlankGolemBolt extends AbstractArrow {
 	public void readAdditionalSaveData(CompoundTag pCompound) {
 		super.readAdditionalSaveData(pCompound);
 		if (pCompound.contains("Type", 8)) {
-			this.setType(PlankGolem.Type.byName(pCompound.getString("Type")));
+			this.setType(PlankGolemTypeInit.getPlankGolemTypeByName(pCompound.getString("Type")));
 		}
 	}
 	
-	public void setType(PlankGolem.Type type) {
-		this.entityData.set(TYPE, type.ordinal());
+	public void setType(PlankGolemType type) {
+		this.entityData.set(TYPE, type.getName());
 	}
 
-	public PlankGolem.Type getPlankGolemType() {
-		return PlankGolem.Type.byId(this.entityData.get(TYPE));
+	public PlankGolemType getPlankGolemType() {
+		PlankGolemType type = PlankGolemTypeInit.getPlankGolemTypeByName(this.entityData.get(TYPE));
+		if (type == null) {
+			this.setType(PlankGolemTypeInit.getPlankGolemTypeByName("oak"));
+			type = PlankGolemTypeInit.getPlankGolemTypeByName(this.entityData.get(TYPE));
+		}
+		return type;
 	}
 	
 	   @Override

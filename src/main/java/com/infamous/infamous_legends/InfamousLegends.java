@@ -26,6 +26,7 @@ import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.LegendsSpawnerDataInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.PlankGolemTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
 import com.infamous.infamous_legends.network.Messages;
 
@@ -63,7 +64,8 @@ public class InfamousLegends {
 
         bus.addListener(this::commonSetup);
 
-        LEGENDS_SPAWNER_DATA_REGISTRY.subscribeAsSyncable(Messages.INSTANCE, LegendsSpawnerDataInit::toPacket);
+        LegendsSpawnerDataInit.LEGENDS_SPAWNER_DATA_REGISTRY.subscribeAsSyncable(Messages.INSTANCE, LegendsSpawnerDataInit::toPacket);
+        PlankGolemTypeInit.PLANK_GOLEM_TYPE_REGISTRY.subscribeAsSyncable(Messages.INSTANCE, PlankGolemTypeInit::toPacket);
 
         MinecraftForge.EVENT_BUS.register(this);
     }

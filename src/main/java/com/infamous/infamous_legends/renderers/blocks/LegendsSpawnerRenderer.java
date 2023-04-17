@@ -12,6 +12,7 @@ import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.entity.EntityRenderDispatcher;
 import net.minecraft.client.renderer.entity.LivingEntityRenderer;
 import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraftforge.api.distmarker.Dist;
@@ -32,6 +33,10 @@ public class LegendsSpawnerRenderer implements BlockEntityRenderer<LegendsSpawne
 	      if (pBlockEntity.getLegendsSpawnerData() != null) {
 	      Entity entity = pBlockEntity.getLegendsSpawnerData().getEntityType().create(pBlockEntity.getLevel());
 		      if (entity != null) {
+		          if (!pBlockEntity.getLegendsSpawnerData().getTag().isEmpty()) {
+		              CompoundTag compoundnbt = pBlockEntity.getLegendsSpawnerData().getTag().copy();
+		              entity.load(compoundnbt);
+		          }
 			     pPoseStack.translate(0.0D, (double)0.4F, 0.0D);
 			     pPoseStack.mulPose(Vector3f.YP.rotationDegrees((float)Mth.lerp((double)pPartialTick * 0.5, pBlockEntity.tickCount, pBlockEntity.tickCount * 1.0F)));
 			     pPoseStack.translate(0.0D, (double)-0.2F, 0.0D);

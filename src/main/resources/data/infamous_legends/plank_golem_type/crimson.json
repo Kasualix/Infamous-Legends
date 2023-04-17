@@ -1,0 +1,6 @@
+{
+  "planks": "minecraft:crimson_planks",
+  "name": "crimson",
+  "textureLocation": "infamous_legends:textures/entities/crimson_plank_golem.png",
+  "glowTextureLocation": "infamous_legends:textures/entities/nether_plank_golem_eyes.png"
+}
