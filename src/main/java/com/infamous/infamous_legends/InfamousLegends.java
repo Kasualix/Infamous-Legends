@@ -1,10 +1,8 @@
 package com.infamous.infamous_legends;
 
-import static com.infamous.infamous_legends.init.LegendsSpawnerDataInit.LEGENDS_SPAWNER_DATA_REGISTRY;
-
-import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
+import com.infamous.infamous_legends.entities.FirstOfOak;
 import com.infamous.infamous_legends.entities.FirstOfStone;
 import com.infamous.infamous_legends.entities.GrindstoneGolem;
 import com.infamous.infamous_legends.entities.LavaLauncher;
@@ -15,9 +13,10 @@ import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.entities.Pigmadillo;
 import com.infamous.infamous_legends.entities.PlankGolem;
 import com.infamous.infamous_legends.entities.PortalGuard;
-import com.infamous.infamous_legends.entities.SporeMedic;
-import com.infamous.infamous_legends.entities.WarBoar;
 import com.infamous.infamous_legends.entities.Seeker;
+import com.infamous.infamous_legends.entities.SporeMedic;
+import com.infamous.infamous_legends.entities.Sporeback;
+import com.infamous.infamous_legends.entities.WarBoar;
 import com.infamous.infamous_legends.init.ActivityInit;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.BlockInit;
@@ -87,6 +86,7 @@ public class InfamousLegends {
 	        event.put(EntityTypeInit.GRINDSTONE_GOLEM.get(), GrindstoneGolem.createAttributes().build());
 	        event.put(EntityTypeInit.MOSSY_GOLEM.get(), MossyGolem.createAttributes().build());
 	        event.put(EntityTypeInit.FIRST_OF_STONE.get(), FirstOfStone.createAttributes().build());
+	        event.put(EntityTypeInit.FIRST_OF_OAK.get(), FirstOfOak.createAttributes().build());
 	}
 	
     public void commonSetup(final FMLCommonSetupEvent event) {    

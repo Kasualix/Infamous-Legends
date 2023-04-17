@@ -4,10 +4,11 @@ import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.ModelLayerInit;
-import com.infamous.infamous_legends.models.SporebackModel;
 import com.infamous.infamous_legends.models.BlazeRuntModel;
 import com.infamous.infamous_legends.models.CobblestoneGolemModel;
 import com.infamous.infamous_legends.models.ExplosiveFungusModel;
+import com.infamous.infamous_legends.models.FirstOfOakBoltModel;
+import com.infamous.infamous_legends.models.FirstOfOakModel;
 import com.infamous.infamous_legends.models.FirstOfStoneModel;
 import com.infamous.infamous_legends.models.GrindstoneGolemModel;
 import com.infamous.infamous_legends.models.LavaLauncherModel;
@@ -22,15 +23,17 @@ import com.infamous.infamous_legends.models.PlankGolemBoltModel;
 import com.infamous.infamous_legends.models.PlankGolemModel;
 import com.infamous.infamous_legends.models.PortalGuardModel;
 import com.infamous.infamous_legends.models.PortalGuardWreckingBallModel;
+import com.infamous.infamous_legends.models.SeekerModel;
 import com.infamous.infamous_legends.models.SporeMedicModel;
+import com.infamous.infamous_legends.models.SporebackModel;
 import com.infamous.infamous_legends.models.ThrownBlazeRodModel;
 import com.infamous.infamous_legends.models.WarBoarModel;
-import com.infamous.infamous_legends.models.SeekerModel;
-import com.infamous.infamous_legends.renderers.SporebackRenderer;
 import com.infamous.infamous_legends.renderers.BlazeRuntRenderer;
 import com.infamous.infamous_legends.renderers.BoulderProjectileRenderer;
 import com.infamous.infamous_legends.renderers.CobblestoneGolemRenderer;
 import com.infamous.infamous_legends.renderers.ExplosiveFungusRenderer;
+import com.infamous.infamous_legends.renderers.FirstOfOakBoltRenderer;
+import com.infamous.infamous_legends.renderers.FirstOfOakRenderer;
 import com.infamous.infamous_legends.renderers.FirstOfStoneRenderer;
 import com.infamous.infamous_legends.renderers.GrindstoneGolemRenderer;
 import com.infamous.infamous_legends.renderers.LavaLauncherRenderer;
@@ -45,10 +48,11 @@ import com.infamous.infamous_legends.renderers.PlankGolemBoltRenderer;
 import com.infamous.infamous_legends.renderers.PlankGolemRenderer;
 import com.infamous.infamous_legends.renderers.PortalGuardRenderer;
 import com.infamous.infamous_legends.renderers.PortalGuardWreckingBallRenderer;
+import com.infamous.infamous_legends.renderers.SeekerRenderer;
 import com.infamous.infamous_legends.renderers.SporeMedicRenderer;
+import com.infamous.infamous_legends.renderers.SporebackRenderer;
 import com.infamous.infamous_legends.renderers.ThrownBlazeRodRenderer;
 import com.infamous.infamous_legends.renderers.WarBoarRenderer;
-import com.infamous.infamous_legends.renderers.SeekerRenderer;
 import com.infamous.infamous_legends.renderers.blocks.LegendsSpawnerRenderer;
 
 import net.minecraft.client.model.HumanoidModel;
@@ -115,12 +119,16 @@ public class ClientEventBusSubscriber {
         event.registerLayerDefinition(ModelLayerInit.FIRST_OF_STONE, FirstOfStoneModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.FIRST_OF_STONE_INNER_ARMOUR, ClientEventBusSubscriber::createInnerArmourLayer);
         event.registerLayerDefinition(ModelLayerInit.FIRST_OF_STONE_OUTER_ARMOUR, ClientEventBusSubscriber::createOuterArmourLayer);
+        event.registerLayerDefinition(ModelLayerInit.FIRST_OF_OAK, FirstOfOakModel::createBodyLayer);
+        event.registerLayerDefinition(ModelLayerInit.FIRST_OF_OAK_INNER_ARMOUR, ClientEventBusSubscriber::createInnerArmourLayer);
+        event.registerLayerDefinition(ModelLayerInit.FIRST_OF_OAK_OUTER_ARMOUR, ClientEventBusSubscriber::createOuterArmourLayer);
         event.registerLayerDefinition(ModelLayerInit.THROWN_BLAZE_ROD, ThrownBlazeRodModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.PIGLIN_BOMB, PiglinBombModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.EXPLOSIVE_FUNGUS, ExplosiveFungusModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.PORTAL_GUARD_WRECKING_BALL, PortalGuardWreckingBallModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.MAGMA_CUBE_PROJECTILE, MagmaCubeProjectileModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.PLANK_GOLEM_BOLT, PlankGolemBoltModel::createBodyLayer);
+        event.registerLayerDefinition(ModelLayerInit.FIRST_OF_OAK_BOLT, FirstOfOakBoltModel::createBodyLayer);
     }
 	
 	public static LayerDefinition createInnerArmourLayer() {
@@ -149,12 +157,14 @@ public class ClientEventBusSubscriber {
 		event.registerEntityRenderer(EntityTypeInit.GRINDSTONE_GOLEM.get(), GrindstoneGolemRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.MOSSY_GOLEM.get(), MossyGolemRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.FIRST_OF_STONE.get(), FirstOfStoneRenderer::new);
+		event.registerEntityRenderer(EntityTypeInit.FIRST_OF_OAK.get(), FirstOfOakRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.THROWN_BLAZE_ROD.get(), ThrownBlazeRodRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PIGLIN_BOMB.get(), PiglinBombRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.EXPLOSIVE_FUNGUS.get(), ExplosiveFungusRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PORTAL_GUARD_WRECKING_BALL.get(), PortalGuardWreckingBallRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.MAGMA_CUBE_PROJECTILE.get(), MagmaCubeProjectileRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PLANK_GOLEM_BOLT.get(), PlankGolemBoltRenderer::new);
+		event.registerEntityRenderer(EntityTypeInit.FIRST_OF_OAK_BOLT.get(), FirstOfOakBoltRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.BOULDER_PROJECTILE.get(), BoulderProjectileRenderer::new);
 		
 		event.registerBlockEntityRenderer(BlockEntityTypeInit.LEGENDS_SPAWNER.get(), LegendsSpawnerRenderer::new);

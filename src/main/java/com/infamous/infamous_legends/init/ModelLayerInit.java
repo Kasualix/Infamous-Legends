@@ -56,12 +56,16 @@ public class ModelLayerInit {
     public static final ModelLayerLocation FIRST_OF_STONE = register("first_of_stone");
     public static final ModelLayerLocation FIRST_OF_STONE_INNER_ARMOUR = register("first_of_stone_inner_armour");
     public static final ModelLayerLocation FIRST_OF_STONE_OUTER_ARMOUR = register("first_of_stone_outer_armour");
+    public static final ModelLayerLocation FIRST_OF_OAK = register("first_of_oak");
+    public static final ModelLayerLocation FIRST_OF_OAK_INNER_ARMOUR = register("first_of_oak_inner_armour");
+    public static final ModelLayerLocation FIRST_OF_OAK_OUTER_ARMOUR = register("first_of_oak_outer_armour");
     public static final ModelLayerLocation THROWN_BLAZE_ROD = register("thrown_blaze_rod");
     public static final ModelLayerLocation PIGLIN_BOMB = register("piglin_bomb");
     public static final ModelLayerLocation EXPLOSIVE_FUNGUS = register("explosive_fungus");
     public static final ModelLayerLocation PORTAL_GUARD_WRECKING_BALL = register("portal_guard_wrecking_ball");
     public static final ModelLayerLocation MAGMA_CUBE_PROJECTILE = register("magma_cube_projectile");
     public static final ModelLayerLocation PLANK_GOLEM_BOLT = register("plank_golem_bolt");
+    public static final ModelLayerLocation FIRST_OF_OAK_BOLT = register("first_of_oak_bolt");
 
     private static ModelLayerLocation register(String path) {
         return register("main", new ResourceLocation(InfamousLegends.MOD_ID, path));
