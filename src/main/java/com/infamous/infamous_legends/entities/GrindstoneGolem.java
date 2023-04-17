@@ -94,7 +94,7 @@ public class GrindstoneGolem extends AbstractGolem {
 	}
 	
 	public static AttributeSupplier.Builder createAttributes() {
-		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0D).add(Attributes.ARMOR, 3.0D).add(Attributes.MOVEMENT_SPEED, 0.275D)
+		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 15.0D).add(Attributes.MOVEMENT_SPEED, 0.275D)
 				.add(Attributes.KNOCKBACK_RESISTANCE, 0.25D).add(Attributes.FOLLOW_RANGE, 25.0D);
 	}
 	
