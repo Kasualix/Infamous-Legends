@@ -9,6 +9,7 @@ import com.infamous.infamous_legends.utils.MiscUtils;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
@@ -32,6 +33,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
 
     private LegendsSpawnerData legendsSpawnerData;
     public int tickCount = 0;
+    private boolean hasValidatedSpawnerData = false;
     private NonNullList<ItemStack> addedItems = NonNullList.withSize(36, ItemStack.EMPTY);
     
     public RandomSource random = RandomSource.create();
@@ -46,27 +48,32 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
 
     public static void clientTick(Level level, BlockPos blockPos, BlockState blockState, LegendsSpawnerBlockEntity blockEntity) {
         blockEntity.doClientTick(level, blockPos);
+        System.out.print("\r\n" + "client: " + blockEntity.addedItems);
     }
 
     public static void serverTick(Level level, BlockPos blockPos, BlockState blockState, LegendsSpawnerBlockEntity blockEntity) {
         blockEntity.doServerTick((ServerLevel) level, blockPos);
+        System.out.print("\r\n" + "server: " + blockEntity.addedItems);
     }
 
     private void doServerTick(ServerLevel level, BlockPos blockPos) {
-        if (tickCount % 20 == 0) {
+        if (tickCount > 20 && tickCount % 20 == 0) {
             validateSpawnerData(level, blockPos);
+            if (hasValidatedSpawnerData && legendsSpawnerData == null) {
+                ejectItems(level, blockPos);
+            }
         }
-        if (tickCount % 10 == 0 && legendsSpawnerData != null && legendsSpawnerData.validateSpawnCost(addedItems)) {
+        if (tickCount > 20 && tickCount % 10 == 0 && legendsSpawnerData != null && legendsSpawnerData.validateSpawnCost(addedItems)) {
         	level.sendParticles(ParticleTypeInit.SPAWNER_FLAME.get(), blockPos.getX() + 0.5, blockPos.getY() + 0.5, blockPos.getZ() + 0.5, 1, 0, 0, 0, 0);
         }
         tickCount++;
     }
     
     private void doClientTick(Level level, BlockPos blockPos) {
-        if (tickCount % 20 == 0) {
+        if (tickCount > 20 && tickCount % 20 == 0) {
             validateSpawnerData(level, blockPos);
         }
-        if (legendsSpawnerData != null && this.random.nextBoolean()) {
+        if (tickCount > 20 && legendsSpawnerData != null && this.random.nextBoolean()) {
         	level.addParticle(ParticleTypeInit.SPAWNER_MAGIC_SWIRL.get(), blockPos.getX() + 0.5D, blockPos.getY(), blockPos.getZ() - (21 / 32.0F), 0, 0, 0);
         }
         tickCount++;
@@ -78,6 +85,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
     }
 
     private void validateSpawnerData(Level level, BlockPos blockPos) {
+    	hasValidatedSpawnerData = true;
         Block cornerBlock = null;
         Block centerBlock = null;
         for (int x = -1; x <= 1; x++) {
@@ -89,7 +97,6 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
                         centerBlock = block;
                     } else if (!centerBlock.equals(block)) {
                         legendsSpawnerData = null;
-                        ejectItems(level, blockPos);
                         return;
                     }
                 } else {
@@ -97,7 +104,6 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
                         cornerBlock = block;
                     } else if (!cornerBlock.equals(block)) {
                         legendsSpawnerData = null;
-                        ejectItems(level, blockPos);
                         return;
                     }
                 }
@@ -106,7 +112,6 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         LegendsSpawnerData spawnerDataByBlocks = LegendsSpawnerDataInit.getSpawnerDataByBlocks(cornerBlock, centerBlock);
         if (spawnerDataByBlocks == null || !spawnerDataByBlocks.equals(legendsSpawnerData)) {
             legendsSpawnerData = spawnerDataByBlocks;
-            ejectItems(level, blockPos);
         }
     }
 
@@ -116,6 +121,9 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
     }
 
     public boolean addItem(ItemStack itemStack, BlockPos pos, Player player) {
+    	if (this.legendsSpawnerData == null) {
+    		validateSpawnerData(level, pos);
+    	}
         if(this.level.isClientSide) { return true; }
         int firstEmptySlot = addedItems.indexOf(ItemStack.EMPTY);
         boolean hasItem = false;
@@ -150,7 +158,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
             if(validSpawnCost){
             	this.level.playSound((Player)null, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), SoundEvents.BEACON_POWER_SELECT, SoundSource.PLAYERS, 1, MiscUtils.randomSoundPitch());
             	this.level.playSound((Player)null, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 1, MiscUtils.randomSoundPitch() * 0.5F);
-                Entity entity = legendsSpawnerData.spawnEntity(serverLevel, new Vec3(this.getSpawnPos(worldPosition).getX(), this.getSpawnPos(worldPosition).getY(), this.getSpawnPos(worldPosition).getZ()), MobSpawnType.SPAWNER);
+                Entity entity = legendsSpawnerData.spawnEntity(serverLevel, this.getSpawnPos(worldPosition), MobSpawnType.SPAWNER);
                 if (entity != null) {
                 	if (!this.level.isClientSide) {
                 		((ServerLevel)this.level).sendParticles(ParticleTypeInit.SPAWNER_MAGIC.get(), entity.getX(), entity.getY(0.5), entity.getZ(), 40, entity.getBbWidth() / 2, entity.getBbHeight() / 2, entity.getBbWidth() / 2, 1);
@@ -180,7 +188,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         if(posX == 0 && posZ == 0){
             posX = 1;
         }
-        return blockPos.offset(posX, -1, posZ);
+        return blockPos.offset(posX, 0, posZ);
     }
 
 
@@ -191,6 +199,9 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         if (legendsSpawnerData != null && key != null) {
             pCompound.putString("LegendsSpawnerData", key.toString());
         }
+        
+        ListTag listtag = new ListTag();
+        
         if (addedItems.size() > 0) {
             pCompound.put("AddedItems", ContainerHelper.saveAllItems(new CompoundTag(), addedItems));
         }
@@ -202,6 +213,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         if (pCompound.contains("LegendsSpawnerData")) {
             legendsSpawnerData = LegendsSpawnerDataInit.getSpawnerData(new ResourceLocation(pCompound.getString("LegendsSpawnerData")));
         }
+        
         if (pCompound.contains("AddedItems")) {
             addedItems = NonNullList.withSize(36, ItemStack.EMPTY);
             ContainerHelper.loadAllItems(pCompound.getCompound("AddedItems"), addedItems);

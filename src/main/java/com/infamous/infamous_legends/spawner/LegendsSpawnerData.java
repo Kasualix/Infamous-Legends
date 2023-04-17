@@ -68,7 +68,7 @@ public class LegendsSpawnerData {
         return centerBlock;
     }
 
-    public Entity spawnEntity(ServerLevel level, Vec3 spawnPos, MobSpawnType spawnReason) {
+    public Entity spawnEntity(ServerLevel level, BlockPos spawnPos, MobSpawnType spawnReason) {
         Entity entity;
         if (!this.getTag().isEmpty()) {
             CompoundTag compoundnbt = this.getTag().copy();
@@ -80,9 +80,9 @@ public class LegendsSpawnerData {
         if (entity == null) {
             return null;
         }
-        entity.moveTo(spawnPos.x + 0.5D, spawnPos.y + 1.0D, spawnPos.z + 0.5D, entity.getYRot(), entity.getXRot());
+        entity.moveTo(spawnPos.getX() + 0.5D, spawnPos.getY(), spawnPos.getZ() + 0.5D, entity.getYRot(), entity.getXRot());
         if (entity instanceof Mob mobEntity) {
-            if (net.minecraftforge.common.ForgeHooks.canEntitySpawn(mobEntity, level, spawnPos.x, spawnPos.y, spawnPos.z, null, spawnReason) == -1)
+            if (net.minecraftforge.common.ForgeHooks.canEntitySpawn(mobEntity, level, spawnPos.getX(), spawnPos.getY(), spawnPos.getZ(), null, spawnReason) == -1)
                 return null;
             if (this.getTag().isEmpty()) {
                 mobEntity.finalizeSpawn(level, level.getCurrentDifficultyAt(new BlockPos(spawnPos)), MobSpawnType.EVENT, null, null);
