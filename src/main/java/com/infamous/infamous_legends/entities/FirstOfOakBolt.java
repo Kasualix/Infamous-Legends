@@ -36,7 +36,7 @@ public class FirstOfOakBolt extends AbstractArrow {
 	
 	@Override
 	protected boolean canHitEntity(Entity p_36743_) {
-		boolean mobThatCantBeHurt = this.getOwner() != null && this.getOwner() instanceof PlankGolem
+		boolean mobThatCantBeHurt = this.getOwner() != null && this.getOwner() instanceof FirstOfOak
 				&& MiscUtils.nonEnemy(this.getOwner(), p_36743_);
 		return !mobThatCantBeHurt && super.canHitEntity(p_36743_);
 	}

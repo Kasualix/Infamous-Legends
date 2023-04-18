@@ -1,6 +1,8 @@
 package com.infamous.infamous_legends.network;
 
 import com.infamous.infamous_legends.InfamousLegends;
+import com.infamous.infamous_legends.network.message.FirstOfOakWood1TypeSyncPacket;
+import com.infamous.infamous_legends.network.message.FirstOfOakWood2TypeSyncPacket;
 import com.infamous.infamous_legends.network.message.LegendsSpawnerDataSyncPacket;
 import com.infamous.infamous_legends.network.message.PlankGolemTypeSyncPacket;
 import com.infamous.infamous_legends.network.message.ServerToClientShakeCameraPacket;
@@ -44,8 +46,16 @@ public class Messages {
         .encoder(PlankGolemTypeSyncPacket::encode).decoder(PlankGolemTypeSyncPacket::decode)
         .consumerMainThread(PlankGolemTypeSyncPacket::onPacketReceived)
         .add();
+        
+        INSTANCE.messageBuilder(FirstOfOakWood1TypeSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+        .encoder(FirstOfOakWood1TypeSyncPacket::encode).decoder(FirstOfOakWood1TypeSyncPacket::decode)
+        .consumerMainThread(FirstOfOakWood1TypeSyncPacket::onPacketReceived)
+        .add();
 
-
+        INSTANCE.messageBuilder(FirstOfOakWood2TypeSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+        .encoder(FirstOfOakWood2TypeSyncPacket::encode).decoder(FirstOfOakWood2TypeSyncPacket::decode)
+        .consumerMainThread(FirstOfOakWood2TypeSyncPacket::onPacketReceived)
+        .add();
     }
 
     public static <MSG> void sendToServer(MSG message) {
