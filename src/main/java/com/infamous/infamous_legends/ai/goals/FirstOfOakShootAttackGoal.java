@@ -69,7 +69,8 @@ public class FirstOfOakShootAttackGoal extends Goal {
 				double d1 = target.getY(0.3333333333333333D) - bolt.getY();
 				double d2 = target.getZ() - mob.getZ();
 				double d3 = Math.sqrt(d0 * d0 + d2 * d2);
-				bolt.shoot(d0, d1 + d3 * (double) 0.05F, d2, 3.0F, 0);
+				bolt.setType(mob.getWood1Type());
+				bolt.shoot(d0, d1 + d3 * (double) 0.1F, d2, 3.0F, 0);
 				mob.playSound(SoundEvents.DISPENSER_LAUNCH);
 				mob.playSound(SoundEvents.PISTON_CONTRACT);
 				mob.level.addFreshEntity(bolt);

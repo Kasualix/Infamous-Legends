@@ -1,5 +1,6 @@
 {
   "planks": "minecraft:crimson_planks",
   "name": "crimson",
-  "textureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_crimson.png"
+  "textureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_crimson.png",
+  "glowTextureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_nether_glow.png"
 }

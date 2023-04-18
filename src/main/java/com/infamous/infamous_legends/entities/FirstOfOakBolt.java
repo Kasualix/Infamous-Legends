@@ -1,10 +1,17 @@
 package com.infamous.infamous_legends.entities;
 
+import com.infamous.infamous_legends.golem_types.FirstOfOakWood1Type;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.FirstOfOakWood1TypeInit;
+import com.infamous.infamous_legends.init.FirstOfOakWood2TypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.network.syncher.EntityDataAccessor;
+import net.minecraft.network.syncher.EntityDataSerializers;
+import net.minecraft.network.syncher.SynchedEntityData;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
@@ -22,6 +29,8 @@ import net.minecraftforge.network.NetworkHooks;
 
 public class FirstOfOakBolt extends AbstractArrow {
 
+	private static final EntityDataAccessor<String> TYPE = SynchedEntityData.defineId(FirstOfOakBolt.class, EntityDataSerializers.STRING);
+	
 	private int life;
 	   
 	public FirstOfOakBolt(EntityType<? extends FirstOfOakBolt> p_37561_, Level p_37562_) {
@@ -32,6 +41,36 @@ public class FirstOfOakBolt extends AbstractArrow {
 	public FirstOfOakBolt(Level p_37569_, LivingEntity p_37570_) {
 		super(EntityTypeInit.FIRST_OF_OAK_BOLT.get(), p_37570_, p_37569_);
 		this.pickup = AbstractArrow.Pickup.DISALLOWED;
+	}
+	
+	protected void defineSynchedData() {
+	    super.defineSynchedData();
+		this.entityData.define(TYPE, "oak");
+	}
+	
+	public void addAdditionalSaveData(CompoundTag pCompound) {
+		super.addAdditionalSaveData(pCompound);
+		pCompound.putString("Type", this.getWoodType().getName());
+	}
+
+	public void readAdditionalSaveData(CompoundTag pCompound) {
+		super.readAdditionalSaveData(pCompound);
+		if (pCompound.contains("Type", 8)) {
+			this.setType(FirstOfOakWood1TypeInit.getWood1TypeByName(pCompound.getString("Type")));
+		}
+	}
+	
+	public void setType(FirstOfOakWood1Type type) {
+		this.entityData.set(TYPE, type.getName());
+	}
+
+	public FirstOfOakWood1Type getWoodType() {
+		FirstOfOakWood1Type type = FirstOfOakWood1TypeInit.getWood1TypeByName(this.entityData.get(TYPE));
+		if (type == null) {
+			this.setType(FirstOfOakWood1TypeInit.getWood1TypeByName("oak"));
+			type = FirstOfOakWood1TypeInit.getWood1TypeByName(this.entityData.get(TYPE));
+		}
+		return type;
 	}
 	
 	@Override
@@ -53,7 +92,7 @@ public class FirstOfOakBolt extends AbstractArrow {
 	protected void onHitEntity(EntityHitResult p_37573_) {
 		if (!this.level.isClientSide) {
 			Entity entity = p_37573_.getEntity();
-			float f = 30F;
+			float f = 35F;
 			Entity entity1 = this.getOwner();
 			DamageSource damagesource = DamageSource.arrow(this, (Entity) (entity1 == null ? this : entity1));
 			SoundEvent soundevent = SoundEvents.ARROW_HIT;

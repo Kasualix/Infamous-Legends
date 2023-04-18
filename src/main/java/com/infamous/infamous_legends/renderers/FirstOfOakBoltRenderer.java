@@ -1,6 +1,5 @@
 package com.infamous.infamous_legends.renderers;
 
-import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.entities.FirstOfOakBolt;
 import com.infamous.infamous_legends.init.ModelLayerInit;
 import com.infamous.infamous_legends.models.FirstOfOakBoltModel;
@@ -20,8 +19,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 @OnlyIn(Dist.CLIENT)
 public class FirstOfOakBoltRenderer extends EntityRenderer<FirstOfOakBolt> {
-   private static final ResourceLocation TEXTURE_LOCATION = new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/first_of_oak.png");
-   private static final RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(TEXTURE_LOCATION);
    private final FirstOfOakBoltModel model;
 
    public FirstOfOakBoltRenderer(EntityRendererProvider.Context p_174420_) {
@@ -34,6 +31,7 @@ public class FirstOfOakBoltRenderer extends EntityRenderer<FirstOfOakBolt> {
       p_116114_.mulPose(Vector3f.YP.rotationDegrees(Mth.lerp(p_116113_, p_116111_.yRotO, p_116111_.getYRot()) - 90.0F));
       p_116114_.mulPose(Vector3f.ZP.rotationDegrees(Mth.lerp(p_116113_, p_116111_.xRotO, p_116111_.getXRot()) + 90.0F));
       p_116114_.translate(0, 0.0, 0);
+      RenderType RENDER_TYPE = RenderType.entityCutoutNoCull(this.getTextureLocation(p_116111_));
       VertexConsumer vertexconsumer = p_116115_.getBuffer(RENDER_TYPE);
       this.model.renderToBuffer(p_116114_, vertexconsumer, p_116116_, OverlayTexture.NO_OVERLAY, 1.0F, 1.0F, 1.0F, 1.0F);
       p_116114_.popPose();
@@ -41,6 +39,6 @@ public class FirstOfOakBoltRenderer extends EntityRenderer<FirstOfOakBolt> {
    }
 
    public ResourceLocation getTextureLocation(FirstOfOakBolt p_116109_) {
-      return TEXTURE_LOCATION;
-   }
+	      return new ResourceLocation(p_116109_.getWoodType().getTextureLocation());
+	   }
 }

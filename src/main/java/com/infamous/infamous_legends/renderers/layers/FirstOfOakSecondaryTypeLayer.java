@@ -24,30 +24,12 @@ public class FirstOfOakSecondaryTypeLayer<T extends FirstOfOak> extends RenderLa
 	public void render(PoseStack pMatrixStack, MultiBufferSource pBuffer, int pPackedLight, T pLivingEntity,
 			float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw,
 			float pHeadPitch) {
-		
-		pMatrixStack.pushPose();
-			if (pLivingEntity.getWood2Type().getTextureLocation() != null && !pLivingEntity.getWood2Type().getTextureLocation().isEmpty() && !pLivingEntity.getWood2Type().getTextureLocation().isBlank()) {
+
+			if (!pLivingEntity.isInvisible() && pLivingEntity.getWood2Type().getTextureLocation() != null && !pLivingEntity.getWood2Type().getTextureLocation().isEmpty() && !pLivingEntity.getWood2Type().getTextureLocation().isBlank()) {
 				VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.entityTranslucent(new ResourceLocation(pLivingEntity.getWood2Type().getTextureLocation())));
-				this.getParentModel().renderToBuffer(pMatrixStack, vertexconsumer, pPackedLight, OverlayTexture.NO_OVERLAY, 1.0F,
+				this.getParentModel().renderToBuffer(pMatrixStack, vertexconsumer, pPackedLight, pLivingEntity.hurtTime > 0 || pLivingEntity.deathTime > 0 ? OverlayTexture.RED_OVERLAY_V : OverlayTexture.NO_OVERLAY, 1.0F,
 						1.0F, 1.0F, 1.0F);
 			}
-		pMatrixStack.popPose();
-		
-		pMatrixStack.pushPose();
-			if (pLivingEntity.getWood1Type().getGlowTextureLocation() != null && !pLivingEntity.getWood1Type().getGlowTextureLocation().isEmpty() && !pLivingEntity.getWood1Type().getGlowTextureLocation().isBlank()) {
-				VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.eyes(new ResourceLocation(pLivingEntity.getWood1Type().getGlowTextureLocation())));
-				this.getParentModel().renderToBuffer(pMatrixStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F,
-						1.0F, 1.0F, 1.0F);
-			}
-		pMatrixStack.popPose();
-		
-		pMatrixStack.pushPose();
-			if (pLivingEntity.getWood2Type().getGlowTextureLocation() != null && !pLivingEntity.getWood2Type().getGlowTextureLocation().isEmpty() && !pLivingEntity.getWood2Type().getGlowTextureLocation().isBlank()) {
-				VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.eyes(new ResourceLocation(pLivingEntity.getWood2Type().getGlowTextureLocation())));
-				this.getParentModel().renderToBuffer(pMatrixStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F,
-						1.0F, 1.0F, 1.0F);
-			}	
-		pMatrixStack.popPose();
 		
 	}
 }

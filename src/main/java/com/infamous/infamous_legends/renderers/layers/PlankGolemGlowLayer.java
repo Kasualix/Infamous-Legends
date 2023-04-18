@@ -25,7 +25,7 @@ public class PlankGolemGlowLayer<T extends PlankGolem> extends RenderLayer<T, Pl
 			float pLimbSwing, float pLimbSwingAmount, float pPartialTicks, float pAgeInTicks, float pNetHeadYaw,
 			float pHeadPitch) {
 		if (pLivingEntity.getPlankGolemType().getGlowTextureLocation() != null && !pLivingEntity.getPlankGolemType().getGlowTextureLocation().isEmpty() && !pLivingEntity.getPlankGolemType().getGlowTextureLocation().isBlank()) {
-			VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.eyes(new ResourceLocation(pLivingEntity.getPlankGolemType().getGlowTextureLocation())));
+			VertexConsumer vertexconsumer = pBuffer.getBuffer(RenderType.entityTranslucentEmissive(new ResourceLocation(pLivingEntity.getPlankGolemType().getGlowTextureLocation())));
 			this.getParentModel().renderToBuffer(pMatrixStack, vertexconsumer, 15728640, OverlayTexture.NO_OVERLAY, 1.0F,
 					1.0F, 1.0F, 1.0F);
 		}

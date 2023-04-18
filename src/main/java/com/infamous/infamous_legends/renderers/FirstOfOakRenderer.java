@@ -4,6 +4,7 @@ import com.infamous.infamous_legends.entities.FirstOfOak;
 import com.infamous.infamous_legends.init.ModelLayerInit;
 import com.infamous.infamous_legends.models.FirstOfOakModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer;
+import com.infamous.infamous_legends.renderers.layers.FirstOfOakGlowLayer;
 import com.infamous.infamous_legends.renderers.layers.FirstOfOakSecondaryTypeLayer;
 import com.infamous.infamous_legends.renderers.layers.HeadItemLayer;
 
@@ -20,6 +21,7 @@ public class FirstOfOakRenderer extends MobRenderer<FirstOfOak, FirstOfOakModel<
 	    this.addLayer(new HeadItemLayer<>(this, context.getModelSet(), context.getItemInHandRenderer()));
 		this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
 		this.addLayer(new FirstOfOakSecondaryTypeLayer<>(this));
+		this.addLayer(new FirstOfOakGlowLayer<>(this));
 	}
 
 	@Override
