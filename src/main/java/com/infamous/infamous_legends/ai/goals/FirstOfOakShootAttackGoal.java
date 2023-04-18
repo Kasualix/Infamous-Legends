@@ -6,11 +6,18 @@ import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.entities.FirstOfOak;
 import com.infamous.infamous_legends.entities.FirstOfOakBolt;
+import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
+import com.infamous.infamous_legends.utils.PositionUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
+import net.minecraft.world.phys.AABB;
+import net.minecraft.world.phys.Vec3;
 
 public class FirstOfOakShootAttackGoal extends Goal {
 
@@ -60,6 +67,18 @@ public class FirstOfOakShootAttackGoal extends Goal {
 			
 			if (target != null) {
 				mob.lookAt(Anchor.EYES, target.position());
+			}
+			
+			if (mob.shootAnimationTick == mob.shootAnimationLength - 17) {
+				mob.playSound(SoundEvents.GOAT_RAM_IMPACT, 1.5F, MiscUtils.randomSoundPitch() * 0.25F);
+				Vec3 slamAttackBoundingBoxOffset = PositionUtils.getOffsetPos(mob, 0, 0, 1.5, mob.yBodyRot);
+				AABB slamAttackBoundingBox = mob.getBoundingBox().deflate(0, 2, 0).move(0, -2, 0).inflate(2, 0, 2).move(slamAttackBoundingBoxOffset.x - mob.getX(), slamAttackBoundingBoxOffset.y - mob.getY(), slamAttackBoundingBoxOffset.z - mob.getZ());
+				((ServerLevel)mob.level).sendParticles(ParticleTypeInit.DUST.get(), slamAttackBoundingBoxOffset.x, slamAttackBoundingBoxOffset.y, slamAttackBoundingBoxOffset.z, 20, 1, 0, 1, 1);
+				for (LivingEntity entity : mob.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), mob, slamAttackBoundingBox)) {
+					if (!MiscUtils.nonEnemy(mob, entity)) {
+						mob.doHurtTarget(entity);
+					}
+				}
 			}
 			
 			if (target != null && mob.shootAnimationTick == mob.shootAnimationActionPoint && mob.hasLineOfSight(target)) {

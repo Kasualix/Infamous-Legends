@@ -31,6 +31,10 @@ mixin {
     config "${modid}.mixins.json"
 }
 
+processResources {
+    duplicatesStrategy = 'exclude'
+}
+
 dependencies {
 
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
