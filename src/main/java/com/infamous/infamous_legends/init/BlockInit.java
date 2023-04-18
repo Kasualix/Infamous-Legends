@@ -1,7 +1,13 @@
 package com.infamous.infamous_legends.init;
 
+import static com.infamous.infamous_legends.init.ItemInit.registerBlockItem;
+import static com.infamous.infamous_legends.itemgroups.InfamousLegendsBlocksItemGroup.INFAMOUS_LEGENDS_BLOCKS;
+
+import java.util.function.Supplier;
+
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.blocks.LegendsSpawnerBlock;
+
 import net.minecraft.client.renderer.ItemBlockRenderTypes;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.BlockItem;
@@ -12,11 +18,6 @@ import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.Supplier;
-
-import static com.infamous.infamous_legends.init.ItemInit.registerBlockItem;
-import static com.infamous.infamous_legends.itemgroups.InfamousLegendsBlocksItemGroup.INFAMOUS_LEGENDS_BLOCKS;
 
 public class BlockInit {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister

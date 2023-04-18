@@ -1,9 +1,7 @@
 package com.infamous.infamous_legends.entities;
 
 import com.google.common.collect.ImmutableList;
-import com.infamous.infamous_legends.ai.brains.SporebackAi;
 import com.infamous.infamous_legends.ai.brains.LavaLauncherAi;
-import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
@@ -13,7 +11,6 @@ import com.infamous.infamous_legends.utils.PositionUtils;
 import com.mojang.serialization.Dynamic;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.core.particles.BlockParticleOption;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;

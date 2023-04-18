@@ -4,7 +4,6 @@ import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
 import com.infamous.infamous_legends.ai.brains.BlazeRuntAi;
-import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
 import com.mojang.serialization.Dynamic;

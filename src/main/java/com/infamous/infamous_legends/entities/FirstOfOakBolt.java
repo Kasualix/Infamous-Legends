@@ -3,7 +3,6 @@ package com.infamous.infamous_legends.entities;
 import com.infamous.infamous_legends.golem_types.FirstOfOakWood1Type;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.FirstOfOakWood1TypeInit;
-import com.infamous.infamous_legends.init.FirstOfOakWood2TypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 

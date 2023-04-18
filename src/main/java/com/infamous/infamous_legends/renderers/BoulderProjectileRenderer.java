@@ -1,16 +1,10 @@
 package com.infamous.infamous_legends.renderers;
 
-import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.entities.BoulderProjectile;
-import com.infamous.infamous_legends.entities.MagmaCubeProjectile;
-import com.infamous.infamous_legends.init.ModelLayerInit;
-import com.infamous.infamous_legends.models.MagmaCubeProjectileModel;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.blaze3d.vertex.VertexConsumer;
 import com.mojang.math.Vector3f;
 
 import net.minecraft.client.renderer.MultiBufferSource;
-import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.block.BlockRenderDispatcher;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
@@ -20,7 +14,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.util.RandomSource;
-import net.minecraft.world.entity.item.FallingBlockEntity;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.RenderShape;
 import net.minecraft.world.level.block.state.BlockState;

@@ -16,39 +16,21 @@ buildscript {
     }
 }
 
-plugins {
-    id 'eclipse'
-    id 'maven-publish'
-    id 'net.minecraftforge.gradle' version '5.1.+'
-}
-
-apply plugin: 'org.spongepowered.mixin'
+apply plugin: "net.minecraftforge.gradle"
 apply plugin: 'org.parchmentmc.librarian.forgegradle'
+apply plugin: "org.spongepowered.mixin"
+apply plugin: "eclipse"
+apply plugin: "maven-publish"
 
-mixin {
-    add sourceSets.main, "${modid}.refmap.json"
-
-    config "${modid}.mixins.json"
-}
-
-processResources {
-    duplicatesStrategy = 'exclude'
-}
-
-dependencies {
-
-    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
-}
-
-version = '1.0'
-group = "com.infamous.${modid}"
-archivesBaseName = "${modid}"
+version = project.mod_version
+group = project.group
+archivesBaseName = project.modid
 
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 println "Java: ${System.getProperty 'java.version'}, JVM: ${System.getProperty 'java.vm.version'} (${System.getProperty 'java.vendor'}), Arch: ${System.getProperty 'os.arch'}"
 minecraft {
-    mappings channel: "parchment", version:"${parchment_version}"
+    mappings channel: "${mappings_channel}", version:"${mappings_version}"
 
     accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
 
@@ -57,13 +39,14 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'infamous_legends'
+            arg "-mixin.config=${modid}.mixins.json"
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                infamous_legends {
+                "${modid}" {
                     source sourceSets.main
                 }
             }
@@ -73,29 +56,14 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
 
-            property 'forge.enabledGameTestNamespaces', 'infamous_legends'
+            arg "-mixin.config=${modid}.mixins.json"
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
 
             mods {
-                infamous_legends {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        gameTestServer {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            property 'forge.enabledGameTestNamespaces', 'infamous_legends'
-
-            mods {
-                infamous_legends {
+                "${modid}" {
                     source sourceSets.main
                 }
             }
@@ -105,21 +73,49 @@ minecraft {
             workingDirectory project.file('run')
 
             property 'forge.logging.markers', 'REGISTRIES'
-
             property 'forge.logging.console.level', 'debug'
 
-            args '--mod', 'infamous_legends', '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
+            property 'mixin.env.remapRefMap', 'true'
+            property 'mixin.env.refMapRemappingFile', "${projectDir}/build/createSrgToMcp/output.srg"
+
+            args '--mod', "${modid}", '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
 
             mods {
-                infamous_legends {
+                "${modid}" {
                     source sourceSets.main
                 }
+            }
+        }
+
+        test_client {
+            parent runs.client
+            taskName 'runTestClient'
+
+            mods {
+                "${modid}" { source sourceSets.main }
+                tests { source sourceSets.test } 
+            }
+        }
+
+        test_server {
+            parent runs.server
+            taskName 'runTestServer'
+
+            mods {
+                "${modid}" { source sourceSets.main }
+                tests { source sourceSets.test } 
             }
         }
     }
 }
 
 sourceSets.main.resources { srcDir 'src/generated/resources' }
+
+mixin {
+    add sourceSets.main, "${modid}.refmap.json"
+
+    config "${modid}.mixins.json"
+}
 
 repositories {
     maven {
@@ -155,25 +151,26 @@ dependencies {
     minecraft "net.minecraftforge:forge:${mc_version}-${forge_version}"
     annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
     
-
     //Libraries
     implementation fg.deobf("dungeons_libraries:dungeons_libraries:${mc_version}-${libraries_version}")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}")
+
     runtimeOnly    fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
     compileOnly    fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
 
     //Extras
-    runtimeOnly fg.deobf("curse.maven:mob-battle-mod-version-268746:${mob_battle_version}")
-    runtimeOnly fg.deobf("curse.maven:torohealth-damage-indicators-version-245733:3895068")
     implementation fg.deobf("mezz.jei:jei-${mc_version}-common-api:${jei_version}")
     implementation fg.deobf("mezz.jei:jei-${mc_version}-forge:${jei_version}")
     implementation fg.deobf("curse.maven:just-enough-resources-jer-240630:${jer_version}")
     implementation fg.deobf("curse.maven:just-enough-effect-descriptions-jeed-532286:${jeed_version}")
 
-    runtimeOnly fg.deobf("curse.maven:appleskin-248787:${appleskin_version}")
-
     implementation fg.deobf("curse.maven:configured-457570:${configured_version}")
     implementation fg.deobf("curse.maven:catalogue-459701:${catalogue_version}")
+
+    implementation fg.deobf("curse.maven:the-one-probe-245211:${top_version}")
+
+    runtimeOnly fg.deobf("curse.maven:torohealth-damage-indicators-version-245733:3895068")
+    runtimeOnly fg.deobf("curse.maven:appleskin-248787:${appleskin_version}")
 
     runtimeOnly fg.deobf("curse.maven:mob-battle-mod-version-268746:${mob_battle_version}")
 
@@ -183,11 +180,11 @@ dependencies {
 jar {
     manifest {
         attributes([
-                "Specification-Title"     : "Infamous Legends",
+                "Specification-Title"     : project.mod_name,
                 "Specification-Vendor"    : "Infamous Mods",
-                "Specification-Version"   : "1",
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
+                "Specification-Version"   : project.mod_version,
+                "Implementation-Title"    : project.mod_name,
+                "Implementation-Version"  : project.mod_version,
                 "Implementation-Vendor"   : "Infamous Mods",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])
@@ -195,6 +192,12 @@ jar {
 }
 
 jar.finalizedBy('reobfJar')
+
+processResources {
+	exclude '**/.cache/'
+
+	duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
 
 publishing {
     publications {

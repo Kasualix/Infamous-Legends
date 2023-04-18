@@ -10,7 +10,6 @@ import com.infamous.infamous_legends.ai.brains.behaviours.LavaLauncherShootAttac
 import com.infamous.infamous_legends.ai.brains.behaviours.LookAtAttackTarget;
 import com.infamous.infamous_legends.ai.brains.sensors.CustomSensor;
 import com.infamous.infamous_legends.entities.LavaLauncher;
-import com.infamous.infamous_legends.entities.PiglinBruiser;
 import com.infamous.infamous_legends.utils.BrainUtils;
 import com.mojang.datafixers.util.Pair;
 

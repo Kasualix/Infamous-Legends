@@ -4,7 +4,6 @@ import java.util.Optional;
 import java.util.function.Predicate;
 
 import com.google.common.collect.ImmutableMap;
-import com.infamous.infamous_legends.init.TagInit;
 
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.tags.TagKey;

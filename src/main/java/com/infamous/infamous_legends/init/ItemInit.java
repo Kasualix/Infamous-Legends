@@ -1,5 +1,8 @@
 package com.infamous.infamous_legends.init;
 
+import java.util.function.Function;
+import java.util.function.Supplier;
+
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.itemgroups.InfamousLegendsItemsItemGroup;
 import com.infamous.infamous_legends.itemgroups.InfamousLegendsMobsItemGroup;
@@ -16,9 +19,6 @@ import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
-
-import java.util.function.Function;
-import java.util.function.Supplier;
 
 public class ItemInit {
 

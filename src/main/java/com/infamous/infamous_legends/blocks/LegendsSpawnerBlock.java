@@ -1,6 +1,9 @@
 package com.infamous.infamous_legends.blocks;
 
+import static com.infamous.infamous_legends.init.BlockEntityTypeInit.LEGENDS_SPAWNER;
+
 import com.infamous.infamous_legends.blocks.entities.LegendsSpawnerBlockEntity;
+
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.world.InteractionHand;
@@ -16,8 +19,6 @@ import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.BlockHitResult;
-
-import static com.infamous.infamous_legends.init.BlockEntityTypeInit.LEGENDS_SPAWNER;
 
 public class LegendsSpawnerBlock extends Block implements EntityBlock {
 

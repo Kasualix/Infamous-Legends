@@ -1,12 +1,13 @@
 package com.infamous.infamous_legends.init;
 
+import java.util.Map;
+
 import com.infamous.dungeons_libraries.data.util.CodecJsonDataManager;
 import com.infamous.infamous_legends.network.message.LegendsSpawnerDataSyncPacket;
 import com.infamous.infamous_legends.spawner.LegendsSpawnerData;
+
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.Block;
-
-import java.util.Map;
 
 public class LegendsSpawnerDataInit {
     public static final CodecJsonDataManager<LegendsSpawnerData> LEGENDS_SPAWNER_DATA_REGISTRY = new CodecJsonDataManager<>("legends_spawner_data", LegendsSpawnerData.CODEC);

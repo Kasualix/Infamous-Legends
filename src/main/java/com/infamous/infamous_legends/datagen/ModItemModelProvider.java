@@ -1,6 +1,9 @@
 package com.infamous.infamous_legends.datagen;
 
+import static com.infamous.infamous_legends.InfamousLegends.MOD_ID;
+
 import com.infamous.infamous_legends.init.BlockInit;
+
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
@@ -8,8 +11,6 @@ import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.client.model.generators.ModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
-
-import static com.infamous.infamous_legends.InfamousLegends.MOD_ID;
 
 public class ModItemModelProvider extends ItemModelProvider {
 

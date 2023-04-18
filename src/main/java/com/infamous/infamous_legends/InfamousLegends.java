@@ -17,8 +17,6 @@ import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.WarBoar;
-import com.infamous.infamous_legends.golem_types.FirstOfOakWood1Type;
-import com.infamous.infamous_legends.golem_types.FirstOfOakWood2Type;
 import com.infamous.infamous_legends.init.ActivityInit;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.BlockInit;

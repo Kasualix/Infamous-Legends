@@ -1,33 +1,144 @@
-
 modLoader="javafml"
 loaderVersion="[43,)"
 license="MIT License"
+issueTrackerURL="https://github.com/Infamous-Misadventures/Infamous-Legends/issues"
+
 [[mods]]
 modId="infamous_legends"
 version="${file.jarVersion}"
 displayName="Infamous Legends"
-logoFile="examplemod.png"
+logoFile="logo.png"
 credits="Infamous Mods"
 authors="the_infamous_1, Alexander's Fun And Games, Patrigan, Meme Man"
+description='''Infamous Legends is a mod that adds features from Minecraft Legends to Minecraft: Java Edition!'''
 
-description='''
-Infamous Legends is a mod that adds features from Minecraft Legends to Minecraft: Java Edition!
-'''
+# Base
 [[dependencies.infamous_legends]]
     modId="forge"
     mandatory=true
     versionRange="[43,)"
     ordering="NONE"
     side="BOTH"
+
 [[dependencies.infamous_legends]]
     modId="minecraft"
     mandatory=true
     versionRange="[1.19,1.19.3)"
     ordering="NONE"
     side="BOTH"
+
+# Libraries
 [[dependencies.infamous_legends]]
     modId="dungeons_libraries"
     mandatory=true
     versionRange="[1.19.2-3.0.7-alpha,)"
     ordering="NONE"
     side="BOTH"
+
+[[dependencies.infamous_legends]]
+    modId="geckolib3"
+    mandatory=true
+    versionRange="[3.1.39,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]]
+    modId="curios"
+    mandatory=true
+    versionRange="[1.19.2-5.1.1.0,)"
+    ordering="NONE"
+    side="BOTH"
+
+# Extras
+# # COMMON
+[[dependencies.infamous_legends]] 
+    modId="jei" 
+    mandatory=false 
+    versionRange="[11.2.0.247,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="justenoughresources" 
+    mandatory=false 
+    versionRange="[1.2.1.189,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="jeed" 
+    mandatory=false 
+    versionRange="[1.18,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="roughlyenoughitems" 
+    mandatory=false 
+    versionRange="[9.1.595,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="roughlyenoughresources" 
+    mandatory=false 
+    versionRange="[2.5.2,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="architectury" 
+    mandatory=false 
+    versionRange="[6.4.62,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="clothconfig" 
+    mandatory=false 
+    versionRange="[8.2.88,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="theoneprobe" 
+    mandatory=false 
+    versionRange="[1.19-6.2.2,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="mobbattle" 
+    mandatory=false 
+    versionRange="[1.19-2.4.3,)" 
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.infamous_legends]] 
+    modId="spark" 
+    mandatory=false 
+    versionRange="[1.9.45,)" 
+    ordering="NONE"
+    side="BOTH"
+
+# # CLIENT
+[[dependencies.infamous_legends]] 
+    modId="configured" 
+    mandatory=false 
+    versionRange="[2.1.1,)" 
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.infamous_legends]] 
+    modId="catalogue" 
+    mandatory=false 
+    versionRange="[1.7.0,)" 
+    ordering="NONE"
+    side="CLIENT"
+
+[[dependencies.infamous_legends]] 
+    modId="appleskin" 
+    mandatory=false 
+    versionRange="[2.4.2,)" 
+    ordering="NONE"
+    side="CLIENT"

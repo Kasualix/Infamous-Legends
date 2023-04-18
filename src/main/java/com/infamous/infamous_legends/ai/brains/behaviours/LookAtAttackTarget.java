@@ -1,7 +1,5 @@
 package com.infamous.infamous_legends.ai.brains.behaviours;
 
-import java.util.Map;
-
 import com.google.common.collect.ImmutableMap;
 
 import net.minecraft.server.level.ServerLevel;

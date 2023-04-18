@@ -5,7 +5,6 @@ import java.util.Map;
 import com.infamous.dungeons_libraries.data.util.CodecJsonDataManager;
 import com.infamous.infamous_legends.golem_types.FirstOfOakWood1Type;
 import com.infamous.infamous_legends.network.message.FirstOfOakWood1TypeSyncPacket;
-import com.infamous.infamous_legends.network.message.PlankGolemTypeSyncPacket;
 
 import net.minecraft.resources.ResourceLocation;
 

@@ -1,9 +1,8 @@
 package com.infamous.infamous_legends.ai.brains.behaviours;
 
 import com.google.common.collect.ImmutableMap;
-import com.infamous.infamous_legends.entities.PiglinBomb;
-import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.ExplosiveFungus;
+import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -12,11 +11,8 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.behavior.Behavior;
-import net.minecraft.world.entity.ai.behavior.BehaviorUtils;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
-import net.minecraft.world.item.Items;
-import net.minecraft.world.level.Explosion;
 import net.minecraft.world.phys.Vec3;
 
 public class SporebackThrowAttack extends Behavior<Sporeback> {

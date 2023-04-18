@@ -1,8 +1,6 @@
 package com.infamous.infamous_legends.entities;
 
 import com.google.common.collect.ImmutableList;
-import com.infamous.infamous_legends.ai.brains.SporebackAi;
-import com.infamous.infamous_legends.ai.brains.MaceRuntAi;
 import com.infamous.infamous_legends.ai.brains.WarBoarAi;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
@@ -10,7 +8,6 @@ import com.infamous.infamous_legends.init.SensorTypeInit;
 import com.mojang.serialization.Dynamic;
 
 import net.minecraft.core.BlockPos;
-import net.minecraft.network.protocol.game.DebugPackets;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;

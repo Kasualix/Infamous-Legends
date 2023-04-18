@@ -9,7 +9,6 @@ import com.infamous.infamous_legends.interfaces.CustomHeadedModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer.ArmourModelPart;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.mojang.blaze3d.vertex.PoseStack;
-import com.mojang.math.Vector3f;
 
 import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;

@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.init;
 
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.blocks.entities.LegendsSpawnerBlockEntity;
+
 import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

@@ -12,7 +12,6 @@ import com.infamous.infamous_legends.ai.brains.sensors.CustomSensor;
 import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.BrainUtils;
-import com.infamous.infamous_legends.utils.MiscUtils;
 import com.mojang.datafixers.util.Pair;
 
 import net.minecraft.core.GlobalPos;
@@ -36,7 +35,6 @@ import net.minecraft.world.entity.ai.behavior.StrollAroundPoi;
 import net.minecraft.world.entity.ai.behavior.StrollToPoi;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
-import net.minecraft.world.entity.monster.piglin.PiglinAi;
 import net.minecraft.world.entity.schedule.Activity;
 
 public class SporebackAi {

@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.function.Supplier;
 
 import com.infamous.infamous_legends.golem_types.FirstOfOakWood1Type;
-import com.infamous.infamous_legends.golem_types.PlankGolemType;
 import com.infamous.infamous_legends.init.FirstOfOakWood1TypeInit;
 import com.mojang.serialization.Codec;
 

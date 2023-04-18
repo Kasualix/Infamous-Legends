@@ -1,17 +1,18 @@
 package com.infamous.infamous_legends.network.message;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Supplier;
+
 import com.infamous.infamous_legends.init.LegendsSpawnerDataInit;
 import com.infamous.infamous_legends.spawner.LegendsSpawnerData;
 import com.mojang.serialization.Codec;
+
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtOps;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.network.NetworkEvent;
-
-import java.util.HashMap;
-import java.util.Map;
-import java.util.function.Supplier;
 
 public class LegendsSpawnerDataSyncPacket {
     private static final Codec<Map<ResourceLocation, LegendsSpawnerData>> MAPPER =

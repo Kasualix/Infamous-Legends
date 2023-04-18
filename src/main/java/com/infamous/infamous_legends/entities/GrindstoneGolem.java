@@ -1,15 +1,11 @@
 package com.infamous.infamous_legends.entities;
 
-import javax.annotation.Nullable;
-
 import com.infamous.infamous_legends.ai.goals.ApproachTargetGoal;
 import com.infamous.infamous_legends.ai.goals.AvoidTargetGoal;
+import com.infamous.infamous_legends.ai.goals.GrindstoneGolemRollAttackGoal;
 import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
-import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
-import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
-import com.infamous.infamous_legends.utils.PositionUtils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -34,13 +30,9 @@ import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Enemy;
-import com.infamous.infamous_legends.ai.goals.CobblestoneGolemMeleeAttackGoal;
-import com.infamous.infamous_legends.ai.goals.GrindstoneGolemRollAttackGoal;
-
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
-import net.minecraft.world.phys.AABB;
 import net.minecraft.world.phys.Vec3;
 
 public class GrindstoneGolem extends AbstractGolem {

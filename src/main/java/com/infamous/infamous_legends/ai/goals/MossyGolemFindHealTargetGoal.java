@@ -4,7 +4,6 @@ import java.util.EnumSet;
 import java.util.List;
 
 import com.infamous.infamous_legends.entities.MossyGolem;
-import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.world.entity.LivingEntity;

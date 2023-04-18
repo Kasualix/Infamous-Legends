@@ -1,7 +1,6 @@
 package com.infamous.infamous_legends.items;
 
 import com.infamous.infamous_legends.entities.ExplosiveFungus;
-import com.infamous.infamous_legends.entities.PiglinBomb;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;

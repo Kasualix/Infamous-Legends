@@ -5,7 +5,6 @@ import com.infamous.infamous_legends.ai.brains.sensors.CustomNearestLivingEntity
 import com.infamous.infamous_legends.ai.brains.sensors.CustomPlayerSensor;
 import com.infamous.infamous_legends.ai.brains.sensors.LegendsPiglinSpecificSensor;
 import com.infamous.infamous_legends.ai.brains.sensors.SporeMedicSpecificSensor;
-import com.infamous.infamous_legends.entities.SporeMedic;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.sensing.SensorType;

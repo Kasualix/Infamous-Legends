@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.spawner;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
+
 import net.minecraft.world.item.Item;
 import net.minecraftforge.registries.ForgeRegistries;
 

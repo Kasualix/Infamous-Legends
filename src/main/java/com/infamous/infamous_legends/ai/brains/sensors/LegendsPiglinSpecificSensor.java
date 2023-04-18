@@ -16,7 +16,6 @@ import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.ai.Brain;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.NearestVisibleLivingEntities;
-import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 
 public class LegendsPiglinSpecificSensor extends CustomSensor<LivingEntity> {
    public Set<MemoryModuleType<?>> requires() {
