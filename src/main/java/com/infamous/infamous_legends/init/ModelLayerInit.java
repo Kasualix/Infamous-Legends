@@ -59,6 +59,10 @@ public class ModelLayerInit {
     public static final ModelLayerLocation FIRST_OF_OAK = register("first_of_oak");
     public static final ModelLayerLocation FIRST_OF_OAK_INNER_ARMOUR = register("first_of_oak_inner_armour");
     public static final ModelLayerLocation FIRST_OF_OAK_OUTER_ARMOUR = register("first_of_oak_outer_armour");
+    public static final ModelLayerLocation BIG_BEAK = register("big_beak");
+    public static final ModelLayerLocation BIG_BEAK_SADDLE = register("big_beak_saddle");
+    public static final ModelLayerLocation BIG_BEAK_INNER_ARMOUR = register("big_beak_inner_armour");
+    public static final ModelLayerLocation BIG_BEAK_OUTER_ARMOUR = register("big_beak_outer_armour");
     public static final ModelLayerLocation THROWN_BLAZE_ROD = register("thrown_blaze_rod");
     public static final ModelLayerLocation PIGLIN_BOMB = register("piglin_bomb");
     public static final ModelLayerLocation EXPLOSIVE_FUNGUS = register("explosive_fungus");

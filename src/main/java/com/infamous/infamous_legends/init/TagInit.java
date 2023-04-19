@@ -6,6 +6,7 @@ import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 
 public class TagInit {
@@ -25,6 +26,15 @@ public class TagInit {
     	
     	   private static TagKey<Block> tag(String p_203849_) {
     		      return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, p_203849_));
+    	   }
+    }
+    
+    public static class Items {
+    	public static final TagKey<Item> BIG_BEAK_BRED_WITH = tag("big_beak_bred_with");  	
+    	public static final TagKey<Item> HEALS_BIG_BEAK = tag("heals_big_beak");  
+    	
+    	   private static TagKey<Item> tag(String p_203849_) {
+    		      return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, p_203849_));
     	   }
     }
 }

@@ -1,6 +1,7 @@
 package com.infamous.infamous_legends.init;
 
 import com.infamous.infamous_legends.InfamousLegends;
+import com.infamous.infamous_legends.entities.BigBeak;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.BoulderProjectile;
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
@@ -110,6 +111,12 @@ public class EntityTypeInit {
 	public static final RegistryObject<EntityType<FirstOfOak>> FIRST_OF_OAK = ENTITY_TYPES.register("first_of_oak",
 			() -> EntityType.Builder.<FirstOfOak>of(FirstOfOak::new, MobCategory.MISC).sized(2.25F, 4.25F)
 					.build(new ResourceLocation(InfamousLegends.MOD_ID, "first_of_oak").toString()));
+	
+	// ANIMALS
+	
+	public static final RegistryObject<EntityType<BigBeak>> BIG_BEAK = ENTITY_TYPES.register("big_beak",
+			() -> EntityType.Builder.<BigBeak>of(BigBeak::new, MobCategory.CREATURE).sized(0.9F, 2.2F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "big_beak").toString()));
 	
 	// PROJECTILES
 

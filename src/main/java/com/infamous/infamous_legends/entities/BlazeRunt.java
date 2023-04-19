@@ -76,7 +76,7 @@ public class BlazeRunt extends AbstractPiglin {
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor p_35058_, DifficultyInstance p_35059_,
 			MobSpawnType p_35060_, @Nullable SpawnGroupData p_35061_, @Nullable CompoundTag p_35062_) {
 		BlazeRuntAi.initMemories(this);
-		this.populateDefaultEquipmentSlots(p_35058_.getRandom(), p_35059_);
+		this.populateDefaultEquipmentSlots(this.random, p_35059_);
 		return super.finalizeSpawn(p_35058_, p_35059_, p_35060_, p_35061_, p_35062_);
 	}
 	

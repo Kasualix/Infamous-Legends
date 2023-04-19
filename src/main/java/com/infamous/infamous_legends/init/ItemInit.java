@@ -95,6 +95,10 @@ public class ItemInit {
 			() -> new ForgeSpawnEggItem(EntityTypeInit.FIRST_OF_OAK, 0xd7c185, 0xb99558,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
+	public static final RegistryObject<Item> BIG_BEAK_SPAWN_EGG = ITEMS.register("big_beak_spawn_egg",
+			() -> new ForgeSpawnEggItem(EntityTypeInit.BIG_BEAK, 0x27aa96, 0xd18e32,
+					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
+	
 	// WEAPONS
 	
 	public static final RegistryObject<Item> PIGLIN_MACE = ITEMS.register("piglin_mace",
