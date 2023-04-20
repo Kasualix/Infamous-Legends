@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.entities;
 
 import javax.annotation.Nullable;
 
+import com.infamous.infamous_legends.init.BlockInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
@@ -23,6 +24,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.ExperienceOrb;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.PlayerRideableJumping;
@@ -42,6 +44,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.GameRules;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
@@ -246,6 +249,29 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 				}
 			}
 		}
+		
+		@Override
+		public void setInLove(Player pPlayer) {
+			this.playSound(SoundEvents.PARROT_EAT, 1.0F, MiscUtils.randomSoundPitch() * 0.75F);
+			super.setInLove(pPlayer);
+		}
+		
+		@Override
+		public void spawnChildFromBreeding(ServerLevel pLevel, Animal pMate) {
+			if (pLevel.getBlockState(this.blockPosition()).isAir() && !pLevel.getBlockState(this.blockPosition().below()).isAir()) {
+				pLevel.setBlockAndUpdate(this.blockPosition(), BlockInit.BIG_BEAK_EGG.get().defaultBlockState());
+				this.playSound(SoundEvents.TURTLE_LAY_EGG);
+			}
+			this.setAge(6000);
+			pMate.setAge(6000);
+			this.resetLove();
+			pMate.resetLove();
+			pLevel.broadcastEntityEvent(this, (byte) 18);
+			if (pLevel.getGameRules().getBoolean(GameRules.RULE_DOMOBLOOT)) {
+				pLevel.addFreshEntity(new ExperienceOrb(pLevel, this.getX(), this.getY(), this.getZ(),
+						this.getRandom().nextInt(7) + 1));
+			}
+		}
 
 	@Override
 	public AgeableMob getBreedOffspring(ServerLevel pLevel, AgeableMob pOtherParent) {
@@ -306,7 +332,7 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 
 	@Override
 	public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
-	      if (pFallDistance > 1.0F) {
+	      if (pFallDistance > 2.0F) {
 	          this.playSound(SoundEvents.HORSE_LAND, 0.4F, 1.25F);
 	       }
 		return false;

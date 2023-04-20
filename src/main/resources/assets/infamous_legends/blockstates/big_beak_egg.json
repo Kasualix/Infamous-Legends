@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "hatch=0": [
+      {
+        "model": "infamous_legends:block/big_beak_egg"
+      }
+    ],
+    "hatch=1": [
+      {
+        "model": "infamous_legends:block/big_beak_egg_slightly_cracked"
+      }
+    ],
+    "hatch=2": [
+      {
+        "model": "infamous_legends:block/big_beak_egg_very_cracked"
+      }
+    ]
+  }
+}
