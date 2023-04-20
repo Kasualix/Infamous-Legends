@@ -3,7 +3,13 @@ package com.infamous.infamous_legends.models;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
 import com.infamous.infamous_legends.animation.sine_wave_animations.definition.BigBeakSineWaveAnimations;
 import com.infamous.infamous_legends.entities.BigBeak;
+import com.infamous.infamous_legends.interfaces.ArmourWearingModel;
+import com.infamous.infamous_legends.interfaces.CustomHeadedModel;
+import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer.ArmourModelPart;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.math.Vector3f;
 
+import net.minecraft.client.model.ArmedModel;
 import net.minecraft.client.model.HierarchicalModel;
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
@@ -23,7 +29,7 @@ import net.minecraft.world.phys.Vec3;
 // Paste this class into your mod and generate all required imports
 
 
-public class BigBeakModel<T extends BigBeak> extends HierarchicalModel<T> {
+public class BigBeakModel<T extends BigBeak> extends HierarchicalModel<T> implements CustomHeadedModel, ArmourWearingModel {
 	private final ModelPart root;
 	public final ModelPart everything;
 	public final ModelPart body;
@@ -169,5 +175,71 @@ public class BigBeakModel<T extends BigBeak> extends HierarchicalModel<T> {
 	@Override
 	public ModelPart root() {
 		return this.root;
+	}
+	
+	@Override
+	public void translateToHead(PoseStack stack) {
+		this.root().translateAndRotate(stack);
+		this.everything.translateAndRotate(stack);
+		this.body.translateAndRotate(stack);
+		this.head.translateAndRotate(stack);
+		stack.translate(0, -7 / 16.0F, -3 / 16.0F);
+	}
+	
+	@Override
+	public void translateArmour(ArmourModelPart modelPart, PoseStack stack, boolean innerModel) {
+		switch (modelPart) {
+			case HEAD:
+				this.root().translateAndRotate(stack);
+				this.everything.translateAndRotate(stack);
+				this.body.translateAndRotate(stack);
+				this.head.translateAndRotate(stack);
+				stack.translate(0, -10 / 16.0F, -3 / 16.0F);
+				break;
+			case BODY:
+				this.root().translateAndRotate(stack);
+				this.everything.translateAndRotate(stack);
+				this.body.translateAndRotate(stack);
+				stack.mulPose(Vector3f.XP.rotationDegrees(90));
+				stack.translate(0, -11 / 16.0F, 4.5F / 16.0F);
+				if (innerModel) {
+					stack.scale(1.25F, 1.65F, 1.85F);
+				} else {
+					stack.scale(1.25F, 1.65F, 1.65F);
+				}
+				break;
+			case RIGHT_ARM:
+				stack.scale(0, 0, 0);
+				break;
+			case LEFT_ARM:
+				stack.scale(0, 0, 0);
+				break;
+			case RIGHT_LEG:
+				this.root().translateAndRotate(stack);
+				this.everything.translateAndRotate(stack);
+				this.rightLeg.translateAndRotate(stack);
+				if (innerModel) {
+					stack.scale(1, 0.75F, 1);
+					stack.translate(2F / 16.0F, -11 / 16.0F, 0);
+				} else {
+					this.rightLegLower.translateAndRotate(stack);
+					stack.scale(1.0F, 1.25F, 1.0F);
+					stack.translate(2 / 16.0F, -17.5F / 16.0F, 0.0F / 16.0F);
+				}
+				break;
+			case LEFT_LEG:
+				this.root().translateAndRotate(stack);
+				this.everything.translateAndRotate(stack);
+				this.leftLeg.translateAndRotate(stack);
+				if (innerModel) {
+					stack.scale(1, 0.75F, 1);
+					stack.translate(-2F / 16.0F, -11 / 16.0F, 0);
+				} else {
+					this.leftLegLower.translateAndRotate(stack);
+					stack.scale(1.0F, 1.25F, 1.0F);
+					stack.translate(-2 / 16.0F, -17.5F / 16.0F, 0.0F / 16.0F);
+				}
+				break;
+		}
 	}
 }

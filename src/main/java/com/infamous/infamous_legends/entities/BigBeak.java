@@ -231,8 +231,15 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 						this.playSound(SoundEvents.PARROT_EAT, 1.0F, MiscUtils.randomSoundPitch() * 0.75F);
 						return InteractionResult.sidedSuccess(this.level.isClientSide);
 					} else {
-						return itemstack.is(Items.SADDLE) ? itemstack.interactLivingEntity(pPlayer, this, pHand)
-								: InteractionResult.PASS;
+						if (pHand == InteractionHand.MAIN_HAND && this.isSaddled() && pPlayer.isCrouching() && pPlayer.getItemInHand(pHand).isEmpty()) {
+							pPlayer.setItemInHand(pHand, new ItemStack(Items.SADDLE));
+							this.playSound(SoundEvents.PIG_SADDLE, 0.5F, 1.0F);
+							this.setSaddled(false);
+							return InteractionResult.sidedSuccess(this.level.isClientSide);
+						} else {
+							return itemstack.is(Items.SADDLE) ? itemstack.interactLivingEntity(pPlayer, this, pHand)
+									: InteractionResult.PASS;
+						}
 					}
 				} else {
 					return interactionresult;
