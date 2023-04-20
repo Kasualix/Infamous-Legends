@@ -275,7 +275,7 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 	public void onPlayerJump(int pJumpPower) {
 		if (!this.isInWater()) {
 			if (this.isOnGround()) {
-				this.timeUntilStopJumpingAllowed = 20;
+				this.timeUntilStopJumpingAllowed = 2;
 				this.setOnGround(false);
 				this.setDeltaMovement(this.getDeltaMovement().add(0, pJumpPower * 0.0125, 0));
 				this.setJumpingData(true);
@@ -283,7 +283,7 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 				if (!this.isGliding()) {
 					this.hasImpulse = true;
 					this.setJumpingData(false);
-					this.glideSpeed = pJumpPower * 0.0075;
+					this.glideSpeed = pJumpPower * 0.0065;
 					this.setDeltaMovement(this.getDeltaMovement().add(PositionUtils.getOffsetMotion(this, 0, 0, this.glideSpeed, this.yBodyRot)));
 					this.setGliding(true);
 			         LivingEntity livingentity = this.getControllingPassenger();
@@ -314,7 +314,7 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 	public void handleStartJump(int pJumpPower) {
 		if (!this.isInWater()) {
 			if (this.isOnGround()) {
-				this.timeUntilStopJumpingAllowed = 20;
+				this.timeUntilStopJumpingAllowed = 2;
 				this.setJumpingData(true);
 				this.playSound(SoundEvents.GOAT_LONG_JUMP, 0.4F, 1.0F);
 			} else {
@@ -344,7 +344,7 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 	    	  Vec3 offsetMotion = PositionUtils.getOffsetMotion(this, 0, 0, this.glideSpeed, this.yBodyRot);
 	    	 this.setDeltaMovement(new Vec3(offsetMotion.x, this.getDeltaMovement().y, offsetMotion.z));
 	    	 if (this.getDeltaMovement().y < 0.0D) {
-	    		 this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.6D, 1.0D));
+	    		 this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.65D, 1.0D));
 	    	 }
 	      }
 	}
