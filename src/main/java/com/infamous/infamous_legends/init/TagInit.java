@@ -32,6 +32,8 @@ public class TagInit {
     public static class Items {
     	public static final TagKey<Item> BIG_BEAK_BRED_WITH = tag("big_beak_bred_with");  	
     	public static final TagKey<Item> HEALS_BIG_BEAK = tag("heals_big_beak");  
+    	public static final TagKey<Item> REGAL_TIGER_BRED_WITH = tag("regal_tiger_bred_with");  	
+    	public static final TagKey<Item> HEALS_REGAL_TIGER = tag("heals_regal_tiger");  
     	
     	   private static TagKey<Item> tag(String p_203849_) {
     		      return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, p_203849_));

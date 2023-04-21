@@ -25,6 +25,7 @@
 	"entity.infamous_legends.first_of_oak" : "First of Oak",
 	"entity.infamous_legends.first_of_oak_bolt" : "First of Oak Bolt",
 	"entity.infamous_legends.big_beak" : "Big Beak",
+	"entity.infamous_legends.regal_tiger" : "Regal Tiger",
 	
 	"item.infamous_legends.mace_runt_spawn_egg" : "Mace Runt Spawn Egg",
 	"item.infamous_legends.blaze_runt_spawn_egg" : "Blaze Runt Spawn Egg",
@@ -44,6 +45,7 @@
 	"item.infamous_legends.first_of_stone_spawn_egg" : "First of Stone Spawn Egg",
 	"item.infamous_legends.first_of_oak_spawn_egg" : "First of Oak Spawn Egg",
 	"item.infamous_legends.big_beak_spawn_egg" : "Big Beak Spawn Egg",
+	"item.infamous_legends.regal_tiger_spawn_egg" : "Regal Tiger Spawn Egg",
 	
 	"block.infamous_legends.legends_spawner_block" : "Legends Spawner",
 	"block.infamous_legends.big_beak_egg" : "Big Beak Egg",

@@ -5,7 +5,8 @@
 	"refmap": "infamous_legends.refmap.json",
 	"mixins": [
 		"ItemMixin",
-		"SlimeMixin"
+		"SlimeMixin",
+		"LivingEntityMixin"
 	],
 	"client": [
 

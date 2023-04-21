@@ -99,6 +99,10 @@ public class ItemInit {
 			() -> new ForgeSpawnEggItem(EntityTypeInit.BIG_BEAK, 0x27aa96, 0xd18e32,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
+	public static final RegistryObject<Item> REGAL_TIGER_SPAWN_EGG = ITEMS.register("regal_tiger_spawn_egg",
+			() -> new ForgeSpawnEggItem(EntityTypeInit.REGAL_TIGER, 0xad6bbf, 0xd2cdd6,
+					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
+	
 	// WEAPONS
 	
 	public static final RegistryObject<Item> PIGLIN_MACE = ITEMS.register("piglin_mace",

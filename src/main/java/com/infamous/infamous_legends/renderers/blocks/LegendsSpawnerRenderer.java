@@ -50,7 +50,7 @@ public class LegendsSpawnerRenderer implements BlockEntityRenderer<LegendsSpawne
 		        	 EntityModel model = livingRenderer.getModel();
 		        	 
 		        	 model.setupAnim(entity, 0, 0, pPartialTick, 0, 0);
-		        	 model.renderToBuffer(pPoseStack, pBufferSource.getBuffer(renderType), 15728640, OverlayTexture.NO_OVERLAY, 0.65F, 0.65F, 1.0F, 0.75F);
+		        	 model.renderToBuffer(pPoseStack, pBufferSource.getBuffer(renderType), 15728640, OverlayTexture.NO_OVERLAY, 0.35F, 0.35F, 1.0F, 0.75F);
 		         }
 		      }
 	      }

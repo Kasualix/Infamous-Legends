@@ -14,6 +14,7 @@ import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.entities.Pigmadillo;
 import com.infamous.infamous_legends.entities.PlankGolem;
 import com.infamous.infamous_legends.entities.PortalGuard;
+import com.infamous.infamous_legends.entities.RegalTiger;
 import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.entities.Sporeback;
@@ -41,6 +42,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import software.bernie.example.GeckoLibMod;
 
 @Mod("infamous_legends")
 @Mod.EventBusSubscriber(modid = InfamousLegends.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
@@ -54,7 +56,7 @@ public class InfamousLegends {
 
         bus.addListener(this::addAttributes);
         bus.addListener(this::clientSetup);
-
+        
         ActivityInit.ACTIVITIES.register(bus);
         EntityTypeInit.ENTITY_TYPES.register(bus);
         BlockInit.BLOCKS.register(bus);
@@ -93,6 +95,7 @@ public class InfamousLegends {
 	        event.put(EntityTypeInit.FIRST_OF_STONE.get(), FirstOfStone.createAttributes().build());
 	        event.put(EntityTypeInit.FIRST_OF_OAK.get(), FirstOfOak.createAttributes().build());
 	        event.put(EntityTypeInit.BIG_BEAK.get(), BigBeak.createAttributes().build());
+	        event.put(EntityTypeInit.REGAL_TIGER.get(), RegalTiger.createAttributes().build());
 	}
 	
     public void commonSetup(final FMLCommonSetupEvent event) {    

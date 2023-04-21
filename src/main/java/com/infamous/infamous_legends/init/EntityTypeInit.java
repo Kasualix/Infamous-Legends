@@ -22,6 +22,7 @@ import com.infamous.infamous_legends.entities.PlankGolem;
 import com.infamous.infamous_legends.entities.PlankGolemBolt;
 import com.infamous.infamous_legends.entities.PortalGuard;
 import com.infamous.infamous_legends.entities.PortalGuardWreckingBall;
+import com.infamous.infamous_legends.entities.RegalTiger;
 import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.entities.Sporeback;
@@ -117,6 +118,10 @@ public class EntityTypeInit {
 	public static final RegistryObject<EntityType<BigBeak>> BIG_BEAK = ENTITY_TYPES.register("big_beak",
 			() -> EntityType.Builder.<BigBeak>of(BigBeak::new, MobCategory.CREATURE).sized(0.9F, 2.2F)
 					.build(new ResourceLocation(InfamousLegends.MOD_ID, "big_beak").toString()));
+	
+	public static final RegistryObject<EntityType<RegalTiger>> REGAL_TIGER = ENTITY_TYPES.register("regal_tiger",
+			() -> EntityType.Builder.<RegalTiger>of(RegalTiger::new, MobCategory.CREATURE).sized(1.3F, 1.2F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "regal_tiger").toString()));
 	
 	// PROJECTILES
 
