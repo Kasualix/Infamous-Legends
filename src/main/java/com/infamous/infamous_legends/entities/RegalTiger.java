@@ -94,9 +94,24 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
 		this.goalSelector.addGoal(0, new RegalTigerSitGoal(this));
-		this.goalSelector.addGoal(1, new RegalTigerPounceAttackGoal(this));
-		this.goalSelector.addGoal(2, new LookAtTargetGoal(this));
-		this.goalSelector.addGoal(3, new ApproachTargetGoal(this, 6, 1.4, true));
+		this.goalSelector.addGoal(1, new RegalTigerPounceAttackGoal(this) {
+			@Override
+			public boolean canUse() {
+				return !RegalTiger.this.isBaby() && super.canUse();
+			}
+		});
+		this.goalSelector.addGoal(2, new LookAtTargetGoal(this) {
+			@Override
+			public boolean canUse() {
+				return !RegalTiger.this.isBaby() && super.canUse();
+			}
+		});
+		this.goalSelector.addGoal(3, new ApproachTargetGoal(this, 6, 1.4, true) {
+			@Override
+			public boolean canUse() {
+				return !RegalTiger.this.isBaby() && super.canUse();
+			}
+		});
 		this.goalSelector.addGoal(4, new BreedGoal(this, 0.6D));
 		this.goalSelector.addGoal(5, new TemptGoal(this, 0.8D, Ingredient.of(TagInit.Items.REGAL_TIGER_BRED_WITH), false));
 		this.goalSelector.addGoal(6, new FollowParentGoal(this, 1.4D) {
@@ -115,15 +130,6 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 				return !RegalTiger.this.isBaby() && !RegalTiger.this.isVehicle() && super.canUse();
 			}
 		});
-	}
-	
-	@Override
-	public boolean canAttack(LivingEntity pTarget) {
-		if (this.isBaby()) {
-			return false;
-		} else {
-			return super.canAttack(pTarget);
-		}
 	}
 	
 	@Override
