@@ -31,6 +31,7 @@ import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.PlankGolemTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.network.Messages;
 
 import net.minecraftforge.api.distmarker.Dist;
@@ -42,7 +43,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import software.bernie.example.GeckoLibMod;
 
 @Mod("infamous_legends")
 @Mod.EventBusSubscriber(modid = InfamousLegends.MOD_ID, bus = Bus.MOD, value = Dist.CLIENT)
@@ -57,6 +57,7 @@ public class InfamousLegends {
         bus.addListener(this::addAttributes);
         bus.addListener(this::clientSetup);
         
+        SoundEventInit.SOUND_EVENTS.register(bus);
         ActivityInit.ACTIVITIES.register(bus);
         EntityTypeInit.ENTITY_TYPES.register(bus);
         BlockInit.BLOCKS.register(bus);

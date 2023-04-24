@@ -1,0 +1,376 @@
+{
+	"entity.pigmadillo.idle": {
+		"subtitle": "subtitles.entity.pigmadillo.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/idle5",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.angry": {
+		"subtitle": "subtitles.entity.pigmadillo.angry",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/angry1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/angry2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/angry3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/angry4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/angry5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/angry6",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.snort": {
+		"subtitle": "subtitles.entity.pigmadillo.snort",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/snort1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/snort2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/snort3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/snort4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/snort5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/snort6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/snort7",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.hurt": {
+		"subtitle": "subtitles.entity.pigmadillo.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/hurt7",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.death": {
+		"subtitle": "subtitles.entity.pigmadillo.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/death4",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.step": {
+		"subtitle": "subtitles.entity.pigmadillo.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step5",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.attack": {
+		"subtitle": "subtitles.entity.pigmadillo.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack6",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.roll_start": {
+		"subtitle": "subtitles.entity.pigmadillo.roll_start",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start4",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.roll": {
+		"subtitle": "subtitles.entity.pigmadillo.roll",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll4",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.roll_stop": {
+		"subtitle": "subtitles.entity.pigmadillo.roll_stop",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop5",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.attack_foley": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack_foley1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack_foley2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack_foley3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack_foley4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack_foley5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/attack_foley6",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.roll_start_foley": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start_foley1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start_foley2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start_foley3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_start_foley4",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.roll_foley": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_foley1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_foley2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_foley3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_foley4",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.roll_stop_foley": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop_foley1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop_foley2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop_foley3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/roll_stop_foley4",
+				"stream": true
+			}
+		]
+	},
+	"entity.pigmadillo.step_foley": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/pigmadillo/step_foley1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step_foley2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step_foley3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step_foley4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/pigmadillo/step_foley4",
+				"stream": true
+			}
+		]
+	}
+}

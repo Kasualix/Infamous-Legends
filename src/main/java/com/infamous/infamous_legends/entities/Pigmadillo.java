@@ -8,11 +8,13 @@ import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.mojang.serialization.Dynamic;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
@@ -54,7 +56,7 @@ public class Pigmadillo extends AbstractPiglin {
 	
 	public AnimationState rollAnimationState = new AnimationState();
 	public int rollAnimationTick;
-	public final int rollAnimationLength = 125;
+	public final int rollAnimationLength = 165;
 	
 	public EntityDimensions rollingSize = EntityDimensions.scalable(2.5F, 2.5F);
 	
@@ -80,11 +82,6 @@ public class Pigmadillo extends AbstractPiglin {
 	@Override
 	public float getStepHeight() {
 		return 1;
-	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.25F;
 	}
 	
 	@Override
@@ -161,7 +158,7 @@ public class Pigmadillo extends AbstractPiglin {
 	            }
 	         }
 			
-			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), this, getBoundingBox())) {
+			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), this, getBoundingBox().inflate(0.1))) {
 				if (!MiscUtils.piglinAllies(this, entity)) {
 					entity.hurt(DamageSource.mobAttack(this), 15);
 					double d0 = entity.getX() - this.getX();
@@ -172,10 +169,24 @@ public class Pigmadillo extends AbstractPiglin {
 				}
 			}
 		}
+		
+		if (this.rollAnimationTick > 0 && this.rollAnimationTick <= this.rollAnimationLength - 105) {
+			this.stunEffect();
+		}
 	}
 	
+	   private void stunEffect() {
+		      if (this.random.nextInt(6) == 0) {
+		         double d0 = this.getX() - (double)this.getBbWidth() * Math.sin((double)(this.yBodyRot * ((float)Math.PI / 180F))) + (this.random.nextDouble() * 0.6D - 0.3D);
+		         double d1 = this.getY() + (double)this.getBbHeight() - 0.3D;
+		         double d2 = this.getZ() + (double)this.getBbWidth() * Math.cos((double)(this.yBodyRot * ((float)Math.PI / 180F))) + (this.random.nextDouble() * 0.6D - 0.3D);
+		         this.level.addParticle(ParticleTypes.ENTITY_EFFECT, d0, d1, d2, 0.4980392156862745D, 0.5137254901960784D, 0.5725490196078431D);
+		      }
+
+		   }
+	
 	public boolean rolling() {
-		return this.rollAnimationTick <= 85 && this.rollAnimationTick > 25; 
+		return this.rollAnimationTick <= this.rollAnimationLength - 41 && this.rollAnimationTick > this.rollAnimationLength - 100; 
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
@@ -256,29 +267,35 @@ public class Pigmadillo extends AbstractPiglin {
 	protected boolean isImmuneToZombification() {
 		return true;
 	}
+	
+	@Override
+	protected float getSoundVolume() {
+		return 1.5F;
+	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return this.rollAnimationTick <= 0 && this.attackAnimationTick <= 0 ? this.random.nextBoolean() ? SoundEventInit.PIGMADILLO_SNORT.get() : SoundEventInit.PIGMADILLO_IDLE.get() : null;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+		return SoundEventInit.PIGMADILLO_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.PIGMADILLO_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
 		if (!this.rolling()) {
-			this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 0.5F, 1.0F);
-		} else {
-			this.playSound(SoundEvents.BONE_BLOCK_STEP, 1.0F, 0.75F);
+			this.playSound(SoundEventInit.PIGMADILLO_STEP.get(), 0.5F, this.getVoicePitch());
+			this.playSound(SoundEventInit.PIGMADILLO_STEP_FOLEY.get(), 0.5F, this.getVoicePitch());
 		}
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+		if (this.rollAnimationTick <= 0 && this.attackAnimationTick <= 0) {
+			this.playSound(this.random.nextBoolean() ? SoundEventInit.PIGMADILLO_SNORT.get() : SoundEventInit.PIGMADILLO_ANGRY.get(), 1.0F, this.getVoicePitch());
+		}
 	}
 
 	protected void playConvertedSound() {

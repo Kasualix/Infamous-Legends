@@ -3,6 +3,7 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.Pigmadillo;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -33,7 +34,10 @@ public class PigmadilloMeleeAttack extends Behavior<Pigmadillo> {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
-		
+      
+      p_23525_.playSound(SoundEventInit.PIGMADILLO_ATTACK.get(), 1.5F, 1);
+      p_23525_.playSound(SoundEventInit.PIGMADILLO_ATTACK_FOLEY.get(), 1.5F, 1);
+      
       p_23525_.attackAnimationTick = p_23525_.attackAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
    }
@@ -51,7 +55,6 @@ public class PigmadilloMeleeAttack extends Behavior<Pigmadillo> {
 		p_22552_.getNavigation().stop();
 		
 		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint) {
-			p_22552_.playSound(SoundEvents.ANVIL_LAND, 1, p_22552_.getVoicePitch());
 			Vec3 particlePos = PositionUtils.getOffsetPos(p_22552_, -0.25, 0, 3, p_22552_.yBodyRot);
 			p_22551_.sendParticles(ParticleTypeInit.DUST.get(), particlePos.x, particlePos.y, particlePos.z, 8, 0.2D, 0.2D, 0.2D, 0.0D);
 		}

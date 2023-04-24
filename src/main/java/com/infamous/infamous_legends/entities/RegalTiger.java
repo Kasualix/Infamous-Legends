@@ -416,7 +416,7 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 		}
 		
 		if (!this.level.isClientSide && this.pounceWasOrdered && this.attackAnimationTick < this.attackAnimationActionPoint && this.attackAnimationTick >= this.attackAnimationLength - 17) {
-			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), this, this.getBoundingBox())) {
+			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), this, this.getBoundingBox().inflate(0.1))) {
 				boolean entityIsPassenger = !this.getPassengers().isEmpty() && this.getPassengers().contains(entity);
 				if (entity != this && !entityIsPassenger) {
 					entity.hurt(DamageSource.mobAttack(this), this.orderedPounceDamage);

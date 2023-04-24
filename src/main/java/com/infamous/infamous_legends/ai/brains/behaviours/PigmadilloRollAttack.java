@@ -3,6 +3,7 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.Pigmadillo;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
@@ -31,7 +32,7 @@ public class PigmadilloRollAttack extends Behavior<Pigmadillo> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
       
-      p_23525_.playSound(SoundEvents.IRON_GOLEM_ATTACK, 2, 0.5F);
+      p_23525_.playSound(SoundEventInit.PIGMADILLO_ROLL_START.get(), 1.5F, 1);
 		
       p_23525_.rollAnimationTick = p_23525_.rollAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 11);
@@ -43,20 +44,26 @@ public class PigmadilloRollAttack extends Behavior<Pigmadillo> {
 		
 		LivingEntity livingentity = this.getAttackTarget(p_22552_);
 		
-		if (p_22552_.rollAnimationTick > 85 && livingentity != null) {
+		if (p_22552_.rollAnimationTick > p_22552_.rollAnimationLength - 41 && livingentity != null) {
 			p_22552_.lookAt(Anchor.EYES, livingentity.position());
 		}
 		
-		if (p_22552_.rollAnimationTick == p_22552_.rollAnimationLength - 16) {
-			p_22552_.playSound(SoundEvents.BONE_BLOCK_PLACE, 2, 0.5F);
+		if (p_22552_.rollAnimationTick == p_22552_.rollAnimationLength - 6) {
+			p_22552_.playSound(SoundEventInit.PIGMADILLO_ROLL_START_FOLEY.get(), 1.5F, 1);
 		}
 		
-		if (p_22552_.rollAnimationTick == p_22552_.rollAnimationLength - 27) {
-			p_22552_.playSound(SoundEvents.BONE_BLOCK_BREAK, 2, 0.5F);
+		if (p_22552_.rollAnimationTick == p_22552_.rollAnimationLength - 44) {
+			p_22552_.playSound(SoundEventInit.PIGMADILLO_ROLL.get(), 1.5F, 1);
+			p_22552_.playSound(SoundEventInit.PIGMADILLO_ROLL_FOLEY.get(), 1.5F, 1);
 		}
 		
 		if (p_22552_.rollAnimationTick == p_22552_.rollAnimationLength - 85) {
-			p_22552_.playSound(SoundEvents.IRON_GOLEM_ATTACK, 2, 0.5F);
+			p_22552_.playSound(SoundEventInit.PIGMADILLO_ROLL_STOP.get(), 1.5F, 1);
+			p_22552_.playSound(SoundEventInit.PIGMADILLO_ROLL_STOP_FOLEY.get(), 1.5F, 1);
+		}
+		
+		if (p_22552_.rollAnimationTick == p_22552_.rollAnimationLength - 161) {
+			p_22552_.playSound(SoundEventInit.PIGMADILLO_STEP_FOLEY.get(), 1.0F, 1);
 		}
 		
 		p_22552_.getNavigation().stop();
