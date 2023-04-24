@@ -44,13 +44,13 @@ public class WarBoarMeleeAttack extends Behavior<WarBoar> {
 		if (livingentity != null) {
 			p_22552_.lookAt(Anchor.EYES, livingentity.position());
 		}
-		
-		p_22552_.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
         
 		p_22552_.getNavigation().stop();
 		
 		if (livingentity != null && p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint && p_22552_.distanceTo(livingentity) <= 4 && p_22552_.hasLineOfSight(livingentity)) {
 			p_22552_.doHurtTarget(livingentity);
+			p_22552_.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
+			p_22552_.attackDamageAdditionMultiplier = 0;
 		}
 	}
    

@@ -65,7 +65,7 @@ public class SporebackAi {
 	   private static void initFightActivity(Sporeback p_35125_, Brain<Sporeback> p_35126_) {
 	      p_35126_.addActivityAndRemoveMemoryWhenStopped(Activity.FIGHT, 10, ImmutableList.of(new StopAttackingIfTargetInvalid<>((p_35118_) -> {
 	         return !isNearestValidAttackTarget(p_35125_, p_35118_);
-	      }), new StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F, 22), new SporebackThrowAttack(40), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
+	      }), new StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F, 30), new SporebackThrowAttack(40), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
 	   }
 
 	   private static RunOne<Sporeback> createIdleLookBehaviors() {

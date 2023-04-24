@@ -25,7 +25,7 @@ public class SporebackThrowAttack extends Behavior<Sporeback> {
 
    protected boolean checkExtraStartConditions(ServerLevel level, Sporeback mob) {
       LivingEntity livingentity = this.getAttackTarget(mob);
-      return mob.isHolding(ItemInit.EXPLOSIVE_FUNGUS.get()) && mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 25;
+      return mob.isHolding(ItemInit.EXPLOSIVE_FUNGUS.get()) && mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 35;
    }
 
    protected void start(ServerLevel p_23524_, Sporeback p_23525_, long p_23526_) {
@@ -59,8 +59,8 @@ public class SporebackThrowAttack extends Behavior<Sporeback> {
 			double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 			fungus.setXRot(fungus.getXRot() - -80.0F);
 			fungus.moveTo(fungusPos);
-			double yMultiplier = p_22552_.distanceTo(livingentity) <= 10 ? 0.2 : 0.4;
-			fungus.shoot(d0 * 0.6, d1 + d3 * yMultiplier, d2 * 0.6, 0.75F, 8.0F);
+			double yMultiplier = p_22552_.distanceTo(livingentity) <= 14 ? 0.2 : 0.7;
+			fungus.shoot(d0 * 0.8, d1 + d3 * yMultiplier, d2 * 0.8, 1F, 8.0F);
 		    p_22552_.playSound(SoundEvents.SNOWBALL_THROW, 1.0F, 0.4F / (p_22552_.getRandom().nextFloat() * 0.4F + 0.8F));
 		    p_22551_.addFreshEntity(fungus);
 		}

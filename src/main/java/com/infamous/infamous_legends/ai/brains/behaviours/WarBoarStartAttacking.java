@@ -20,6 +20,7 @@ public class WarBoarStartAttacking<E extends WarBoar> extends StartAttacking<E> 
 	protected void start(ServerLevel p_24208_, E p_24209_, long p_24210_) {
 		super.start(p_24208_, p_24209_, p_24210_);
 		p_24209_.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
+		p_24209_.attackDamageAdditionMultiplier = 0;
 	}
 
 }

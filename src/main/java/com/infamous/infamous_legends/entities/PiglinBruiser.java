@@ -75,7 +75,7 @@ public class PiglinBruiser extends AbstractPiglin {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 30.0D)
+		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 50.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double) 0.3F).add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.ARMOR, 5.0D).add(Attributes.FOLLOW_RANGE, 17.5D).add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
 	}
 	

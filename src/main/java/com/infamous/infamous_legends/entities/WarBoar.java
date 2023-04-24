@@ -46,6 +46,8 @@ public class WarBoar extends Monster implements Enemy, HoglinBase {
 	public int attackAnimationTick;
 	public final int attackAnimationLength = 15;
 	public final int attackAnimationActionPoint = 12;
+	
+	public float attackDamageAdditionMultiplier;
 
 	public WarBoar(EntityType<? extends WarBoar> p_34204_, Level p_34205_) {
 		super(p_34204_, p_34205_);
@@ -88,6 +90,8 @@ public class WarBoar extends Monster implements Enemy, HoglinBase {
 	public void aiStep() {
 		super.aiStep();		
         this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(Mth.lerp(0.025D, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), (double) 0.425F));
+        this.attackDamageAdditionMultiplier = Mth.lerp(0.025F, this.attackDamageAdditionMultiplier, 1);
+        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(5 + (8 * this.attackDamageAdditionMultiplier));
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
@@ -114,9 +118,9 @@ public class WarBoar extends Monster implements Enemy, HoglinBase {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 50.0D).add(Attributes.FOLLOW_RANGE, 20.0D)
+		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 45.0D).add(Attributes.FOLLOW_RANGE, 20.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double) 0.425F).add(Attributes.KNOCKBACK_RESISTANCE, (double) 0.8F)
-				.add(Attributes.ATTACK_KNOCKBACK, 1.5D).add(Attributes.ATTACK_DAMAGE, 10.0D);
+				.add(Attributes.ATTACK_KNOCKBACK, 1.5D).add(Attributes.ATTACK_DAMAGE, 5.0D);
 	}
 
 	public boolean doHurtTarget(Entity p_34207_) {
