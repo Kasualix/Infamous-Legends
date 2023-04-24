@@ -6,6 +6,7 @@ import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -53,7 +54,7 @@ public class CobblestoneGolemMeleeAttackGoal extends Goal {
 
 		@Override
 		public void start() {
-			mob.playSound(SoundEvents.IRON_GOLEM_ATTACK, 1, MiscUtils.randomSoundPitch() * 1.25F);
+			mob.playSound(SoundEventInit.COBBLESTONE_GOLEM_ATTACK.get(), 1, MiscUtils.randomSoundPitch());
 			mob.attackAnimationTick = mob.attackAnimationLength;
 			mob.level.broadcastEntityEvent(mob, (byte) 4);
 		}
@@ -69,7 +70,7 @@ public class CobblestoneGolemMeleeAttackGoal extends Goal {
 			}
 			
 			if (mob.attackAnimationTick == mob.attackAnimationActionPoint) {
-				mob.playSound(SoundEvents.GOAT_RAM_IMPACT, 1, MiscUtils.randomSoundPitch() * 0.75F);
+				mob.playSound(SoundEventInit.COBBLESTONE_GOLEM_ATTACK_IMPACT.get(), 1, 1);
 				Vec3 particlePos = PositionUtils.getOffsetPos(mob, 0, 0, 1, mob.yBodyRot);
 				((ServerLevel)mob.level).sendParticles(ParticleTypeInit.DUST.get(), particlePos.x, particlePos.y, particlePos.z, 5, 0.2D, 0.2D, 0.2D, 0.0D);
 			}

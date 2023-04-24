@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import com.infamous.infamous_legends.ai.goals.ApproachTargetGoal;
 import com.infamous.infamous_legends.ai.goals.CobblestoneGolemMeleeAttackGoal;
 import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
+import com.infamous.infamous_legends.init.SoundEventInit;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -119,22 +120,21 @@ public class CobblestoneGolem extends AbstractGolem {
 		}
 	}
 	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.25F;
-	}
-	
 	@Nullable
 	protected SoundEvent getAmbientSound() {
-		return this.getTarget() != null && !this.getTarget().isRemoved() && this.getTarget().isAlive() ? SoundEvents.WANDERING_TRADER_NO : SoundEvents.WANDERING_TRADER_AMBIENT;
+		return SoundEventInit.COBBLESTONE_GOLEM_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {
-		return SoundEvents.STONE_HIT;
+		return SoundEventInit.COBBLESTONE_GOLEM_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.STONE_BREAK;
+		return SoundEventInit.COBBLESTONE_GOLEM_HURT.get();
+	}
+	
+	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
+		this.playSound(SoundEventInit.COBBLESTONE_GOLEM_STEP.get(), 0.5F, this.getVoicePitch());
 	}
 	   
 	protected int decreaseAirSupply(int p_28882_) {

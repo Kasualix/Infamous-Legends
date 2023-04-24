@@ -66,6 +66,12 @@
 	"subtitles.entity.pigmadillo.roll": "Pigmadillo rolls",
 	"subtitles.entity.pigmadillo.roll_stop": "Pigmadillo stops rolling and gets dizzy",
 	
+	"subtitles.entity.cobblestone_golem.idle": "Cobblestone Golem mumbles",
+	"subtitles.entity.cobblestone_golem.hurt": "Cobblestone Golem hurts",
+	"subtitles.entity.cobblestone_golem.step": "Footsteps",
+	"subtitles.entity.cobblestone_golem.attack": "Cobblestone Golem prepares attack",
+	"subtitles.entity.cobblestone_golem.attack_impact": "Cobblestone Golem attacks",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"

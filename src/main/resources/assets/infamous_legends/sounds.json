@@ -372,5 +372,135 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	"entity.cobblestone_golem.idle": {
+		"subtitle": "subtitles.entity.cobblestone_golem.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/idle6",
+				"stream": true
+			}
+		]
+	},
+	"entity.cobblestone_golem.hurt": {
+		"subtitle": "subtitles.entity.cobblestone_golem.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/hurt4",
+				"stream": true
+			}
+		]
+	},
+	"entity.cobblestone_golem.step": {
+		"subtitle": "subtitles.entity.cobblestone_golem.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/step5",
+				"stream": true
+			}
+		]
+	},
+	"entity.cobblestone_golem.attack": {
+		"subtitle": "subtitles.entity.cobblestone_golem.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack4",
+				"stream": true
+			}
+		]
+	},
+	"entity.cobblestone_golem.attack_impact": {
+		"subtitle": "subtitles.entity.cobblestone_golem.attack_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack_impact5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/cobblestone_golem/attack_impact6",
+				"stream": true
+			}
+		]
 	}
 }

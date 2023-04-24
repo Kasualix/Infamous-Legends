@@ -32,4 +32,12 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> PIGMADILLO_ROLL_FOLEY = SOUND_EVENTS.register("entity.pigmadillo.roll_foley", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.pigmadillo.roll_foley")));
 	public static final RegistryObject<SoundEvent> PIGMADILLO_ROLL_STOP_FOLEY = SOUND_EVENTS.register("entity.pigmadillo.roll_stop_foley", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.pigmadillo.roll_stop_foley")));
 	public static final RegistryObject<SoundEvent> PIGMADILLO_STEP_FOLEY = SOUND_EVENTS.register("entity.pigmadillo.step_foley", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.pigmadillo.step_foley")));
+	
+	// COBBLESTONE GOLEM
+	
+	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_IDLE = SOUND_EVENTS.register("entity.cobblestone_golem.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.idle")));
+	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_HURT = SOUND_EVENTS.register("entity.cobblestone_golem.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.hurt")));
+	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_STEP = SOUND_EVENTS.register("entity.cobblestone_golem.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.step")));
+	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_ATTACK = SOUND_EVENTS.register("entity.cobblestone_golem.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.attack")));
+	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_ATTACK_IMPACT = SOUND_EVENTS.register("entity.cobblestone_golem.attack_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.attack_impact")));
 }
