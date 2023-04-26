@@ -40,4 +40,14 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_STEP = SOUND_EVENTS.register("entity.cobblestone_golem.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.step")));
 	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_ATTACK = SOUND_EVENTS.register("entity.cobblestone_golem.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.attack")));
 	public static final RegistryObject<SoundEvent> COBBLESTONE_GOLEM_ATTACK_IMPACT = SOUND_EVENTS.register("entity.cobblestone_golem.attack_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.cobblestone_golem.attack_impact")));
+	
+	// PLANK GOLEM
+	
+	public static final RegistryObject<SoundEvent> PLANK_GOLEM_IDLE = SOUND_EVENTS.register("entity.plank_golem.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.idle")));
+	public static final RegistryObject<SoundEvent> PLANK_GOLEM_HURT = SOUND_EVENTS.register("entity.plank_golem.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.hurt")));
+	public static final RegistryObject<SoundEvent> PLANK_GOLEM_DEATH = SOUND_EVENTS.register("entity.plank_golem.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.death")));
+	public static final RegistryObject<SoundEvent> PLANK_GOLEM_STEP = SOUND_EVENTS.register("entity.plank_golem.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.step")));
+	public static final RegistryObject<SoundEvent> PLANK_GOLEM_START_ATTACKING = SOUND_EVENTS.register("entity.plank_golem.start_attacking", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.start_attacking")));
+	public static final RegistryObject<SoundEvent> PLANK_GOLEM_SHOOT = SOUND_EVENTS.register("entity.plank_golem.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.shoot")));
+	public static final RegistryObject<SoundEvent> PLANK_GOLEM_PROJECTILE_IMPACT = SOUND_EVENTS.register("entity.plank_golem.projectile_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.projectile_impact")));
 }

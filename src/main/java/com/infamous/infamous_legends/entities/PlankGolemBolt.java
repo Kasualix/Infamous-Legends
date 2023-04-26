@@ -3,6 +3,7 @@ package com.infamous.infamous_legends.entities;
 import com.infamous.infamous_legends.golem_types.PlankGolemType;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.PlankGolemTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.nbt.CompoundTag;
@@ -52,7 +53,7 @@ public class PlankGolemBolt extends AbstractArrow {
 			float f = 4F;
 			Entity entity1 = this.getOwner();
 			DamageSource damagesource = DamageSource.arrow(this, (Entity) (entity1 == null ? this : entity1));
-			SoundEvent soundevent = SoundEvents.ARROW_HIT;
+			SoundEvent soundevent = SoundEventInit.PLANK_GOLEM_PROJECTILE_IMPACT.get();
 			if (entity.hurt(damagesource, f)) {
 				if (entity.getType() == EntityType.ENDERMAN) {
 					return;
@@ -111,6 +112,16 @@ public class PlankGolemBolt extends AbstractArrow {
 			if (this.life >= 100) {
 				this.discard();
 			}
+		}
+	   
+		@Override
+		protected SoundEvent getDefaultHitGroundSoundEvent() {
+			return SoundEventInit.PLANK_GOLEM_PROJECTILE_IMPACT.get();
+		}
+
+		@Override
+		public void setSoundEvent(SoundEvent pSoundEvent) {
+
 		}
 	   
 	   @Override

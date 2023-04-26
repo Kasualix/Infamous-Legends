@@ -6,6 +6,8 @@ import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.entities.PlankGolem;
 import com.infamous.infamous_legends.entities.PlankGolemBolt;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.sounds.SoundEvents;
@@ -50,6 +52,7 @@ public class PlankGolemShootAttackGoal extends Goal {
 		public void start() {
 			mob.shootAnimationTick = mob.shootAnimationLength;
 			mob.level.broadcastEntityEvent(mob, (byte) 4);
+			mob.playSound(SoundEventInit.PLANK_GOLEM_START_ATTACKING.get(), 1, MiscUtils.randomSoundPitch());
 		}
 
 		@Override
@@ -70,7 +73,7 @@ public class PlankGolemShootAttackGoal extends Goal {
 				double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 				bolt.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 7);
 				bolt.setType(mob.getPlankGolemType());
-				mob.playSound(SoundEvents.DISPENSER_LAUNCH);
+				mob.playSound(SoundEventInit.PLANK_GOLEM_SHOOT.get(), 1, 1);
 				mob.level.addFreshEntity(bolt);
 			}
 		}

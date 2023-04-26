@@ -502,5 +502,204 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+		"entity.plank_golem.idle": {
+		"subtitle": "subtitles.entity.plank_golem.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/plank_golem/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/idle8",
+				"stream": true
+			}
+		]
+	},
+	"entity.plank_golem.hurt": {
+		"subtitle": "subtitles.entity.plank_golem.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/plank_golem/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/hurt6",
+				"stream": true
+			}
+		]
+	},
+	"entity.plank_golem.death": {
+		"subtitle": "subtitles.entity.plank_golem.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/plank_golem/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/death3",
+				"stream": true
+			}
+		]
+	},
+	"entity.plank_golem.step": {
+		"subtitle": "subtitles.entity.plank_golem.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/plank_golem/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/step6",
+				"stream": true
+			}
+		]
+	},
+	"entity.plank_golem.start_attacking": {
+		"subtitle": "subtitles.entity.plank_golem.start_attacking",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/plank_golem/start_attacking1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/start_attacking2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/start_attacking3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/start_attacking4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/start_attacking5",
+				"stream": true
+			}
+		]
+	},
+	"entity.plank_golem.shoot": {
+		"subtitle": "subtitles.entity.plank_golem.shoot",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/plank_golem/shoot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/shoot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/shoot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/shoot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/shoot5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/shoot6",
+				"stream": true
+			}
+		]
+	},
+	"entity.plank_golem.projectile_impact": {
+		"subtitle": "subtitles.entity.plank_golem.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/plank_golem/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/projectile_impact5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/plank_golem/projectile_impact6",
+				"stream": true
+			}
+		]
 	}
 }

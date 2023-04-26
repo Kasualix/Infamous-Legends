@@ -1,11 +1,15 @@
 package com.infamous.infamous_legends.entities;
 
+import javax.annotation.Nullable;
+
 import com.infamous.infamous_legends.ai.goals.ApproachTargetGoal;
 import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
 import com.infamous.infamous_legends.ai.goals.PlankGolemShootAttackGoal;
 import com.infamous.infamous_legends.golem_types.PlankGolemType;
 import com.infamous.infamous_legends.init.PlankGolemTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -34,6 +38,7 @@ import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class PlankGolem extends AbstractGolem {
 
@@ -136,12 +141,21 @@ public class PlankGolem extends AbstractGolem {
 		}
 	}
 	
+	@Nullable
+	protected SoundEvent getAmbientSound() {
+		return SoundEventInit.PLANK_GOLEM_IDLE.get();
+	}
+
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {
-		return SoundEvents.WOOD_HIT;
+		return SoundEventInit.PLANK_GOLEM_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.WOOD_BREAK;
+		return SoundEventInit.PLANK_GOLEM_HURT.get();
+	}
+	
+	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
+		this.playSound(SoundEventInit.PLANK_GOLEM_STEP.get(), 0.5F, this.getVoicePitch());
 	}
 	   
 	protected int decreaseAirSupply(int p_28882_) {
