@@ -701,5 +701,220 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	"entity.grindstone_golem.idle": {
+		"subtitle": "subtitles.entity.grindstone_golem.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/idle6",
+				"stream": true
+			}
+		]
+	},
+	"entity.grindstone_golem.hurt": {
+		"subtitle": "subtitles.entity.grindstone_golem.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/hurt7",
+				"stream": true
+			}
+		]
+	},
+	"entity.grindstone_golem.death": {
+		"subtitle": "subtitles.entity.grindstone_golem.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/death6",
+				"stream": true
+			}
+		]
+	},
+	"entity.grindstone_golem.step": {
+		"subtitle": "subtitles.entity.grindstone_golem.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/step6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/step7",
+				"stream": true
+			}
+		]
+	},
+		"entity.grindstone_golem.attack": {
+		"subtitle": "subtitles.entity.grindstone_golem.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/attack8",
+				"stream": true
+			}
+		]
+	},
+		"entity.grindstone_golem.roll_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll_start3",
+				"stream": true
+			}
+		]
+	},
+		"entity.grindstone_golem.roll": {
+		"subtitle": "subtitles.entity.grindstone_golem.roll",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll3",
+				"stream": true
+			}
+		]
+	},
+		"entity.grindstone_golem.roll_stop": {
+		"subtitle": "subtitles.entity.grindstone_golem.roll_stop",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/grindstone_golem/roll_stop3",
+				"stream": true
+			}
+		]
 	}
 }

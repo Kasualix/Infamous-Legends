@@ -1,10 +1,13 @@
 package com.infamous.infamous_legends.entities;
 
+import javax.annotation.Nullable;
+
 import com.infamous.infamous_legends.ai.goals.ApproachTargetGoal;
 import com.infamous.infamous_legends.ai.goals.AvoidTargetGoal;
 import com.infamous.infamous_legends.ai.goals.GrindstoneGolemRollAttackGoal;
 import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.core.BlockPos;
@@ -142,24 +145,27 @@ public class GrindstoneGolem extends AbstractGolem {
 		}
 	}
 	
-	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		if (!this.rolling()) {
-			super.playStepSound(p_35066_, p_35067_);
-		} else {
-			this.playSound(SoundEvents.STONE_STEP, 0.75F, 0.75F);
-		}
-	}
-	
 	public boolean rolling() {
 		return this.rollAnimationTick <= 48 && this.rollAnimationTick > 10; 
 	}
 
+	@Nullable
+	protected SoundEvent getAmbientSound() {
+		return SoundEventInit.GRINDSTONE_GOLEM_IDLE.get();
+	}
+
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {
-		return SoundEvents.STONE_HIT;
+		return SoundEventInit.GRINDSTONE_GOLEM_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.STONE_BREAK;
+		return SoundEventInit.GRINDSTONE_GOLEM_HURT.get();
+	}
+	
+	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
+		if (!this.rolling()) {
+			this.playSound(SoundEventInit.GRINDSTONE_GOLEM_STEP.get(), 0.5F, this.getVoicePitch());
+		}
 	}
 	   
 	protected int decreaseAirSupply(int p_28882_) {

@@ -5,11 +5,10 @@ import java.util.EnumSet;
 import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.entities.GrindstoneGolem;
-import com.infamous.infamous_legends.utils.MiscUtils;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
-import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.goal.Goal;
 
@@ -49,7 +48,8 @@ public class GrindstoneGolemRollAttackGoal extends Goal {
 
 		@Override
 		public void start() {
-			mob.playSound(SoundEvents.IRON_GOLEM_ATTACK, 1, MiscUtils.randomSoundPitch() * 1.25F);
+			mob.playSound(SoundEventInit.GRINDSTONE_GOLEM_ATTACK.get(), 1, mob.getVoicePitch());
+			mob.playSound(SoundEventInit.GRINDSTONE_GOLEM_ROLL_START.get(), 1, mob.getVoicePitch());
 			mob.rollAnimationTick = mob.rollAnimationLength;
 			mob.lookAt(Anchor.EYES, target.position());
 			mob.level.broadcastEntityEvent(mob, (byte) 4);
@@ -63,6 +63,18 @@ public class GrindstoneGolemRollAttackGoal extends Goal {
 			
 			if (mob.rollAnimationTick > 48 && target != null) {
 				mob.lookAt(Anchor.EYES, target.position());
+			}
+			
+			if (mob.rollAnimationTick == mob.rollAnimationLength - 16) {
+				mob.playSound(SoundEventInit.GRINDSTONE_GOLEM_ROLL.get(), 1, 1);
+			}
+			
+			if (mob.rollAnimationTick == mob.rollAnimationLength - 31) {
+				mob.playSound(SoundEventInit.GRINDSTONE_GOLEM_ROLL.get(), 1, 1);
+			}
+			
+			if (mob.rollAnimationTick == mob.rollAnimationLength - 49) {
+				mob.playSound(SoundEventInit.GRINDSTONE_GOLEM_ROLL_STOP.get(), 1, 1);
 			}
 			
 			mob.getNavigation().stop();

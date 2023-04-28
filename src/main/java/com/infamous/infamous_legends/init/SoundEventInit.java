@@ -50,4 +50,15 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> PLANK_GOLEM_START_ATTACKING = SOUND_EVENTS.register("entity.plank_golem.start_attacking", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.start_attacking")));
 	public static final RegistryObject<SoundEvent> PLANK_GOLEM_SHOOT = SOUND_EVENTS.register("entity.plank_golem.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.shoot")));
 	public static final RegistryObject<SoundEvent> PLANK_GOLEM_PROJECTILE_IMPACT = SOUND_EVENTS.register("entity.plank_golem.projectile_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.plank_golem.projectile_impact")));
+	
+	// GRINDSTONE GOLEM
+	
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_IDLE = SOUND_EVENTS.register("entity.grindstone_golem.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.idle")));
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_HURT = SOUND_EVENTS.register("entity.grindstone_golem.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.hurt")));
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_DEATH = SOUND_EVENTS.register("entity.grindstone_golem.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.death")));
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_STEP = SOUND_EVENTS.register("entity.grindstone_golem.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.step")));
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_ATTACK = SOUND_EVENTS.register("entity.grindstone_golem.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.attack")));
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_ROLL_START = SOUND_EVENTS.register("entity.grindstone_golem.roll_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.roll_start")));
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_ROLL = SOUND_EVENTS.register("entity.grindstone_golem.roll", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.roll")));
+	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_ROLL_STOP = SOUND_EVENTS.register("entity.grindstone_golem.roll_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.roll_stop")));
 }
