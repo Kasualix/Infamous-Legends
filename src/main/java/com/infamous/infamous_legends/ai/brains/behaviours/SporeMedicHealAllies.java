@@ -14,7 +14,7 @@ import net.minecraft.world.entity.ai.memory.MemoryStatus;
 public class SporeMedicHealAllies extends Behavior<SporeMedic> {
 
    public SporeMedicHealAllies() {
-      super(ImmutableMap.of(MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED, MemoryModuleTypeInit.HEAL_TARGET.get(), MemoryStatus.VALUE_PRESENT), 600, 600);
+      super(ImmutableMap.of(MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED, MemoryModuleTypeInit.HEAL_TARGET.get(), MemoryStatus.VALUE_PRESENT, MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT), 100, 100);
    }
 
    protected boolean checkExtraStartConditions(ServerLevel level, SporeMedic mob) {
@@ -47,7 +47,7 @@ public class SporeMedicHealAllies extends Behavior<SporeMedic> {
    @Override
 	protected boolean canStillUse(ServerLevel p_22545_, SporeMedic p_22546_, long p_22547_) {
 		LivingEntity livingentity = this.getHealTarget(p_22546_);
-		return p_22546_.shooting && this.getHealTarget(p_22546_) != null && p_22546_.distanceTo(livingentity) <= 5;
+		return p_22546_.shooting && livingentity != null;
 	}
    
    @Override
@@ -55,6 +55,7 @@ public class SporeMedicHealAllies extends Behavior<SporeMedic> {
 		super.stop(p_22548_, p_22549_, p_22550_);
 		p_22549_.shooting = false;
 		p_22548_.broadcastEntityEvent(p_22549_, (byte) 11);
+		p_22549_.getBrain().setMemoryWithExpiry(MemoryModuleType.ATTACK_COOLING_DOWN, true, 100);
 	}
 
    private LivingEntity getHealTarget(SporeMedic p_23533_) {

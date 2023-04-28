@@ -1,10 +1,13 @@
 package com.infamous.infamous_legends.entities;
 
+import java.util.UUID;
+
 import com.google.common.collect.ImmutableList;
 import com.infamous.infamous_legends.ai.brains.WarBoarAi;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
 import com.mojang.serialization.Dynamic;
 
 import net.minecraft.core.BlockPos;
@@ -23,6 +26,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.sensing.Sensor;
 import net.minecraft.world.entity.ai.sensing.SensorType;
+import net.minecraft.world.entity.ai.targeting.TargetingConditions;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.monster.Monster;
 import net.minecraft.world.entity.monster.hoglin.HoglinBase;
@@ -84,14 +88,29 @@ public class WarBoar extends Monster implements Enemy, HoglinBase {
 		if (this.attackAnimationTick <= 0 && this.attackAnimationState.isStarted()) {
 			this.attackAnimationState.stop();
 		}
+		
+		if (!this.level.isClientSide && this.getTarget() != null && !this.getTarget().isDeadOrDying() && !this.getTarget().isRemoved()) {
+			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), this, getBoundingBox().inflate(0.1))) {
+				if (entity != this.getTarget() && !MiscUtils.piglinAllies(this, entity)) {
+					entity.hurt(DamageSource.mobAttack(this), 5 * (speed * 5));
+					double d0 = entity.getX() - this.getX();
+					double d1 = entity.getZ() - this.getZ();
+					double d2 = Math.max(d0 * d0 + d1 * d1, 0.001D);
+					entity.push(d0 / d2 * 2.0D, 0.3D, d1 / d2 * 2.0D);
+				}
+			}
+		}
 	}
 	
 	@Override
 	public void aiStep() {
 		super.aiStep();		
         this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(Mth.lerp(0.025D, this.getAttribute(Attributes.MOVEMENT_SPEED).getBaseValue(), (double) 0.425F));
-        this.attackDamageAdditionMultiplier = Mth.lerp(0.025F, this.attackDamageAdditionMultiplier, 1);
-        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(5 + (8 * this.attackDamageAdditionMultiplier));
+		Vec3 velocity = this.getDeltaMovement();
+		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));	
+		if (this.attackAnimationTick <= 0) {
+	        this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(5 + (8 * (speed * 5)));
+		}
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
@@ -130,10 +149,6 @@ public class WarBoar extends Monster implements Enemy, HoglinBase {
 			this.playSound(SoundEvents.HOGLIN_ATTACK, 1.0F, this.getVoicePitch());
 			return HoglinBase.hurtAndThrowTarget(this, (LivingEntity) p_34207_);
 		}
-	}
-
-	public boolean canBeLeashed(Player p_34219_) {
-		return !this.isLeashed();
 	}
 
 	protected void blockedByShield(LivingEntity p_34246_) {

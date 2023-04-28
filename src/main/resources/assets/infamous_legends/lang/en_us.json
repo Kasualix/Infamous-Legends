@@ -3,7 +3,7 @@
 	"entity.infamous_legends.blaze_runt" : "Blaze Runt",
 	"entity.infamous_legends.spore_medic" : "Spore Medic",
 	"entity.infamous_legends.piglin_bruiser" : "Piglin Bruiser",
-	"entity.infamous_legends.war_boar" : "War Boar",
+	"entity.infamous_legends.war_boar" : "Warboar",
 	"entity.infamous_legends.piglin_builder" : "Piglin Builder",
 	"entity.infamous_legends.seeker" : "Seeker",
 	"entity.infamous_legends.sporeback" : "Sporeback",
@@ -31,7 +31,7 @@
 	"item.infamous_legends.blaze_runt_spawn_egg" : "Blaze Runt Spawn Egg",
 	"item.infamous_legends.spore_medic_spawn_egg" : "Spore Medic Spawn Egg",
 	"item.infamous_legends.piglin_bruiser_spawn_egg" : "Piglin Bruiser Spawn Egg",
-	"item.infamous_legends.war_boar_spawn_egg" : "War Boar Spawn Egg",
+	"item.infamous_legends.war_boar_spawn_egg" : "Warboar Spawn Egg",
 	"item.infamous_legends.piglin_builder_spawn_egg" : "Piglin Builder Spawn Egg",
 	"item.infamous_legends.seeker_spawn_egg" : "Seeker Spawn Egg",
 	"item.infamous_legends.sporeback_spawn_egg" : "Sporeback Spawn Egg",
@@ -54,6 +54,9 @@
 	"item.infamous_legends.piglin_saw" : "Piglin Saw",
 	"item.infamous_legends.piglin_bomb" : "Piglin Bomb",
 	"item.infamous_legends.explosive_fungus" : "Explosive Fungus",
+	
+	"death.attack.netherspores": "%1$s choked on netherspores",
+	"death.attack.netherspores.player": "%1$s choked on netherspores",
 	
 	"subtitles.entity.pigmadillo.idle": "Pigmadillo snarls",
 	"subtitles.entity.pigmadillo.angry": "Pigmadillo snarls angrily",

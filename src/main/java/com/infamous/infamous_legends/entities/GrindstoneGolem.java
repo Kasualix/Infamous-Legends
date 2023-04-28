@@ -130,7 +130,7 @@ public class GrindstoneGolem extends AbstractGolem {
 		}
 		
 		if (this.rolling()) {
-			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), this, getBoundingBox())) {
+			for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), this, getBoundingBox().inflate(0.1))) {
 				if (!MiscUtils.nonEnemy(this, entity)) {
 					entity.hurt(DamageSource.mobAttack(this), 3);
 					double d0 = entity.getX() - this.getX();

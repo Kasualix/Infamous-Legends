@@ -36,6 +36,13 @@ public class WaterParticle extends TextureSheetParticle {
         
         this.setAlpha(0.75F);
     }
+    
+    public int getLightColor(float pPartialTick) {
+        int i = super.getLightColor(pPartialTick);
+        int j = 240;
+        int k = i >> 16 & 255;
+        return 240 | k << 16;
+     }
 
     @Override
     public ParticleRenderType getRenderType() {

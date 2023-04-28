@@ -42,6 +42,13 @@ public class WaterSplashParticle extends TextureSheetParticle {
         super.tick();
         this.setSpriteFromAge(this.sprites);
     }
+    
+    public int getLightColor(float pPartialTick) {
+        int i = super.getLightColor(pPartialTick);
+        int j = 240;
+        int k = i >> 16 & 255;
+        return 240 | k << 16;
+     }
 
     @OnlyIn(Dist.CLIENT)
     public static class Provider implements ParticleProvider<SimpleParticleType> {

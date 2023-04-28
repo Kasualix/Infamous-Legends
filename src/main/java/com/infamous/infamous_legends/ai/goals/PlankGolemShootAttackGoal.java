@@ -65,13 +65,13 @@ public class PlankGolemShootAttackGoal extends Goal {
 				mob.lookAt(Anchor.EYES, target.position());
 			}
 			
-			if (target != null && mob.shootAnimationTick == mob.shootAnimationActionPoint && mob.hasLineOfSight(target)) {
+			if (target != null && (mob.shootAnimationTick == mob.shootAnimationActionPoint || mob.shootAnimationTick == mob.shootAnimationActionPoint - 2 || mob.shootAnimationTick == mob.shootAnimationActionPoint - 4) && mob.hasLineOfSight(target)) {
 				PlankGolemBolt bolt = new PlankGolemBolt(mob.level, mob);
 				double d0 = target.getX() - mob.getX();
 				double d1 = target.getY(0.3333333333333333D) - bolt.getY();
 				double d2 = target.getZ() - mob.getZ();
 				double d3 = Math.sqrt(d0 * d0 + d2 * d2);
-				bolt.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 7);
+				bolt.shoot(d0, d1 + d3 * (double) 0.2F, d2, 1.6F, 12);
 				bolt.setType(mob.getPlankGolemType());
 				mob.playSound(SoundEventInit.PLANK_GOLEM_SHOOT.get(), 1, 1);
 				mob.level.addFreshEntity(bolt);

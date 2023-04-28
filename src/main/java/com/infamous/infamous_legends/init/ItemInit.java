@@ -44,7 +44,7 @@ public class ItemInit {
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
 	public static final RegistryObject<Item> WAR_BOAR_SPAWN_EGG = ITEMS.register("war_boar_spawn_egg",
-			() -> new ForgeSpawnEggItem(EntityTypeInit.WAR_BOAR, 0xbb725b, 0xf5c650,
+			() -> new ForgeSpawnEggItem(EntityTypeInit.WAR_BOAR, 0x986c7c, 0xf5c650,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
 	public static final RegistryObject<Item> PIGLIN_BUILDER_SPAWN_EGG = ITEMS.register("piglin_builder_spawn_egg",

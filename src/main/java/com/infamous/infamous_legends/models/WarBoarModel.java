@@ -68,6 +68,7 @@ public class WarBoarModel<T extends WarBoar> extends HierarchicalModel<T> {
 		.texOffs(0, 58).addBox(0.0F, -36.0F, -15.0F, 0.0F, 18.0F, 32.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -12.0F, -1.0F));
 
 		PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(0, 50).addBox(-8.0F, -8.0F, -20.0F, 16.0F, 8.0F, 24.0F, new CubeDeformation(0.0F))
+		.texOffs(86, 81).addBox(-8.0F, -4.5F, -23.0F, 16.0F, 0.0F, 4.0F, new CubeDeformation(0.0F))
 		.texOffs(68, 0).addBox(8.0F, -15.0F, -15.0F, 2.0F, 13.0F, 4.0F, new CubeDeformation(0.0F))
 		.texOffs(14, 26).addBox(6.0F, -15.0F, -15.0F, 2.0F, 2.0F, 4.0F, new CubeDeformation(0.0F))
 		.texOffs(68, 0).addBox(-10.0F, -15.0F, -15.0F, 2.0F, 13.0F, 4.0F, new CubeDeformation(0.0F))

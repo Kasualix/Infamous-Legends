@@ -71,7 +71,7 @@ public class Seeker extends AbstractPiglin implements IHasCustomExplosion {
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 25.0D)
+		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0D)
 				.add(Attributes.MOVEMENT_SPEED, (double) 0.4F).add(Attributes.ATTACK_DAMAGE, 1.0D).add(Attributes.FOLLOW_RANGE, 20.0D);
 	}
 	

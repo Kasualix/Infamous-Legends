@@ -15,6 +15,9 @@ public class MossyGolemHealAlliesGoal extends Goal {
 		public MossyGolem mob;
 		@Nullable
 		public LivingEntity target;
+		
+		public int healingFor;
+		public int nextUseTime;
 
 		public MossyGolemHealAlliesGoal(MossyGolem mob) {
 			this.setFlags(EnumSet.of(Goal.Flag.MOVE, Goal.Flag.JUMP));
@@ -34,18 +37,19 @@ public class MossyGolemHealAlliesGoal extends Goal {
 		@Override
 		public boolean canUse() {
 			target = mob.getHealTarget();
-			return target != null && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 3 && mob.hasLineOfSight(target);
+			return mob.tickCount >= this.nextUseTime && target != null && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 3 && mob.hasLineOfSight(target);
 		}
 
 		@Override
 		public boolean canContinueToUse() {
-			return mob.shooting && target != null && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 4;
+			return this.healingFor < 100 && mob.shooting && target != null && !target.isRemoved() && !target.isDeadOrDying();
 		}
 
 		@Override
 		public void start() {
 		      mob.shooting = true;
 		      mob.level.broadcastEntityEvent(mob, (byte) 4);
+		     this.healingFor = 0;
 		}
 
 		@Override
@@ -54,9 +58,7 @@ public class MossyGolemHealAlliesGoal extends Goal {
 
 			mob.getNavigation().stop();
 			
-			if (target != null) {
-				mob.lookAt(Anchor.EYES, target.position());
-			}
+			this.healingFor ++;
 		}
 		
 		@Override
@@ -64,6 +66,8 @@ public class MossyGolemHealAlliesGoal extends Goal {
 			super.stop();
 			mob.shooting = false;
 			mob.level.broadcastEntityEvent(mob, (byte) 11);
+			this.nextUseTime = mob.tickCount + 100;
+			this.healingFor = 0;
 		}
 
 	}

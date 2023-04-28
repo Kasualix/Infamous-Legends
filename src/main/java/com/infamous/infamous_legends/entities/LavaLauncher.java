@@ -371,10 +371,6 @@ public class LavaLauncher extends Monster implements Enemy, HoglinBase, IHasCust
 				.add(Attributes.ATTACK_KNOCKBACK, 2D).add(Attributes.ATTACK_DAMAGE, 15.0D);
 	}
 
-	public boolean canBeLeashed(Player p_34219_) {
-		return !this.isLeashed();
-	}
-
 	protected void blockedByShield(LivingEntity p_34246_) {
 		HoglinBase.throwTarget(this, p_34246_);
 	}

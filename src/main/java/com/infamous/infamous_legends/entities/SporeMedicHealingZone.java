@@ -1,9 +1,12 @@
 package com.infamous.infamous_legends.entities;
 
+import com.infamous.infamous_legends.init.DamageSourceInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.protocol.Packet;
+import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Pose;
@@ -26,6 +29,10 @@ public class SporeMedicHealingZone extends PartEntity<SporeMedic> {
 				if (entity != this.parentMob && MiscUtils.piglinAllies(this.parentMob, entity)) {
 					if (this.parentMob.tickCount % 10 == 0) {
 						entity.heal(1);
+					}
+				} else if (entity != this.parentMob && !MiscUtils.piglinAllies(this.parentMob, entity)) {
+					if (this.parentMob.tickCount % 20 == 0) {
+						entity.hurt(DamageSourceInit.NETHERSPORES, 1);
 					}
 				}
 			}

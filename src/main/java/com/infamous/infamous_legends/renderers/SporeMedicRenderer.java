@@ -16,7 +16,7 @@ import net.minecraft.world.entity.monster.piglin.AbstractPiglin;
 public class SporeMedicRenderer extends MobRenderer<SporeMedic, SporeMedicModel<SporeMedic>> {
 
 	public SporeMedicRenderer(EntityRendererProvider.Context context) {
-		super(context, new SporeMedicModel<>(context.bakeLayer(ModelLayerInit.SPORE_MEDIC)), 0.75F);
+		super(context, new SporeMedicModel<>(context.bakeLayer(ModelLayerInit.SPORE_MEDIC)), 0.5F);
 		CustomArmourLayer.addCustomArmourLayers(this, context, ModelLayerInit.SPORE_MEDIC_INNER_ARMOUR, ModelLayerInit.SPORE_MEDIC_OUTER_ARMOUR);
 	    this.addLayer(new HeadItemLayer<>(this, context.getModelSet(), context.getItemInHandRenderer()));
 		this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()));
