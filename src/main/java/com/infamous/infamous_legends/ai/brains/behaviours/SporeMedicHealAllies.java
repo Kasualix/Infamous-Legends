@@ -46,8 +46,7 @@ public class SporeMedicHealAllies extends Behavior<SporeMedic> {
    
    @Override
 	protected boolean canStillUse(ServerLevel p_22545_, SporeMedic p_22546_, long p_22547_) {
-		LivingEntity livingentity = this.getHealTarget(p_22546_);
-		return p_22546_.shooting && livingentity != null;
+		return p_22546_.shooting;
 	}
    
    @Override

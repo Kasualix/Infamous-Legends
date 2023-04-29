@@ -7,8 +7,10 @@ import com.infamous.infamous_legends.ai.goals.MossyGolemFindHealTargetGoal;
 import com.infamous.infamous_legends.ai.goals.MossyGolemHealAlliesGoal;
 import com.infamous.infamous_legends.ai.goals.MossyGolemLookAtHealTargetGoal;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
+import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.damagesource.DamageSource;
@@ -26,6 +28,7 @@ import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.entity.PartEntity;
 
@@ -143,12 +146,21 @@ public class MossyGolem extends AbstractGolem {
         this.subEntity2.setId(p_145769_1_ + 2);
     }
 
+	@Nullable
+	protected SoundEvent getAmbientSound() {
+		return SoundEventInit.MOSSY_GOLEM_IDLE.get();
+	}
+
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {
-		return SoundEvents.MOSS_HIT;
+		return SoundEventInit.MOSSY_GOLEM_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.MOSS_BREAK;
+		return SoundEventInit.MOSSY_GOLEM_HURT.get();
+	}
+	
+	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
+		this.playSound(SoundEventInit.MOSSY_GOLEM_STEP.get(), 0.5F, this.getVoicePitch());
 	}
 	   
 	protected int decreaseAirSupply(int p_28882_) {

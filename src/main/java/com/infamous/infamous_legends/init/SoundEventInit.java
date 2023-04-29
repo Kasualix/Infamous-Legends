@@ -61,4 +61,13 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_ROLL_START = SOUND_EVENTS.register("entity.grindstone_golem.roll_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.roll_start")));
 	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_ROLL = SOUND_EVENTS.register("entity.grindstone_golem.roll", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.roll")));
 	public static final RegistryObject<SoundEvent> GRINDSTONE_GOLEM_ROLL_STOP = SOUND_EVENTS.register("entity.grindstone_golem.roll_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.grindstone_golem.roll_stop")));
+	
+	// MOSSY GOLEM
+	
+	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_IDLE = SOUND_EVENTS.register("entity.mossy_golem.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.idle")));
+	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_HURT = SOUND_EVENTS.register("entity.mossy_golem.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.hurt")));
+	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_DEATH = SOUND_EVENTS.register("entity.mossy_golem.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.death")));
+	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_STEP = SOUND_EVENTS.register("entity.mossy_golem.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.step")));
+	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_SHOOT_A = SOUND_EVENTS.register("entity.mossy_golem.shoot_a", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.shoot_a")));
+	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_SHOOT_B = SOUND_EVENTS.register("entity.mossy_golem.shoot_b", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.shoot_b")));
 }

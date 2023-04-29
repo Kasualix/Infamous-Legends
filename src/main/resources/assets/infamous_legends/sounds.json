@@ -916,5 +916,176 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	
+	"entity.mossy_golem.idle": {
+		"subtitle": "subtitles.entity.mossy_golem.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mossy_golem/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/idle7",
+				"stream": true
+			}
+		]
+	},
+	"entity.mossy_golem.hurt": {
+		"subtitle": "subtitles.entity.mossy_golem.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mossy_golem/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/hurt6",
+				"stream": true
+			}
+		]
+	},
+	"entity.mossy_golem.death": {
+		"subtitle": "subtitles.entity.mossy_golem.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mossy_golem/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/death5",
+				"stream": true
+			}
+		]
+	},
+	"entity.mossy_golem.step": {
+		"subtitle": "subtitles.entity.mossy_golem.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mossy_golem/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/step6",
+				"stream": true
+			}
+		]
+	},
+	"entity.mossy_golem.shoot_a": {
+		"subtitle": "subtitles.entity.mossy_golem.shoot_a",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_a1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_a2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_a3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_a4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_a5",
+				"stream": true
+			}
+		]
+	},
+	"entity.mossy_golem.shoot_b": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_b1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_b2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_b3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_b4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mossy_golem/shoot_b5",
+				"stream": true
+			}
+		]
 	}
 }

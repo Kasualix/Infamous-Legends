@@ -5,6 +5,7 @@ import java.util.EnumSet;
 import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.entities.MossyGolem;
+import com.infamous.infamous_legends.init.SoundEventInit;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.world.entity.LivingEntity;
@@ -42,13 +43,15 @@ public class MossyGolemHealAlliesGoal extends Goal {
 
 		@Override
 		public boolean canContinueToUse() {
-			return this.healingFor < 100 && mob.shooting && target != null && !target.isRemoved() && !target.isDeadOrDying();
+			return this.healingFor < 100 && mob.shooting;
 		}
 
 		@Override
 		public void start() {
 		      mob.shooting = true;
 		      mob.level.broadcastEntityEvent(mob, (byte) 4);
+		      mob.playSound(SoundEventInit.MOSSY_GOLEM_SHOOT_A.get());
+		      mob.playSound(SoundEventInit.MOSSY_GOLEM_SHOOT_B.get());
 		     this.healingFor = 0;
 		}
 
