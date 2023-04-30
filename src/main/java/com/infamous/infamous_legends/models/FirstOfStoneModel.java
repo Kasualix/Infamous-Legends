@@ -33,6 +33,7 @@ public class FirstOfStoneModel<T extends FirstOfStone> extends HierarchicalModel
 	private final ModelPart root;
 	public final ModelPart everything;
 	public final ModelPart body;
+	public final ModelPart head;
 	public final ModelPart nose;
 	public final ModelPart leftArm;
 	public final ModelPart grassPatch7;
@@ -57,7 +58,8 @@ public class FirstOfStoneModel<T extends FirstOfStone> extends HierarchicalModel
 		this.root = root;
 		this.everything = root.getChild("everything");
 		this.body = everything.getChild("body");
-		this.nose = body.getChild("nose");
+		this.head = body.getChild("head");
+		this.nose = head.getChild("nose");
 		this.leftArm = body.getChild("leftArm");
 		this.grassPatch7 = leftArm.getChild("grassPatch7");
 		this.rightArm = body.getChild("rightArm");
@@ -84,9 +86,11 @@ public class FirstOfStoneModel<T extends FirstOfStone> extends HierarchicalModel
 		PartDefinition everything = partdefinition.addOrReplaceChild("everything", CubeListBuilder.create(), PartPose.offset(0.0F, -4.0F, 0.0F));
 
 		PartDefinition body = everything.addOrReplaceChild("body", CubeListBuilder.create().texOffs(0, 0).addBox(-19.0F, -38.0F, -19.0F, 38.0F, 38.0F, 38.0F, new CubeDeformation(0.0F))
-		.texOffs(114, 8).addBox(-8.0F, -27.0F, -20.0F, 16.0F, 16.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
+		.texOffs(170, 194).addBox(-8.0F, -27.0F, -19.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 0.0F, 0.0F));
 
-		PartDefinition nose = body.addOrReplaceChild("nose", CubeListBuilder.create().texOffs(114, 0).addBox(-2.0F, -2.5F, -2.0F, 4.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -15.5F, -20.0F));
+		PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(71, 212).addBox(-8.0F, -9.0F, -3.0F, 16.0F, 16.0F, 16.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -18.0F, -17.0F));
+
+		PartDefinition nose = head.addOrReplaceChild("nose", CubeListBuilder.create().texOffs(114, 0).addBox(-2.0F, -2.5F, -2.0F, 4.0F, 6.0F, 2.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, 2.5F, -3.0F));
 
 		PartDefinition leftArm = body.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(153, 0).addBox(0.0F, -8.0F, -9.0F, 14.0F, 66.0F, 18.0F, new CubeDeformation(0.0F))
 		.texOffs(200, 67).addBox(9.0F, 24.0F, -9.0F, 5.0F, 10.0F, 18.0F, new CubeDeformation(0.0F))

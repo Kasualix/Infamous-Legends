@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.infamous.infamous_legends.entities.BoulderProjectile;
 import com.infamous.infamous_legends.entities.FirstOfStone;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -56,6 +57,8 @@ public class FirstOfStoneRangedAttackGoal extends Goal {
 
 		@Override
 		public void start() {
+			mob.playSound(SoundEventInit.FIRST_OF_STONE_RANGED_ATTACK_VOCAL.get(), 1, 1);
+			mob.playSound(SoundEventInit.FIRST_OF_STONE_RANGED_ATTACK_START.get(), 2, 1);
 			mob.rangedAttackAnimationTick = mob.rangedAttackAnimationLength;
 			mob.level.broadcastEntityEvent(mob, (byte) 11);
 		}
@@ -68,21 +71,28 @@ public class FirstOfStoneRangedAttackGoal extends Goal {
 			
 			if (target != null) {
 				mob.lookAt(Anchor.EYES, target.position());
-			}
-			
-			if (mob.rangedAttackAnimationTick == mob.rangedAttackAnimationLength - 16) {
-				mob.playSound(SoundEvents.GOAT_RAM_IMPACT, 1.5F, MiscUtils.randomSoundPitch() * 0.25F);
-			}
+			}		
 			
 			if (mob.rangedAttackAnimationTick <= mob.rangedAttackAnimationLength - 25 && mob.rangedAttackAnimationTick >= mob.rangedAttackAnimationLength - 55 && mob.tickCount % 3 == 0) {
-				mob.playSound(SoundEvents.GRASS_HIT, 1.0F, MiscUtils.randomSoundPitch() * 0.005F);
 			    Vec3 particlePos = PositionUtils.getOffsetPos(mob, 1.5, 0, -1 + mob.getRandom().nextGaussian() * 2, mob.yBodyRot);
 				((ServerLevel)mob.level).sendParticles(ParticleTypeInit.DUST.get(), particlePos.x, particlePos.y,
 						particlePos.z, 5, 0.5D, 0.2D, 0.5D, 0.0D);
 			}
 			
+			if (mob.rangedAttackAnimationTick == mob.rangedAttackAnimationLength - 20) {
+				mob.playSound(SoundEventInit.FIRST_OF_STONE_RANGED_ATTACK_DRAG.get(), 1.5F, 1);
+			}
+			
+			if (mob.rangedAttackAnimationTick == mob.rangedAttackAnimationLength - 40) {
+				mob.playSound(SoundEventInit.FIRST_OF_STONE_RANGED_ATTACK_THROW_VOCAL.get(), 1.5F, 1);
+			}
+			
 			if (mob.rangedAttackAnimationTick == mob.rangedAttackAnimationActionPoint) {
-				mob.playSound(SoundEvents.SNOWBALL_THROW, 1.5F, MiscUtils.randomSoundPitch() * 0.25F);
+				mob.playSound(SoundEventInit.FIRST_OF_STONE_RANGED_ATTACK_THROW.get(), 1.5F, 1);
+			}
+			
+			if (mob.rangedAttackAnimationTick == mob.rangedAttackAnimationLength - 74) {
+				mob.playSound(SoundEventInit.FIRST_OF_STONE_RANGED_ATTACK_STOP.get(), 1.0F, 1);
 			}
 			
 			if (target != null && mob.rangedAttackAnimationTick == mob.rangedAttackAnimationActionPoint && mob.hasLineOfSight(target)) {

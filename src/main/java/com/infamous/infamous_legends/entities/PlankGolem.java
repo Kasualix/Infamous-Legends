@@ -151,7 +151,7 @@ public class PlankGolem extends AbstractGolem {
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEventInit.PLANK_GOLEM_HURT.get();
+		return SoundEventInit.PLANK_GOLEM_DEATH.get();
 	}
 	
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {

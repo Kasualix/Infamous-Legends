@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.infamous.infamous_legends.entities.FirstOfStone;
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -54,6 +55,8 @@ public class FirstOfStoneMeleeAttackGoal extends Goal {
 
 		@Override
 		public void start() {
+			mob.playSound(SoundEventInit.FIRST_OF_STONE_ATTACK_VOCAL.get(), 1, 1);
+			mob.playSound(SoundEventInit.FIRST_OF_STONE_ATTACK.get(), 2, 1);
 			mob.attackAnimationTick = mob.attackAnimationLength;
 			mob.level.broadcastEntityEvent(mob, (byte) 4);
 		}
@@ -69,11 +72,14 @@ public class FirstOfStoneMeleeAttackGoal extends Goal {
 			}
 			
 			if (mob.attackAnimationTick == mob.attackAnimationActionPoint) {
-				mob.playSound(SoundEvents.GENERIC_EXPLODE, 2, MiscUtils.randomSoundPitch() * 0.75F);
 				ShakeCameraEvent.shake(mob.level, 40, 0.1F, mob.blockPosition(), 14);
 				Vec3 particlePos = PositionUtils.getOffsetPos(mob, 0, 0, 3.5, mob.yBodyRot);
 				((ServerLevel) mob.level).sendParticles(ParticleTypeInit.DUST.get(), particlePos.x, particlePos.y,
 						particlePos.z, 60, 1.5D, 0.2D, 1.5D, 0.0D);
+			}
+			
+			if (mob.attackAnimationTick == mob.attackAnimationLength - 56) {
+				mob.playSound(SoundEventInit.FIRST_OF_STONE_ATTACK_STOP.get(), 1, 1);
 			}
 			
 			if (target != null && mob.distanceTo(target) <= 7 && mob.attackAnimationTick == mob.attackAnimationActionPoint && mob.hasLineOfSight(target)) {

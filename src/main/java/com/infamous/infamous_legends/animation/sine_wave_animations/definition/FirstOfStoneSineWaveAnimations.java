@@ -43,6 +43,9 @@ public class FirstOfStoneSineWaveAnimations {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.grassPatch3, 2.5F, 50, tick, -floatMax, floatMax, -60, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.grassPatch4, 2.5F, 50, tick, -floatMax, floatMax, -50, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
+		
+		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.head, 1F, 50, tick, -floatMax, floatMax, -100, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
+		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.head, 0.25F, 50, tick, -floatMax, floatMax, 50, speedMultiplier, amountMultiplier, SineWaveMotionTypes.POSITION_Z);
 	}
 	
 	public static void firstOfStoneWalkAnimation(FirstOfStoneModel model, float tick, float speedMultiplier, float amountMultiplier) {
@@ -122,6 +125,9 @@ public class FirstOfStoneSineWaveAnimations {
 		
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.grassPatch6, 25F, 250, tick, -floatMax, floatMax, 100, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.grassPatch6, 5F, 250, tick, -floatMax, floatMax, 140, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);
+		
+		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.head, 5F, 250, tick, -floatMax, floatMax, -100, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
+		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.head, 1.5F, 250, tick, -floatMax, floatMax, -200, speedMultiplier, amountMultiplier, SineWaveMotionTypes.POSITION_Z);
 	}
 	
 	public static void firstOfStoneRunAnimation(FirstOfStoneModel model, float tick, float speedMultiplier, float amountMultiplier) {
@@ -180,6 +186,9 @@ public class FirstOfStoneSineWaveAnimations {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.grassPatch5, 15F, 250, tick, -floatMax, floatMax, -25, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.grassPatch5, 15F, 250, tick, -floatMax, floatMax, -40, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
+		
+		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.head, 5F, 250, tick, -floatMax, floatMax, -0, speedMultiplier, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
+		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.head, 3.5F, 250, tick, -floatMax, floatMax, 75, speedMultiplier, amountMultiplier, SineWaveMotionTypes.POSITION_Z);
 	}
 	
 }

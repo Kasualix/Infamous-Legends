@@ -1087,5 +1087,403 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	"entity.first_of_stone.attack_stop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_stop4",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.attack_vocal": {
+		"subtitle": "subtitles.entity.first_of_stone.attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack_vocal8",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.attack": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/attack5",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.death": {
+		"subtitle": "subtitles.entity.first_of_stone.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/death4",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.hurt": {
+		"subtitle": "subtitles.entity.first_of_stone.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/hurt7",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.idle": {
+		"subtitle": "subtitles.entity.first_of_stone.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/idle4",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.projectile_impact": {
+		"subtitle": "subtitles.entity.first_of_stone.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/projectile_impact5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/projectile_impact6",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.ranged_attack_drag": {
+		"subtitle": "subtitles.entity.first_of_stone.ranged_attack_drag",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_drag1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_drag2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_drag3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_drag4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_drag5",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.ranged_attack_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_start5",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.ranged_attack_stop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_stop4",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.ranged_attack_throw_vocal": {
+		"subtitle": "subtitles.entity.first_of_stone.ranged_attack_throw_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw_vocal5",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.ranged_attack_throw": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_throw5",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.ranged_attack_vocal": {
+		"subtitle": "subtitles.entity.first_of_stone.ranged_attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/ranged_attack_vocal5",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.step_running": {
+		"subtitle": "subtitles.entity.first_of_stone.step_running",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/step_running1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step_running2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step_running3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step_running4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step_running5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step_running6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step_running7",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_stone.step": {
+		"subtitle": "subtitles.entity.first_of_stone.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_stone/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_stone/step7",
+				"stream": true
+			}
+		]
 	}
 }

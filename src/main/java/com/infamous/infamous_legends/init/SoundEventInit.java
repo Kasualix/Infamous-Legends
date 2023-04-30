@@ -70,4 +70,22 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_STEP = SOUND_EVENTS.register("entity.mossy_golem.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.step")));
 	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_SHOOT_A = SOUND_EVENTS.register("entity.mossy_golem.shoot_a", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.shoot_a")));
 	public static final RegistryObject<SoundEvent> MOSSY_GOLEM_SHOOT_B = SOUND_EVENTS.register("entity.mossy_golem.shoot_b", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mossy_golem.shoot_b")));
+	
+	// FIRST OF STONE
+	
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_ATTACK_STOP = SOUND_EVENTS.register("entity.first_of_stone.attack_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.attack_stop")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_ATTACK_VOCAL = SOUND_EVENTS.register("entity.first_of_stone.attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.attack_vocal")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_ATTACK = SOUND_EVENTS.register("entity.first_of_stone.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.attack")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_DEATH = SOUND_EVENTS.register("entity.first_of_stone.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.death")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_HURT = SOUND_EVENTS.register("entity.first_of_stone.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.hurt")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_IDLE = SOUND_EVENTS.register("entity.first_of_stone.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.idle")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_PROJECTILE_IMPACT = SOUND_EVENTS.register("entity.first_of_stone.projectile_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.projectile_impact")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_RANGED_ATTACK_DRAG = SOUND_EVENTS.register("entity.first_of_stone.ranged_attack_drag", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.ranged_attack_drag")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_RANGED_ATTACK_START = SOUND_EVENTS.register("entity.first_of_stone.ranged_attack_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.ranged_attack_start")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_RANGED_ATTACK_STOP = SOUND_EVENTS.register("entity.first_of_stone.ranged_attack_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.ranged_attack_stop")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_RANGED_ATTACK_THROW_VOCAL = SOUND_EVENTS.register("entity.first_of_stone.ranged_attack_throw_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.ranged_attack_throw_vocal")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_RANGED_ATTACK_THROW = SOUND_EVENTS.register("entity.first_of_stone.ranged_attack_throw", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.ranged_attack_throw")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_RANGED_ATTACK_VOCAL = SOUND_EVENTS.register("entity.first_of_stone.ranged_attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.ranged_attack_vocal")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_STEP_RUNNING = SOUND_EVENTS.register("entity.first_of_stone.step_running", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.step_running")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_STEP = SOUND_EVENTS.register("entity.first_of_stone.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.step")));
 }

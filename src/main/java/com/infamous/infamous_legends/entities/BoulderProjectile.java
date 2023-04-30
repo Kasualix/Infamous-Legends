@@ -7,6 +7,7 @@ import com.google.common.collect.Lists;
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.core.BlockPos;
@@ -127,10 +128,9 @@ public class BoulderProjectile extends ThrowableProjectile {
 				ShakeCameraEvent.shake(this.level, 40, 0.075F, this.blockPosition(), 10);
 				((ServerLevel)this.level).sendParticles(ParticleTypeInit.DUST.get(), this.getX(), this.getY(), this.getZ(), 40, 1D, 1D, 1D, 0.0D);
 				for (int i = 0; i < 8; i++) {
-					this.playSound(this.getBlockState(i).get().getSoundType().getBreakSound(), 2.0F, 0.75F);
 					((ServerLevel)this.level).sendParticles(new BlockParticleOption(ParticleTypes.BLOCK, this.getBlockState(i).get()), this.getX(), this.getY(), this.getZ(), 20, 1D, 1D, 1D, 0.0D);
 				}
-				this.playSound(SoundEvents.GENERIC_EXPLODE, 2.0F, 0.75F);
+				this.playSound(SoundEventInit.FIRST_OF_STONE_PROJECTILE_IMPACT.get(), 2.0F, MiscUtils.randomSoundPitch());
 				for (Entity entity : this.level.getEntities(this, this.getBoundingBox().inflate(3))) {
 					if (entity instanceof LivingEntity && !MiscUtils.nonEnemy(this, entity)) {
 						boolean flag = entity.hurt(DamageSource.explosion(this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null), 18);

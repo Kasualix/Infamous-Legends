@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.ai.goals.FirstOfStoneMeleeAttackGoal;
 import com.infamous.infamous_legends.ai.goals.FirstOfStoneRangedAttackGoal;
 import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -39,8 +40,8 @@ public class FirstOfStone extends AbstractGolem {
 
 	public AnimationState attackAnimationState = new AnimationState();
 	public int attackAnimationTick;
-	public final int attackAnimationLength = 70;
-	public final int attackAnimationActionPoint = 44;
+	public final int attackAnimationLength = 76;
+	public final int attackAnimationActionPoint = 36;
 	
 	public AnimationState rangedAttackAnimationState = new AnimationState();
 	public int rangedAttackAnimationTick;
@@ -108,7 +109,7 @@ public class FirstOfStone extends AbstractGolem {
 			Vec3 velocity = this.getDeltaMovement();
 			float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
 			
-			boolean shouldPlayRunAnimation = speed > 0.125 && this.attackAnimationTick <= 0;
+			boolean shouldPlayRunAnimation = speed > 0.15 && this.attackAnimationTick <= 0 && this.rangedAttackAnimationTick <= 0;
 			
 			if (shouldPlayRunAnimation && this.random.nextBoolean()) {
 				this.level.addParticle(ParticleTypeInit.DUST.get(), this.getRandomX(0.5), this.getY(), this.getRandomZ(0.5), 0, 0, 0);
@@ -143,22 +144,29 @@ public class FirstOfStone extends AbstractGolem {
 		}
 	}
 	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.25F;
-	}
-	
 	@Nullable
 	protected SoundEvent getAmbientSound() {
-		return this.getTarget() != null && !this.getTarget().isRemoved() && this.getTarget().isAlive() ? SoundEvents.VINDICATOR_AMBIENT : SoundEvents.EVOKER_AMBIENT;
+		return this.rangedAttackAnimationTick > 0 || this.attackAnimationTick > 0 ? null : SoundEventInit.FIRST_OF_STONE_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {
-		return SoundEvents.DEEPSLATE_HIT;
+		return SoundEventInit.FIRST_OF_STONE_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.DEEPSLATE_BREAK;
+		return SoundEventInit.FIRST_OF_STONE_DEATH.get();
+	}
+	
+	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
+		Vec3 velocity = this.getDeltaMovement();
+		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));	
+		
+		boolean shouldPlayRunAnimation = speed > 0.15 && this.attackAnimationTick <= 0 && this.rangedAttackAnimationTick <= 0;
+		if (shouldPlayRunAnimation) {
+			this.playSound(SoundEventInit.FIRST_OF_STONE_STEP_RUNNING.get(), 0.75F, this.getVoicePitch());
+		} else {
+			this.playSound(SoundEventInit.FIRST_OF_STONE_STEP.get(), 0.5F, this.getVoicePitch());
+		}
 	}
 	   
 	protected int decreaseAirSupply(int p_28882_) {

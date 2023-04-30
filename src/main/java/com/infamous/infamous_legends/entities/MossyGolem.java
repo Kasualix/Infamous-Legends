@@ -156,7 +156,7 @@ public class MossyGolem extends AbstractGolem {
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEventInit.MOSSY_GOLEM_HURT.get();
+		return SoundEventInit.MOSSY_GOLEM_DEATH.get();
 	}
 	
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
