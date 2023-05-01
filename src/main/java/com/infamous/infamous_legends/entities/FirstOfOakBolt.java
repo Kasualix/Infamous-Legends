@@ -4,6 +4,7 @@ import com.infamous.infamous_legends.golem_types.FirstOfOakWood1Type;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.FirstOfOakWood1TypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.nbt.CompoundTag;
@@ -84,7 +85,6 @@ public class FirstOfOakBolt extends AbstractArrow {
 		super.onHit(pResult);
 		if (!this.level.isClientSide) {
 			((ServerLevel)this.level).sendParticles(ParticleTypeInit.DUST.get(), this.getX(), this.getY(), this.getZ(), 5, 0, 0, 0, 1);
-			this.playSound(SoundEvents.GENERIC_EXPLODE, 1.0F, MiscUtils.randomSoundPitch() * 1.25F);
 		}
 	}
 	
@@ -94,7 +94,7 @@ public class FirstOfOakBolt extends AbstractArrow {
 			float f = 35F;
 			Entity entity1 = this.getOwner();
 			DamageSource damagesource = DamageSource.arrow(this, (Entity) (entity1 == null ? this : entity1));
-			SoundEvent soundevent = SoundEvents.ARROW_HIT;
+			SoundEvent soundevent = SoundEventInit.FIRST_OF_OAK_PROJECTILE_IMPACT.get();
 			if (entity.hurt(damagesource, f)) {
 				if (entity.getType() == EntityType.ENDERMAN) {
 					return;
@@ -103,8 +103,18 @@ public class FirstOfOakBolt extends AbstractArrow {
 	
 			this.discard();
 			
-			this.playSound(soundevent, 1.0F, MiscUtils.randomSoundPitch() * 0.75F);
+			this.playSound(soundevent, 2F, MiscUtils.randomSoundPitch());
 		}
+	}
+	
+	@Override
+	protected SoundEvent getDefaultHitGroundSoundEvent() {
+		return SoundEventInit.FIRST_OF_OAK_PROJECTILE_IMPACT.get();
+	}
+
+	@Override
+	public void setSoundEvent(SoundEvent pSoundEvent) {
+
 	}
 
 	@Override

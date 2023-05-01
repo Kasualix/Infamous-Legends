@@ -111,7 +111,7 @@ public class FirstOfStoneRangedAttackGoal extends Goal {
 			      double d2 = target.getZ() - boulderPos.z;
 			      double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 			      boulder.moveTo(boulderPos);
-			      float yMultiplier = mob.distanceTo(target) <= 10 ? 0.1F : 0.2F;
+			      float yMultiplier = mob.distanceTo(target) <= 12 ? 0.075F : 0.2F;
 			      boulder.shoot(d0, d1 + d3 * (double)yMultiplier, d2, 1.5F, 1);
 			      if (blockState0.getBlock() instanceof AirBlock && blockState1.getBlock() instanceof AirBlock && blockState2.getBlock() instanceof AirBlock && blockState3.getBlock() instanceof AirBlock && blockState4.getBlock() instanceof AirBlock && blockState5.getBlock() instanceof AirBlock && blockState6.getBlock() instanceof AirBlock && blockState7.getBlock() instanceof AirBlock) {
 			    	  blockState0 = Blocks.DIRT.defaultBlockState();

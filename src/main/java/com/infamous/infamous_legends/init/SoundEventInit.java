@@ -88,4 +88,27 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_RANGED_ATTACK_VOCAL = SOUND_EVENTS.register("entity.first_of_stone.ranged_attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.ranged_attack_vocal")));
 	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_STEP_RUNNING = SOUND_EVENTS.register("entity.first_of_stone.step_running", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.step_running")));
 	public static final RegistryObject<SoundEvent> FIRST_OF_STONE_STEP = SOUND_EVENTS.register("entity.first_of_stone.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_stone.step")));
+	
+	// FIRST OF OAK
+	
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_DEATH = SOUND_EVENTS.register("entity.first_of_oak.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.death")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_HURT = SOUND_EVENTS.register("entity.first_of_oak.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.hurt")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_IDLE = SOUND_EVENTS.register("entity.first_of_oak.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.idle")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_PROJECTILE_IMPACT = SOUND_EVENTS.register("entity.first_of_oak.projectile_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.projectile_impact")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_SHOOT_START = SOUND_EVENTS.register("entity.first_of_oak.shoot_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.shoot_start")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_SHOOT_STOP = SOUND_EVENTS.register("entity.first_of_oak.shoot_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.shoot_stop")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_SHOOT_VOCAL = SOUND_EVENTS.register("entity.first_of_oak.shoot_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.shoot_vocal")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_SHOOT = SOUND_EVENTS.register("entity.first_of_oak.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.shoot")));
+	public static final RegistryObject<SoundEvent> FIRST_OF_OAK_STEP = SOUND_EVENTS.register("entity.first_of_oak.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.first_of_oak.step")));
+	
+	// MACE RUNT
+	
+	public static final RegistryObject<SoundEvent> MACE_RUNT_ANGRY = SOUND_EVENTS.register("entity.mace_runt.angry", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.angry")));
+	public static final RegistryObject<SoundEvent> MACE_RUNT_ATTACK_VOCAL = SOUND_EVENTS.register("entity.mace_runt.attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.attack_vocal")));
+	public static final RegistryObject<SoundEvent> MACE_RUNT_ATTACK = SOUND_EVENTS.register("entity.mace_runt.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.attack")));
+	public static final RegistryObject<SoundEvent> MACE_RUNT_DEATH = SOUND_EVENTS.register("entity.mace_runt.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.death")));
+	public static final RegistryObject<SoundEvent> MACE_RUNT_HURT = SOUND_EVENTS.register("entity.mace_runt.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.hurt")));
+	public static final RegistryObject<SoundEvent> MACE_RUNT_IDLE = SOUND_EVENTS.register("entity.mace_runt.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.idle")));
+	public static final RegistryObject<SoundEvent> MACE_RUNT_STEP = SOUND_EVENTS.register("entity.mace_runt.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.step")));
+	public static final RegistryObject<SoundEvent> MACE_RUNT_WALKING_MACE_DRAG = SOUND_EVENTS.register("entity.mace_runt.walking_mace_drag", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.walking_mace_drag")));
 }

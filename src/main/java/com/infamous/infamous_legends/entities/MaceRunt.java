@@ -8,6 +8,8 @@ import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.HandleLoopingSoundInstances;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 import com.mojang.serialization.Dynamic;
@@ -78,11 +80,6 @@ public class MaceRunt extends AbstractPiglin {
 	public MaceRunt(EntityType<? extends MaceRunt> type, Level level) {
 		super(type, level);		
 		this.xpReward = 5;
-	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 1.5F;
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -244,25 +241,33 @@ public class MaceRunt extends AbstractPiglin {
 	protected boolean isImmuneToZombification() {
 		return true;
 	}
+	
+	@Override
+	public void onAddedToWorld() {
+	  super.onAddedToWorld();
+	  if (this.level.isClientSide) {
+		  HandleLoopingSoundInstances.addMaceRuntAudio(this, this.level);
+	  }
+	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return SoundEventInit.MACE_RUNT_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+		return SoundEventInit.MACE_RUNT_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.MACE_RUNT_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 0.15F, 1.0F);
+		this.playSound(SoundEventInit.MACE_RUNT_STEP.get(), 0.15F, this.getVoicePitch());
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+		this.playSound(SoundEventInit.MACE_RUNT_ANGRY.get(), 1.0F, this.getVoicePitch());
 	}
 
 	protected void playConvertedSound() {

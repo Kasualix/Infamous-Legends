@@ -17,9 +17,11 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
+import net.minecraft.world.entity.EntityDimensions;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Mob;
+import net.minecraft.world.entity.Pose;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.GolemRandomStrollInVillageGoal;
@@ -69,6 +71,21 @@ public class FirstOfStone extends AbstractGolem {
 	}
 	
 	@Override
+	protected float getStandingEyeHeight(Pose pPose, EntityDimensions pDimensions) {
+		return 3F;
+	}
+	
+	@Override
+	public int getMaxHeadXRot() {
+		return 30;
+	}
+	
+	@Override
+	public int getMaxHeadYRot() {
+		return 10;
+	}
+	
+	@Override
 	public boolean canBeCollidedWith() {
 		return true;
 	}
@@ -97,7 +114,7 @@ public class FirstOfStone extends AbstractGolem {
 	
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 150.0D).add(Attributes.MOVEMENT_SPEED, 0.3D)
-				.add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ATTACK_DAMAGE, 18.0D)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ATTACK_DAMAGE, 22.0D)
 				.add(Attributes.ATTACK_KNOCKBACK, 2D).add(Attributes.FOLLOW_RANGE, 35.0D);
 	}
 	

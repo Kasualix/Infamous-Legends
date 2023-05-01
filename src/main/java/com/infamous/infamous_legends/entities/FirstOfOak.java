@@ -1,5 +1,7 @@
 package com.infamous.infamous_legends.entities;
 
+import javax.annotation.Nullable;
+
 import com.infamous.infamous_legends.ai.goals.ApproachTargetGoal;
 import com.infamous.infamous_legends.ai.goals.FirstOfOakShootAttackGoal;
 import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
@@ -7,6 +9,7 @@ import com.infamous.infamous_legends.golem_types.FirstOfOakWood1Type;
 import com.infamous.infamous_legends.golem_types.FirstOfOakWood2Type;
 import com.infamous.infamous_legends.init.FirstOfOakWood1TypeInit;
 import com.infamous.infamous_legends.init.FirstOfOakWood2TypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.BlockParticleOption;
@@ -59,7 +62,7 @@ public class FirstOfOak extends AbstractGolem {
 	protected void registerGoals() {
 		this.goalSelector.addGoal(0, new FirstOfOakShootAttackGoal(this));
 		this.goalSelector.addGoal(2, new LookAtTargetGoal(this));
-		this.goalSelector.addGoal(3, new ApproachTargetGoal(this, 30, 1.2, true));
+		this.goalSelector.addGoal(3, new ApproachTargetGoal(this, 40, 1.2, true));
 		this.goalSelector.addGoal(4, new MoveBackToVillageGoal(this, 0.6D, false));
 		this.goalSelector.addGoal(5, new GolemRandomStrollInVillageGoal(this, 0.6D));
 		this.goalSelector.addGoal(7, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -153,7 +156,7 @@ public class FirstOfOak extends AbstractGolem {
 	
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 100.0D).add(Attributes.MOVEMENT_SPEED, 0.325D)
-				.add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ATTACK_KNOCKBACK, 1D).add(Attributes.ATTACK_DAMAGE, 6D).add(Attributes.FOLLOW_RANGE, 40.0D);
+				.add(Attributes.KNOCKBACK_RESISTANCE, 1D).add(Attributes.ATTACK_KNOCKBACK, 1D).add(Attributes.ATTACK_DAMAGE, 6D).add(Attributes.FOLLOW_RANGE, 50.0D);
 	}
 	
 	@Override
@@ -186,12 +189,26 @@ public class FirstOfOak extends AbstractGolem {
 		}
 	}
 
+	@Nullable
+	protected SoundEvent getAmbientSound() {
+		return SoundEventInit.FIRST_OF_OAK_IDLE.get();
+	}
+
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {
-		return SoundEvents.WOOD_HIT;
+		return SoundEventInit.FIRST_OF_OAK_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.WOOD_BREAK;
+		return SoundEventInit.FIRST_OF_OAK_DEATH.get();
+	}
+	
+	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
+		this.playSound(SoundEventInit.FIRST_OF_OAK_STEP.get(), 0.5F, this.getVoicePitch());
+	}
+	
+	@Override
+	protected float getSoundVolume() {
+		return 1.5F;
 	}
 	   
 	protected int decreaseAirSupply(int p_28882_) {

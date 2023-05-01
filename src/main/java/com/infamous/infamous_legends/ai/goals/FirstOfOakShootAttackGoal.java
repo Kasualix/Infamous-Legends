@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import com.infamous.infamous_legends.entities.FirstOfOak;
 import com.infamous.infamous_legends.entities.FirstOfOakBolt;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -45,7 +46,7 @@ public class FirstOfOakShootAttackGoal extends Goal {
 		@Override
 		public boolean canUse() {
 			target = mob.getTarget();
-			return target != null && mob.tickCount >= this.nextUseTime && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 30 && animationsUseable() && mob.hasLineOfSight(target);
+			return target != null && mob.tickCount >= this.nextUseTime && !target.isRemoved() && !target.isDeadOrDying() && mob.distanceTo(target) <= 40 && animationsUseable() && mob.hasLineOfSight(target);
 		}
 
 		@Override
@@ -55,6 +56,8 @@ public class FirstOfOakShootAttackGoal extends Goal {
 
 		@Override
 		public void start() {
+			mob.playSound(SoundEventInit.FIRST_OF_OAK_SHOOT_VOCAL.get(), 1.5F, MiscUtils.randomSoundPitch());
+			mob.playSound(SoundEventInit.FIRST_OF_OAK_SHOOT_START.get(), 1.5F, 1);
 			mob.shootAnimationTick = mob.shootAnimationLength;
 			mob.level.broadcastEntityEvent(mob, (byte) 4);
 		}
@@ -70,7 +73,6 @@ public class FirstOfOakShootAttackGoal extends Goal {
 			}
 			
 			if (mob.shootAnimationTick == mob.shootAnimationLength - 17) {
-				mob.playSound(SoundEvents.GOAT_RAM_IMPACT, 1.5F, MiscUtils.randomSoundPitch() * 0.25F);
 				Vec3 slamAttackBoundingBoxOffset = PositionUtils.getOffsetPos(mob, 0, 0, 1.5, mob.yBodyRot);
 				AABB slamAttackBoundingBox = mob.getBoundingBox().deflate(0, 2, 0).move(0, -2, 0).inflate(2, 0, 2).move(slamAttackBoundingBoxOffset.x - mob.getX(), slamAttackBoundingBoxOffset.y - mob.getY(), slamAttackBoundingBoxOffset.z - mob.getZ());
 				((ServerLevel)mob.level).sendParticles(ParticleTypeInit.DUST.get(), slamAttackBoundingBoxOffset.x, slamAttackBoundingBoxOffset.y, slamAttackBoundingBoxOffset.z, 20, 1, 0, 1, 1);
@@ -81,6 +83,10 @@ public class FirstOfOakShootAttackGoal extends Goal {
 				}
 			}
 			
+			if (mob.shootAnimationTick == mob.shootAnimationLength - 47) {
+				mob.playSound(SoundEventInit.FIRST_OF_OAK_SHOOT_STOP.get(), 1.0F, 1);
+			}
+			
 			if (target != null && mob.shootAnimationTick == mob.shootAnimationActionPoint && mob.hasLineOfSight(target)) {
 				FirstOfOakBolt bolt = new FirstOfOakBolt(mob.level, mob);
 				bolt.moveTo(mob.position().add(0, 2.5, 0));
@@ -89,9 +95,8 @@ public class FirstOfOakShootAttackGoal extends Goal {
 				double d2 = target.getZ() - mob.getZ();
 				double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 				bolt.setType(mob.getWood1Type());
-				bolt.shoot(d0, d1 + d3 * (double) 0.1F, d2, 3.0F, 0);
-				mob.playSound(SoundEvents.DISPENSER_LAUNCH);
-				mob.playSound(SoundEvents.PISTON_CONTRACT);
+				bolt.shoot(d0, d1 + d3 * (double) 0.05F, d2, 6.0F, 0);
+				mob.playSound(SoundEventInit.FIRST_OF_OAK_SHOOT.get(), 3F, MiscUtils.randomSoundPitch());
 				mob.level.addFreshEntity(bolt);
 			}
 		}

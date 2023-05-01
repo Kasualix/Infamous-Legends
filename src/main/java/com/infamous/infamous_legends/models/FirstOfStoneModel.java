@@ -175,11 +175,19 @@ public class FirstOfStoneModel<T extends FirstOfStone> extends HierarchicalModel
 		
 		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && !shouldPlayRunAnimation && entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0;	
 		
+		if (entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0) {
+			this.animateHeadLookTarget(netHeadYaw, headPitch);
+		}
 		FirstOfStoneSineWaveAnimations.firstOfStoneRunAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 7.5F, shouldPlayRunAnimation ? 1 : 0);
 		FirstOfStoneSineWaveAnimations.firstOfStoneWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 12.5F, shouldPlayWalkAnimation ? 1 : 0);
 		FirstOfStoneSineWaveAnimations.firstOfStoneIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
 		this.animate(entity.attackAnimationState, FirstOfStoneKeyframeAnimations.FIRST_OF_STONE_ATTACK, ageInTicks);
 		this.animate(entity.rangedAttackAnimationState, FirstOfStoneKeyframeAnimations.FIRST_OF_STONE_RANGED_ATTACK, ageInTicks);
+	}
+	
+	private void animateHeadLookTarget(float yRot, float xRot) {
+		this.head.xRot = xRot * ((float) Math.PI / 180F);
+		this.head.yRot = yRot * ((float) Math.PI / 180F);
 	}
 
 	@Override

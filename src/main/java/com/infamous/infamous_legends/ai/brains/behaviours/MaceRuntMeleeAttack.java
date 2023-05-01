@@ -3,6 +3,7 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.MaceRunt;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -43,6 +44,8 @@ public class MaceRuntMeleeAttack extends Behavior<MaceRunt> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
 		
+      p_23525_.playSound(SoundEventInit.MACE_RUNT_ATTACK_VOCAL.get(), 1, MiscUtils.randomSoundPitch());
+		
       p_23525_.attackAnimationTick = p_23525_.attackAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
    }
@@ -60,9 +63,12 @@ public class MaceRuntMeleeAttack extends Behavior<MaceRunt> {
 		p_22552_.getNavigation().stop();
 		
 		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint) {
-			p_22552_.playSound(SoundEvents.ANVIL_LAND, 1, MiscUtils.randomSoundPitch() * 0.75F);
 			Vec3 particlePos = PositionUtils.getOffsetPos(p_22552_, 0.25, 0, 2, p_22552_.yBodyRot);
 			p_22551_.sendParticles(ParticleTypeInit.DUST.get(), particlePos.x, particlePos.y, particlePos.z, 5, 0.2D, 0.2D, 0.2D, 0.0D);
+		}
+		
+		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationLength - 21) {
+			p_22552_.playSound(SoundEventInit.MACE_RUNT_ATTACK.get(), 1, 1);
 		}
 		
 		if (livingentity != null && p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint && p_22552_.distanceTo(livingentity) <= 3 && p_22552_.hasLineOfSight(livingentity)) {

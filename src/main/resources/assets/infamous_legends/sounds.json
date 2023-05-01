@@ -1485,5 +1485,561 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	
+	"entity.first_of_oak.death": {
+		"subtitle": "subtitles.entity.first_of_oak.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/death4",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.hurt": {
+		"subtitle": "subtitles.entity.first_of_oak.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/hurt8",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.idle": {
+		"subtitle": "subtitles.entity.first_of_oak.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/idle6",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.projectile_impact": {
+		"subtitle": "subtitles.entity.first_of_oak.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/projectile_impact8",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.shoot_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_start5",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.shoot_stop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_stop4",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.shoot_vocal": {
+		"subtitle": "subtitles.entity.first_of_oak.shoot_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot_vocal7",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.shoot": {
+		"subtitle": "subtitles.entity.first_of_oak.shoot",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/shoot7",
+				"stream": true
+			}
+		]
+	},
+	"entity.first_of_oak.step": {
+		"subtitle": "subtitles.entity.first_of_oak.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/first_of_oak/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/step6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/first_of_oak/step7",
+				"stream": true
+			}
+		]
+	},
+	
+	
+	
+	
+	"entity.mace_runt.angry": {
+		"subtitle": "subtitles.entity.mace_runt.angry",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/angry1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/angry2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/angry3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/angry4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/angry5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/angry6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/angry7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/angry8",
+				"stream": true
+			}
+		]
+	},
+	"entity.mace_runt.attack_vocal": {
+		"subtitle": "subtitles.entity.mace_runt.attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack_vocal9",
+				"stream": true
+			}
+		]
+	},
+	"entity.mace_runt.attack": {
+		"subtitle": "subtitles.entity.mace_runt.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/attack8",
+				"stream": true
+			}
+		]
+	},
+	"entity.mace_runt.death": {
+		"subtitle": "subtitles.entity.mace_runt.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/death6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/death7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/death8",
+				"stream": true
+			}
+		]
+	},
+	"entity.mace_runt.hurt": {
+		"subtitle": "subtitles.entity.mace_runt.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/hurt7",
+				"stream": true
+			}
+		]
+	},
+	"entity.mace_runt.idle": {
+		"subtitle": "subtitles.entity.mace_runt.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/idle9",
+				"stream": true
+			}
+		]
+	},
+	"entity.mace_runt.step": {
+		"subtitle": "subtitles.entity.mace_runt.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/step6",
+				"stream": true
+			}
+		]
+	},
+	"entity.mace_runt.walking_mace_drag": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/mace_runt/walking_mace_drag1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/walking_mace_drag2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/walking_mace_drag3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/walking_mace_drag4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/mace_runt/walking_mace_drag5",
+				"stream": true
+			}
+		]
 	}
 }
