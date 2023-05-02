@@ -2333,5 +2333,259 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	"entity.war_boar.attack_vocal": {
+		"subtitle": "subtitles.entity.war_boar.attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack_vocal8",
+				"stream": true
+			}
+		]
+	},
+	"entity.war_boar.attack": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/attack5",
+				"stream": true
+			}
+		]
+	},
+	"entity.war_boar.charge": {
+		"subtitle": "subtitles.entity.war_boar.charge",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/charge1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/charge2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/charge3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/charge4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/charge5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/charge6",
+				"stream": true
+			}
+		]
+	},
+	"entity.war_boar.death": {
+		"subtitle": "subtitles.entity.war_boar.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/death6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/death7",
+				"stream": true
+			}
+		]
+	},
+	"entity.war_boar.hurt": {
+		"subtitle": "subtitles.entity.war_boar.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/hurt5",
+				"stream": true
+			}
+		]
+	},
+	"entity.war_boar.idle": {
+		"subtitle": "subtitles.entity.war_boar.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/idle10",
+				"stream": true
+			}
+		]
+	},
+	"entity.war_boar.step_charging": {
+		"subtitle": "subtitles.entity.war_boar.step_charging",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/step_charging1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step_charging2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step_charging3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step_charging4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step_charging5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step_charging6",
+				"stream": true
+			}
+		]
+	},
+	"entity.war_boar.step": {
+		"subtitle": "subtitles.entity.war_boar.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/war_boar/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/war_boar/step6",
+				"stream": true
+			}
+		]
 	}
 }

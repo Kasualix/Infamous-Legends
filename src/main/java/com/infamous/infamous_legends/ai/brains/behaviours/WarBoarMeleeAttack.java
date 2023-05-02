@@ -2,9 +2,11 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.WarBoar;
+import com.infamous.infamous_legends.init.SoundEventInit;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.behavior.Behavior;
@@ -28,6 +30,9 @@ public class WarBoarMeleeAttack extends Behavior<WarBoar> {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
+		
+      p_23525_.playSound(SoundEventInit.WAR_BOAR_ATTACK.get(), 1.0F, p_23525_.getVoicePitch());
+      p_23525_.playSound(SoundEventInit.WAR_BOAR_ATTACK_VOCAL.get(), 1.0F, p_23525_.getVoicePitch());
 		
       p_23525_.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(0.0D);
       

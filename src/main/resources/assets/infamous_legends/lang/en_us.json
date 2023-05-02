@@ -105,7 +105,7 @@
 	"subtitles.entity.first_of_stone.ranged_attack_drag": "First of Stone makes a boulder",
 	"subtitles.entity.first_of_stone.ranged_attack_throw_vocal": "First of Stone throws boulder",
 	"subtitles.entity.first_of_stone.ranged_attack_vocal": "First of Stone starts a ranged attack",
-	"subtitles.entity.first_of_stone.step_running": "First of Stone runs",
+	"subtitles.entity.first_of_stone.step_running": "First of Stone steps",
 	"subtitles.entity.first_of_stone.step": "First of Stone steps",
 	
 	"subtitles.entity.first_of_oak.death": "First of Oak dies",
@@ -132,6 +132,14 @@
 	"subtitles.entity.blaze_runt.projectile_impact": "Blaze Rod hits",
 	"subtitles.entity.blaze_runt.step": "Blaze Runt steps",
 	"subtitles.entity.blaze_runt.throw": "Blaze Rod thrown",
+	
+	"subtitles.entity.war_boar.attack_vocal": "Warboar attacks",
+	"subtitles.entity.war_boar.charge": "Warboar charges",
+	"subtitles.entity.war_boar.death": "Warboar attacks",
+	"subtitles.entity.war_boar.hurt": "Warboar attacks",
+	"subtitles.entity.war_boar.idle": "Warboar growls",
+	"subtitles.entity.war_boar.step_charging": "Warboar thunders",
+	"subtitles.entity.war_boar.step": "Warboar steps",
 	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
