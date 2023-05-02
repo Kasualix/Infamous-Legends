@@ -6,6 +6,7 @@ import com.google.common.collect.ImmutableList;
 import com.infamous.infamous_legends.ai.brains.BlazeRuntAi;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.mojang.serialization.Dynamic;
 
 import net.minecraft.core.BlockPos;
@@ -60,11 +61,6 @@ public class BlazeRunt extends AbstractPiglin {
 	public BlazeRunt(EntityType<? extends BlazeRunt> type, Level level) {
 		super(type, level);		
 		this.xpReward = 5;
-	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 1.3F;
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -169,23 +165,23 @@ public class BlazeRunt extends AbstractPiglin {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return SoundEventInit.BLAZE_RUNT_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+		return SoundEventInit.BLAZE_RUNT_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.BLAZE_RUNT_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 0.15F, 1.0F);
+		this.playSound(SoundEventInit.BLAZE_RUNT_STEP.get(), 0.15F, this.getVoicePitch());
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+		this.playSound(SoundEventInit.BLAZE_RUNT_ANGRY.get(), 1.0F, this.getVoicePitch());
 	}
 
 	protected void playConvertedSound() {

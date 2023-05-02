@@ -2041,5 +2041,297 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	"entity.blaze_runt.angry": {
+		"subtitle": "subtitles.entity.blaze_runt.angry",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/angry10",
+				"stream": true
+			}
+		]
+	},
+	"entity.blaze_runt.attack": {
+		"subtitle": "subtitles.entity.blaze_runt.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/attack5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/attack6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/attack7",
+				"stream": true
+			}
+		]
+	},
+	"entity.blaze_runt.death": {
+		"subtitle": "subtitles.entity.blaze_runt.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/death6",
+				"stream": true
+			}
+		]
+	},
+	"entity.blaze_runt.hurt": {
+		"subtitle": "subtitles.entity.blaze_runt.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/hurt8",
+				"stream": true
+			}
+		]
+	},
+	"entity.blaze_runt.idle": {
+		"subtitle": "subtitles.entity.blaze_runt.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/idle9",
+				"stream": true
+			}
+		]
+	},
+	"entity.blaze_runt.projectile_impact": {
+		"subtitle": "subtitles.entity.blaze_runt.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/projectile_impact5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/projectile_impact6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/projectile_impact7",
+				"stream": true
+			}
+		]
+	},
+	"entity.blaze_runt.step": {
+		"subtitle": "subtitles.entity.blaze_runt.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/step6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/step7",
+				"stream": true
+			}
+		]
+	},
+	"entity.blaze_runt.throw": {
+		"subtitle": "subtitles.entity.blaze_runt.throw",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/blaze_runt/throw8",
+				"stream": true
+			}
+		]
 	}
 }

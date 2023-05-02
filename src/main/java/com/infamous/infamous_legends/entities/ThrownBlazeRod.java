@@ -3,6 +3,7 @@ package com.infamous.infamous_legends.entities;
 import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.core.particles.ParticleTypes;
@@ -70,7 +71,7 @@ public class ThrownBlazeRod extends AbstractArrow {
       Entity entity1 = this.getOwner();
       DamageSource damagesource = DamageSource.trident(this, (Entity)(entity1 == null ? this : entity1));
       this.dealtDamage = true;
-      SoundEvent soundevent = SoundEvents.TRIDENT_HIT;
+      SoundEvent soundevent = SoundEventInit.BLAZE_RUNT_PROJECTILE_IMPACT.get();
       if (entity.hurt(damagesource, f)) {
     	 entity.setSecondsOnFire(5);
          if (entity.getType() == EntityType.ENDERMAN) {
@@ -81,16 +82,22 @@ public class ThrownBlazeRod extends AbstractArrow {
       this.setDeltaMovement(this.getDeltaMovement().multiply(-0.01D, -0.1D, -0.01D));
       float f1 = 1.0F;
 
-      this.playSound(soundevent, f1, 1.0F);
+      this.playSound(soundevent, 1F, MiscUtils.randomSoundPitch());
    }
 
    protected boolean tryPickup(Player p_150196_) {
       return false;
    }
 
-   protected SoundEvent getDefaultHitGroundSoundEvent() {
-      return SoundEvents.TRIDENT_HIT_GROUND;
-   }
+	@Override
+	protected SoundEvent getDefaultHitGroundSoundEvent() {
+		return SoundEventInit.BLAZE_RUNT_PROJECTILE_IMPACT.get();
+	}
+
+	@Override
+	public void setSoundEvent(SoundEvent pSoundEvent) {
+
+	}
 
    public void playerTouch(Player p_37580_) {
       if (this.ownedBy(p_37580_) || this.getOwner() == null) {

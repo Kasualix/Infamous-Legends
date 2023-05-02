@@ -7,6 +7,8 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import com.infamous.infamous_legends.entities.ThrownBlazeRod;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -49,8 +51,8 @@ public class ItemMixin {
 						thrownBlazeRod.shootFromRotation(player, player.getXRot(), player.getYRot(), 0.0F, 2.0F, 1.5F);
 	
 						level.addFreshEntity(thrownBlazeRod);
-						level.playSound((Player) null, thrownBlazeRod, SoundEvents.TRIDENT_THROW, SoundSource.PLAYERS,
-								1.0F, 1.0F);
+						level.playSound((Player) null, thrownBlazeRod, SoundEventInit.BLAZE_RUNT_THROW.get(), SoundSource.PLAYERS,
+								1.0F, MiscUtils.randomSoundPitch());
 						if (!player.getAbilities().instabuild) {
 							stack.shrink(1);
 						}

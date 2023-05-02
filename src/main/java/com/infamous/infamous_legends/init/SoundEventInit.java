@@ -111,4 +111,15 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> MACE_RUNT_IDLE = SOUND_EVENTS.register("entity.mace_runt.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.idle")));
 	public static final RegistryObject<SoundEvent> MACE_RUNT_STEP = SOUND_EVENTS.register("entity.mace_runt.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.step")));
 	public static final RegistryObject<SoundEvent> MACE_RUNT_WALKING_MACE_DRAG = SOUND_EVENTS.register("entity.mace_runt.walking_mace_drag", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.mace_runt.walking_mace_drag")));
+	
+	// BLAZE RUNT
+	
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_ANGRY = SOUND_EVENTS.register("entity.blaze_runt.angry", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.angry")));
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_ATTACK = SOUND_EVENTS.register("entity.blaze_runt.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.attack")));
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_DEATH = SOUND_EVENTS.register("entity.blaze_runt.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.death")));
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_HURT = SOUND_EVENTS.register("entity.blaze_runt.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.hurt")));
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_IDLE = SOUND_EVENTS.register("entity.blaze_runt.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.idle")));
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_PROJECTILE_IMPACT = SOUND_EVENTS.register("entity.blaze_runt.projectile_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.projectile_impact")));
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_STEP = SOUND_EVENTS.register("entity.blaze_runt.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.step")));
+	public static final RegistryObject<SoundEvent> BLAZE_RUNT_THROW = SOUND_EVENTS.register("entity.blaze_runt.throw", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.blaze_runt.throw")));
 }

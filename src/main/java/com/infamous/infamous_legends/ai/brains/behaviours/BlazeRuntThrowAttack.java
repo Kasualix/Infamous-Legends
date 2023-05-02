@@ -3,6 +3,8 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.ThrownBlazeRod;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.server.level.ServerLevel;
@@ -30,7 +32,9 @@ public class BlazeRuntThrowAttack extends Behavior<BlazeRunt> {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
-		
+      
+      p_23525_.playSound(SoundEventInit.BLAZE_RUNT_ATTACK.get(), 1, p_23525_.getVoicePitch());
+      
       p_23525_.throwAnimationTick = p_23525_.throwAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
    }
@@ -53,7 +57,7 @@ public class BlazeRuntThrowAttack extends Behavior<BlazeRunt> {
 		      double d2 = livingentity.getZ() - p_22552_.getZ();
 		      double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 		      thrownBlazeRod.shoot(d0, d1 + d3 * (double)0.2F, d2, 1.4F, 10);
-		      p_22552_.playSound(SoundEvents.TRIDENT_THROW);
+		      p_22552_.playSound(SoundEventInit.BLAZE_RUNT_THROW.get(), 1, MiscUtils.randomSoundPitch());
 		      p_22551_.addFreshEntity(thrownBlazeRod);
 		}
 	}
