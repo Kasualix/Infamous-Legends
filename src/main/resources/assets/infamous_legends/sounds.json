@@ -2587,5 +2587,289 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	"entity.seeker.attack_vocal": {
+		"subtitle": "subtitles.entity.seeker.attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack_vocal6",
+				"stream": true
+			}
+		]
+	},
+	"entity.seeker.attack": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/attack5",
+				"stream": true
+			}
+		]
+	},
+	"entity.seeker.death": {
+		"subtitle": "subtitles.entity.seeker.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/death10",
+				"stream": true
+			}
+		]
+	},
+	"entity.seeker.hurt": {
+		"subtitle": "subtitles.entity.seeker.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/hurt7",
+				"stream": true
+			}
+		]
+	},
+	"entity.seeker.idle": {
+		"subtitle": "subtitles.entity.seeker.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle10",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle11",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle12",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/idle13",
+				"stream": true
+			}
+		]
+	},
+	"entity.seeker.run_vocal": {
+		"subtitle": "subtitles.entity.seeker.run_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/run_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/run_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/run_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/run_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/run_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/run_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/run_vocal7",
+				"stream": true
+			}
+		]
+	},
+	"entity.seeker.step": {
+		"subtitle": "subtitles.entity.seeker.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/step6",
+				"stream": true
+			}
+		]
+	},
+	"entity.seeker.target_spotted": {
+		"subtitle": "subtitles.entity.seeker.target_spotted",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/seeker/target_spotted1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/target_spotted2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/target_spotted3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/target_spotted4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/target_spotted5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/seeker/target_spotted6",
+				"stream": true
+			}
+		]
 	}
 }

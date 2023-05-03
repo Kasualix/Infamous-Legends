@@ -7,6 +7,7 @@ import com.google.common.collect.ImmutableSet;
 import com.infamous.infamous_legends.ai.brains.behaviours.InteractWithTag;
 import com.infamous.infamous_legends.ai.brains.behaviours.LookAtAttackTarget;
 import com.infamous.infamous_legends.ai.brains.behaviours.SeekerMeleeAttack;
+import com.infamous.infamous_legends.ai.brains.behaviours.SeekerStartAttacking;
 import com.infamous.infamous_legends.ai.brains.sensors.CustomSensor;
 import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.init.TagInit;
@@ -28,7 +29,6 @@ import net.minecraft.world.entity.ai.behavior.RunOne;
 import net.minecraft.world.entity.ai.behavior.SetEntityLookTarget;
 import net.minecraft.world.entity.ai.behavior.SetLookAndInteract;
 import net.minecraft.world.entity.ai.behavior.SetWalkTargetFromAttackTargetIfTargetOutOfReach;
-import net.minecraft.world.entity.ai.behavior.StartAttacking;
 import net.minecraft.world.entity.ai.behavior.StopAttackingIfTargetInvalid;
 import net.minecraft.world.entity.ai.behavior.StopBeingAngryIfTargetDead;
 import net.minecraft.world.entity.ai.behavior.StrollAroundPoi;
@@ -58,8 +58,8 @@ public class SeekerAi {
 	      p_35113_.addActivity(Activity.CORE, 0, ImmutableList.of(new LookAtTargetSink(45, 90), new MoveToTargetSink(), new InteractWithDoor(), new StopBeingAngryIfTargetDead<>()));
 	   }
 
-	   private static void initIdleActivity(Seeker p_35120_, Brain<Seeker> p_35121_) {
-	      p_35121_.addActivity(Activity.IDLE, 10, ImmutableList.of(new StartAttacking<>(SeekerAi::findNearestValidAttackTarget), createIdleLookBehaviors(), createIdleMovementBehaviors(), new SetLookAndInteract(EntityType.PLAYER, 4)));
+	   private static void initIdleActivity(Seeker p_35120_, Brain<Seeker> p_35121_) {		     
+	      p_35121_.addActivity(Activity.IDLE, 10, ImmutableList.of(new SeekerStartAttacking<>(SeekerAi::findNearestValidAttackTarget), createIdleLookBehaviors(), createIdleMovementBehaviors(), new SetLookAndInteract(EntityType.PLAYER, 4)));
 	   }
 
 	   private static void initFightActivity(Seeker p_35125_, Brain<Seeker> p_35126_) {
@@ -73,7 +73,7 @@ public class SeekerAi {
 		   }
 
 		   private static RunOne<Seeker> createIdleMovementBehaviors() {
-		      return new RunOne<>(ImmutableList.of(Pair.of(new RandomStroll(0.6F), 2), Pair.of(InteractWithTag.of(TagInit.EntityTypes.PIGLIN_ALLIES, 8, MemoryModuleType.INTERACTION_TARGET, 0.6F, 2), 2), Pair.of(new StrollToPoi(MemoryModuleType.HOME, 0.6F, 2, 100), 2), Pair.of(new StrollAroundPoi(MemoryModuleType.HOME, 0.6F, 5), 2), Pair.of(new DoNothing(30, 60), 1)));
+		      return new RunOne<>(ImmutableList.of(Pair.of(new RandomStroll(0.4F), 2), Pair.of(InteractWithTag.of(TagInit.EntityTypes.PIGLIN_ALLIES, 8, MemoryModuleType.INTERACTION_TARGET, 0.6F, 2), 2), Pair.of(new StrollToPoi(MemoryModuleType.HOME, 0.6F, 2, 100), 2), Pair.of(new StrollAroundPoi(MemoryModuleType.HOME, 0.6F, 5), 2), Pair.of(new DoNothing(30, 60), 1)));
 		   }
 
 	   public static void updateActivity(Seeker p_35110_) {

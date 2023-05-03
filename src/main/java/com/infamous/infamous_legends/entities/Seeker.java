@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.ai.brains.SeekerAi;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.interfaces.IHasCustomExplosion;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
@@ -44,8 +45,8 @@ public class Seeker extends AbstractPiglin implements IHasCustomExplosion {
 
 	public AnimationState attackAnimationState = new AnimationState();
 	public int attackAnimationTick;
-	public final int attackAnimationLength = 7;
-	public final int attackAnimationActionPoint = 1;
+	public final int attackAnimationLength = 100;
+	public final int attackAnimationActionPoint = 83;
 	
 	protected static final ImmutableList<SensorType<? extends Sensor<? super Seeker>>> SENSOR_TYPES = ImmutableList
 			.of(SensorTypeInit.CUSTOM_NEAREST_LIVING_ENTITIES.get(), SensorTypeInit.CUSTOM_NEAREST_PLAYERS.get(), SensorType.NEAREST_ITEMS,
@@ -64,15 +65,10 @@ public class Seeker extends AbstractPiglin implements IHasCustomExplosion {
 		super(type, level);		
 		this.xpReward = 7;
 	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.9F;
-	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.4F).add(Attributes.ATTACK_DAMAGE, 1.0D).add(Attributes.FOLLOW_RANGE, 20.0D);
+		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 15.0D)
+				.add(Attributes.MOVEMENT_SPEED, (double) 0.5F).add(Attributes.ATTACK_DAMAGE, 1.0D).add(Attributes.FOLLOW_RANGE, 30.0D);
 	}
 	
 	@Nullable
@@ -104,7 +100,12 @@ public class Seeker extends AbstractPiglin implements IHasCustomExplosion {
 		
 		if (this.level.isClientSide && this.attackAnimationTick <= 0) {
 			this.attackAnimationState.stop();
-		}
+		}		
+	}
+	
+	@Override
+	public boolean isInvulnerableTo(DamageSource pSource) {
+		return this.attackAnimationTick <= this.attackAnimationActionPoint && this.attackAnimationTick > 0 ? true : super.isInvulnerableTo(pSource);
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
@@ -187,23 +188,31 @@ public class Seeker extends AbstractPiglin implements IHasCustomExplosion {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return SoundEventInit.SEEKER_IDLE.get();
 	}
 
-	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+	protected SoundEvent getHurtSound(DamageSource p_34244_) {
+		return SoundEventInit.SEEKER_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.SEEKER_DEATH.get();
 	}
 
-	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 0.15F, 1.0F);
+	protected void playStepSound(BlockPos p_34231_, BlockState p_34232_) {
+		Vec3 velocity = this.getDeltaMovement();
+		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));	
+		
+		if (speed > 0.2 && this.attackAnimationTick <= 0) {
+			this.playSound(SoundEventInit.SEEKER_STEP.get(), 0.5F, 1.0F);
+			this.playSound(SoundEventInit.SEEKER_RUN_VOCAL.get(), 0.75F, this.getVoicePitch());
+		} else {
+			this.playSound(SoundEventInit.SEEKER_STEP.get(), 0.25F, 1.0F);
+		}
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+		this.playSound(SoundEventInit.SEEKER_IDLE.get(), 1.0F, this.getVoicePitch());
 	}
 
 	protected void playConvertedSound() {

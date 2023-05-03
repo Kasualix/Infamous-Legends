@@ -72,10 +72,10 @@ public class SeekerModel<T extends Seeker> extends HierarchicalModel<T> implemen
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition everything = partdefinition.addOrReplaceChild("everything", CubeListBuilder.create(), PartPose.offset(0.0F, 22.0F, 0.0F));
+		PartDefinition everything = partdefinition.addOrReplaceChild("everything", CubeListBuilder.create(), PartPose.offset(0.0F, 4.0F, 0.0F));
 
 		PartDefinition body = everything.addOrReplaceChild("body", CubeListBuilder.create().texOffs(49, 52).addBox(-6.0F, -14.0F, -4.0F, 12.0F, 14.0F, 8.0F, new CubeDeformation(0.0F))
-		.texOffs(2, 82).addBox(-6.0F, -14.0F, -4.0F, 12.0F, 14.0F, 8.0F, new CubeDeformation(0.25F)), PartPose.offset(0.0F, -10.0F, 0.0F));
+		.texOffs(2, 82).addBox(-6.0F, -14.0F, -4.0F, 12.0F, 14.0F, 8.0F, new CubeDeformation(0.25F)), PartPose.offset(0.0F, 8.0F, 0.0F));
 
 		PartDefinition leftArm = body.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(2, 61).mirror().addBox(0.0F, -2.0F, -2.5F, 5.0F, 16.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false), PartPose.offset(6.0F, -12.0F, 0.0F));
 
@@ -120,11 +120,13 @@ public class SeekerModel<T extends Seeker> extends HierarchicalModel<T> implemen
 
 		PartDefinition rightEar = head.addOrReplaceChild("rightEar", CubeListBuilder.create().texOffs(74, 8).addBox(-1.0F, 0.0F, -3.5F, 1.0F, 6.0F, 6.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-5.5F, -9.0F, 0.5F, 0.0F, 0.0F, 0.6109F));
 
+		PartDefinition noseFoliage = head.addOrReplaceChild("noseFoliage", CubeListBuilder.create().texOffs(58, 84).addBox(-0.5F, 0.0F, 0.0F, 1.0F, 3.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offset(1.0F, -3.5F, -7.5F));
+
 		PartDefinition leftLeg = everything.addOrReplaceChild("leftLeg", CubeListBuilder.create().texOffs(63, 27).mirror().addBox(-2.5F, 0.0F, -2.5F, 5.0F, 12.0F, 5.0F, new CubeDeformation(0.0F)).mirror(false)
-		.texOffs(95, 64).addBox(-3.0F, -1.9F, -4.0F, 6.0F, 10.0F, 8.0F, new CubeDeformation(0.15F)), PartPose.offset(3.0F, -10.0F, 0.0F));
+		.texOffs(95, 64).addBox(-3.0F, -1.9F, -4.0F, 6.0F, 10.0F, 8.0F, new CubeDeformation(0.15F)), PartPose.offset(3.0F, 8.0F, 0.0F));
 
 		PartDefinition rightLeg = everything.addOrReplaceChild("rightLeg", CubeListBuilder.create().texOffs(63, 27).addBox(-2.5F, 0.0F, -2.5F, 5.0F, 12.0F, 5.0F, new CubeDeformation(0.0F))
-		.texOffs(87, 106).addBox(-3.1F, -1.8F, -4.0F, 6.0F, 10.0F, 8.0F, new CubeDeformation(0.2F)), PartPose.offset(-3.0F, -10.0F, 0.0F));
+		.texOffs(87, 106).addBox(-3.1F, -1.8F, -4.0F, 6.0F, 10.0F, 8.0F, new CubeDeformation(0.2F)), PartPose.offset(-3.0F, 8.0F, 0.0F));
 
 		return LayerDefinition.create(meshdefinition, 128, 128);
 	}

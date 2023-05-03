@@ -133,4 +133,15 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> WAR_BOAR_IDLE = SOUND_EVENTS.register("entity.war_boar.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.war_boar.idle")));
 	public static final RegistryObject<SoundEvent> WAR_BOAR_STEP_CHARGING = SOUND_EVENTS.register("entity.war_boar.step_charging", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.war_boar.step_charging")));
 	public static final RegistryObject<SoundEvent> WAR_BOAR_STEP = SOUND_EVENTS.register("entity.war_boar.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.war_boar.step")));
+	
+	// SEEKER
+	
+	public static final RegistryObject<SoundEvent> SEEKER_ATTACK_VOCAL = SOUND_EVENTS.register("entity.seeker.attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.attack_vocal")));
+	public static final RegistryObject<SoundEvent> SEEKER_ATTACK = SOUND_EVENTS.register("entity.seeker.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.attack")));
+	public static final RegistryObject<SoundEvent> SEEKER_DEATH = SOUND_EVENTS.register("entity.seeker.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.death")));
+	public static final RegistryObject<SoundEvent> SEEKER_HURT = SOUND_EVENTS.register("entity.seeker.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.hurt")));
+	public static final RegistryObject<SoundEvent> SEEKER_IDLE = SOUND_EVENTS.register("entity.seeker.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.idle")));
+	public static final RegistryObject<SoundEvent> SEEKER_RUN_VOCAL = SOUND_EVENTS.register("entity.seeker.run_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.run_vocal")));
+	public static final RegistryObject<SoundEvent> SEEKER_STEP = SOUND_EVENTS.register("entity.seeker.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.step")));
+	public static final RegistryObject<SoundEvent> SEEKER_TARGET_SPOTTED = SOUND_EVENTS.register("entity.seeker.target_spotted", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.target_spotted")));
 }

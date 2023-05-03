@@ -3,6 +3,7 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
@@ -33,6 +34,10 @@ public class SeekerMeleeAttack extends Behavior<Seeker> {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
+      
+      p_23525_.setDeltaMovement(p_23525_.getDeltaMovement().add(0, 0.75, 0));
+      
+      p_23525_.playSound(SoundEventInit.SEEKER_ATTACK_VOCAL.get(), 1.5F, 1);
 		
       p_23525_.attackAnimationTick = p_23525_.attackAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
@@ -53,8 +58,16 @@ public class SeekerMeleeAttack extends Behavior<Seeker> {
 		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint) {
 			ShakeCameraEvent.shake(p_22551_, 40, 0.075F, p_22552_.blockPosition(), 8);
 			MiscUtils.customExplosion(p_22551_, p_22552_, DamageSource.explosion(p_22552_), null, p_22552_.getX(), p_22552_.getY(),
-					p_22552_.getZ(), 5.0F, false, net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(p_22551_, p_22552_) ? Explosion.BlockInteraction.DESTROY : Explosion.BlockInteraction.NONE, SoundEvents.GENERIC_EXPLODE,
+					p_22552_.getZ(), 5.0F, false, net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(p_22551_, p_22552_) ? Explosion.BlockInteraction.DESTROY : Explosion.BlockInteraction.NONE, null,
 					p_22552_.getSoundSource(), ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, 15.0F, false);
+		}
+		
+		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationLength - 4) {
+			p_22552_.playSound(SoundEventInit.SEEKER_ATTACK.get(), 1.5F, 1);
+		}
+		
+		if (p_22552_.attackAnimationTick == 1) {
+			p_22551_.broadcastEntityEvent(p_22552_, (byte)60);
 			p_22552_.discard();
 		}
 	}
