@@ -3434,5 +3434,378 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	"entity.sporeback.death": {
+		"subtitle": "subtitles.entity.sporeback.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/death6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/death7",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.hurt": {
+		"subtitle": "subtitles.entity.sporeback.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/hurt7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/hurt8",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.idle": {
+		"subtitle": "subtitles.entity.sporeback.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/idle10",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.projectile_impact": {
+		"subtitle": "subtitles.entity.sporeback.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/projectile_impact5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/projectile_impact6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/projectile_impact7",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.step_vocal": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step_vocal8",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.step": {
+		"subtitle": "subtitles.entity.sporeback.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/step6",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.throw_projectile": {
+		"subtitle": "subtitles.entity.sporeback.throw_projectile",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/throw_projectile1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_projectile2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_projectile3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_projectile4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_projectile5",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.throw_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/throw_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_start3",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.throw_stop_vocal": {
+		"subtitle": "subtitles.entity.sporeback.throw_stop_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop_vocal7",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.throw_stop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_stop6",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.throw_vocal": {
+		"subtitle": "subtitles.entity.sporeback.throw_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/throw_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw_vocal6",
+				"stream": true
+			}
+		]
+	},
+	"entity.sporeback.throw": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/sporeback/throw1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/sporeback/throw5",
+				"stream": true
+			}
+		]
 	}
 }

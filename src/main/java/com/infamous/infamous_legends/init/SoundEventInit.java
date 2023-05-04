@@ -169,4 +169,19 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> SPORE_MEDIC_SHOOT_LOOP = SOUND_EVENTS.register("entity.spore_medic.shoot_loop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.spore_medic.shoot_loop")));
 	public static final RegistryObject<SoundEvent> SPORE_MEDIC_SHOOT = SOUND_EVENTS.register("entity.spore_medic.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.spore_medic.shoot")));
 	public static final RegistryObject<SoundEvent> SPORE_MEDIC_STEP = SOUND_EVENTS.register("entity.spore_medic.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.spore_medic.step")));
+	
+	// SPOREBACK
+	
+	public static final RegistryObject<SoundEvent> SPOREBACK_DEATH = SOUND_EVENTS.register("entity.sporeback.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.death")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_HURT = SOUND_EVENTS.register("entity.sporeback.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.hurt")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_IDLE = SOUND_EVENTS.register("entity.sporeback.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.idle")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_PROJECTILE_IMPACT = SOUND_EVENTS.register("entity.sporeback.projectile_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.projectile_impact")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_STEP_VOCAL = SOUND_EVENTS.register("entity.sporeback.step_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.step_vocal")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_STEP = SOUND_EVENTS.register("entity.sporeback.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.step")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_THROW_PROJECTILE = SOUND_EVENTS.register("entity.sporeback.throw_projectile", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw_projectile")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_THROW_START = SOUND_EVENTS.register("entity.sporeback.throw_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw_start")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_THROW_STOP_VOCAL = SOUND_EVENTS.register("entity.sporeback.throw_stop_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw_stop_vocal")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_THROW_STOP = SOUND_EVENTS.register("entity.sporeback.throw_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw_stop")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_THROW_VOCAL = SOUND_EVENTS.register("entity.sporeback.throw_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw_vocal")));
+	public static final RegistryObject<SoundEvent> SPOREBACK_THROW = SOUND_EVENTS.register("entity.sporeback.throw", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw")));
 }

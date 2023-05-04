@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.ai.brains.SporebackAi;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.interfaces.IHasCustomExplosion;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
@@ -71,11 +72,6 @@ public class Sporeback extends AbstractPiglin implements IHasCustomExplosion {
 	public Sporeback(EntityType<? extends Sporeback> type, Level level) {
 		super(type, level);		
 		this.xpReward = 10;
-	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.65F;
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
@@ -204,23 +200,24 @@ public class Sporeback extends AbstractPiglin implements IHasCustomExplosion {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return SoundEventInit.SPOREBACK_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+		return SoundEventInit.SPOREBACK_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.SPOREBACK_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 0.15F, 1.0F);
+			this.playSound(SoundEventInit.SPOREBACK_STEP.get(), 0.25F, this.getVoicePitch());
+			this.playSound(SoundEventInit.SPOREBACK_STEP_VOCAL.get(), 0.5F, this.getVoicePitch());
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+			this.playSound(SoundEventInit.SPOREBACK_IDLE.get(), 1.0F, this.getVoicePitch());
 	}
 
 	protected void playConvertedSound() {

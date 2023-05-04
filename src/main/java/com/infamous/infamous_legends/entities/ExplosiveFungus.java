@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.entities;
 
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.core.particles.ParticleTypes;
@@ -60,7 +61,7 @@ public class ExplosiveFungus extends ThrowableProjectile {
 			if (!this.level.isClientSide) {
 				ShakeCameraEvent.shake(this.level, 30, 0.05F, this.blockPosition(), 6);
 				MiscUtils.customExplosion(this.level, this.getOwner() != null ? this.getOwner() instanceof Player ? this : this.getOwner() : this, DamageSource.explosion(this.getOwner() != null && this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null).setProjectile(), null, this.getX(), this.getY(),
-						this.getZ(), 3.5F, false, Explosion.BlockInteraction.NONE, SoundEvents.GENERIC_EXPLODE,
+						this.getZ(), 3.5F, false, Explosion.BlockInteraction.NONE, SoundEventInit.SPOREBACK_PROJECTILE_IMPACT.get(),
 						this.getSoundSource(), ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, 5.0F, false);
 				for (LivingEntity entity : this.level.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), null, this.getBoundingBox().inflate(5))) {
 					boolean piglinThatCantBeHurt = this.getOwner() != null && this.getOwner() instanceof AbstractPiglin && MiscUtils.piglinAllies(this.getOwner(), entity);

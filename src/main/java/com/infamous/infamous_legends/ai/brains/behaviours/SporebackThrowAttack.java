@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.ExplosiveFungus;
 import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.init.ItemInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
@@ -33,6 +35,9 @@ public class SporebackThrowAttack extends Behavior<Sporeback> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
 		
+      p_23525_.playSound(SoundEventInit.SPOREBACK_THROW_START.get(), 1.0F, 1);
+      p_23525_.playSound(SoundEventInit.SPOREBACK_THROW_VOCAL.get(), 1.0F, 1);
+	    
       p_23525_.throwAnimationTick = p_23525_.throwAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
    }
@@ -61,8 +66,17 @@ public class SporebackThrowAttack extends Behavior<Sporeback> {
 			fungus.moveTo(fungusPos);
 			double yMultiplier = p_22552_.distanceTo(livingentity) <= 14 ? 0.2 : 0.7;
 			fungus.shoot(d0 * 0.8, d1 + d3 * yMultiplier, d2 * 0.8, 1F, 8.0F);
-		    p_22552_.playSound(SoundEvents.SNOWBALL_THROW, 1.0F, 0.4F / (p_22552_.getRandom().nextFloat() * 0.4F + 0.8F));
+		    p_22552_.playSound(SoundEventInit.SPOREBACK_THROW.get(), 1.0F, MiscUtils.randomSoundPitch());
+		    p_22552_.playSound(SoundEventInit.SPOREBACK_THROW_PROJECTILE.get(), 1.5F, MiscUtils.randomSoundPitch());
 		    p_22551_.addFreshEntity(fungus);
+		}
+		
+		if (p_22552_.throwAnimationTick == p_22552_.throwAnimationLength - 30) {
+			p_22552_.playSound(SoundEventInit.SPOREBACK_THROW_STOP_VOCAL.get(), 1.0F, 1);
+		}
+		
+		if (p_22552_.throwAnimationTick == p_22552_.throwAnimationLength - 44) {
+			p_22552_.playSound(SoundEventInit.SPOREBACK_THROW_STOP.get(), 1.0F, 1);
 		}
 	}
    

@@ -1,6 +1,8 @@
 package com.infamous.infamous_legends.items;
 
 import com.infamous.infamous_legends.entities.ExplosiveFungus;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -20,6 +22,7 @@ public class ExplosiveFungusItem extends Item {
    public InteractionResultHolder<ItemStack> use(Level p_43142_, Player p_43143_, InteractionHand p_43144_) {
       ItemStack itemstack = p_43143_.getItemInHand(p_43144_);
       p_43142_.playSound((Player)null, p_43143_.getX(), p_43143_.getY(), p_43143_.getZ(), SoundEvents.SNOWBALL_THROW, SoundSource.NEUTRAL, 0.5F, 0.4F / (p_43142_.getRandom().nextFloat() * 0.4F + 0.8F));
+      p_43142_.playSound((Player)null, p_43143_.getX(), p_43143_.getY(), p_43143_.getZ(), SoundEventInit.SPOREBACK_THROW_PROJECTILE.get(), SoundSource.NEUTRAL, 0.5F, MiscUtils.randomSoundPitch());
       p_43143_.getCooldowns().addCooldown(this, 40);
       if (!p_43142_.isClientSide) {
 			ExplosiveFungus explosiveFungus = new ExplosiveFungus(p_43142_, p_43143_);
