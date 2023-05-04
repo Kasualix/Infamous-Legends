@@ -1,5 +1,6 @@
 package com.infamous.infamous_legends.entities;
 
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.nbt.CompoundTag;
@@ -41,7 +42,7 @@ public class LavaLauncherPiglin extends PartEntity<LavaLauncher> {
 		if (flag && !this.level.isClientSide) {
 			this.parentMob.setPiglinHealth(this.parentMob.getPiglinHealth() - p_19947_);
 			this.parentMob.resetPiglinAmbientSoundTime();
-			this.playSound(this.parentMob.getPiglinHealth() <= 0 ? SoundEvents.PIGLIN_BRUTE_DEATH : SoundEvents.PIGLIN_BRUTE_HURT, 1.0F, MiscUtils.randomSoundPitch() * 1.4F);
+			this.playSound(this.parentMob.getPiglinHealth() <= 0 ? SoundEventInit.LAVA_LAUNCHER_RIDER_DEATH.get() : SoundEventInit.LAVA_LAUNCHER_RIDER_HURT.get(), 1.0F, MiscUtils.randomSoundPitch());
 			this.parentMob.piglinInvulnerableTime = 20;
 			this.level.broadcastEntityEvent(this.parentMob, (byte)9);
 		}

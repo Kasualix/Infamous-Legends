@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.LavaLauncher;
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -42,7 +43,8 @@ public class LavaLauncherMeleeAttack extends Behavior<LavaLauncher> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
 		
-      p_23525_.playSound(SoundEvents.HOGLIN_ATTACK, 2, p_23525_.getVoicePitch());
+      p_23525_.playSound(SoundEventInit.LAVA_LAUNCHER_ATTACK_START.get(), 2, 1);
+      p_23525_.playSound(SoundEventInit.LAVA_LAUNCHER_ATTACK_VOCAL.get(), 2, 1);
 		
       p_23525_.attackAnimationTick = p_23525_.attackAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
@@ -61,7 +63,7 @@ public class LavaLauncherMeleeAttack extends Behavior<LavaLauncher> {
 		p_22552_.getNavigation().stop();
 		
 		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint) {
-			p_22552_.playSound(SoundEvents.GENERIC_EXPLODE, 2, MiscUtils.randomSoundPitch() * 0.75F);
+			p_22552_.playSound(SoundEventInit.LAVA_LAUNCHER_ATTACK.get(), 2, 1);
 			ShakeCameraEvent.shake(p_22551_, 40, 0.1F, p_22552_.blockPosition(), 14);
 			Vec3 particlePos = PositionUtils.getOffsetPos(p_22552_, 0, 0, 3.5, p_22552_.yBodyRot);
 			p_22551_.sendParticles(ParticleTypeInit.DUST.get(), particlePos.x, particlePos.y, particlePos.z, 60, 1.5D, 0.2D, 1.5D, 0.0D);

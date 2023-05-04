@@ -5,6 +5,7 @@ import com.infamous.dungeons_libraries.capabilities.minionmaster.Minion;
 import com.infamous.dungeons_libraries.capabilities.minionmaster.MinionMasterHelper;
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.core.particles.ParticleTypes;
@@ -75,9 +76,8 @@ public class MagmaCubeProjectile extends ThrowableProjectile {
 		             float f3 = Mth.cos(f) * (float)i * 0.5F * f1;
 		             ((ServerLevel)this.level).sendParticles(ParticleTypes.FLAME, this.getX() + (double)f2, this.getY(), this.getZ() + (double)f3, 1, 0.0D, 0.0D, 0.0D, 0.0D);
 		          }
-				this.playSound(SoundEvents.MAGMA_CUBE_SQUISH, 2.0F, 0.75F);
 				MiscUtils.customExplosion(this.level, this.getOwner() != null ? this.getOwner() instanceof Player ? this : this.getOwner() : this, DamageSource.explosion(this.getOwner() != null && this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null).setProjectile(), null, this.getX(), this.getY(),
-						this.getZ(), 3.0F, false, this.blockInteraction, SoundEvents.GENERIC_EXPLODE,
+						this.getZ(), 3.0F, false, this.blockInteraction, SoundEventInit.LAVA_LAUNCHER_PROJECTILE_IMPACT.get(),
 						this.getSoundSource(), ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, 17.5F, false);
 				for (Entity entity : this.level.getEntities(this, this.getBoundingBox().inflate(3))) {
 					if (entity instanceof LivingEntity && !MiscUtils.piglinAllies(this, entity)) {

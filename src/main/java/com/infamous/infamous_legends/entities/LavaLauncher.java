@@ -5,6 +5,7 @@ import com.infamous.infamous_legends.ai.brains.LavaLauncherAi;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.interfaces.IHasCustomExplosion;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
@@ -162,11 +163,6 @@ public class LavaLauncher extends Monster implements Enemy, HoglinBase, IHasCust
 	}
 	
 	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.3F;
-	}
-	
-	@Override
 	public boolean canBeCollidedWith() {
 		return true;
 	}
@@ -244,13 +240,13 @@ public class LavaLauncher extends Monster implements Enemy, HoglinBase, IHasCust
 	public void playPiglinAmbientSound() {
 		SoundEvent soundevent = this.getPiglinAmbientSound();
 		if (soundevent != null) {
-			this.subEntity.playSound(soundevent, 1.0F, MiscUtils.randomSoundPitch() * 1.4F);
+			this.subEntity.playSound(soundevent, 1.0F, MiscUtils.randomSoundPitch());
 		}
 
 	}
 	   
 	public void resetPiglinAmbientSoundTime() {
-		this.piglinAmbientSoundTime = -this.getAmbientSoundInterval();
+		this.piglinAmbientSoundTime = -60;
 	}
 	
 	protected void updatePart() {
@@ -395,37 +391,32 @@ public class LavaLauncher extends Monster implements Enemy, HoglinBase, IHasCust
 	}
 
 	protected SoundEvent getAmbientSound() {
-		if (this.level.isClientSide) {
-			return null;
-		} else {
-			return this.brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET) ? SoundEvents.HOGLIN_ANGRY
-					: SoundEvents.HOGLIN_AMBIENT;
-		}
+		return SoundEventInit.LAVA_LAUNCHER_IDLE.get();
 	}
 	
 	protected SoundEvent getPiglinAmbientSound() {
-		if (this.level.isClientSide) {
-			return null;
-		} else {
-			return this.brain.hasMemoryValue(MemoryModuleType.ATTACK_TARGET) ? SoundEvents.PIGLIN_BRUTE_ANGRY
-					: SoundEvents.PIGLIN_BRUTE_AMBIENT;
-		}
+		return SoundEventInit.LAVA_LAUNCHER_RIDER_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_34244_) {
-		return SoundEvents.HOGLIN_HURT;
+		return SoundEventInit.LAVA_LAUNCHER_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.HOGLIN_DEATH;
+		return SoundEventInit.LAVA_LAUNCHER_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_34231_, BlockState p_34232_) {
-		this.playSound(SoundEvents.HOGLIN_STEP, 1.25F, 1.0F);
+		this.playSound(SoundEventInit.LAVA_LAUNCHER_STEP.get(), 1.25F, 1.0F);
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.HOGLIN_ANGRY, 1.0F, this.getVoicePitch());
+		this.playSound(SoundEventInit.LAVA_LAUNCHER_IDLE.get(), 1.0F, this.getVoicePitch());
+	}
+	
+	@Override
+	public int getAmbientSoundInterval() {
+		return 120;
 	}
 	
 	@Override

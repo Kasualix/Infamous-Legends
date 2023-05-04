@@ -149,6 +149,21 @@
 	"subtitles.entity.seeker.step": "Seeker steps",
 	"subtitles.entity.seeker.target_spotted": "Seeker screeches",
 	
+	"subtitles.entity.lava_launcher.attack_vocal": "Lava Launcher rears up",
+	"subtitles.entity.lava_launcher.attack": "Lava Launcher attacks",
+	"subtitles.entity.lava_launcher.death": "Lava Launcher dies",
+	"subtitles.entity.lava_launcher.hurt": "Lava Launcher hurts",
+	"subtitles.entity.lava_launcher.idle": "Lava Launcher gurgles",
+	"subtitles.entity.lava_launcher.projectile_impact": "Magma Cube splats",
+	"subtitles.entity.lava_launcher.rider_cranking": "Lava Launcher Rider cranks",
+	"subtitles.entity.lava_launcher.rider_death": "Lava Launcher Rider dies",
+	"subtitles.entity.lava_launcher.rider_hurt": "Lava Launcher Rider hurts",
+	"subtitles.entity.lava_launcher.rider_idle": "Lava Launcher Rider squeals",
+	"subtitles.entity.lava_launcher.rider_lose_balance": "Lava Launcher Rider loses balance",
+	"subtitles.entity.lava_launcher.shoot_start": "Lava Launcher prepares ranged attack",
+	"subtitles.entity.lava_launcher.shoot": "Lava Launcher shoots Magma Cube",
+	"subtitles.entity.lava_launcher.step": "Lava Launcher steps",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"

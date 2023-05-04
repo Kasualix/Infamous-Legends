@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.LavaLauncher;
 import com.infamous.infamous_legends.entities.MagmaCubeProjectile;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -35,7 +36,7 @@ public class LavaLauncherShootAttack extends Behavior<LavaLauncher> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
       
-      p_23525_.subEntity.playSound(SoundEvents.MINECART_RIDING, 1.0F, MiscUtils.randomSoundPitch() * 0.75F);
+      p_23525_.subEntity.playSound(SoundEventInit.LAVA_LAUNCHER_SHOOT_START.get(), 2.0F, 1);
       
       p_23525_.shootAnimationTick = p_23525_.shootAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 11);
@@ -51,8 +52,16 @@ public class LavaLauncherShootAttack extends Behavior<LavaLauncher> {
 			p_22552_.lookAt(Anchor.EYES, livingentity.position());
 		}
 		
-		if (p_22552_.tickCount % 5 == 0 && p_22552_.shootAnimationTick > p_22552_.shootAnimationLength - 50) {
-		    p_22552_.subEntity.playSound(SoundEvents.PISTON_CONTRACT, 0.5F, MiscUtils.randomSoundPitch() * 0.75F);
+		if (p_22552_.shootAnimationTick == p_22552_.shootAnimationLength - 5) {
+		    p_22552_.subEntity.playSound(SoundEventInit.LAVA_LAUNCHER_RIDER_CRANKING.get(), 2, 1);
+		}
+		
+		if (p_22552_.shootAnimationTick == p_22552_.shootAnimationLength - 42) {
+		    p_22552_.subEntity.playSound(SoundEventInit.LAVA_LAUNCHER_RIDER_SHOOT.get(), 2, 1);
+		}
+		
+		if (p_22552_.shootAnimationTick == p_22552_.shootAnimationLength - 54) {
+		    p_22552_.subEntity.playSound(SoundEventInit.LAVA_LAUNCHER_RIDER_SHOOT.get(), 2, 1);
 		}
 		
 		p_22552_.getNavigation().stop();
@@ -67,8 +76,7 @@ public class LavaLauncherShootAttack extends Behavior<LavaLauncher> {
 		      magmaCube.moveTo(magmaCubePos);
 		      magmaCube.shoot(d0, d1 + d3 * (double)0.15F, d2, 1.5F, 5);
 		      magmaCube.blockInteraction = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(p_22551_, p_22552_) ? Explosion.BlockInteraction.DESTROY : Explosion.BlockInteraction.NONE;
-		      p_22552_.playSound(SoundEvents.PISTON_CONTRACT, 2.0F, MiscUtils.randomSoundPitch() * 0.75F);
-		      p_22552_.playSound(SoundEvents.MAGMA_CUBE_JUMP, 2.0F, MiscUtils.randomSoundPitch() * 0.75F);
+		      p_22552_.playSound(SoundEventInit.LAVA_LAUNCHER_SHOOT.get(), 3.0F, MiscUtils.randomSoundPitch() * 0.75F);
 		      p_22551_.addFreshEntity(magmaCube);
 		}
 	}

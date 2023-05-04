@@ -2871,5 +2871,499 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	"entity.lava_launcher.attack_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_start5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_start6",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.attack_vocal": {
+		"subtitle": "subtitles.entity.lava_launcher.attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack_vocal7",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.attack": {
+		"subtitle": "subtitles.entity.lava_launcher.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/attack6",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.death": {
+		"subtitle": "subtitles.entity.lava_launcher.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/death6",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.hurt": {
+		"subtitle": "subtitles.entity.lava_launcher.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/hurt5",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.idle": {
+		"subtitle": "subtitles.entity.lava_launcher.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/idle5",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.projectile_impact": {
+		"subtitle": "subtitles.entity.lava_launcher.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/projectile_impact5",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.rider_cranking": {
+		"subtitle": "subtitles.entity.lava_launcher.rider_cranking",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_cranking8",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.rider_death": {
+		"subtitle": "subtitles.entity.lava_launcher.rider_death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_death8",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.rider_hurt": {
+		"subtitle": "subtitles.entity.lava_launcher.rider_hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_hurt7",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.rider_idle": {
+		"subtitle": "subtitles.entity.lava_launcher.rider_idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_idle8",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.rider_lose_balance": {
+		"subtitle": "subtitles.entity.lava_launcher.rider_lose_balance",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_lose_balance8",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.rider_shoot": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/rider_shoot8",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.shoot_start": {
+		"subtitle": "subtitles.entity.lava_launcher.shoot_start",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot_start5",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.shoot": {
+		"subtitle": "subtitles.entity.lava_launcher.shoot",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/shoot5",
+				"stream": true
+			}
+		]
+	},
+	"entity.lava_launcher.step": {
+		"subtitle": "subtitles.entity.lava_launcher.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/lava_launcher/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/lava_launcher/step6",
+				"stream": true
+			}
+		]
 	}
 }
