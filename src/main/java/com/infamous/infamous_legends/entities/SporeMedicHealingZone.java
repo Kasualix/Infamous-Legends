@@ -31,7 +31,7 @@ public class SporeMedicHealingZone extends PartEntity<SporeMedic> {
 						entity.heal(1);
 					}
 				} else if (entity != this.parentMob && !MiscUtils.piglinAllies(this.parentMob, entity)) {
-					if (this.parentMob.tickCount % 20 == 0) {
+					if (this.parentMob.tickCount % 10 == 0) {
 						entity.hurt(DamageSourceInit.NETHERSPORES, 1);
 					}
 				}

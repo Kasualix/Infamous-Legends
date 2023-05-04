@@ -3365,5 +3365,74 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	"entity.spore_medic.shoot_loop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot_loop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot_loop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot_loop3",
+				"stream": true
+			}
+		]
+	},
+	"entity.spore_medic.shoot": {
+		"subtitle": "subtitles.entity.spore_medic.shoot",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/shoot5",
+				"stream": true
+			}
+		]
+	},
+	"entity.spore_medic.step": {
+		"subtitle": "subtitles.entity.spore_medic.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/spore_medic/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/spore_medic/step5",
+				"stream": true
+			}
+		]
 	}
 }

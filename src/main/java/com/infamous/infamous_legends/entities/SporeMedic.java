@@ -3,11 +3,14 @@ package com.infamous.infamous_legends.entities;
 import javax.annotation.Nullable;
 
 import com.google.common.collect.ImmutableList;
+import com.infamous.infamous_legends.ai.brains.MaceRuntAi;
 import com.infamous.infamous_legends.ai.brains.SporeMedicAi;
 import com.infamous.infamous_legends.animation.sine_wave_animations.SineWaveAnimationUtils;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.HandleLoopingSoundInstances;
 import com.infamous.infamous_legends.utils.PositionUtils;
 import com.mojang.serialization.Dynamic;
 
@@ -19,6 +22,7 @@ import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MobSpawnType;
 import net.minecraft.world.entity.SpawnGroupData;
 import net.minecraft.world.entity.ai.Brain;
@@ -62,11 +66,6 @@ public class SporeMedic extends AbstractPiglin {
 		
 		this.subEntity = new SporeMedicHealingZone(this);
 	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 1.35F;
-	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 16.0D).add(Attributes.FOLLOW_RANGE, 20.0D).add(Attributes.ARMOR, 3.0D)
@@ -89,6 +88,19 @@ public class SporeMedic extends AbstractPiglin {
 			super.handleEntityEvent(p_219360_);
 		}
 
+	}
+	
+	public boolean hurt(DamageSource p_35055_, float p_35056_) {
+		boolean flag = super.hurt(p_35055_, p_35056_);
+		if (this.level.isClientSide) {
+			return false;
+		} else {
+			if (flag && p_35055_.getEntity() instanceof LivingEntity) {
+				SporeMedicAi.wasHurtBy(this, (LivingEntity) p_35055_.getEntity());
+			}
+
+			return flag;
+		}
 	}
 	
 	@Override
@@ -181,22 +193,29 @@ public class SporeMedic extends AbstractPiglin {
 		return true;
 	}
 
+	@Override
+	public void onAddedToWorld() {
+	  super.onAddedToWorld();
+	  if (this.level.isClientSide) {
+		  HandleLoopingSoundInstances.addSporeMedicAudio(this, this.level);
+	  }
+	}
+
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_AMBIENT;
+		return SoundEventInit.MACE_RUNT_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_HURT;
+		return SoundEventInit.MACE_RUNT_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_DEATH;
+		return SoundEventInit.MACE_RUNT_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_STEP, 0.15F, 1.0F);
+		this.playSound(SoundEventInit.SPORE_MEDIC_STEP.get(), 0.25F, this.getVoicePitch());
 	}
-
 
 	protected void playConvertedSound() {
 		this.playSound(SoundEvents.PIGLIN_CONVERTED_TO_ZOMBIFIED, 1.0F, this.getVoicePitch());

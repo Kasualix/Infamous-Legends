@@ -164,6 +164,9 @@
 	"subtitles.entity.lava_launcher.shoot": "Lava Launcher shoots Magma Cube",
 	"subtitles.entity.lava_launcher.step": "Lava Launcher steps",
 	
+	"subtitles.entity.spore_medic.shoot": "Spore Medic shoots out netherspores",
+	"subtitles.entity.spore_medic.step": "Spore Medic steps",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"

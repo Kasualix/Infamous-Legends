@@ -145,7 +145,7 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> SEEKER_STEP = SOUND_EVENTS.register("entity.seeker.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.step")));
 	public static final RegistryObject<SoundEvent> SEEKER_TARGET_SPOTTED = SOUND_EVENTS.register("entity.seeker.target_spotted", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.seeker.target_spotted")));
 	
-	// LAVA_LAUNCHER
+	// LAVA LAUNCHER
 	
 	public static final RegistryObject<SoundEvent> LAVA_LAUNCHER_ATTACK_START = SOUND_EVENTS.register("entity.lava_launcher.attack_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.lava_launcher.attack_start")));
 	public static final RegistryObject<SoundEvent> LAVA_LAUNCHER_ATTACK_VOCAL = SOUND_EVENTS.register("entity.lava_launcher.attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.lava_launcher.attack_vocal")));
@@ -163,4 +163,10 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> LAVA_LAUNCHER_SHOOT_START = SOUND_EVENTS.register("entity.lava_launcher.shoot_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.lava_launcher.shoot_start")));
 	public static final RegistryObject<SoundEvent> LAVA_LAUNCHER_SHOOT = SOUND_EVENTS.register("entity.lava_launcher.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.lava_launcher.shoot")));
 	public static final RegistryObject<SoundEvent> LAVA_LAUNCHER_STEP = SOUND_EVENTS.register("entity.lava_launcher.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.lava_launcher.step")));
+	
+	// SPORE MEDIC
+	
+	public static final RegistryObject<SoundEvent> SPORE_MEDIC_SHOOT_LOOP = SOUND_EVENTS.register("entity.spore_medic.shoot_loop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.spore_medic.shoot_loop")));
+	public static final RegistryObject<SoundEvent> SPORE_MEDIC_SHOOT = SOUND_EVENTS.register("entity.spore_medic.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.spore_medic.shoot")));
+	public static final RegistryObject<SoundEvent> SPORE_MEDIC_STEP = SOUND_EVENTS.register("entity.spore_medic.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.spore_medic.step")));
 }
