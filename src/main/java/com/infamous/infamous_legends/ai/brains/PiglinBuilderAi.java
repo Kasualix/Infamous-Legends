@@ -6,7 +6,7 @@ import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableSet;
 import com.infamous.infamous_legends.ai.brains.behaviours.InteractWithTag;
 import com.infamous.infamous_legends.ai.brains.behaviours.LookAtAttackTarget;
-import com.infamous.infamous_legends.ai.brains.behaviours.PiglinBuilderThrowAttack;
+import com.infamous.infamous_legends.ai.brains.behaviours.PiglinBuilderShootAttack;
 import com.infamous.infamous_legends.ai.brains.behaviours.StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach;
 import com.infamous.infamous_legends.ai.brains.sensors.CustomSensor;
 import com.infamous.infamous_legends.entities.PiglinBuilder;
@@ -65,7 +65,7 @@ public class PiglinBuilderAi {
 	   private static void initFightActivity(PiglinBuilder p_35125_, Brain<PiglinBuilder> p_35126_) {
 		      p_35126_.addActivityAndRemoveMemoryWhenStopped(Activity.FIGHT, 10, ImmutableList.of(new StopAttackingIfTargetInvalid<>((p_35118_) -> {
 		         return !isNearestValidAttackTarget(p_35125_, p_35118_);
-		      }), new StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F, 10), new PiglinBuilderThrowAttack(20), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
+		      }), new StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F, 10), new PiglinBuilderShootAttack(60), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
 		   }
 
 	   private static RunOne<PiglinBuilder> createIdleLookBehaviors() {

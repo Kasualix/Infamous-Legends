@@ -12,40 +12,31 @@ import net.minecraft.client.model.geom.builders.LayerDefinition;
 import net.minecraft.client.model.geom.builders.MeshDefinition;
 import net.minecraft.client.model.geom.builders.PartDefinition;
 import net.minecraft.client.renderer.RenderType;
+import net.minecraft.world.entity.Entity;
 
-// Made with Blockbench 4.6.5
+// Made with Blockbench 4.7.2
 // Exported for Minecraft version 1.17 or later with Mojang mappings
 // Paste this class into your mod and generate all required imports
 
 
-public class PiglinBombModel<T extends PiglinBombModel> extends Model {
+public class PiglinBombModel<T extends Entity> extends Model {
 	private final ModelPart root;
 	private final ModelPart bomb;
-	private final ModelPart fuse;
-	private final ModelPart spark;
-	
 
 	public PiglinBombModel(ModelPart root) {
 		super(RenderType::entityTranslucent);
 		this.root = root;
-		this.bomb = root.getChild("bomb");
-		this.fuse = bomb.getChild("fuse");
-		this.spark = fuse.getChild("spark");
+		this.bomb = this.root.getChild("bomb");
 	}
 
 	public static LayerDefinition createBodyLayer() {
 		MeshDefinition meshdefinition = new MeshDefinition();
 		PartDefinition partdefinition = meshdefinition.getRoot();
 
-		PartDefinition bomb = partdefinition.addOrReplaceChild("bomb", CubeListBuilder.create().texOffs(0, 8).addBox(-2.0F, 0.5F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(17, 10).addBox(-1.5F, -2.5F, -1.5F, 3.0F, 3.0F, 3.0F, new CubeDeformation(0.0F))
-		.texOffs(0, 2).addBox(-1.5F, -3.5F, -1.5F, 3.0F, 2.0F, 3.0F, new CubeDeformation(0.25F)), PartPose.offsetAndRotation(0.0F, 22.0F, 0.0F, 1.5708F, 0.0F, 0.0F));
+		PartDefinition bomb = partdefinition.addOrReplaceChild("bomb", CubeListBuilder.create().texOffs(25, 104).addBox(-2.0F, -4.5F, -1.5F, 4.0F, 5.0F, 4.0F, new CubeDeformation(0.0F))
+		.texOffs(28, 94).addBox(-2.5F, 0.5F, -2.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 22.0F, 0.0F, 1.5708F, 0.0F, 0.0F));
 
-		PartDefinition fuse = bomb.addOrReplaceChild("fuse", CubeListBuilder.create().texOffs(24, 4).addBox(-0.5F, -2.8F, -0.1F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -3.7F, 0.0F));
-
-		PartDefinition spark = fuse.addOrReplaceChild("spark", CubeListBuilder.create().texOffs(16, 0).addBox(-1.5F, -3.0F, -0.1F, 3.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)).texOffs(16, 0).addBox(-1.5F, -3.0F, -0.1F, 3.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -1.4F, 0.0F));
-
-		return LayerDefinition.create(meshdefinition, 32, 16);
+		return LayerDefinition.create(meshdefinition, 128, 128);
 	}
 
 	@Override

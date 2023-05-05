@@ -44,9 +44,8 @@ public class PiglinBuilderModel<T extends PiglinBuilder> extends HierarchicalMod
 	public final ModelPart flame;
 	public final ModelPart claw1;
 	public final ModelPart claw2;
-	public final ModelPart bomb;
-	public final ModelPart fuse;
-	public final ModelPart spark;
+	public final ModelPart leftBomb;
+	public final ModelPart rightBomb;
 	public final ModelPart helmetExtention;
 	public final ModelPart helmetExtentionRotation;
 
@@ -66,9 +65,8 @@ public class PiglinBuilderModel<T extends PiglinBuilder> extends HierarchicalMod
 		this.flame = leftArm.getChild("flame");
 		this.claw1 = rightArm.getChild("claw1");
 		this.claw2 = rightArm.getChild("claw2");
-		this.bomb = rightArm.getChild("bomb");
-		this.fuse = bomb.getChild("fuse");
-		this.spark = fuse.getChild("spark");
+		this.leftBomb = leftArm.getChild("leftBomb");
+		this.rightBomb = rightArm.getChild("rightBomb");
 		this.helmetExtention = head.getChild("helmetExtention");
 		this.helmetExtentionRotation = helmetExtention.getChild("helmetExtentionRotation");
 	}
@@ -99,6 +97,9 @@ public class PiglinBuilderModel<T extends PiglinBuilder> extends HierarchicalMod
 
 		PartDefinition flame_r2 = flame.addOrReplaceChild("flame_r2", CubeListBuilder.create().texOffs(10, 21).addBox(-1.5F, -4.0F, 0.0F, 3.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -0.7854F, 0.0F));
 
+		PartDefinition leftBomb = leftArm.addOrReplaceChild("leftBomb", CubeListBuilder.create().texOffs(28, 94).addBox(-2.5F, -3.0F, -2.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(25, 104).addBox(-2.0F, -8.1F, -1.5F, 4.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 15.1F, -0.5F));
+
 		PartDefinition rightArm = body.addOrReplaceChild("rightArm", CubeListBuilder.create().texOffs(57, 56).addBox(-4.0F, -2.0F, -2.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F))
 		.texOffs(28, 44).addBox(-4.0F, 2.0F, -2.0F, 4.0F, 12.0F, 4.0F, new CubeDeformation(0.25F)), PartPose.offset(-4.0F, -8.0F, 0.0F));
 
@@ -109,17 +110,8 @@ public class PiglinBuilderModel<T extends PiglinBuilder> extends HierarchicalMod
 
 		PartDefinition rightArm_r1 = claw2.addOrReplaceChild("rightArm_r1", CubeListBuilder.create().texOffs(85, 8).addBox(-1.0F, -1.0F, -4.5F, 2.0F, 2.0F, 11.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 3.5F, 0.0F, 0.0F, -3.1416F));
 
-		PartDefinition bomb = rightArm.addOrReplaceChild("bomb", CubeListBuilder.create().texOffs(27, 95).addBox(-2.0F, -2.0F, -2.0F, 4.0F, 4.0F, 4.0F, new CubeDeformation(0.0F))
-		.texOffs(23, 106).addBox(-1.5F, -5.0F, -1.5F, 3.0F, 3.0F, 3.0F, new CubeDeformation(0.0F))
-		.texOffs(10, 100).addBox(-1.5F, -6.0F, -1.5F, 3.0F, 2.0F, 3.0F, new CubeDeformation(0.25F)), PartPose.offsetAndRotation(-2.0F, 10.1F, 4.5F, -1.5708F, 0.0F, 0.0F));
-
-		PartDefinition fuse = bomb.addOrReplaceChild("fuse", CubeListBuilder.create().texOffs(42, 89).addBox(-0.5F, -2.8F, -0.1F, 1.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offset(0.0F, -6.2F, 0.0F));
-
-		PartDefinition spark = fuse.addOrReplaceChild("spark", CubeListBuilder.create(), PartPose.offset(0.0F, -1.4F, 0.0F));
-
-		PartDefinition spark_r1 = spark.addOrReplaceChild("spark_r1", CubeListBuilder.create().texOffs(28, 85).addBox(-1.5F, -3.0F, -0.1F, 3.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.2F, 0.0F, 0.0F, -0.7854F, 0.0F));
-
-		PartDefinition spark_r2 = spark.addOrReplaceChild("spark_r2", CubeListBuilder.create().texOffs(28, 85).addBox(-1.5F, -3.0F, -0.1F, 3.0F, 3.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.2F, 0.0F, 0.0F, 0.7854F, 0.0F));
+		PartDefinition rightBomb = rightArm.addOrReplaceChild("rightBomb", CubeListBuilder.create().texOffs(28, 94).addBox(-2.5F, -3.0F, -2.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
+		.texOffs(25, 104).addBox(-2.0F, -8.1F, -1.5F, 4.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(-2.0F, 10.1F, 4.5F, -1.5708F, 0.0F, 0.0F));
 
 		PartDefinition head = body.addOrReplaceChild("head", CubeListBuilder.create().texOffs(28, 27).addBox(-5.0F, -8.0F, -4.0F, 10.0F, 8.0F, 8.0F, new CubeDeformation(0.0F))
 		.texOffs(68, 47).addBox(-2.0F, -4.5F, -5.0F, 4.0F, 4.0F, 1.0F, new CubeDeformation(0.0F))
@@ -153,14 +145,14 @@ public class PiglinBuilderModel<T extends PiglinBuilder> extends HierarchicalMod
 		Vec3 velocity = entity.getDeltaMovement();
 		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
 		
-		boolean shouldPlayWalkAnimation = speed > 0 && entity.throwAnimationTick <= 0;
+		boolean shouldPlayWalkAnimation = speed > 0 && entity.shootAnimationTick <= 0;
 		
-		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.throwAnimationTick <= 0;	
+		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.shootAnimationTick <= 0;	
 		
 		this.animateHeadLookTarget(netHeadYaw, headPitch);
 		PiglinBuilderSineWaveAnimations.piglinBuilderWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 17, shouldPlayWalkAnimation ? 1 : 0);
 		PiglinBuilderSineWaveAnimations.piglinBuilderIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
-		this.animate(entity.throwAnimationState, PiglinBuilderKeyframeAnimations.BUILDER_THROW, ageInTicks);
+		this.animate(entity.shootAnimationState, PiglinBuilderKeyframeAnimations.BUILDER_SHOOT, ageInTicks);
 	}
 	
 	private void animateHeadLookTarget(float yRot, float xRot) {

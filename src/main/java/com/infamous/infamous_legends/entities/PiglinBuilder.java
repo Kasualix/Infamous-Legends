@@ -7,7 +7,9 @@ import com.infamous.infamous_legends.ai.brains.PiglinBuilderAi;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.interfaces.IHasCustomExplosion;
+import com.infamous.infamous_legends.utils.HandleLoopingSoundInstances;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 import com.mojang.serialization.Dynamic;
@@ -45,10 +47,10 @@ import net.minecraft.world.phys.Vec3;
 
 public class PiglinBuilder extends AbstractPiglin implements IHasCustomExplosion {
 
-	public AnimationState throwAnimationState = new AnimationState();
-	public int throwAnimationTick;
-	public final int throwAnimationLength = 110;
-	public final int throwAnimationActionPoint = 18;
+	public AnimationState shootAnimationState = new AnimationState();
+	public int shootAnimationTick;
+	public final int shootAnimationLength = 60;
+	public final int shootAnimationActionPoint = 20;
 	
 	public int textureChange;
 	
@@ -82,11 +84,6 @@ public class PiglinBuilder extends AbstractPiglin implements IHasCustomExplosion
 			this.level.addParticle(ParticleTypes.LARGE_SMOKE, particlePos.x, particlePos.y, particlePos.z, 0, 0.05, 0.0);
 		}
 	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 1.4F;
-	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 20.0D).add(Attributes.ARMOR, 10.0D)
@@ -111,19 +108,19 @@ public class PiglinBuilder extends AbstractPiglin implements IHasCustomExplosion
 	public void baseTick() {
 		super.baseTick();
 		
-		if (this.throwAnimationTick > 0) {
-			this.throwAnimationTick--;
+		if (this.shootAnimationTick > 0) {
+			this.shootAnimationTick--;
 		}
 		
-		if (this.level.isClientSide && this.throwAnimationTick <= 0) {
-			this.throwAnimationState.stop();
+		if (this.level.isClientSide && this.shootAnimationTick <= 0) {
+			this.shootAnimationState.stop();
 		}
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
 		if (p_219360_ == 4) {
-			this.throwAnimationTick = this.throwAnimationLength;
-			this.throwAnimationState.start(this.tickCount);
+			this.shootAnimationTick = this.shootAnimationLength;
+			this.shootAnimationState.start(this.tickCount);
 		} else {
 			super.handleEntityEvent(p_219360_);
 		}
@@ -188,25 +185,33 @@ public class PiglinBuilder extends AbstractPiglin implements IHasCustomExplosion
 	protected boolean isImmuneToZombification() {
 		return true;
 	}
+	
+	@Override
+	public void onAddedToWorld() {
+	  super.onAddedToWorld();
+	  if (this.level.isClientSide) {
+		  HandleLoopingSoundInstances.addPiglinBuilderAudio(this, this.level);
+	  }
+	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return SoundEventInit.BLAZE_RUNT_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.BLAZE_HURT;
+		return SoundEventInit.BLAZE_RUNT_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.BLAZE_RUNT_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.RAVAGER_STEP, 0.15F, 1.0F);
+		this.playSound(SoundEventInit.PIGLIN_BUILDER_STEP.get(), 0.5F, this.getVoicePitch());
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+		this.playSound(SoundEventInit.BLAZE_RUNT_IDLE.get(), 1.0F, this.getVoicePitch());
 	}
 
 	protected void playConvertedSound() {

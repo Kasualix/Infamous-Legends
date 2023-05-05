@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.entities;
 
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.core.particles.ParticleTypes;
@@ -21,8 +22,6 @@ public class PiglinBomb extends ThrowableProjectile {
 
 	public Explosion.BlockInteraction blockInteraction = Explosion.BlockInteraction.DESTROY;
 	
-	public int textureChange;
-	
 	   public PiglinBomb(EntityType<? extends PiglinBomb> p_37391_, Level p_37392_) {
 		      super(p_37391_, p_37392_);
 		   }
@@ -38,9 +37,6 @@ public class PiglinBomb extends ThrowableProjectile {
 		   @Override
 		public void tick() {
 			super.tick();	
-			if (this.tickCount % 3 == 0) {
-				this.textureChange ++;
-			}
 			
 			if (this.level.isClientSide && !this.isInWaterRainOrBubble()) {
 				this.level.addParticle(ParticleTypes.SMOKE, this.getX(), this.getY(), this.getZ(), 0, 0, 0);
@@ -64,7 +60,7 @@ public class PiglinBomb extends ThrowableProjectile {
 			if (!this.level.isClientSide) {
 				ShakeCameraEvent.shake(this.level, 40, 0.075F, this.blockPosition(), 10);
 				MiscUtils.customExplosion(this.level, this.getOwner() != null ? this.getOwner() instanceof Player ? this : this.getOwner() : this, DamageSource.explosion(this.getOwner() != null && this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null).setProjectile(), null, this.getX(), this.getY(),
-						this.getZ(), 2.0F, false, this.blockInteraction, SoundEvents.GENERIC_EXPLODE,
+						this.getZ(), 2.0F, false, this.blockInteraction, SoundEventInit.PIGLIN_BUILDER_PROJECTILE_IMPACT.get(),
 						this.getSoundSource(), ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, 17.0F, false);
 				this.discard();
 			}

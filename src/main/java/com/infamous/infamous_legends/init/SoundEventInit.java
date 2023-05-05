@@ -184,4 +184,13 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> SPOREBACK_THROW_STOP = SOUND_EVENTS.register("entity.sporeback.throw_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw_stop")));
 	public static final RegistryObject<SoundEvent> SPOREBACK_THROW_VOCAL = SOUND_EVENTS.register("entity.sporeback.throw_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw_vocal")));
 	public static final RegistryObject<SoundEvent> SPOREBACK_THROW = SOUND_EVENTS.register("entity.sporeback.throw", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.sporeback.throw")));
+	
+	// PIGLIN BUILDER
+	
+	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_LOOP = SOUND_EVENTS.register("entity.piglin_builder.loop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.loop")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_PROJECTILE_IMPACT = SOUND_EVENTS.register("entity.piglin_builder.projectile_impact", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.projectile_impact")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_SHOOT_FURNACE = SOUND_EVENTS.register("entity.piglin_builder.shoot_furnace", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.shoot_furnace")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_SHOOT_START = SOUND_EVENTS.register("entity.piglin_builder.shoot_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.shoot_start")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_SHOOT = SOUND_EVENTS.register("entity.piglin_builder.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.shoot")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_STEP = SOUND_EVENTS.register("entity.piglin_builder.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.step")));
 }

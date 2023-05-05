@@ -3807,5 +3807,159 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	"entity.piglin_builder.loop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_builder/loop",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_builder.projectile_impact": {
+		"subtitle": "subtitles.entity.piglin_builder.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_builder/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/projectile_impact5",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_builder.shoot_furnace": {
+		"subtitle": "subtitles.entity.piglin_builder.shoot_furnace",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_furnace1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_furnace2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_furnace3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_furnace4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_furnace5",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_builder.shoot_start": {
+		"subtitle": "subtitles.entity.piglin_builder.shoot_start",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot_start4",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_builder.shoot": {
+		"subtitle": "subtitles.entity.piglin_builder.shoot",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/shoot5",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_builder.step": {
+		"subtitle": "subtitles.entity.piglin_builder.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_builder/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_builder/step10",
+				"stream": true
+			}
+		]
 	}
 }

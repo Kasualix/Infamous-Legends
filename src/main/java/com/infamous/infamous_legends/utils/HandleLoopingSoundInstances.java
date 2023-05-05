@@ -1,9 +1,11 @@
 package com.infamous.infamous_legends.utils;
 
 import com.infamous.infamous_legends.entities.MaceRunt;
+import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.soundinstances.MaceRuntSoundInstance;
+import com.infamous.infamous_legends.soundinstances.PiglinBuilderSoundInstance;
 import com.infamous.infamous_legends.soundinstances.SporeMedicSoundInstance;
 
 import net.minecraft.client.Minecraft;
@@ -20,6 +22,12 @@ public class HandleLoopingSoundInstances {
 	public static void addSporeMedicAudio(SporeMedic object, Level level) {
 		if (level.isClientSide) {
 		  	Minecraft.getInstance().getSoundManager().queueTickingSound(new SporeMedicSoundInstance(object, SoundEventInit.SPORE_MEDIC_SHOOT_LOOP.get(), object.getSoundSource()));
+		}
+	}
+	
+	public static void addPiglinBuilderAudio(PiglinBuilder object, Level level) {
+		if (level.isClientSide) {
+		  	Minecraft.getInstance().getSoundManager().queueTickingSound(new PiglinBuilderSoundInstance(object, SoundEventInit.PIGLIN_BUILDER_LOOP.get(), object.getSoundSource()));
 		}
 	}
 	

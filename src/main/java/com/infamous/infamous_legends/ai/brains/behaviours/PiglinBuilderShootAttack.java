@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.PiglinBomb;
 import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.init.ItemInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
+import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.server.level.ServerLevel;
@@ -14,10 +16,10 @@ import net.minecraft.world.entity.ai.memory.MemoryModuleType;
 import net.minecraft.world.entity.ai.memory.MemoryStatus;
 import net.minecraft.world.level.Explosion;
 
-public class PiglinBuilderThrowAttack extends Behavior<PiglinBuilder> {
+public class PiglinBuilderShootAttack extends Behavior<PiglinBuilder> {
    private final int cooldownBetweenAttacks;
 
-   public PiglinBuilderThrowAttack(int p_23512_) {
+   public PiglinBuilderShootAttack(int p_23512_) {
       super(ImmutableMap.of(MemoryModuleType.LOOK_TARGET, MemoryStatus.REGISTERED, MemoryModuleType.ATTACK_TARGET, MemoryStatus.VALUE_PRESENT, MemoryModuleType.ATTACK_COOLING_DOWN, MemoryStatus.VALUE_ABSENT), 600, 600);
       this.cooldownBetweenAttacks = p_23512_;
    }
@@ -32,7 +34,10 @@ public class PiglinBuilderThrowAttack extends Behavior<PiglinBuilder> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
 		
-      p_23525_.throwAnimationTick = p_23525_.throwAnimationLength;
+      p_23525_.playSound(SoundEventInit.PIGLIN_BUILDER_SHOOT_START.get(), 1.5F, 1);
+      p_23525_.playSound(SoundEventInit.BLAZE_RUNT_ATTACK.get(), 1.0F, MiscUtils.randomSoundPitch());
+      
+      p_23525_.shootAnimationTick = p_23525_.shootAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
    }
    
@@ -48,27 +53,29 @@ public class PiglinBuilderThrowAttack extends Behavior<PiglinBuilder> {
 		
 		p_22552_.getNavigation().stop();
 		
-		if (p_22552_.throwAnimationTick == 44) {
-		    p_22552_.playSound(SoundEvents.TNT_PRIMED, 1.0F, 1.0F);
-		}
-		
-		if (livingentity != null && p_22552_.throwAnimationTick == p_22552_.throwAnimationActionPoint) {
+		if (livingentity != null && p_22552_.shootAnimationTick == p_22552_.shootAnimationActionPoint) {
 		      PiglinBomb bomb = new PiglinBomb(p_22551_, p_22552_);
 		      double d0 = livingentity.getEyeY() - (double)1.1F;
 		      double d1 = livingentity.getX() - p_22552_.getX();
 		      double d2 = d0 - bomb.getY();
 		      double d3 = livingentity.getZ() - p_22552_.getZ();
 		      double d4 = Math.sqrt(d1 * d1 + d3 * d3) * (double)0.2F;
-		      bomb.shoot(d1 + (p_22552_.getRandom().nextGaussian() * 2.5), d2 + d4, d3 + (p_22552_.getRandom().nextGaussian() * 2.5), 1.0F, 3.0F);
+		      bomb.shoot(d1, d2 + d4, d3, 1.0F, 12.0F);
+		      if (p_22552_.distanceTo(livingentity) <= 5) {
+		    	  bomb.setDeltaMovement(bomb.getDeltaMovement().x * 0.1, bomb.getDeltaMovement().y + 0.5, bomb.getDeltaMovement().z * 0.1);
+		      } else {
+		    	  bomb.setDeltaMovement(bomb.getDeltaMovement().x * 0.35, bomb.getDeltaMovement().y + 0.5, bomb.getDeltaMovement().z * 0.35);
+		      }
 		      bomb.blockInteraction = net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(p_22551_, p_22552_) ? Explosion.BlockInteraction.DESTROY : Explosion.BlockInteraction.NONE;
-		      p_22552_.playSound(SoundEvents.SNOWBALL_THROW, 1.0F, 0.4F / (p_22552_.getRandom().nextFloat() * 0.4F + 0.8F));
+		      p_22552_.playSound(SoundEventInit.PIGLIN_BUILDER_SHOOT.get(), 2F, MiscUtils.randomSoundPitch());
+		      p_22552_.playSound(SoundEventInit.PIGLIN_BUILDER_SHOOT_FURNACE.get(), 1.5F, MiscUtils.randomSoundPitch());
 		      p_22551_.addFreshEntity(bomb);
 		}
 	}
    
    @Override
 	protected boolean canStillUse(ServerLevel p_22545_, PiglinBuilder p_22546_, long p_22547_) {
-		return p_22546_.throwAnimationTick > 0;
+		return p_22546_.shootAnimationTick > 0;
 	}
    
    @Override

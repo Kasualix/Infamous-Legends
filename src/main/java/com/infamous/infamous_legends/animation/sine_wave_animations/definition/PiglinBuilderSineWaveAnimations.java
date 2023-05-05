@@ -37,9 +37,13 @@ public class PiglinBuilderSineWaveAnimations {
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftLeg, 10F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftLeg, -7.5F, amountMultiplier, SineWaveMotionTypes.ROTATION_Z);
 		
-		SineWaveAnimationUtils.adjustPositionOfModelPart(model.bomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_X);
-		SineWaveAnimationUtils.adjustPositionOfModelPart(model.bomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Y);
-		SineWaveAnimationUtils.adjustPositionOfModelPart(model.bomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Z);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.rightBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_X);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.rightBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Y);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.rightBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Z);
+		
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_X);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Y);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Z);
 		
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.backpack, -7.5F, amountMultiplier, SineWaveMotionTypes.ROTATION_X);
 		
@@ -85,9 +89,13 @@ public class PiglinBuilderSineWaveAnimations {
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.backpack, -1F, 250, tick, -0, floatMax, -75, speedMultiplier, amountMultiplier, SineWaveMotionTypes.POSITION_Y);
 		SineWaveAnimationUtils.adjustPositionOfModelPart(model.backpack, -1F, amountMultiplier, SineWaveMotionTypes.POSITION_Y);
 		
-		SineWaveAnimationUtils.adjustPositionOfModelPart(model.bomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_X);
-		SineWaveAnimationUtils.adjustPositionOfModelPart(model.bomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Y);
-		SineWaveAnimationUtils.adjustPositionOfModelPart(model.bomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Z);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.rightBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_X);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.rightBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Y);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.rightBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Z);
+		
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_X);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Y);
+		SineWaveAnimationUtils.adjustPositionOfModelPart(model.leftBomb, -1F, amountMultiplier, SineWaveMotionTypes.SCALE_Z);
 		
 		SineWaveAnimationUtils.addSineWaveMotionToModelPart(model.claw1, -0.25F, 250, tick, -floatMax, floatMax, -75, speedMultiplier, amountMultiplier, SineWaveMotionTypes.POSITION_Y);
 		

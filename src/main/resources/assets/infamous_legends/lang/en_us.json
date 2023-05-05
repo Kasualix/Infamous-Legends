@@ -176,6 +176,11 @@
 	"subtitles.entity.sporeback.throw_stop_vocal": "Sporeback rips Explosive Fungus out of its back",
 	"subtitles.entity.sporeback.throw_vocal": "Sporeback throws Explosive Fungus",
 	
+	"subtitles.entity.piglin_builder.projectile_impact": "Piglin Bomb explodes",
+	"subtitles.entity.piglin_builder.shoot_start": "Piglin Builder gets Piglin Bomb from its backpack",
+	"subtitles.entity.piglin_builder.shoot": "Piglin Builder shoots",
+	"subtitles.entity.piglin_builder.step": "Piglin Builder steps",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"
