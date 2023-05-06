@@ -2,10 +2,12 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.PiglinBruiser;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.behavior.Behavior;
@@ -25,7 +27,7 @@ public class PiglinBruiserMeleeAttack extends Behavior<PiglinBruiser> {
 
    protected boolean checkExtraStartConditions(ServerLevel level, PiglinBruiser mob) {
       LivingEntity livingentity = this.getAttackTarget(mob);
-      return !this.isHoldingUsableProjectileWeapon(mob) && mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 2.5;
+      return !this.isHoldingUsableProjectileWeapon(mob) && mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 2;
    }
 
    private boolean isHoldingUsableProjectileWeapon(PiglinBruiser p_23528_) {
@@ -40,8 +42,15 @@ public class PiglinBruiserMeleeAttack extends Behavior<PiglinBruiser> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
 		
-      p_23525_.attackAnimationTick = p_23525_.attackAnimationLength;
-      p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
+      if (MiscUtils.randomPercent(40)) {
+    	  p_23525_.playSound(SoundEventInit.PIGLIN_BRUISER_ATTACK_START_VOCAL.get(), 1, p_23525_.getVoicePitch());
+          p_23525_.attackAnimationTick = p_23525_.attackAnimationLength;
+          p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);
+      } else {
+    	  p_23525_.playSound(SoundEventInit.PIGLIN_BRUISER_SPIN_ATTACK_VOCAL.get(), 1, p_23525_.getVoicePitch());
+          p_23525_.spinAnimationTick = p_23525_.spinAnimationLength;
+          p_23524_.broadcastEntityEvent(p_23525_, (byte) 11);
+      }
    }
    
    @Override
@@ -56,11 +65,31 @@ public class PiglinBruiserMeleeAttack extends Behavior<PiglinBruiser> {
 		
 		p_22552_.getNavigation().stop();
 		
-		if (livingentity != null && (p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint1 || p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint2) && p_22552_.distanceTo(livingentity) <= 3.5 && p_22552_.hasLineOfSight(livingentity)) {					
+		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationLength - 2) {
+			p_22552_.playSound(SoundEventInit.PIGLIN_BRUISER_ATTACK.get(), 1, 1);
+		}
+		
+		if (p_22552_.attackAnimationTick == p_22552_.attackAnimationLength - 10) {
+			p_22552_.playSound(SoundEventInit.PIGLIN_BRUISER_ATTACK_VOCAL.get(), 1, p_22552_.getVoicePitch());
+		}
+		
+		if (p_22552_.spinAnimationTick == p_22552_.spinAnimationLength - 5) {
+			p_22552_.playSound(SoundEventInit.PIGLIN_BRUISER_SPIN_ATTACK.get(), 1, 1);
+		}
+		
+		if (livingentity != null && p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint && p_22552_.distanceTo(livingentity) <= 3 && p_22552_.hasLineOfSight(livingentity)) {					
 			p_22552_.doHurtTarget(livingentity);
-			for (LivingEntity entity : p_22551_.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), p_22552_, livingentity.getBoundingBox().inflate(2, 0, 2))) {
+			for (LivingEntity entity : p_22551_.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), p_22552_, livingentity.getBoundingBox().inflate(1, 0, 1))) {
 				if (!MiscUtils.piglinAllies(p_22552_, entity) && entity != livingentity) {
-					p_22552_.doHurtTarget(entity, p_22552_.attackAnimationTick == p_22552_.attackAnimationActionPoint1 ? EquipmentSlot.MAINHAND : EquipmentSlot.OFFHAND);
+					p_22552_.doHurtTarget(entity);
+				}
+			}
+		}
+		
+		if (p_22552_.spinAnimationTick == p_22552_.spinAnimationActionPoint) {					
+			for (LivingEntity entity : p_22551_.getNearbyEntities(LivingEntity.class, TargetingConditions.forCombat(), p_22552_, p_22552_.getBoundingBox().inflate(2.5, 0, 2.5))) {
+				if (!MiscUtils.piglinAllies(p_22552_, entity)) {
+					entity.hurt(DamageSource.mobAttack(p_22552_), 12);
 				}
 			}
 		}
@@ -68,7 +97,7 @@ public class PiglinBruiserMeleeAttack extends Behavior<PiglinBruiser> {
    
    @Override
 	protected boolean canStillUse(ServerLevel p_22545_, PiglinBruiser p_22546_, long p_22547_) {
-		return p_22546_.attackAnimationTick > 0;
+		return p_22546_.attackAnimationTick > 0 || p_22546_.spinAnimationTick > 0;
 	}
    
    @Override

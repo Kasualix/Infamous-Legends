@@ -52,8 +52,6 @@ public class PiglinBuilder extends AbstractPiglin implements IHasCustomExplosion
 	public final int shootAnimationLength = 60;
 	public final int shootAnimationActionPoint = 20;
 	
-	public int textureChange;
-	
 	protected static final ImmutableList<SensorType<? extends Sensor<? super PiglinBuilder>>> SENSOR_TYPES = ImmutableList
 			.of(SensorTypeInit.CUSTOM_NEAREST_LIVING_ENTITIES.get(), SensorTypeInit.CUSTOM_NEAREST_PLAYERS.get(), SensorType.NEAREST_ITEMS,
 					SensorType.HURT_BY, SensorTypeInit.LEGENDS_PIGLIN_SPECIFIC_SENSOR.get());
@@ -75,10 +73,6 @@ public class PiglinBuilder extends AbstractPiglin implements IHasCustomExplosion
 	   @Override
 	public void tick() {
 		super.tick();	
-		if (this.tickCount % 3 == 0) {
-			this.textureChange ++;
-		}
-		
 		if (this.level.isClientSide && this.random.nextBoolean() && !this.isInWaterRainOrBubble()) {
 			Vec3 particlePos = PositionUtils.getOffsetPos(this, -14 / 16.0F, 33 / 16.0F, -12 / 16.0F, this.yBodyRot);
 			this.level.addParticle(ParticleTypes.LARGE_SMOKE, particlePos.x, particlePos.y, particlePos.z, 0, 0.05, 0.0);

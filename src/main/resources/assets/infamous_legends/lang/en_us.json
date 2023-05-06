@@ -181,6 +181,15 @@
 	"subtitles.entity.piglin_builder.shoot": "Piglin Builder shoots",
 	"subtitles.entity.piglin_builder.step": "Piglin Builder steps",
 	
+	"subtitles.entity.piglin_bruiser.angry": "Piglin Bruiser grunts angrily",
+	"subtitles.entity.piglin_bruiser.attack_start_vocal": "Piglin Bruiser starts attacking",
+	"subtitles.entity.piglin_bruiser.attack_vocal": "Piglin Bruiser attacks",
+	"subtitles.entity.piglin_bruiser.death": "Piglin Bruiser dies",
+	"subtitles.entity.piglin_bruiser.hurt": "Piglin Bruiser hurts",
+	"subtitles.entity.piglin_bruiser.idle": "Piglin Bruiser grunts",
+	"subtitles.entity.piglin_bruiser.spin_attack_vocal": "Piglin Bruiser performs spin attack",
+	"subtitles.entity.piglin_bruiser.step": "Piglin Bruiser steps",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"

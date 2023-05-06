@@ -96,13 +96,14 @@ public class PiglinBruiserModel<T extends PiglinBruiser> extends HierarchicalMod
 		Vec3 velocity = entity.getDeltaMovement();
 		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
 		
-		boolean shouldPlayWalkAnimation = speed > 0 && entity.attackAnimationTick <= 0;
+		boolean shouldPlayWalkAnimation = speed > 0 && entity.attackAnimationTick <= 0 && entity.spinAnimationTick <= 0;
 		
-		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.attackAnimationTick <= 0;	
+		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.attackAnimationTick <= 0 && entity.spinAnimationTick <= 0;	
 		
 		this.animateHeadLookTarget(netHeadYaw, headPitch);
 		PiglinBruiserSineWaveAnimations.piglinBruiserWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 17, shouldPlayWalkAnimation ? 1 : 0);
 		PiglinBruiserSineWaveAnimations.piglinBruiserIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
+		this.animate(entity.spinAnimationState, PiglinBruiserKeyframeAnimations.BRUISER_SPIN, ageInTicks);
 		this.animate(entity.attackAnimationState, PiglinBruiserKeyframeAnimations.BRUISER_ATTACK, ageInTicks);
 	}
 	

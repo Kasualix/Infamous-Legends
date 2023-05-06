@@ -40,6 +40,6 @@ public class PiglinBombRenderer extends EntityRenderer<PiglinBomb> {
    }
 
    public ResourceLocation getTextureLocation(PiglinBomb p_116109_) {
-      return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/piglin_builder_0.png");
+      return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/piglin_builder.png");
    }
 }

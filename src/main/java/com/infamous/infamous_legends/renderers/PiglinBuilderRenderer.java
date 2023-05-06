@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.init.ModelLayerInit;
 import com.infamous.infamous_legends.models.PiglinBuilderModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer;
 import com.infamous.infamous_legends.renderers.layers.HeadItemLayer;
+import com.infamous.infamous_legends.renderers.layers.PiglinBuilderGlowLayer;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -25,6 +26,7 @@ public class PiglinBuilderRenderer extends MobRenderer<PiglinBuilder, PiglinBuil
 
 	public PiglinBuilderRenderer(EntityRendererProvider.Context context) {
 		super(context, new PiglinBuilderModel<>(context.bakeLayer(ModelLayerInit.PIGLIN_BUILDER)), 1F);
+		this.addLayer(new PiglinBuilderGlowLayer<>(this));
 		CustomArmourLayer.addCustomArmourLayers(this, context, ModelLayerInit.PIGLIN_BUILDER_INNER_ARMOUR, ModelLayerInit.PIGLIN_BUILDER_OUTER_ARMOUR);
 	    this.addLayer(new HeadItemLayer<>(this, context.getModelSet(), context.getItemInHandRenderer()));
 		this.addLayer(new ItemInHandLayer<>(this, context.getItemInHandRenderer()) {		
@@ -46,7 +48,7 @@ public class PiglinBuilderRenderer extends MobRenderer<PiglinBuilder, PiglinBuil
 
 	@Override
 	public ResourceLocation getTextureLocation(PiglinBuilder p_114482_) {
-		return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/piglin_builder_" + p_114482_.textureChange % 2 + ".png");
+		return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/piglin_builder.png");
 	}
 
 }

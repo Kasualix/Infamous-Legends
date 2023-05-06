@@ -193,4 +193,17 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_SHOOT_START = SOUND_EVENTS.register("entity.piglin_builder.shoot_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.shoot_start")));
 	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_SHOOT = SOUND_EVENTS.register("entity.piglin_builder.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.shoot")));
 	public static final RegistryObject<SoundEvent> PIGLIN_BUILDER_STEP = SOUND_EVENTS.register("entity.piglin_builder.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_builder.step")));
+	
+	// PIGLIN BRUISER
+	
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_ANGRY = SOUND_EVENTS.register("entity.piglin_bruiser.angry", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.angry")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_ATTACK_START_VOCAL = SOUND_EVENTS.register("entity.piglin_bruiser.attack_start_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.attack_start_vocal")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_ATTACK_VOCAL = SOUND_EVENTS.register("entity.piglin_bruiser.attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.attack_vocal")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_ATTACK = SOUND_EVENTS.register("entity.piglin_bruiser.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.attack")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_DEATH = SOUND_EVENTS.register("entity.piglin_bruiser.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.death")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_HURT = SOUND_EVENTS.register("entity.piglin_bruiser.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.hurt")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_IDLE = SOUND_EVENTS.register("entity.piglin_bruiser.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.idle")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_SPIN_ATTACK_VOCAL = SOUND_EVENTS.register("entity.piglin_bruiser.spin_attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.spin_attack_vocal")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_SPIN_ATTACK = SOUND_EVENTS.register("entity.piglin_bruiser.spin_attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.spin_attack")));
+	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_STEP = SOUND_EVENTS.register("entity.piglin_bruiser.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.step")));
 }

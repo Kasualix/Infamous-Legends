@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.ai.brains.PiglinBruiserAi;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.mojang.serialization.Dynamic;
 
@@ -47,9 +48,13 @@ public class PiglinBruiser extends AbstractPiglin {
 
 	public AnimationState attackAnimationState = new AnimationState();
 	public int attackAnimationTick;
-	public final int attackAnimationLength = 55;
-	public final int attackAnimationActionPoint1 = 36;
-	public final int attackAnimationActionPoint2 = 21;
+	public final int attackAnimationLength = 30;
+	public final int attackAnimationActionPoint = 16;
+	
+	public AnimationState spinAnimationState = new AnimationState();
+	public int spinAnimationTick;
+	public final int spinAnimationLength = 35;
+	public final int spinAnimationActionPoint = 20;
 	
 	protected static final ImmutableList<SensorType<? extends Sensor<? super PiglinBruiser>>> SENSOR_TYPES = ImmutableList
 			.of(SensorTypeInit.CUSTOM_NEAREST_LIVING_ENTITIES.get(), SensorTypeInit.CUSTOM_NEAREST_PLAYERS.get(), SensorType.NEAREST_ITEMS,
@@ -68,15 +73,10 @@ public class PiglinBruiser extends AbstractPiglin {
 		super(type, level);		
 		this.xpReward = 10;
 	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.75F;
-	}
 
 	public static AttributeSupplier.Builder createAttributes() {
-		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 50.0D)
-				.add(Attributes.MOVEMENT_SPEED, (double) 0.3F).add(Attributes.ATTACK_DAMAGE, 2.0D).add(Attributes.ARMOR, 5.0D).add(Attributes.FOLLOW_RANGE, 17.5D).add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
+		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 60.0D)
+				.add(Attributes.MOVEMENT_SPEED, (double) 0.3F).add(Attributes.ATTACK_DAMAGE, 6.0D).add(Attributes.ARMOR, 5.0D).add(Attributes.FOLLOW_RANGE, 17.5D).add(Attributes.KNOCKBACK_RESISTANCE, 0.5D);
 	}
 	
 	@Nullable
@@ -96,6 +96,15 @@ public class PiglinBruiser extends AbstractPiglin {
 	}
 	
 	@Override
+	public boolean doHurtTarget(Entity p_21372_) {
+		boolean flag = super.doHurtTarget(p_21372_);
+		if (p_21372_ instanceof LivingEntity) {
+			MiscUtils.disableShield(((LivingEntity)p_21372_), 80);
+		}
+		return flag;
+	}
+	
+	@Override
 	public void baseTick() {
 		super.baseTick();
 		
@@ -106,51 +115,27 @@ public class PiglinBruiser extends AbstractPiglin {
 		if (this.level.isClientSide && this.attackAnimationTick <= 0) {
 			this.attackAnimationState.stop();
 		}
+		
+		if (this.spinAnimationTick > 0) {
+			this.spinAnimationTick--;
+		}
+		
+		if (this.level.isClientSide && this.spinAnimationTick <= 0) {
+			this.spinAnimationState.stop();
+		}
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
 		if (p_219360_ == 4) {
 			this.attackAnimationTick = this.attackAnimationLength;
 			this.attackAnimationState.start(this.tickCount);
+		} else if (p_219360_ == 11) {
+			this.spinAnimationTick = this.spinAnimationLength;
+			this.spinAnimationState.start(this.tickCount);
 		} else {
 			super.handleEntityEvent(p_219360_);
 		}
 
-	}
-	
-	public boolean doHurtTarget(Entity target, EquipmentSlot slot) {
-		float f = (float) this.getAttributeValue(Attributes.ATTACK_DAMAGE);
-		float f1 = (float) this.getAttributeValue(Attributes.ATTACK_KNOCKBACK);
-		if (target instanceof LivingEntity) {
-			f += EnchantmentHelper.getDamageBonus(this.getItemBySlot(slot), ((LivingEntity) target).getMobType());
-			f1 += (float) EnchantmentHelper.getItemEnchantmentLevel(Enchantments.KNOCKBACK, this.getItemBySlot(slot));
-		}
-
-		int i = EnchantmentHelper.getItemEnchantmentLevel(Enchantments.FIRE_ASPECT, this.getItemBySlot(slot));
-		if (i > 0) {
-			target.setSecondsOnFire(i * 4);
-		}
-
-		boolean flag = target.hurt(DamageSource.mobAttack(this), f);
-		if (flag) {
-			if (f1 > 0.0F && target instanceof LivingEntity) {
-				((LivingEntity) target).knockback((double) (f1 * 0.5F),
-						(double) Mth.sin(this.getYRot() * ((float) Math.PI / 180F)),
-						(double) (-Mth.cos(this.getYRot() * ((float) Math.PI / 180F))));
-				this.setDeltaMovement(this.getDeltaMovement().multiply(0.6D, 1.0D, 0.6D));
-			}
-
-			if (target instanceof Player) {
-				Player player = (Player) target;
-				MiscUtils.maybeDisableShield(this, player, this.getItemBySlot(slot),
-						player.isUsingItem() ? player.getUseItem() : ItemStack.EMPTY);
-			}
-
-			this.doEnchantDamageEffects(this, target);
-			this.setLastHurtMob(target);
-		}
-
-		return flag;
 	}
 
 	protected Brain.Provider<PiglinBruiser> brainProvider() {
@@ -213,23 +198,23 @@ public class PiglinBruiser extends AbstractPiglin {
 	}
 
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return SoundEventInit.PIGLIN_BRUISER_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+		return SoundEventInit.PIGLIN_BRUISER_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.PIGLIN_BRUISER_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 0.15F, 1.0F);
+		this.playSound(SoundEventInit.PIGLIN_BRUISER_STEP.get(), 0.35F, this.getVoicePitch());
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+		this.playSound(SoundEventInit.PIGLIN_BRUISER_ANGRY.get(), 1.0F, this.getVoicePitch());
 	}
 
 	protected void playConvertedSound() {

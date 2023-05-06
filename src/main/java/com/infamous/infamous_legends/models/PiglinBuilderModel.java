@@ -91,11 +91,15 @@ public class PiglinBuilderModel<T extends PiglinBuilder> extends HierarchicalMod
 		PartDefinition leftArm = body.addOrReplaceChild("leftArm", CubeListBuilder.create().texOffs(57, 56).mirror().addBox(0.0F, -2.0F, -2.0F, 4.0F, 9.0F, 4.0F, new CubeDeformation(0.0F)).mirror(false)
 		.texOffs(58, 10).addBox(0.0F, 3.0F, -2.0F, 4.0F, 5.0F, 4.0F, new CubeDeformation(0.25F)), PartPose.offset(4.0F, -8.0F, 0.0F));
 
-		PartDefinition flame = leftArm.addOrReplaceChild("flame", CubeListBuilder.create(), PartPose.offsetAndRotation(2.0F, 8.0F, 0.0F, 0.0F, 0.0F, -3.1416F));
+		PartDefinition flame = leftArm.addOrReplaceChild("flame", CubeListBuilder.create(), PartPose.offsetAndRotation(2.0F, 8.0F, 0.5F, 0.0F, 0.0F, -3.1416F));
 
-		PartDefinition flame_r1 = flame.addOrReplaceChild("flame_r1", CubeListBuilder.create().texOffs(10, 21).addBox(-1.5F, -4.0F, 0.0F, 3.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, 0.7854F, 0.0F));
+		PartDefinition flame_r1 = flame.addOrReplaceChild("flame_r1", CubeListBuilder.create().texOffs(13, 19).addBox(-1.5F, -5.0F, -0.01F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, -0.5F, -3.1416F, -0.7854F, 3.1416F));
 
-		PartDefinition flame_r2 = flame.addOrReplaceChild("flame_r2", CubeListBuilder.create().texOffs(10, 21).addBox(-1.5F, -4.0F, 0.0F, 3.0F, 4.0F, 1.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, 0.0F, 0.0F, -0.7854F, 0.0F));
+		PartDefinition flame_r2 = flame.addOrReplaceChild("flame_r2", CubeListBuilder.create().texOffs(13, 19).addBox(-1.5F, -5.0F, -0.01F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, -0.5F, -3.1416F, 0.7854F, 3.1416F));
+
+		PartDefinition flame_r3 = flame.addOrReplaceChild("flame_r3", CubeListBuilder.create().texOffs(13, 19).addBox(-1.5F, -5.0F, 0.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, -0.5F, 0.0F, 0.7854F, 0.0F));
+
+		PartDefinition flame_r4 = flame.addOrReplaceChild("flame_r4", CubeListBuilder.create().texOffs(13, 19).addBox(-1.5F, -5.0F, 0.0F, 3.0F, 5.0F, 0.0F, new CubeDeformation(0.0F)), PartPose.offsetAndRotation(0.0F, 0.0F, -0.5F, 0.0F, -0.7854F, 0.0F));
 
 		PartDefinition leftBomb = leftArm.addOrReplaceChild("leftBomb", CubeListBuilder.create().texOffs(28, 94).addBox(-2.5F, -3.0F, -2.0F, 5.0F, 5.0F, 5.0F, new CubeDeformation(0.0F))
 		.texOffs(25, 104).addBox(-2.0F, -8.1F, -1.5F, 4.0F, 5.0F, 4.0F, new CubeDeformation(0.0F)), PartPose.offset(2.0F, 15.1F, -0.5F));

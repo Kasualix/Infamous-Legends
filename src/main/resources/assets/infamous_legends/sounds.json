@@ -3961,5 +3961,265 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	"entity.piglin_bruiser.angry": {
+		"subtitle": "subtitles.entity.piglin_bruiser.angry",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/angry1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/angry2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/angry3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/angry4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/angry5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/angry6",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.attack_start_vocal": {
+		"subtitle": "subtitles.entity.piglin_bruiser.attack_start_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_start_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_start_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_start_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_start_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_start_vocal5",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.attack_vocal": {
+		"subtitle": "subtitles.entity.piglin_bruiser.attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack_vocal6",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.attack": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/attack3",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.death": {
+		"subtitle": "subtitles.entity.piglin_bruiser.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/death6",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.hurt": {
+		"subtitle": "subtitles.entity.piglin_bruiser.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/hurt6",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.idle": {
+		"subtitle": "subtitles.entity.piglin_bruiser.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/idle10",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.spin_attack_vocal": {
+		"subtitle": "subtitles.entity.piglin_bruiser.spin_attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/spin_attack_vocal",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.spin_attack": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/spin_attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/spin_attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/spin_attack3",
+				"stream": true
+			}
+		]
+	},
+	"entity.piglin_bruiser.step": {
+		"subtitle": "subtitles.entity.piglin_bruiser.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/piglin_bruiser/step6",
+				"stream": true
+			}
+		]
 	}
 }

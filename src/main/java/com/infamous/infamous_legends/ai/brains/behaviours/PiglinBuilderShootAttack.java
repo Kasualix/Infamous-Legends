@@ -61,7 +61,7 @@ public class PiglinBuilderShootAttack extends Behavior<PiglinBuilder> {
 		      double d3 = livingentity.getZ() - p_22552_.getZ();
 		      double d4 = Math.sqrt(d1 * d1 + d3 * d3) * (double)0.2F;
 		      bomb.shoot(d1, d2 + d4, d3, 1.0F, 12.0F);
-		      if (p_22552_.distanceTo(livingentity) <= 5) {
+		      if (p_22552_.distanceTo(livingentity) <= 7) {
 		    	  bomb.setDeltaMovement(bomb.getDeltaMovement().x * 0.1, bomb.getDeltaMovement().y + 0.5, bomb.getDeltaMovement().z * 0.1);
 		      } else {
 		    	  bomb.setDeltaMovement(bomb.getDeltaMovement().x * 0.35, bomb.getDeltaMovement().y + 0.5, bomb.getDeltaMovement().z * 0.35);
