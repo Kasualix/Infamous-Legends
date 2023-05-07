@@ -175,11 +175,11 @@ public class PortalGuardModel<T extends PortalGuard> extends HierarchicalModel<T
 		Vec3 velocity = entity.getDeltaMovement();
 		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
 		
-		boolean shouldPlayIdleShootingAnimation = entity.playingIdleShootingAnimation && entity.attackAnimationTick <= 0 && entity.shootAnimationTick <= 0 && entity.reelInBallAnimationTick <= 0;
+		boolean shouldPlayIdleShootingAnimation = entity.playingIdleShootingAnimation && entity.attackAnimationTick <= 0 && entity.shootAnimationTick <= 0 && entity.reelInBallAnimationTick <= 0 && entity.swingAnimationTick <= 0;
 		
-		boolean shouldPlayWalkAnimation = speed > 0 && !shouldPlayIdleShootingAnimation && entity.attackAnimationTick <= 0 && entity.shootAnimationTick <= 0 && entity.reelInBallAnimationTick <= 0;
+		boolean shouldPlayWalkAnimation = speed > 0 && !shouldPlayIdleShootingAnimation && entity.attackAnimationTick <= 0 && entity.shootAnimationTick <= 0 && entity.reelInBallAnimationTick <= 0 && entity.swingAnimationTick <= 0;
 		
-		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && !shouldPlayIdleShootingAnimation && entity.attackAnimationTick <= 0 && entity.shootAnimationTick <= 0 && entity.reelInBallAnimationTick <= 0;	
+		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && !shouldPlayIdleShootingAnimation && entity.attackAnimationTick <= 0 && entity.shootAnimationTick <= 0 && entity.reelInBallAnimationTick <= 0 && entity.swingAnimationTick <= 0;	
 		
 		this.animateHeadLookTarget(netHeadYaw, headPitch);
 		PortalGuardSineWaveAnimations.portalGuardIdleShootingAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleShootingAnimation ? 1 : 0);
@@ -188,6 +188,7 @@ public class PortalGuardModel<T extends PortalGuard> extends HierarchicalModel<T
 		this.animate(entity.attackAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_ATTACK, ageInTicks, 1.15F);
 		this.animate(entity.shootAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_SHOOT, ageInTicks);
 		this.animate(entity.reelInBallAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_REEL_IN_BALL, ageInTicks);
+		this.animate(entity.swingAnimationState, PortalGuardKeyframeAnimations.PORTAL_GUARD_SWING, ageInTicks);
 	}
 	
 	private void animateHeadLookTarget(float yRot, float xRot) {

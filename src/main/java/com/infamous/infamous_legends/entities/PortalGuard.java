@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.ai.brains.PortalGuardAi;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
 import com.infamous.infamous_legends.init.SensorTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 import com.mojang.serialization.Dynamic;
@@ -59,9 +60,16 @@ public class PortalGuard extends AbstractPiglin {
 	public final int reelInBallAnimationLength = 60;
 	public final int reelInBallAnimationActionPoint = 11;
 	
+	public AnimationState swingAnimationState = new AnimationState();
+	public int swingAnimationTick;
+	public final int swingAnimationLength = 107;
+	public final int swingAnimationActionPoint = 38;
+	
 	public boolean playingIdleShootingAnimation;
 	
 	public int hasWreckingBallTime;
+	
+	private boolean steppingWithArm;
 	
 	protected static final ImmutableList<SensorType<? extends Sensor<? super PortalGuard>>> SENSOR_TYPES = ImmutableList
 			.of(SensorTypeInit.CUSTOM_NEAREST_LIVING_ENTITIES.get(), SensorTypeInit.CUSTOM_NEAREST_PLAYERS.get(), SensorType.NEAREST_ITEMS,
@@ -75,6 +83,7 @@ public class PortalGuard extends AbstractPiglin {
 			MemoryModuleType.ATTACK_COOLING_DOWN, MemoryModuleType.INTERACTION_TARGET, MemoryModuleType.PATH,
 			MemoryModuleType.ANGRY_AT, MemoryModuleType.NEAREST_VISIBLE_NEMESIS, MemoryModuleType.HOME, 
 			MemoryModuleTypeInit.SHOOT_COOLING_DOWN.get(),
+			MemoryModuleTypeInit.SWING_COOLING_DOWN.get(),
 			MemoryModuleTypeInit.NEARBY_ALLIES.get());
 	   
 	public PortalGuard(EntityType<? extends PortalGuard> type, Level level) {
@@ -86,11 +95,6 @@ public class PortalGuard extends AbstractPiglin {
 	public float getStepHeight() {
 		return 1.0F;
 	}
-	
-	@Override
-	public float getVoicePitch() {
-		return super.getVoicePitch() * 0.45F;
-	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Monster.createMonsterAttributes().add(Attributes.MAX_HEALTH, 150.0D)
@@ -100,9 +104,7 @@ public class PortalGuard extends AbstractPiglin {
 	@Override
 	public boolean doHurtTarget(Entity p_21372_) {
 		boolean flag = super.doHurtTarget(p_21372_);
-		System.out.print("\r\n" + "hurting");
 		if (p_21372_ instanceof LivingEntity) {
-			System.out.print("\r\n" + "disabling shield");
 			MiscUtils.disableShield(((LivingEntity)p_21372_), 120);
 		}
 		return flag;
@@ -180,6 +182,14 @@ public class PortalGuard extends AbstractPiglin {
 			this.playingIdleShootingAnimation = false;
 			this.level.broadcastEntityEvent(this, (byte)10);
 		}
+		
+		if (this.swingAnimationTick > 0) {
+			this.swingAnimationTick--;
+		}
+		
+		if (this.level.isClientSide && this.swingAnimationTick <= 0) {
+			this.swingAnimationState.stop();
+		}
 	}
 	
 	public void handleEntityEvent(byte p_219360_) {
@@ -192,6 +202,9 @@ public class PortalGuard extends AbstractPiglin {
 		} else if (p_219360_ == 8) {
 			this.reelInBallAnimationTick = this.reelInBallAnimationLength;
 			this.reelInBallAnimationState.start(this.tickCount);
+		} else if (p_219360_ == 7) {
+			this.swingAnimationTick = this.swingAnimationLength;
+			this.swingAnimationState.start(this.tickCount);
 		} else if (p_219360_ == 9) {
 			this.playingIdleShootingAnimation = true;
 		} else if (p_219360_ == 10) {
@@ -260,25 +273,31 @@ public class PortalGuard extends AbstractPiglin {
 	protected boolean isImmuneToZombification() {
 		return true;
 	}
-
+	
 	protected SoundEvent getAmbientSound() {
-		return SoundEvents.PIGLIN_BRUTE_AMBIENT;
+		return this.random.nextBoolean() ? SoundEventInit.PORTAL_GUARD_SNORT.get() : SoundEventInit.PORTAL_GUARD_IDLE.get();
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35072_) {
-		return SoundEvents.PIGLIN_BRUTE_HURT;
+		return SoundEventInit.PORTAL_GUARD_HURT.get();
 	}
 
 	protected SoundEvent getDeathSound() {
-		return SoundEvents.PIGLIN_BRUTE_DEATH;
+		return SoundEventInit.PORTAL_GUARD_DEATH.get();
 	}
 
 	protected void playStepSound(BlockPos p_35066_, BlockState p_35067_) {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_STEP, 1.0F, 1.0F);
+		if (this.steppingWithArm) {
+			this.playSound(SoundEventInit.PORTAL_GUARD_STEP_VOCAL.get(), 1F, this.getVoicePitch());
+			this.playSound(SoundEventInit.PORTAL_GUARD_STEP_ARM.get(), 0.75F, this.getVoicePitch());
+		} else {
+			this.playSound(SoundEventInit.PORTAL_GUARD_STEP_VOCAL.get(), 1F, this.getVoicePitch());
+			this.playSound(SoundEventInit.PORTAL_GUARD_STEP_FOOT.get(), 0.75F, this.getVoicePitch());
+		}
 	}
 
 	public void playAngrySound() {
-		this.playSound(SoundEvents.PIGLIN_BRUTE_ANGRY, 1.0F, this.getVoicePitch());
+		this.playSound(this.random.nextBoolean() ? SoundEventInit.PORTAL_GUARD_SNORT.get() : SoundEventInit.PORTAL_GUARD_ANGRY.get(), 1.0F, this.getVoicePitch());
 	}
 
 	protected void playConvertedSound() {

@@ -4,6 +4,7 @@ import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.PortalGuard;
 import com.infamous.infamous_legends.entities.PortalGuardWreckingBall;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -26,7 +27,7 @@ public class PortalGuardShootAttack extends Behavior<PortalGuard> {
 
    protected boolean checkExtraStartConditions(ServerLevel level, PortalGuard mob) {
       LivingEntity livingentity = this.getAttackTarget(mob);
-      return mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 20 && mob.attackAnimationTick <= 0;
+      return mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 20 && mob.attackAnimationTick <= 0 && mob.swingAnimationTick <= 0;
    }
 
    protected void start(ServerLevel p_23524_, PortalGuard p_23525_, long p_23526_) {
@@ -34,6 +35,9 @@ public class PortalGuardShootAttack extends Behavior<PortalGuard> {
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
 		
+      p_23525_.playSound(SoundEventInit.PORTAL_GUARD_SHOOT_START.get(), 1.5F, 1);
+      p_23525_.playSound(SoundEventInit.PORTAL_GUARD_SHOOT_START_VOCAL.get(), 1.5F, 1);
+      
       p_23525_.shootAnimationTick = p_23525_.shootAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 11);
    }
@@ -58,7 +62,8 @@ public class PortalGuardShootAttack extends Behavior<PortalGuard> {
 		      double d3 = Math.sqrt(d0 * d0 + d2 * d2);
 		      wreckingBall.moveTo(vec3);
 		      wreckingBall.shoot(d0, d1 + d3 * (double)0.25F, d2, 2.2F, 3);
-		      p_22552_.playSound(SoundEvents.PISTON_EXTEND, 1.5F, MiscUtils.randomSoundPitch() * 0.75F);
+		      p_22552_.playSound(SoundEventInit.PORTAL_GUARD_SHOOT.get(), 1.5F, 1);
+		      p_22552_.playSound(SoundEventInit.PORTAL_GUARD_SHOOT_VOCAL.get(), 1.5F, 1);
 		      p_22551_.addFreshEntity(wreckingBall);
 		}
 	}

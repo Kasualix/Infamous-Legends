@@ -190,6 +190,21 @@
 	"subtitles.entity.piglin_bruiser.spin_attack_vocal": "Piglin Bruiser performs spin attack",
 	"subtitles.entity.piglin_bruiser.step": "Piglin Bruiser steps",
 	
+	"subtitles.entity.portal_guard.angry": "Portal Guard roars",
+	"subtitles.entity.portal_guard.attack_vocal": "Portal Guard attacks",
+	"subtitles.entity.portal_guard.death": "Portal Guard dies",
+	"subtitles.entity.portal_guard.hurt": "Portal Guard hurts",
+	"subtitles.entity.portal_guard.idle": "Portal Guard breathes",
+	"subtitles.entity.portal_guard.reel_in_ball_start": "Portal Guard starts reeling in flail",
+	"subtitles.entity.portal_guard.reel_in_ball_stop": "Portal Guard reels in flail",
+	"subtitles.entity.portal_guard.shoot_start_vocal": "Portal Guard prepares to shoot flail",
+	"subtitles.entity.portal_guard.shoot_vocal": "Portal Guard shoots flail",
+	"subtitles.entity.portal_guard.snort": "Portal Guard snorts",
+	"subtitles.entity.portal_guard.step_arm": "Portal Guard steps",
+	"subtitles.entity.portal_guard.step_foot": "Portal Guard steps",
+	"subtitles.entity.portal_guard.swing_start_vocal": "Portal Guard detaches flail",
+	"subtitles.entity.portal_guard.swing_vocal": "Portal Guard swings flail",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"

@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.ai.brains.behaviours;
 
 import com.google.common.collect.ImmutableMap;
 import com.infamous.infamous_legends.entities.PortalGuard;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
@@ -23,13 +24,16 @@ public class PortalGuardMeleeAttack extends Behavior<PortalGuard> {
 
    protected boolean checkExtraStartConditions(ServerLevel level, PortalGuard mob) {
       LivingEntity livingentity = this.getAttackTarget(mob);
-      return mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 4.0 && mob.shootAnimationTick <= 0 && mob.reelInBallAnimationTick <= 0 && !mob.playingIdleShootingAnimation;
+      return mob.hasLineOfSight(livingentity) && mob.distanceTo(livingentity) <= 4.0 && mob.swingAnimationTick <= 0 && mob.shootAnimationTick <= 0 && mob.reelInBallAnimationTick <= 0 && !mob.playingIdleShootingAnimation;
    }
 
    protected void start(ServerLevel p_23524_, PortalGuard p_23525_, long p_23526_) {
       LivingEntity livingentity = this.getAttackTarget(p_23525_);
       p_23525_.lookAt(Anchor.EYES, livingentity.position());
       p_23525_.getNavigation().stop();
+      
+      p_23525_.playSound(SoundEventInit.PORTAL_GUARD_ATTACK.get(), 1.25F, 1);
+      p_23525_.playSound(SoundEventInit.PORTAL_GUARD_ATTACK_VOCAL.get(), 1.25F, 1);
 		
       p_23525_.attackAnimationTick = p_23525_.attackAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 4);

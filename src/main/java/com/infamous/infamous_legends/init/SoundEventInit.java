@@ -206,4 +206,27 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_SPIN_ATTACK_VOCAL = SOUND_EVENTS.register("entity.piglin_bruiser.spin_attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.spin_attack_vocal")));
 	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_SPIN_ATTACK = SOUND_EVENTS.register("entity.piglin_bruiser.spin_attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.spin_attack")));
 	public static final RegistryObject<SoundEvent> PIGLIN_BRUISER_STEP = SOUND_EVENTS.register("entity.piglin_bruiser.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.piglin_bruiser.step")));
+	
+	// PORTAL GUARD
+	
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_ANGRY = SOUND_EVENTS.register("entity.portal_guard.angry", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.angry")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_ATTACK_VOCAL = SOUND_EVENTS.register("entity.portal_guard.attack_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.attack_vocal")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_ATTACK = SOUND_EVENTS.register("entity.portal_guard.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.attack")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_DEATH = SOUND_EVENTS.register("entity.portal_guard.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.death")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_HURT = SOUND_EVENTS.register("entity.portal_guard.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.hurt")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_IDLE = SOUND_EVENTS.register("entity.portal_guard.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.idle")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_REEL_IN_BALL_START = SOUND_EVENTS.register("entity.portal_guard.reel_in_ball_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.reel_in_ball_start")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_REEL_IN_BALL_STOP = SOUND_EVENTS.register("entity.portal_guard.reel_in_ball_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.reel_in_ball_stop")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SHOOT_START_VOCAL = SOUND_EVENTS.register("entity.portal_guard.shoot_start_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.shoot_start_vocal")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SHOOT_START = SOUND_EVENTS.register("entity.portal_guard.shoot_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.shoot_start")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SHOOT_VOCAL = SOUND_EVENTS.register("entity.portal_guard.shoot_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.shoot_vocal")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SHOOT = SOUND_EVENTS.register("entity.portal_guard.shoot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.shoot")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SNORT = SOUND_EVENTS.register("entity.portal_guard.snort", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.snort")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_STEP_ARM = SOUND_EVENTS.register("entity.portal_guard.step_arm", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.step_arm")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_STEP_FOOT = SOUND_EVENTS.register("entity.portal_guard.step_foot", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.step_foot")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_STEP_VOCAL = SOUND_EVENTS.register("entity.portal_guard.step_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.step_vocal")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SWING_START_VOCAL = SOUND_EVENTS.register("entity.portal_guard.swing_start_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.swing_start_vocal")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SWING_START = SOUND_EVENTS.register("entity.portal_guard.swing_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.swing_start")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SWING_VOCAL = SOUND_EVENTS.register("entity.portal_guard.swing_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.swing_vocal")));
+	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SWING = SOUND_EVENTS.register("entity.portal_guard.swing", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.swing")));
 }

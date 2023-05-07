@@ -5,6 +5,7 @@ import javax.annotation.Nullable;
 import com.infamous.infamous_legends.events.ShakeCameraEvent;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.ParticleTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -35,7 +36,6 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	   private static final EntityDataAccessor<Integer> CLIENT_OWNERR_ID = SynchedEntityData.defineId(PortalGuardWreckingBall.class, EntityDataSerializers.INT);
 	   
 	   public boolean hasLanded;
-	   public boolean playedChainSound;
 	   
 	   public float landingXRot;
 	   public float landingYRot;
@@ -84,13 +84,10 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	      if (!this.level.isClientSide && this.getPortalGuardOwner() != null && !this.hasLanded && this.distanceTo(this.getPortalGuardOwner()) >= distance) {
 	    	  this.getPortalGuardOwner().push(this.getDeltaMovement().x * 0.25, 0, this.getDeltaMovement().z * 0.25);
 	    	  this.setDeltaMovement(this.getDeltaMovement().x * 0.5, this.getDeltaMovement().y - 0.05, this.getDeltaMovement().z * 0.5);
-	    	  if (!this.playedChainSound) {
-	    		  this.playSound(SoundEvents.CHAIN_PLACE);
-	    		  this.playedChainSound = true;
-	    	  }
 	      }
 	      
 	      if (!this.level.isClientSide && this.getPortalGuardOwner() != null && this.hasLanded && this.inGroundTime >= 20 && this.getPortalGuardOwner().reelInBallAnimationTick <= 0) {
+	    	  this.getPortalGuardOwner().playSound(SoundEventInit.PORTAL_GUARD_REEL_IN_BALL_START.get(), 1.25F, 1);
 	    	  this.getPortalGuardOwner().reelInBallAnimationTick = this.getPortalGuardOwner().reelInBallAnimationLength;
 	    	  this.level.broadcastEntityEvent(this.getPortalGuardOwner(), (byte)8);
 	    	  this.getPortalGuardOwner().playingIdleShootingAnimation = false;
@@ -110,10 +107,11 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	      if (this.getPortalGuardOwner() != null && (this.getPortalGuardOwner().reelInBallAnimationTick == this.getPortalGuardOwner().reelInBallAnimationLength - 6 || this.getPortalGuardOwner().reelInBallAnimationTick == this.getPortalGuardOwner().reelInBallAnimationLength - 20 || this.getPortalGuardOwner().reelInBallAnimationTick == this.getPortalGuardOwner().reelInBallAnimationLength - 35)) {
 	    	  this.inGround = false;
 	    	  
-	    	  this.playSound(SoundEvents.CHAIN_PLACE, 1.0F, MiscUtils.randomSoundPitch() * 0.75F);
-	    	  this.playSound(SoundEvents.GRAVEL_STEP, 1.25F, MiscUtils.randomSoundPitch() * 0.005F);
-	    	  
 	    	  double speed = 0.325 * (this.distanceTo(this.getPortalGuardOwner()) * 0.25);
+	    	  
+	    	  if (this.getPortalGuardOwner().reelInBallAnimationTick == this.getPortalGuardOwner().reelInBallAnimationLength - 35) {
+		    	  this.getPortalGuardOwner().playSound(SoundEventInit.PORTAL_GUARD_REEL_IN_BALL_STOP.get(), 1.25F, 1);
+	    	  }
 	    	  
 	    	  this.setPos(this.getX(), this.getY() + 0.1, this.getZ());
 	    	  
@@ -167,8 +165,6 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 				if (!this.level.isClientSide) {
 					ShakeCameraEvent.shake(this.level, 40, 0.075F, this.blockPosition(), 10);
 					((ServerLevel)this.level).sendParticles(ParticleTypeInit.DUST.get(), this.getX(), this.getY(), this.getZ(), 12, 0.2D, 0.2D, 0.2D, 0.0D);
-					this.playSound(SoundEvents.ANVIL_LAND, 2.0F, 0.75F);
-					this.playSound(SoundEvents.GENERIC_EXPLODE, 2.0F, 0.75F);
 					for (Entity entity : this.level.getEntities(this, this.getBoundingBox().inflate(2))) {
 						if (entity instanceof LivingEntity && !MiscUtils.piglinAllies(this, entity)) {
 							boolean flag = entity.hurt(DamageSource.explosion(this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null), 18);
@@ -190,17 +186,14 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	   protected void onHitEntity(EntityHitResult p_37573_) {
 		  if (!this.hasLanded && !this.level.isClientSide) {
 		      Entity entity = p_37573_.getEntity();
-		      float f = 20F;
+		      float f = 22F;
 		      Entity entity1 = this.getOwner();
 		      DamageSource damagesource = DamageSource.thrown(this, (Entity)(entity1 == null ? this : entity1));
-		      SoundEvent soundevent = SoundEvents.ANVIL_LAND;
 		      boolean flag = entity.hurt(damagesource, f);
 		      
 		      if (entity instanceof LivingEntity) {
 		    	  MiscUtils.disableShield(((LivingEntity)entity), 300);
 		      }
-	
-		      this.playSound(soundevent, 1.0F, 1.0F);
 		  }
 	   }
 	   

@@ -23,6 +23,9 @@ public class MemoryModuleTypeInit {
 	    public static final RegistryObject<MemoryModuleType<Boolean>> SHOOT_COOLING_DOWN = MEMORY_MODULE_TYPES.register("shoot_cooling_down",
 	            () -> new MemoryModuleType<>(Optional.empty()));
 	    
+	    public static final RegistryObject<MemoryModuleType<Boolean>> SWING_COOLING_DOWN = MEMORY_MODULE_TYPES.register("swing_cooling_down",
+	            () -> new MemoryModuleType<>(Optional.empty()));
+	    
 	    public static final RegistryObject<MemoryModuleType<List<LivingEntity>>> NEARBY_ALLIES = MEMORY_MODULE_TYPES.register("nearby_allies",
 	            () -> new MemoryModuleType<>(Optional.empty()));
 }

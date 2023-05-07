@@ -4221,5 +4221,687 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	"entity.portal_guard.angry": {
+		"subtitle": "subtitles.entity.portal_guard.angry",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/angry1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/angry2",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.attack_vocal": {
+		"subtitle": "subtitles.entity.portal_guard.attack_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/attack_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack_vocal7",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.attack": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/attack8",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.death": {
+		"subtitle": "subtitles.entity.portal_guard.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/death6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/death7",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.hurt": {
+		"subtitle": "subtitles.entity.portal_guard.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/hurt9",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.idle": {
+		"subtitle": "subtitles.entity.portal_guard.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/idle6",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.reel_in_ball_start": {
+		"subtitle": "subtitles.entity.portal_guard.reel_in_ball_start",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_start8",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.reel_in_ball_stop": {
+		"subtitle": "subtitles.entity.portal_guard.reel_in_ball_stop",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/reel_in_ball_stop8",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.shoot_start_vocal": {
+		"subtitle": "subtitles.entity.portal_guard.shoot_start_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start_vocal6",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.shoot_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_start6",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.shoot_vocal": {
+		"subtitle": "subtitles.entity.portal_guard.shoot_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot_vocal9",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.shoot": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/shoot6",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.snort": {
+		"subtitle": "subtitles.entity.portal_guard.snort",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/snort1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort10",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort11",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort12",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/snort13",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.step_arm": {
+		"subtitle": "subtitles.entity.portal_guard.step_arm",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/step_arm1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_arm2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_arm3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_arm4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_arm5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_arm6",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.step_foot": {
+		"subtitle": "subtitles.entity.portal_guard.step_foot",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/step_foot1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_foot2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_foot3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_foot4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_foot5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_foot6",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.step_vocal": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/step_vocal8",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.swing_start_vocal": {
+		"subtitle": "subtitles.entity.portal_guard.swing_start_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start_vocal9",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.swing_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_start6",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.swing_vocal": {
+		"subtitle": "subtitles.entity.portal_guard.swing_vocal",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing_vocal10",
+				"stream": true
+			}
+		]
+	},
+	"entity.portal_guard.swing": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/swing1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/swing6",
+				"stream": true
+			}
+		]
 	}
 }
