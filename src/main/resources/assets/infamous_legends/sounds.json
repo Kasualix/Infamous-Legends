@@ -4611,6 +4611,35 @@
 			}
 		]
 	},
+	"entity.portal_guard.projectile_impact": {
+	"subtitle": "subtitles.entity.portal_guard.projectile_impact",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/portal_guard/projectile_impact1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/projectile_impact2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/projectile_impact3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/projectile_impact4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/projectile_impact5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/portal_guard/projectile_impact6",
+				"stream": true
+			}
+		]
+	},
 	"entity.portal_guard.snort": {
 		"subtitle": "subtitles.entity.portal_guard.snort",
 		"sounds": [

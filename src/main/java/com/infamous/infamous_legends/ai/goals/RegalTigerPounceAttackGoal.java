@@ -71,7 +71,7 @@ public class RegalTigerPounceAttackGoal extends Goal {
 				mob.setDeltaMovement(mob.getDeltaMovement().add(PositionUtils.getOffsetMotion(mob, 0, 0.35, 1.6, mob.yBodyRot)));
 			}
 			
-			if (target != null && mob.attackAnimationTick < mob.attackAnimationActionPoint && mob.attackAnimationTick >= mob.attackAnimationLength - 17 && mob.distanceTo(target) <= mob.getBbWidth() / 1.9) {
+			if (target != null && mob.attackAnimationTick < mob.attackAnimationActionPoint && mob.attackAnimationTick >= mob.attackAnimationLength - 17 && mob.getBoundingBox().inflate(0.1).intersects(target.getBoundingBox())) {
 				target.hurt(DamageSource.mobAttack(mob), 8);
 				target.hurtMarked = true;
 				target.setDeltaMovement(mob.getDeltaMovement().add(mob.getDeltaMovement()));

@@ -7,6 +7,7 @@ import com.infamous.infamous_legends.init.ModelLayerInit;
 import com.infamous.infamous_legends.models.SporebackModel;
 import com.infamous.infamous_legends.renderers.layers.CustomArmourLayer;
 import com.infamous.infamous_legends.renderers.layers.HeadItemLayer;
+import com.infamous.infamous_legends.renderers.layers.SporebackGlowLayer;
 import com.mojang.blaze3d.vertex.PoseStack;
 
 import net.minecraft.client.renderer.MultiBufferSource;
@@ -38,6 +39,7 @@ public class SporebackRenderer extends MobRenderer<Sporeback, SporebackModel<Spo
 				}
 			}
 		});
+		this.addLayer(new SporebackGlowLayer<>(this));
 	}
 	
 	protected boolean isShaking(Sporeback entity) {

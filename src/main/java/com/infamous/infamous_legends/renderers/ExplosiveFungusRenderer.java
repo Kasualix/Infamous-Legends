@@ -40,6 +40,6 @@ public class ExplosiveFungusRenderer extends EntityRenderer<ExplosiveFungus> {
    }
 
    public ResourceLocation getTextureLocation(ExplosiveFungus p_116109_) {
-      return new ResourceLocation(InfamousLegends.MOD_ID, "textures/items/explosive_fungus.png");
+      return new ResourceLocation(InfamousLegends.MOD_ID, "textures/entities/sporeback.png");
    }
 }

@@ -35,6 +35,7 @@ public class PortalGuardSwingAttack extends Behavior<PortalGuard> {
       p_23525_.getNavigation().stop();
 		
       p_23525_.playSound(SoundEventInit.PORTAL_GUARD_SWING_START_VOCAL.get(), 1.5F, 1);
+      p_23525_.playSound(SoundEventInit.PORTAL_GUARD_SWING_START.get(), 1.5F, 1);
       
       p_23525_.swingAnimationTick = p_23525_.swingAnimationLength;
       p_23524_.broadcastEntityEvent(p_23525_, (byte) 7);
@@ -48,9 +49,9 @@ public class PortalGuardSwingAttack extends Behavior<PortalGuard> {
 		
 		p_22552_.getNavigation().stop();
 		
-		if (p_22552_.swingAnimationTick == p_22552_.swingAnimationLength - 15) {
-			p_22552_.playSound(SoundEventInit.PORTAL_GUARD_SWING_START.get(), 1.5F, 1);
-		}
+		//if (p_22552_.swingAnimationTick == p_22552_.swingAnimationLength - 15) {
+		//	p_22552_.playSound(SoundEventInit.PORTAL_GUARD_SWING_START.get(), 1.5F, 1);
+		//}
 		
 		if (p_22552_.swingAnimationTick == p_22552_.swingAnimationLength - 57) {
 			p_22552_.playSound(SoundEventInit.PORTAL_GUARD_SWING.get(), 1.5F, 1);

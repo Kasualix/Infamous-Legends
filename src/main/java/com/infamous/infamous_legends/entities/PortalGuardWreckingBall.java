@@ -86,7 +86,7 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	    	  this.setDeltaMovement(this.getDeltaMovement().x * 0.5, this.getDeltaMovement().y - 0.05, this.getDeltaMovement().z * 0.5);
 	      }
 	      
-	      if (!this.level.isClientSide && this.getPortalGuardOwner() != null && this.hasLanded && this.inGroundTime >= 20 && this.getPortalGuardOwner().reelInBallAnimationTick <= 0) {
+	      if (!this.level.isClientSide && this.getPortalGuardOwner() != null && this.hasLanded && this.inGroundTime >= 1 && this.getPortalGuardOwner().reelInBallAnimationTick <= 0) {
 	    	  this.getPortalGuardOwner().playSound(SoundEventInit.PORTAL_GUARD_REEL_IN_BALL_START.get(), 1.25F, 1);
 	    	  this.getPortalGuardOwner().reelInBallAnimationTick = this.getPortalGuardOwner().reelInBallAnimationLength;
 	    	  this.level.broadcastEntityEvent(this.getPortalGuardOwner(), (byte)8);
@@ -160,6 +160,7 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	   @Override
 	protected void onHitBlock(BlockHitResult p_36755_) {
 			if (!this.hasLanded) {
+				this.playSound(SoundEventInit.PORTAL_GUARD_PROJECTILE_IMPACT.get(), 2, 1.0F);
 				this.landingXRot = this.getXRot();
 				this.landingYRot = this.getYRot();
 				if (!this.level.isClientSide) {

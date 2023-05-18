@@ -199,6 +199,7 @@
 	"subtitles.entity.portal_guard.reel_in_ball_stop": "Portal Guard reels in flail",
 	"subtitles.entity.portal_guard.shoot_start_vocal": "Portal Guard prepares to shoot flail",
 	"subtitles.entity.portal_guard.shoot_vocal": "Portal Guard shoots flail",
+	"subtitles.entity.portal_guard.projectile_impact": "Portal Guard flail lands",
 	"subtitles.entity.portal_guard.snort": "Portal Guard snorts",
 	"subtitles.entity.portal_guard.step_arm": "Portal Guard steps",
 	"subtitles.entity.portal_guard.step_foot": "Portal Guard steps",
