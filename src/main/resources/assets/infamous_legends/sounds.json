@@ -4932,5 +4932,477 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	
+	"entity.regal_tiger.angry": {
+		"subtitle": "subtitles.entity.regal_tiger.angry",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/angry1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/angry2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/angry3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/angry4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/angry5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/angry6",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.attack_start": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_start8",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.attack_stop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack_stop8",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.attack": {
+		"subtitle": "subtitles.entity.regal_tiger.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/attack10",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.death": {
+		"subtitle": "subtitles.entity.regal_tiger.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/death5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/death6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/death7",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.eat": {
+		"subtitle": "subtitles.entity.regal_tiger.eat",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/eat8",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.hurt": {
+		"subtitle": "subtitles.entity.regal_tiger.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/hurt7",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.idle": {
+		"subtitle": "subtitles.entity.regal_tiger.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/idle6",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.lick": {
+		"subtitle": "subtitles.entity.regal_tiger.lick",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/lick8",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.sit": {
+		"subtitle": "subtitles.entity.regal_tiger.sit",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/sit1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/sit2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/sit3",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.stand": {
+		"subtitle": "subtitles.entity.regal_tiger.stand",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/stand10",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.step_vocal": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step_vocal10",
+				"stream": true
+			}
+		]
+	},
+	"entity.regal_tiger.step": {
+		"subtitle": "subtitles.entity.regal_tiger.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/regal_tiger/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/regal_tiger/step10",
+				"stream": true
+			}
+		]
 	}
 }

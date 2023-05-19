@@ -89,6 +89,7 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 	      if (!this.level.isClientSide && this.getPortalGuardOwner() != null && this.hasLanded && this.inGroundTime >= 1 && this.getPortalGuardOwner().reelInBallAnimationTick <= 0) {
 	    	  this.getPortalGuardOwner().playSound(SoundEventInit.PORTAL_GUARD_REEL_IN_BALL_START.get(), 1.25F, 1);
 	    	  this.getPortalGuardOwner().reelInBallAnimationTick = this.getPortalGuardOwner().reelInBallAnimationLength;
+	    	  this.getPortalGuardOwner().shootAnimationTick = 0;
 	    	  this.level.broadcastEntityEvent(this.getPortalGuardOwner(), (byte)8);
 	    	  this.getPortalGuardOwner().playingIdleShootingAnimation = false;
 	    	  this.level.broadcastEntityEvent(this.getPortalGuardOwner(), (byte)10);

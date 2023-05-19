@@ -9,6 +9,7 @@ import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
 import com.infamous.infamous_legends.ai.goals.RegalTigerPounceAttackGoal;
 import com.infamous.infamous_legends.ai.goals.RegalTigerSitGoal;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
@@ -22,6 +23,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
+import net.minecraft.util.Mth;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -155,25 +157,24 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 		      return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 40.0D).add(Attributes.FOLLOW_RANGE, 18.0D).add(Attributes.MOVEMENT_SPEED, 0.325D);
 		   }
 		   
-		   @Override
-		public float getVoicePitch() {
-			return super.getVoicePitch() * 0.5F;
-		}
-		   
 		   protected SoundEvent getAmbientSound() {
-			      return SoundEvents.POLAR_BEAR_AMBIENT;
+			   if (this.level.isClientSide) {
+				   return null;
+			   } else {
+			      return !this.isBaby() && this.getTarget() != null && !this.getTarget().isDeadOrDying() && !this.getTarget().isRemoved() ? SoundEventInit.REGAL_TIGER_ANGRY.get() : SoundEventInit.REGAL_TIGER_IDLE.get();
 			   }
+		   }
 
 			   protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-			      return SoundEvents.POLAR_BEAR_HURT;
+			      return SoundEventInit.REGAL_TIGER_HURT.get();
 			   }
 
 			   protected SoundEvent getDeathSound() {
-			      return SoundEvents.POLAR_BEAR_DEATH;
+			      return SoundEventInit.REGAL_TIGER_DEATH.get();
 			   }
 
-			   protected void playStepSound(BlockPos pPos, BlockState pBlock) {
-			      this.playSound(SoundEvents.POLAR_BEAR_STEP, 0.25F, 0.5F);
+			   protected void playStepSound(BlockPos pPos, BlockState pBlock) {				  
+			      this.playSound(SoundEventInit.REGAL_TIGER_STEP.get(), 0.25F, 1);
 			   }
 		   
 	   public void travel(Vec3 pTravelVector) {
@@ -284,7 +285,7 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 					ItemStack itemstack = pPlayer.getItemInHand(pHand);
 					if (pPlayer.getItemInHand(pHand).is(TagInit.Items.HEALS_REGAL_TIGER) && this.getHealth() < this.getMaxHealth()) {
 						this.heal(3);
-						this.playSound(SoundEvents.CAT_EAT, 1.0F, MiscUtils.randomSoundPitch() * 0.5F);
+						this.playSound(SoundEventInit.REGAL_TIGER_EAT.get(), 1.0F, this.getVoicePitch());
 						return InteractionResult.sidedSuccess(this.level.isClientSide);
 					} else {
 						if (pHand == InteractionHand.MAIN_HAND && this.isSaddled() && pPlayer.isCrouching() && pPlayer.getItemInHand(pHand).isEmpty()) {
@@ -305,7 +306,7 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 		
 		@Override
 		public void setInLove(Player pPlayer) {
-			this.playSound(SoundEvents.CAT_EAT, 1.0F, MiscUtils.randomSoundPitch() * 0.5F);
+			this.playSound(SoundEventInit.REGAL_TIGER_EAT.get(), 1.0F, this.getVoicePitch());
 			super.setInLove(pPlayer);
 		}
 
@@ -374,6 +375,15 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 	public void baseTick() {
 		super.baseTick();
 
+		Vec3 velocity = this.getDeltaMovement();
+		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
+		
+		boolean shouldPlayRunAnimation = speed > 0.225 && this.attackAnimationTick <= 0 && this.sitAnimationTick <= 0 && this.cleanAnimationTick <= 0 && this.standAnimationTick <= 0;
+		
+	  if (shouldPlayRunAnimation && this.tickCount % 10 == 0) {
+		  this.playSound(SoundEventInit.REGAL_TIGER_STEP_VOCAL.get(), 0.5F, this.getVoicePitch());
+	  }
+	  
 		if (this.attackAnimationTick > 0) {
 			this.attackAnimationTick--;
 		}
@@ -413,6 +423,12 @@ public class RegalTiger extends Animal implements PlayerRideableJumping, Saddlea
 		
 		if (this.pounceWasOrdered && this.isOnGround() && this.attackAnimationTick == this.attackAnimationActionPoint) {
 			this.setDeltaMovement(this.getDeltaMovement().add(PositionUtils.getOffsetMotion(this, 0, 0.35, this.orderedPounceSpeed, this.yBodyRot)));
+			this.playSound(SoundEventInit.REGAL_TIGER_ATTACK.get(), 1, this.getVoicePitch());
+			this.playSound(SoundEventInit.REGAL_TIGER_ATTACK_START.get(), 1, this.getVoicePitch());
+		}
+		
+		if (this.pounceWasOrdered && this.attackAnimationTick == this.attackAnimationLength - 17) {
+			this.playSound(SoundEventInit.REGAL_TIGER_ATTACK_STOP.get(), 1, this.getVoicePitch());
 		}
 		
 		if (!this.level.isClientSide && this.pounceWasOrdered && this.attackAnimationTick < this.attackAnimationActionPoint && this.attackAnimationTick >= this.attackAnimationLength - 17) {

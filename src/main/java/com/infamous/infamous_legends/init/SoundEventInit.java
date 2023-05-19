@@ -230,4 +230,20 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SWING_START = SOUND_EVENTS.register("entity.portal_guard.swing_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.swing_start")));
 	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SWING_VOCAL = SOUND_EVENTS.register("entity.portal_guard.swing_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.swing_vocal")));
 	public static final RegistryObject<SoundEvent> PORTAL_GUARD_SWING = SOUND_EVENTS.register("entity.portal_guard.swing", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.portal_guard.swing")));
+	
+	// REGAL TIGER
+	
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_ANGRY = SOUND_EVENTS.register("entity.regal_tiger.angry", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.angry")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_ATTACK_START = SOUND_EVENTS.register("entity.regal_tiger.attack_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.attack_start")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_ATTACK_STOP = SOUND_EVENTS.register("entity.regal_tiger.attack_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.attack_stop")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_ATTACK = SOUND_EVENTS.register("entity.regal_tiger.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.attack")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_DEATH = SOUND_EVENTS.register("entity.regal_tiger.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.death")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_EAT = SOUND_EVENTS.register("entity.regal_tiger.eat", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.eat")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_HURT = SOUND_EVENTS.register("entity.regal_tiger.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.hurt")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_IDLE = SOUND_EVENTS.register("entity.regal_tiger.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.idle")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_LICK = SOUND_EVENTS.register("entity.regal_tiger.lick", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.lick")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_SIT = SOUND_EVENTS.register("entity.regal_tiger.sit", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.sit")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_STAND = SOUND_EVENTS.register("entity.regal_tiger.stand", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.stand")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_STEP_VOCAL = SOUND_EVENTS.register("entity.regal_tiger.step_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.step_vocal")));
+	public static final RegistryObject<SoundEvent> REGAL_TIGER_STEP = SOUND_EVENTS.register("entity.regal_tiger.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.step")));
 }

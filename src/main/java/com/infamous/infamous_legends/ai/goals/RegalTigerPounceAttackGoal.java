@@ -5,6 +5,7 @@ import java.util.EnumSet;
 import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.entities.RegalTiger;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
 import net.minecraft.commands.arguments.EntityAnchorArgument.Anchor;
@@ -69,12 +70,18 @@ public class RegalTigerPounceAttackGoal extends Goal {
 			
 			if (mob.isOnGround() && mob.attackAnimationTick == mob.attackAnimationActionPoint) {
 				mob.setDeltaMovement(mob.getDeltaMovement().add(PositionUtils.getOffsetMotion(mob, 0, 0.35, 1.6, mob.yBodyRot)));
+				mob.playSound(SoundEventInit.REGAL_TIGER_ATTACK.get(), 1, mob.getVoicePitch());
+				mob.playSound(SoundEventInit.REGAL_TIGER_ATTACK_START.get(), 1, mob.getVoicePitch());
+			}
+			
+			if (mob.attackAnimationTick == mob.attackAnimationLength - 17) {
+				mob.playSound(SoundEventInit.REGAL_TIGER_ATTACK_STOP.get(), 1, mob.getVoicePitch());
 			}
 			
 			if (target != null && mob.attackAnimationTick < mob.attackAnimationActionPoint && mob.attackAnimationTick >= mob.attackAnimationLength - 17 && mob.getBoundingBox().inflate(0.1).intersects(target.getBoundingBox())) {
 				target.hurt(DamageSource.mobAttack(mob), 8);
 				target.hurtMarked = true;
-				target.setDeltaMovement(mob.getDeltaMovement().add(mob.getDeltaMovement()));
+				target.setDeltaMovement(target.getDeltaMovement().add(mob.getDeltaMovement()));
 			}
 		}
 		

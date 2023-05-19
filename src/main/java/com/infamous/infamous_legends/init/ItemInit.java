@@ -84,7 +84,7 @@ public class ItemInit {
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
 	public static final RegistryObject<Item> MOSSY_GOLEM_SPAWN_EGG = ITEMS.register("mossy_golem_spawn_egg",
-			() -> new ForgeSpawnEggItem(EntityTypeInit.MOSSY_GOLEM, 0x90919b, 0xa2bf62,
+			() -> new ForgeSpawnEggItem(EntityTypeInit.MOSSY_GOLEM, 0x90919b, 0x77ae55,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
 	public static final RegistryObject<Item> FIRST_OF_STONE_SPAWN_EGG = ITEMS.register("first_of_stone_spawn_egg",

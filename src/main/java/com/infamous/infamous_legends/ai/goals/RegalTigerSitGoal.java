@@ -5,6 +5,7 @@ import java.util.EnumSet;
 import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.entities.RegalTiger;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -55,6 +56,7 @@ public class RegalTigerSitGoal extends Goal {
 			mob.sitAnimationTick = mob.sitAnimationLength;
 			mob.level.broadcastEntityEvent(mob, (byte) 11);
 			mob.setSitting(true);
+			mob.playSound(SoundEventInit.REGAL_TIGER_SIT.get(), 1, mob.getVoicePitch());
 			this.sittingFor = 0;
 		}
 		
@@ -70,9 +72,14 @@ public class RegalTigerSitGoal extends Goal {
 				this.nextCleanTime = mob.tickCount + mob.cleanAnimationLength + 100;
 			}
 			
+			if (mob.cleanAnimationTick > 0 && mob.tickCount % 15 == 0) {
+				mob.playSound(SoundEventInit.REGAL_TIGER_LICK.get(), 1, mob.getVoicePitch());
+			}
+			
 			if (sittingFor > 200 && mob.getRandom().nextInt(100) == 0 && mob.cleanAnimationTick <= 0 && mob.standAnimationTick <= 0) {
 				mob.standAnimationTick = mob.standAnimationLength;
 				mob.level.broadcastEntityEvent(mob, (byte) 9);
+				mob.playSound(SoundEventInit.REGAL_TIGER_STAND.get(), 1, mob.getVoicePitch());
 			}
 			
 			if (mob.standAnimationTick == 2) {

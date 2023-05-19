@@ -202,6 +202,8 @@ public class PortalGuard extends AbstractPiglin {
 		} else if (p_219360_ == 8) {
 			this.reelInBallAnimationTick = this.reelInBallAnimationLength;
 			this.reelInBallAnimationState.start(this.tickCount);
+			this.shootAnimationTick = 0;
+			this.shootAnimationState.stop();
 		} else if (p_219360_ == 7) {
 			this.swingAnimationTick = this.swingAnimationLength;
 			this.swingAnimationState.start(this.tickCount);
