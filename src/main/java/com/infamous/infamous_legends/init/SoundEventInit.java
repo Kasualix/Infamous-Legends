@@ -246,4 +246,19 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> REGAL_TIGER_STAND = SOUND_EVENTS.register("entity.regal_tiger.stand", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.stand")));
 	public static final RegistryObject<SoundEvent> REGAL_TIGER_STEP_VOCAL = SOUND_EVENTS.register("entity.regal_tiger.step_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.step_vocal")));
 	public static final RegistryObject<SoundEvent> REGAL_TIGER_STEP = SOUND_EVENTS.register("entity.regal_tiger.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.regal_tiger.step")));
+	
+	// BIG BEAK
+	
+	public static final RegistryObject<SoundEvent> BIG_BEAK_DEATH = SOUND_EVENTS.register("entity.big_beak.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.death")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_FLAP = SOUND_EVENTS.register("entity.big_beak.flap", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.flap")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_GLIDE_LOOP = SOUND_EVENTS.register("entity.big_beak.glide_loop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.glide_loop")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_GLIDE_START = SOUND_EVENTS.register("entity.big_beak.glide_start", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.glide_start")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_GLIDE_STOP = SOUND_EVENTS.register("entity.big_beak.glide_stop", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.glide_stop")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_HURT = SOUND_EVENTS.register("entity.big_beak.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.hurt")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_IDLE_GLIDING = SOUND_EVENTS.register("entity.big_beak.idle_gliding", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.idle_gliding")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_IDLE = SOUND_EVENTS.register("entity.big_beak.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.idle")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_JUMP_VOCAL = SOUND_EVENTS.register("entity.big_beak.jump_vocal", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.jump_vocal")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_JUMP = SOUND_EVENTS.register("entity.big_beak.jump", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.jump")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_LAND = SOUND_EVENTS.register("entity.big_beak.land", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.land")));
+	public static final RegistryObject<SoundEvent> BIG_BEAK_STEP = SOUND_EVENTS.register("entity.big_beak.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.step")));
 }

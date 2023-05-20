@@ -5404,5 +5404,399 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	"entity.big_beak.death": {
+		"subtitle": "subtitles.entity.big_beak.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/death5",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.flap": {
+		"subtitle": "subtitles.entity.big_beak.flap",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/flap1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/flap2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/flap3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/flap4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/flap5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/flap6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/flap7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/flap8",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.glide_loop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/glide_loop",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.glide_start": {
+		"subtitle": "subtitles.entity.big_beak.glide_start",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/glide_start1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_start2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_start3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_start4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_start5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_start6",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.glide_stop": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/glide_stop1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_stop2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_stop3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_stop4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_stop5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/glide_stop6",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.hurt": {
+		"subtitle": "subtitles.entity.big_beak.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/hurt10",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.idle_gliding": {
+		"subtitle": "subtitles.entity.big_beak.idle_gliding",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle_gliding10",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.idle": {
+		"subtitle": "subtitles.entity.big_beak.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/idle10",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.jump_vocal": {
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/jump_vocal1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump_vocal2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump_vocal3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump_vocal4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump_vocal5",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.jump": {
+		"subtitle": "subtitles.entity.big_beak.jump",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/jump1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/jump6",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.land": {
+		"subtitle": "subtitles.entity.big_beak.land",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/land1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/land2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/land3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/land4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/land5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/land6",
+				"stream": true
+			}
+		]
+	},
+	"entity.big_beak.step": {
+		"subtitle": "subtitles.entity.big_beak.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/big_beak/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step5",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step6",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step7",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step8",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step9",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/big_beak/step10",
+				"stream": true
+			}
+		]
 	}
 }

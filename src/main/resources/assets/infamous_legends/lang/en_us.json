@@ -217,6 +217,16 @@
 	"subtitles.entity.regal_tiger.stand": "Regal Tiger stands",
 	"subtitles.entity.regal_tiger.step": "Regal Tiger steps",
 	
+	"subtitles.entity.big_beak.death": "Big Beak dies",
+	"subtitles.entity.big_beak.flap": "Big Beak flaps",
+	"subtitles.entity.big_beak.glide_start": "Big Beak starts gliding",
+	"subtitles.entity.big_beak.hurt": "Big Beak hurts",
+	"subtitles.entity.big_beak.idle_gliding": "Big Beak calls",
+	"subtitles.entity.big_beak.idle": "Big Beak chirps",
+	"subtitles.entity.big_beak.jump": "Big Beak jumps",
+	"subtitles.entity.big_beak.land": "Big Beak lands",
+	"subtitles.entity.big_beak.step": "Big Beak steps",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"

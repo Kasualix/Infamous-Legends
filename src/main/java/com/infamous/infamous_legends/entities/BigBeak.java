@@ -4,7 +4,9 @@ import javax.annotation.Nullable;
 
 import com.infamous.infamous_legends.init.BlockInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.init.TagInit;
+import com.infamous.infamous_legends.utils.HandleLoopingSoundInstances;
 import com.infamous.infamous_legends.utils.MiscUtils;
 import com.infamous.infamous_legends.utils.PositionUtils;
 
@@ -40,6 +42,7 @@ import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.TemptGoal;
 import net.minecraft.world.entity.ai.goal.WaterAvoidingRandomStrollGoal;
 import net.minecraft.world.entity.animal.Animal;
+import net.minecraft.world.entity.animal.Parrot;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
@@ -95,26 +98,29 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 		      return Mob.createMobAttributes().add(Attributes.MAX_HEALTH, 30.0D).add(Attributes.MOVEMENT_SPEED, 0.2D);
 		   }
 		   
-		   @Override
-		public float getVoicePitch() {
-			return super.getVoicePitch() * 0.25F;
-		}
-		   
+			@Override
+			public void onAddedToWorld() {
+			  super.onAddedToWorld();
+			  if (this.level.isClientSide) {
+				  HandleLoopingSoundInstances.addBigBeakAudio(this, this.level);
+			  }
+			}
+			
 		   protected SoundEvent getAmbientSound() {
-			      return SoundEvents.PARROT_AMBIENT;
+			      return this.isGliding() ? SoundEventInit.BIG_BEAK_IDLE_GLIDING.get() : SoundEventInit.BIG_BEAK_IDLE.get();
 			   }
 
 			   protected SoundEvent getHurtSound(DamageSource pDamageSource) {
-			      return SoundEvents.PARROT_HURT;
+			      return SoundEventInit.BIG_BEAK_HURT.get();
 			   }
 
 			   protected SoundEvent getDeathSound() {
-			      return SoundEvents.PARROT_DEATH;
+			      return SoundEventInit.BIG_BEAK_DEATH.get();
 			   }
-
+			   
 			   protected void playStepSound(BlockPos pPos, BlockState pBlock) {
-			      this.playSound(SoundEvents.PARROT_STEP, 0.25F, 0.5F);
-			   }
+			      this.playSound(SoundEventInit.BIG_BEAK_STEP.get(), 0.25F, MiscUtils.randomSoundPitch());
+			   }			   
 		   
 	   public void travel(Vec3 pTravelVector) {
 		      if (this.isAlive()) {
@@ -333,7 +339,7 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 	@Override
 	public boolean causeFallDamage(float pFallDistance, float pMultiplier, DamageSource pSource) {
 	      if (pFallDistance > 2.0F) {
-	          this.playSound(SoundEvents.HORSE_LAND, 0.4F, 1.25F);
+	          this.playSound(SoundEventInit.BIG_BEAK_LAND.get(), 0.75F, MiscUtils.randomSoundPitch());
 	       }
 		return false;
 	}
@@ -349,12 +355,13 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 			if (this.isOnGround()) {
 				this.timeUntilStopJumpingAllowed = 2;
 				this.setJumpingData(true);
-				this.playSound(SoundEvents.GOAT_LONG_JUMP, 0.4F, 1.0F);
+				this.playSound(SoundEventInit.BIG_BEAK_JUMP.get(), 1F, MiscUtils.randomSoundPitch());
+				this.playSound(SoundEventInit.BIG_BEAK_JUMP_VOCAL.get(), 1F, this.getVoicePitch());
 			} else {
 				if (!this.isGliding()) {
 					this.setJumpingData(false);
 					this.setGliding(true);
-					this.playSound(SoundEvents.BAT_TAKEOFF, 0.5F, MiscUtils.randomSoundPitch() * 0.5F);
+					this.playSound(SoundEventInit.BIG_BEAK_GLIDE_START.get(), 1F, MiscUtils.randomSoundPitch());
 				}
 			}
 		}
@@ -370,11 +377,19 @@ public class BigBeak extends Animal implements PlayerRideableJumping, Saddleable
 		
 		if (this.timeUntilStopJumpingAllowed <= 0 && (this.isOnGround() || this.isInWater()) && (this.isJumping() || this.isGliding())) {
 			this.setJumpingData(false);
+			if (this.isGliding()) {
+				this.playSound(SoundEventInit.BIG_BEAK_GLIDE_STOP.get(), 1F, MiscUtils.randomSoundPitch());
+			}
 			this.setGliding(false);
 		}
 		
 	      if (this.isGliding()) {
 	    	  Vec3 offsetMotion = PositionUtils.getOffsetMotion(this, 0, 0, this.glideSpeed, this.yBodyRot);
+	    	  
+				if (this.tickCount % 29 == 0) {
+					this.playSound(SoundEventInit.BIG_BEAK_FLAP.get(), 1, MiscUtils.randomSoundPitch());
+				}
+	    	  
 	    	 this.setDeltaMovement(new Vec3(offsetMotion.x, this.getDeltaMovement().y, offsetMotion.z));
 	    	 if (this.getDeltaMovement().y < 0.0D) {
 	    		 this.setDeltaMovement(this.getDeltaMovement().multiply(1.0D, 0.65D, 1.0D));
