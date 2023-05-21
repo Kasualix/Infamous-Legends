@@ -1,0 +1,93 @@
+package com.infamous.infamous_legends.events;
+
+import java.util.Random;
+import java.util.UUID;
+
+import org.jetbrains.annotations.NotNull;
+
+import com.google.common.collect.ImmutableMultimap;
+import com.infamous.infamous_legends.InfamousLegends;
+import com.infamous.infamous_legends.capabilities.MobHorde;
+import com.infamous.infamous_legends.capabilities.MobHordeProvider;
+import com.infamous.infamous_legends.init.HordeTypeInit;
+import com.infamous.infamous_legends.init.MobHordeIdentityInit;
+import com.infamous.infamous_legends.network.Messages;
+import com.infamous.infamous_legends.network.message.ServerToClientHordeSyncPacket;
+
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.player.Player;
+import net.minecraftforge.common.util.LazyOptional;
+import net.minecraftforge.event.entity.EntityJoinLevelEvent;
+import net.minecraftforge.event.entity.living.LivingConversionEvent;
+import net.minecraftforge.event.entity.player.PlayerEvent;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
+import net.minecraftforge.registries.ForgeRegistries;
+
+@Mod.EventBusSubscriber(modid = InfamousLegends.MOD_ID, bus = Bus.FORGE)
+public class GiveMobHordeEvent {
+
+	public static Random random = new Random();
+	
+	@SubscribeEvent
+    public static void giveMobHorde(EntityJoinLevelEvent event) {
+		if (!event.getEntity().level.isClientSide && MobHordeIdentityInit.getMobHordeIdentitiesByEntityType(event.getEntity().getType()).size() > 0) {
+	        event.getEntity().getCapability(MobHordeProvider.HORDE).ifPresent((capability) -> {
+	        	boolean shouldSetHealthToMax = event.getEntity() instanceof LivingEntity && ((LivingEntity)event.getEntity()).getHealth() >= ((LivingEntity)event.getEntity()).getMaxHealth();
+	        	if (!capability.hasSpawned() && capability.getHorde().getName().equals("empty")) {
+		        	capability.setHorde(HordeTypeInit.getHordeTypeByName(MobHordeIdentityInit.getMobHordeIdentitiesByEntityType(event.getEntity().getType()).get(random.nextInt(MobHordeIdentityInit.getMobHordeIdentitiesByEntityType(event.getEntity().getType()).size())).getHorde()));
+		        	if (event.getEntity() instanceof LivingEntity && capability.getHorde() != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()) != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()).modifyAttributes()) {
+			        	ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+			        	capability.getHorde().getAttributes().forEach(attributeModifier -> {
+			                Attribute attribute = ForgeRegistries.ATTRIBUTES.getValue(attributeModifier.getAttributeResourceLocation());
+			                if (attribute != null) {
+			                    builder.put(attribute, new AttributeModifier(UUID.randomUUID(), "Horde modifier", attributeModifier.getAmount(), attributeModifier.getOperation()));
+			                }
+			            });
+			        	((LivingEntity)event.getEntity()).getAttributes().addTransientAttributeModifiers(builder.build());
+			        	((LivingEntity)event.getEntity()).setHealth(((LivingEntity)event.getEntity()).getMaxHealth());
+		        	}
+		        	capability.setHasSpawned(true);
+	        	} else {
+	        		if (event.getEntity() instanceof LivingEntity && capability.getHorde() != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()) != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()).modifyAttributes()) {
+		        		ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
+			        	capability.getHorde().getAttributes().forEach(attributeModifier -> {
+			                Attribute attribute = ForgeRegistries.ATTRIBUTES.getValue(attributeModifier.getAttributeResourceLocation());
+			                if (attribute != null) {
+			                    builder.put(attribute, new AttributeModifier(UUID.randomUUID(), "Horde modifier", attributeModifier.getAmount(), attributeModifier.getOperation()));
+			                }
+			            });
+			        	((LivingEntity)event.getEntity()).getAttributes().addTransientAttributeModifiers(builder.build());
+			        	if (shouldSetHealthToMax) {
+			        		((LivingEntity)event.getEntity()).setHealth(((LivingEntity)event.getEntity()).getMaxHealth());
+			        	}
+	        		}
+	        	}
+	        });
+		}
+    }
+    
+	@SubscribeEvent
+	public static void keepHordeWhenConverted(LivingConversionEvent.Post event) {
+		@NotNull LazyOptional<MobHorde> originalMobHorde = event.getEntity().getCapability(MobHordeProvider.HORDE);
+		@NotNull LazyOptional<MobHorde> newMobHorde = event.getOutcome().getCapability(MobHordeProvider.HORDE);
+		
+		if (originalMobHorde.isPresent() && newMobHorde.isPresent()) {
+			((MobHorde)newMobHorde.resolve().get()).copyFrom(((MobHorde)newMobHorde.resolve().get()));
+		}
+	}
+	
+	@SubscribeEvent
+	public static void sendHordePacket(PlayerEvent.StartTracking event) {
+    	Player player = event.getEntity();
+    	event.getTarget().getCapability(MobHordeProvider.HORDE).ifPresent(capability -> {	
+    		if (player instanceof ServerPlayer) {
+    			Messages.sendToPlayer(new ServerToClientHordeSyncPacket(capability.getHorde(), event.getTarget().getId()), ((ServerPlayer)player));
+    		}
+    	});
+	}
+}

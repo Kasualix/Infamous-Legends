@@ -67,7 +67,7 @@ public class PortalGuardAi {
 	   private static void initFightActivity(PortalGuard p_35125_, Brain<PortalGuard> p_35126_) {
 	      p_35126_.addActivityAndRemoveMemoryWhenStopped(Activity.FIGHT, 10, ImmutableList.of(new StopAttackingIfTargetInvalid<>((p_35118_) -> {
 	         return !isNearestValidAttackTarget(p_35125_, p_35118_);
-	      }), new SetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F), new PortalGuardMeleeAttack(10), new PortalGuardSwingAttack(120), new PortalGuardShootAttack(140), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
+	      }), new SetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F), new PortalGuardMeleeAttack(10), new PortalGuardSwingAttack(200), new PortalGuardShootAttack(300), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
 	   }
 
 	   private static RunOne<PortalGuard> createIdleLookBehaviors() {

@@ -9,7 +9,7 @@
 		"LivingEntityMixin"
 	],
 	"client": [
-
+		"LivingRendererMixin"
 	],
 	"minVersion": "0.8"
   }

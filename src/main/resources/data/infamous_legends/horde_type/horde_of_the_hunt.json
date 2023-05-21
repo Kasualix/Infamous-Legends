@@ -1,0 +1,21 @@
+{
+  "name": "horde_of_the_hunt",
+  "attributes": [
+        {
+          "attribute": "minecraft:generic.movement_speed",
+          "amount": 0.1,
+          "operation": 2
+        },
+        {
+          "attribute": "minecraft:generic.flying_speed",
+          "amount": 0.1,
+          "operation": 2
+        },
+        {
+          "attribute": "minecraft:generic.attack_damage",
+          "amount": 0.15,
+          "operation": 2
+        }
+      ]
+   }
+}

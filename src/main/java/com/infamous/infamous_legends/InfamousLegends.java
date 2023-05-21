@@ -19,6 +19,7 @@ import com.infamous.infamous_legends.entities.Seeker;
 import com.infamous.infamous_legends.entities.SporeMedic;
 import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.WarBoar;
+import com.infamous.infamous_legends.events.MobHordeEvents;
 import com.infamous.infamous_legends.init.ActivityInit;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.BlockInit;
@@ -56,6 +57,8 @@ public class InfamousLegends {
 
         bus.addListener(this::addAttributes);
         bus.addListener(this::clientSetup);
+        
+        MobHordeEvents.setup();
         
         SoundEventInit.SOUND_EVENTS.register(bus);
         ActivityInit.ACTIVITIES.register(bus);

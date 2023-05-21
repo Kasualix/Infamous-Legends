@@ -1,0 +1,5 @@
+{
+  "entityType": "minecraft:zombified_piglin",
+  "horde": "horde_of_the_spore",
+  "modifyAttributes": true
+}

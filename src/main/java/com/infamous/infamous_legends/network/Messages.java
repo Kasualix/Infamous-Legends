@@ -3,8 +3,11 @@ package com.infamous.infamous_legends.network;
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.network.message.FirstOfOakWood1TypeSyncPacket;
 import com.infamous.infamous_legends.network.message.FirstOfOakWood2TypeSyncPacket;
+import com.infamous.infamous_legends.network.message.HordeTypeSyncPacket;
 import com.infamous.infamous_legends.network.message.LegendsSpawnerDataSyncPacket;
+import com.infamous.infamous_legends.network.message.MobHordeIdentitySyncPacket;
 import com.infamous.infamous_legends.network.message.PlankGolemTypeSyncPacket;
+import com.infamous.infamous_legends.network.message.ServerToClientHordeSyncPacket;
 import com.infamous.infamous_legends.network.message.ServerToClientShakeCameraPacket;
 
 import net.minecraft.client.Minecraft;
@@ -47,6 +50,16 @@ public class Messages {
         .consumerMainThread(PlankGolemTypeSyncPacket::onPacketReceived)
         .add();
         
+        INSTANCE.messageBuilder(HordeTypeSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+        .encoder(HordeTypeSyncPacket::encode).decoder(HordeTypeSyncPacket::decode)
+        .consumerMainThread(HordeTypeSyncPacket::onPacketReceived)
+        .add();
+        
+        INSTANCE.messageBuilder(MobHordeIdentitySyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+        .encoder(MobHordeIdentitySyncPacket::encode).decoder(MobHordeIdentitySyncPacket::decode)
+        .consumerMainThread(MobHordeIdentitySyncPacket::onPacketReceived)
+        .add();
+        
         INSTANCE.messageBuilder(FirstOfOakWood1TypeSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
         .encoder(FirstOfOakWood1TypeSyncPacket::encode).decoder(FirstOfOakWood1TypeSyncPacket::decode)
         .consumerMainThread(FirstOfOakWood1TypeSyncPacket::onPacketReceived)
@@ -55,6 +68,12 @@ public class Messages {
         INSTANCE.messageBuilder(FirstOfOakWood2TypeSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
         .encoder(FirstOfOakWood2TypeSyncPacket::encode).decoder(FirstOfOakWood2TypeSyncPacket::decode)
         .consumerMainThread(FirstOfOakWood2TypeSyncPacket::onPacketReceived)
+        .add();
+        
+        INSTANCE.messageBuilder(ServerToClientHordeSyncPacket.class, id(), NetworkDirection.PLAY_TO_CLIENT)
+        .decoder(ServerToClientHordeSyncPacket::new)
+        .encoder(ServerToClientHordeSyncPacket::toBytes)
+        .consumerNetworkThread(ServerToClientHordeSyncPacket::handle)
         .add();
     }
 

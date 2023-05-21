@@ -1,0 +1,11 @@
+{
+  "name": "horde_of_the_spore",
+  "attributes": [
+        {
+          "attribute": "minecraft:generic.follow_range",
+          "amount": 0.5,
+          "operation": 2
+        }
+      ]
+   }
+}
