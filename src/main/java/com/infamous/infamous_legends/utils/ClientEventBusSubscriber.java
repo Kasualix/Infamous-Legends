@@ -3,7 +3,9 @@ package com.infamous.infamous_legends.utils;
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.ModelLayerInit;
+import com.infamous.infamous_legends.items.PortalGuardFlailItem;
 import com.infamous.infamous_legends.models.BigBeakModel;
 import com.infamous.infamous_legends.models.BlazeRuntModel;
 import com.infamous.infamous_legends.models.CobblestoneGolemModel;
@@ -22,6 +24,7 @@ import com.infamous.infamous_legends.models.PiglinBuilderModel;
 import com.infamous.infamous_legends.models.PigmadilloModel;
 import com.infamous.infamous_legends.models.PlankGolemBoltModel;
 import com.infamous.infamous_legends.models.PlankGolemModel;
+import com.infamous.infamous_legends.models.PlayerPortalGuardWreckingBallModel;
 import com.infamous.infamous_legends.models.PortalGuardModel;
 import com.infamous.infamous_legends.models.PortalGuardWreckingBallModel;
 import com.infamous.infamous_legends.models.RegalTigerModel;
@@ -49,6 +52,7 @@ import com.infamous.infamous_legends.renderers.PiglinBuilderRenderer;
 import com.infamous.infamous_legends.renderers.PigmadilloRenderer;
 import com.infamous.infamous_legends.renderers.PlankGolemBoltRenderer;
 import com.infamous.infamous_legends.renderers.PlankGolemRenderer;
+import com.infamous.infamous_legends.renderers.PlayerPortalGuardWreckingBallRenderer;
 import com.infamous.infamous_legends.renderers.PortalGuardRenderer;
 import com.infamous.infamous_legends.renderers.PortalGuardWreckingBallRenderer;
 import com.infamous.infamous_legends.renderers.RegalTigerRenderer;
@@ -138,6 +142,7 @@ public class ClientEventBusSubscriber {
         event.registerLayerDefinition(ModelLayerInit.PIGLIN_BOMB, PiglinBombModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.EXPLOSIVE_FUNGUS, ExplosiveFungusModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.PORTAL_GUARD_WRECKING_BALL, PortalGuardWreckingBallModel::createBodyLayer);
+        event.registerLayerDefinition(ModelLayerInit.PLAYER_PORTAL_GUARD_WRECKING_BALL, PlayerPortalGuardWreckingBallModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.MAGMA_CUBE_PROJECTILE, MagmaCubeProjectileModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.PLANK_GOLEM_BOLT, PlankGolemBoltModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.FIRST_OF_OAK_BOLT, FirstOfOakBoltModel::createBodyLayer);
@@ -176,6 +181,7 @@ public class ClientEventBusSubscriber {
 		event.registerEntityRenderer(EntityTypeInit.PIGLIN_BOMB.get(), PiglinBombRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.EXPLOSIVE_FUNGUS.get(), ExplosiveFungusRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PORTAL_GUARD_WRECKING_BALL.get(), PortalGuardWreckingBallRenderer::new);
+		event.registerEntityRenderer(EntityTypeInit.PLAYER_PORTAL_GUARD_WRECKING_BALL.get(), PlayerPortalGuardWreckingBallRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.MAGMA_CUBE_PROJECTILE.get(), MagmaCubeProjectileRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.PLANK_GOLEM_BOLT.get(), PlankGolemBoltRenderer::new);
 		event.registerEntityRenderer(EntityTypeInit.FIRST_OF_OAK_BOLT.get(), FirstOfOakBoltRenderer::new);
@@ -188,10 +194,20 @@ public class ClientEventBusSubscriber {
 	public static void clientSetup(final FMLClientSetupEvent event) {
 		  event.enqueueWork(() ->
 		  {
-		    ItemProperties.register(Items.BLAZE_ROD, 
-		      new ResourceLocation("throwing"), (stack, level, living, id) -> {
-		        return living != null && living.isUsingItem() && living.getUseItem() == stack ? 1.0F : 0.0F;
-		      });
+				ItemProperties.register(Items.BLAZE_ROD, new ResourceLocation("throwing"),
+						(stack, level, living, id) -> {
+							return living != null && living.isUsingItem() && living.getUseItem() == stack ? 1.0F : 0.0F;
+						});				
+				
+				ItemProperties.register(ItemInit.PORTAL_GUARD_FLAIL.get(), new ResourceLocation("shooting"),
+						(stack, level, living, id) -> {
+							return living != null && PortalGuardFlailItem.isShooting(stack) ? 1.0F : 0.0F;
+						});
+				
+				ItemProperties.register(ItemInit.PORTAL_GUARD_FLAIL.get(), new ResourceLocation("charging"),
+						(stack, level, living, id) -> {
+							return living != null && !PortalGuardFlailItem.isShooting(stack) && living.isUsingItem() && living.getUseItem() == stack ? 1.0F : 0.0F;
+						});
 		  });
 		}
 }

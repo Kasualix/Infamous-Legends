@@ -61,7 +61,7 @@ public class PiglinBomb extends ThrowableProjectile {
 				ShakeCameraEvent.shake(this.level, 40, 0.075F, this.blockPosition(), 10);
 				MiscUtils.customExplosion(this.level, this.getOwner() != null ? this.getOwner() instanceof Player ? this : this.getOwner() : this, DamageSource.explosion(this.getOwner() != null && this.getOwner() instanceof LivingEntity ? ((LivingEntity)this.getOwner()) : null).setProjectile(), null, this.getX(), this.getY(),
 						this.getZ(), 2.0F, false, this.blockInteraction, SoundEventInit.PIGLIN_BUILDER_PROJECTILE_IMPACT.get(),
-						this.getSoundSource(), ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, 17.0F, false);
+						this.getSoundSource(), ParticleTypes.EXPLOSION, ParticleTypes.EXPLOSION_EMITTER, 15.0F, false);
 				this.discard();
 			}
 		}

@@ -14,6 +14,7 @@
 	"entity.infamous_legends.piglin_bomb" : "Piglin Bomb",
 	"entity.infamous_legends.explosive_fungus" : "Explosive Fungus",
 	"entity.infamous_legends.portal_guard_wrecking_ball" : "Portal Guard Wrecking Ball",
+	"entity.infamous_legends.player_portal_guard_wrecking_ball" : "Portal Guard Wrecking Ball",
 	"entity.infamous_legends.magma_cube_projectile" : "Magma Cube",
 	"entity.infamous_legends.cobblestone_golem" : "Cobblestone Golem",
 	"entity.infamous_legends.plank_golem" : "Plank Golem",
@@ -54,6 +55,7 @@
 	"item.infamous_legends.piglin_saw" : "Piglin Saw",
 	"item.infamous_legends.piglin_bomb" : "Piglin Bomb",
 	"item.infamous_legends.explosive_fungus" : "Explosive Fungus",
+	"item.infamous_legends.portal_guard_flail" : "Portal Guard Flail",
 	
 	"death.attack.netherspores": "%1$s choked on netherspores",
 	"death.attack.netherspores.player": "%1$s choked on netherspores",

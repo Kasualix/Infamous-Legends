@@ -71,6 +71,7 @@ public class ModelLayerInit {
     public static final ModelLayerLocation PIGLIN_BOMB = register("piglin_bomb");
     public static final ModelLayerLocation EXPLOSIVE_FUNGUS = register("explosive_fungus");
     public static final ModelLayerLocation PORTAL_GUARD_WRECKING_BALL = register("portal_guard_wrecking_ball");
+    public static final ModelLayerLocation PLAYER_PORTAL_GUARD_WRECKING_BALL = register("player_portal_guard_wrecking_ball");
     public static final ModelLayerLocation MAGMA_CUBE_PROJECTILE = register("magma_cube_projectile");
     public static final ModelLayerLocation PLANK_GOLEM_BOLT = register("plank_golem_bolt");
     public static final ModelLayerLocation FIRST_OF_OAK_BOLT = register("first_of_oak_bolt");

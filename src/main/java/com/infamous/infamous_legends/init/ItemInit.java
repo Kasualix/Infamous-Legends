@@ -9,6 +9,7 @@ import com.infamous.infamous_legends.itemgroups.InfamousLegendsMobsItemGroup;
 import com.infamous.infamous_legends.items.ExplosiveFungusItem;
 import com.infamous.infamous_legends.items.PiglinBombItem;
 import com.infamous.infamous_legends.items.PiglinMaceItem;
+import com.infamous.infamous_legends.items.PortalGuardFlailItem;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -84,7 +85,7 @@ public class ItemInit {
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
 	public static final RegistryObject<Item> MOSSY_GOLEM_SPAWN_EGG = ITEMS.register("mossy_golem_spawn_egg",
-			() -> new ForgeSpawnEggItem(EntityTypeInit.MOSSY_GOLEM, 0x90919b, 0x77ae55,
+			() -> new ForgeSpawnEggItem(EntityTypeInit.MOSSY_GOLEM, 0x90919b, 0x70922d,
 					new Item.Properties().tab(InfamousLegendsMobsItemGroup.INFAMOUS_LEGENDS_MOBS)));
 	
 	public static final RegistryObject<Item> FIRST_OF_STONE_SPAWN_EGG = ITEMS.register("first_of_stone_spawn_egg",
@@ -118,6 +119,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> EXPLOSIVE_FUNGUS = ITEMS.register("explosive_fungus",
 			() -> new ExplosiveFungusItem(new Item.Properties().stacksTo(16).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	
+	public static final RegistryObject<Item> PORTAL_GUARD_FLAIL = ITEMS.register("portal_guard_flail",
+			() -> new PortalGuardFlailItem(new Item.Properties().stacksTo(1).durability(300).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 
 	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
 		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));

@@ -20,6 +20,7 @@ import com.infamous.infamous_legends.entities.PiglinBuilder;
 import com.infamous.infamous_legends.entities.Pigmadillo;
 import com.infamous.infamous_legends.entities.PlankGolem;
 import com.infamous.infamous_legends.entities.PlankGolemBolt;
+import com.infamous.infamous_legends.entities.PlayerPortalGuardWreckingBall;
 import com.infamous.infamous_legends.entities.PortalGuard;
 import com.infamous.infamous_legends.entities.PortalGuardWreckingBall;
 import com.infamous.infamous_legends.entities.RegalTiger;
@@ -140,6 +141,10 @@ public class EntityTypeInit {
 	public static final RegistryObject<EntityType<PortalGuardWreckingBall>> PORTAL_GUARD_WRECKING_BALL = ENTITY_TYPES.register("portal_guard_wrecking_ball",
 			() -> EntityType.Builder.<PortalGuardWreckingBall>of(PortalGuardWreckingBall::new, MobCategory.MISC).sized(1.25F, 1.25F)
 					.build(new ResourceLocation(InfamousLegends.MOD_ID, "portal_guard_wrecking_ball").toString()));
+	
+	public static final RegistryObject<EntityType<PlayerPortalGuardWreckingBall>> PLAYER_PORTAL_GUARD_WRECKING_BALL = ENTITY_TYPES.register("player_portal_guard_wrecking_ball",
+			() -> EntityType.Builder.<PlayerPortalGuardWreckingBall>of(PlayerPortalGuardWreckingBall::new, MobCategory.MISC).sized(0.75F, 0.75F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "player_portal_guard_wrecking_ball").toString()));
 	
 	public static final RegistryObject<EntityType<MagmaCubeProjectile>> MAGMA_CUBE_PROJECTILE = ENTITY_TYPES.register("magma_cube_projectile",
 			() -> EntityType.Builder.<MagmaCubeProjectile>of(MagmaCubeProjectile::new, MobCategory.MISC).sized(1.25F, 1.25F)
