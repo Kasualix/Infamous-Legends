@@ -8,9 +8,12 @@ import com.infamous.infamous_legends.utils.MiscUtils;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.NonNullList;
+import net.minecraft.core.Registry;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
+import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
@@ -27,6 +30,10 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.AABB;
+import net.minecraftforge.server.ServerLifecycleHooks;
+
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class LegendsSpawnerBlockEntity extends BlockEntity {
 
@@ -34,6 +41,9 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
     public int tickCount = 0;
     private boolean hasValidatedSpawnerData = false;
     private NonNullList<ItemStack> addedItems = NonNullList.withSize(36, ItemStack.EMPTY);
+    private ResourceLocation levelOnLoad;
+    private Set<Entity> spawns;
+    private final List<UUID> spawnsUUID = new ArrayList<>();
     
     public RandomSource random = RandomSource.create();
 
@@ -152,7 +162,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
     public boolean spawnEntity(BlockPos pos, Player player, InteractionHand hand) {
         if(legendsSpawnerData != null && level instanceof ServerLevel serverLevel) {
             boolean validSpawnCost = legendsSpawnerData.validateSpawnCost(addedItems);
-            if(validSpawnCost){
+            if(validSpawnCost && this.getSpawns().size() < legendsSpawnerData.getMaxSpawns()){
             	this.level.playSound((Player)null, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), SoundEvents.BEACON_POWER_SELECT, SoundSource.PLAYERS, 1, MiscUtils.randomSoundPitch());
             	this.level.playSound((Player)null, worldPosition.getX(), worldPosition.getY(), worldPosition.getZ(), SoundEvents.FIRECHARGE_USE, SoundSource.PLAYERS, 1, MiscUtils.randomSoundPitch() * 0.5F);
                 Entity entity = legendsSpawnerData.spawnEntity(serverLevel, this.getSpawnPos(worldPosition), MobSpawnType.SPAWNER);
@@ -172,6 +182,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
                             }
                         }
                     });
+                    this.addSpawn(entity);
                     return true;
                 }
             }
@@ -188,6 +199,34 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         return blockPos.offset(posX, 0, posZ);
     }
 
+    public void addSpawn(Entity entity) {
+        this.initEntitySet(this.spawns, this.spawnsUUID, this.levelOnLoad);
+        this.spawns.add(entity);
+        this.spawnsUUID.add(entity.getUUID());
+    }
+
+    public List<Entity> getSpawns() {
+        spawns = initEntitySet(this.spawns, this.spawnsUUID, this.levelOnLoad);
+        spawns = spawns.stream().filter(entity -> entity != null && entity.isAlive()).collect(Collectors.toSet());
+        return new ArrayList<>(this.spawns);
+    }
+
+    private Set<Entity> initEntitySet(Set<Entity> entities, List<UUID> entityUUIDs, ResourceLocation levelOnLoad) {
+        if (entities != null) return entities;
+        if (entityUUIDs != null && levelOnLoad != null) {
+            if (entityUUIDs.isEmpty()) return new HashSet<>();
+            ResourceKey<Level> registrykey1 = ResourceKey.create(Registry.DIMENSION_REGISTRY, levelOnLoad);
+            MinecraftServer server = ServerLifecycleHooks.getCurrentServer();
+            ServerLevel world = server.getLevel(registrykey1);
+            if (world != null) {
+                entities = entityUUIDs.stream().map(world::getEntity).filter(Objects::nonNull).collect(Collectors.toSet());
+            }
+        } else {
+            return new HashSet<>();
+        }
+        return new HashSet<>(entities);
+    }
+
 
     @Override
     public void saveAdditional(CompoundTag pCompound) {
@@ -196,8 +235,18 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         if (legendsSpawnerData != null && key != null) {
             pCompound.putString("LegendsSpawnerData", key.toString());
         }
-        
-        ListTag listtag = new ListTag();
+
+        ListTag spawnsList = new ListTag();
+        this.getSpawns().forEach(entity -> {
+            CompoundTag minion = new CompoundTag();
+            minion.putUUID("uuid", entity.getUUID());
+            spawnsList.add(minion);
+        });
+        pCompound.put("spawns", spawnsList);
+        if (!this.getSpawns().isEmpty()) {
+            ResourceLocation location = this.getSpawns().get(0).level.dimension().location();
+            pCompound.putString("level", location.toString());
+        }
         
         if (addedItems.size() > 0) {
             pCompound.put("AddedItems", ContainerHelper.saveAllItems(new CompoundTag(), addedItems));
@@ -214,6 +263,15 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         if (pCompound.contains("AddedItems")) {
             addedItems = NonNullList.withSize(36, ItemStack.EMPTY);
             ContainerHelper.loadAllItems(pCompound.getCompound("AddedItems"), addedItems);
+        }
+        ListTag minionsNBT = pCompound.getList("followers", 10);
+        List<UUID> minionUUIDs = new ArrayList<>();
+        for (int i = 0; i < minionsNBT.size(); ++i) {
+            CompoundTag compoundnbt = minionsNBT.getCompound(i);
+            minionUUIDs.add(compoundnbt.getUUID("uuid"));
+        }
+        if (pCompound.contains("level")) {
+            this.levelOnLoad = new ResourceLocation(pCompound.getString("level"));
         }
     }
 

@@ -112,4 +112,8 @@ public class LegendsSpawnerData {
         }
         return false;
     }
+
+    public Integer getMaxSpawns() {
+        return maxSpawns;
+    }
 }
