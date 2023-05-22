@@ -73,12 +73,14 @@ public class GiveMobHordeEvent {
     
 	@SubscribeEvent
 	public static void keepHordeWhenConverted(LivingConversionEvent.Post event) {
+		event.getEntity().reviveCaps();
 		@NotNull LazyOptional<MobHorde> originalMobHorde = event.getEntity().getCapability(MobHordeProvider.HORDE);
 		@NotNull LazyOptional<MobHorde> newMobHorde = event.getOutcome().getCapability(MobHordeProvider.HORDE);
 		
 		if (originalMobHorde.isPresent() && newMobHorde.isPresent()) {
 			((MobHorde)newMobHorde.resolve().get()).copyFrom(((MobHorde)newMobHorde.resolve().get()));
 		}
+		event.getEntity().invalidateCaps();
 	}
 	
 	@SubscribeEvent
