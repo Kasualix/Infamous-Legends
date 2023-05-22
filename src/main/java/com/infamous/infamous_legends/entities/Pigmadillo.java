@@ -148,7 +148,7 @@ public class Pigmadillo extends AbstractPiglin {
 
 	            for(BlockPos blockpos : BlockPos.betweenClosed(Mth.floor(aabb.minX), Mth.floor(aabb.minY), Mth.floor(aabb.minZ), Mth.floor(aabb.maxX), Mth.floor(aabb.maxY), Mth.floor(aabb.maxZ))) {
 	               BlockState blockstate = this.level.getBlockState(blockpos);
-	               if (!blockstate.is(TagInit.Blocks.UNBREAKABLE)) {
+	               if (!blockstate.is(TagInit.Blocks.UNBREAKABLE) || blockstate.getDestroySpeed(this.level, blockpos) >= 100) { // for explosion resistance, replace with: blockstate.getBlock().getExplosionResistance()
 	                  flag = this.level.destroyBlock(blockpos, true, this) || flag;
 	               }
 	            }
