@@ -10,11 +10,11 @@ import com.infamous.infamous_legends.itemgroups.InfamousLegendsMobsItemGroup;
 import com.infamous.infamous_legends.items.ExplosiveFungusItem;
 import com.infamous.infamous_legends.items.PiglinBombItem;
 import com.infamous.infamous_legends.items.PiglinMaceItem;
+import com.infamous.infamous_legends.items.PigmadilloShellItem;
 import com.infamous.infamous_legends.items.PortalGuardFlailItem;
 import com.infamous.infamous_legends.items.SporeMedicMaskItem;
 
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.ArmorMaterials;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
@@ -131,6 +131,9 @@ public class ItemInit {
 	
 	public static final RegistryObject<Item> SPORE_MEDIC_MASK = ITEMS.register("spore_medic_mask",
 			() -> new SporeMedicMaskItem(CustomArmorMaterials.SPORE_MEDIC_MASK, EquipmentSlot.HEAD, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	
+	public static final RegistryObject<Item> PIGMADILLO_SHELL = ITEMS.register("pigmadillo_shell",
+			() -> new PigmadilloShellItem(CustomArmorMaterials.PIGMADILLO_SHELL, EquipmentSlot.CHEST, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	
 	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
 		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));

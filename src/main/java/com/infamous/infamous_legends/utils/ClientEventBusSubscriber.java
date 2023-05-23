@@ -33,6 +33,8 @@ import com.infamous.infamous_legends.models.SporeMedicModel;
 import com.infamous.infamous_legends.models.SporebackModel;
 import com.infamous.infamous_legends.models.ThrownBlazeRodModel;
 import com.infamous.infamous_legends.models.WarBoarModel;
+import com.infamous.infamous_legends.models.armor.PigmadilloShellModel;
+import com.infamous.infamous_legends.models.armor.PigmadilloShellRollingModel;
 import com.infamous.infamous_legends.models.armor.SporeMedicMaskModel;
 import com.infamous.infamous_legends.renderers.BigBeakRenderer;
 import com.infamous.infamous_legends.renderers.BlazeRuntRenderer;
@@ -148,6 +150,8 @@ public class ClientEventBusSubscriber {
         event.registerLayerDefinition(ModelLayerInit.PLANK_GOLEM_BOLT, PlankGolemBoltModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.FIRST_OF_OAK_BOLT, FirstOfOakBoltModel::createBodyLayer);
         event.registerLayerDefinition(ModelLayerInit.SPORE_MEDIC_MASK, SporeMedicMaskModel::createBodyLayer);
+        event.registerLayerDefinition(ModelLayerInit.PIGMADILLO_SHELL, PigmadilloShellModel::createBodyLayer);
+        event.registerLayerDefinition(ModelLayerInit.PIGMADILLO_SHELL_ROLLING, PigmadilloShellRollingModel::createBodyLayer);
     }
 	
 	public static LayerDefinition createInnerArmourLayer() {

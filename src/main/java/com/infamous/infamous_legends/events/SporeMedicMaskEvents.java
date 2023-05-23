@@ -41,7 +41,7 @@ public class SporeMedicMaskEvents {
 	@SubscribeEvent
     public static void negateNetherspores(LivingDamageEvent event) {
 		if (event.getSource() == DamageSourceInit.NETHERSPORES && event.getEntity().getItemBySlot(EquipmentSlot.HEAD).getItem() == ItemInit.SPORE_MEDIC_MASK.get()) {
-			event.setAmount(0);
+			event.setCanceled(true);
 		}
     }
     

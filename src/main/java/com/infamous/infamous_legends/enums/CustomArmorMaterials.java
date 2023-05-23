@@ -12,7 +12,10 @@ import net.minecraft.world.item.crafting.Ingredient;
 
 public enum CustomArmorMaterials implements ArmorMaterial {
 	   SPORE_MEDIC_MASK("spore_medic_mask", 16, new int[]{1, 2, 3, 2}, 20, SoundEvents.ARMOR_EQUIP_CHAIN, 1.0F, 0.0F, () -> {
-		      return Ingredient.of(Items.NETHERITE_INGOT);
+		      return Ingredient.of(Items.GOLD_INGOT);
+		   }),
+	   PIGMADILLO_SHELL("pigmadillo_shell", 25, new int[]{1, 2, 7, 2}, 12, SoundEvents.ARMOR_EQUIP_TURTLE, 2.0F, 0.2F, () -> {
+		      return Ingredient.of(Items.BONE_BLOCK);
 		   });
 
 		   private static final int[] HEALTH_PER_SLOT = new int[]{13, 15, 16, 11};
