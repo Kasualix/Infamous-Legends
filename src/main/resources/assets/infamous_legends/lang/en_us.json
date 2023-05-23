@@ -57,6 +57,8 @@
 	"item.infamous_legends.explosive_fungus" : "Explosive Fungus",
 	"item.infamous_legends.portal_guard_flail" : "Portal Guard Flail",
 	
+	"item.infamous_legends.spore_medic_mask" : "Spore Medic Mask",
+	
 	"death.attack.netherspores": "%1$s choked on netherspores",
 	"death.attack.netherspores.player": "%1$s choked on netherspores",
 	

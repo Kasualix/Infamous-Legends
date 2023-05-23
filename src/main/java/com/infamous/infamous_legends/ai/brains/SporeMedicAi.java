@@ -11,6 +11,7 @@ import com.infamous.infamous_legends.ai.brains.behaviours.SetWalkTargetFromHealT
 import com.infamous.infamous_legends.ai.brains.behaviours.SporeMedicHealAllies;
 import com.infamous.infamous_legends.ai.brains.behaviours.SporeMedicShootAttack;
 import com.infamous.infamous_legends.ai.brains.behaviours.StartHealing;
+import com.infamous.infamous_legends.ai.brains.behaviours.StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach;
 import com.infamous.infamous_legends.ai.brains.behaviours.StopHealingIfHealTargetInvalid;
 import com.infamous.infamous_legends.ai.brains.sensors.CustomSensor;
 import com.infamous.infamous_legends.entities.MaceRunt;
@@ -81,7 +82,7 @@ public class SporeMedicAi {
 	   private static void initFightActivity(SporeMedic p_35125_, Brain<SporeMedic> p_35126_) {
 		      p_35126_.addActivityAndRemoveMemoryWhenStopped(Activity.FIGHT, 10, ImmutableList.of(new StopAttackingIfTargetInvalid<>((p_35118_) -> {
 		         return !isNearestValidAttackTarget(p_35125_, p_35118_) || p_35126_.hasMemoryValue(MemoryModuleTypeInit.HEAL_TARGET.get());
-		      }), new SetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F), new SporeMedicShootAttack(), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
+		      }), new StopAtDistanceSetWalkTargetFromAttackTargetIfTargetOutOfReach(1.0F, 4), new SporeMedicShootAttack(), new LookAtAttackTarget()), MemoryModuleType.ATTACK_TARGET);
 		   }
 
 	   private static RunOne<SporeMedic> createIdleLookBehaviors() {

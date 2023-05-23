@@ -75,6 +75,7 @@ public class ModelLayerInit {
     public static final ModelLayerLocation MAGMA_CUBE_PROJECTILE = register("magma_cube_projectile");
     public static final ModelLayerLocation PLANK_GOLEM_BOLT = register("plank_golem_bolt");
     public static final ModelLayerLocation FIRST_OF_OAK_BOLT = register("first_of_oak_bolt");
+    public static final ModelLayerLocation SPORE_MEDIC_MASK = register("spore_medic_mask");
 
     private static ModelLayerLocation register(String path) {
         return register("main", new ResourceLocation(InfamousLegends.MOD_ID, path));
