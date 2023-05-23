@@ -78,7 +78,7 @@ public class GiveMobHordeEvent {
 		@NotNull LazyOptional<MobHorde> newMobHorde = event.getOutcome().getCapability(MobHordeProvider.HORDE);
 		
 		if (originalMobHorde.isPresent() && newMobHorde.isPresent()) {
-			((MobHorde)newMobHorde.resolve().get()).copyFrom(((MobHorde)newMobHorde.resolve().get()));
+			((MobHorde)newMobHorde.resolve().get()).copyFrom(((MobHorde)originalMobHorde.resolve().get()));
 		}
 		event.getEntity().invalidateCaps();
 	}
