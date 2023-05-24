@@ -124,7 +124,7 @@ public class FirstOfOakBolt extends AbstractArrow {
 
 	@Override
 	protected ItemStack getPickupItem() {
-		return null;
+		return ItemStack.EMPTY;
 	}
 	
 	   @Override

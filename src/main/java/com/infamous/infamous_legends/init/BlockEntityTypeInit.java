@@ -1,6 +1,7 @@
 package com.infamous.infamous_legends.init;
 
 import com.infamous.infamous_legends.InfamousLegends;
+import com.infamous.infamous_legends.blocks.entities.FungusBombBlockEntity;
 import com.infamous.infamous_legends.blocks.entities.LegendsSpawnerBlockEntity;
 
 import net.minecraft.world.level.block.entity.BlockEntityType;
@@ -14,4 +15,6 @@ public class BlockEntityTypeInit {
             .create(ForgeRegistries.BLOCK_ENTITY_TYPES, InfamousLegends.MOD_ID);
 
     public static final RegistryObject<BlockEntityType<LegendsSpawnerBlockEntity>> LEGENDS_SPAWNER = BLOCK_ENTITY_TYPES.register("legends_spawner", () -> BlockEntityType.Builder.of(LegendsSpawnerBlockEntity::new, BlockInit.LEGENDS_SPAWNER_BLOCK.get()).build(null));
+    
+    public static final RegistryObject<BlockEntityType<FungusBombBlockEntity>> FUNGUS_BOMB = BLOCK_ENTITY_TYPES.register("fungus_bomb", () -> BlockEntityType.Builder.of(FungusBombBlockEntity::new, BlockInit.FUNGUS_BOMB.get()).build(null));
 }

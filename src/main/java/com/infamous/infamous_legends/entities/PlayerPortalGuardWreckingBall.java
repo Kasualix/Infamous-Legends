@@ -119,7 +119,7 @@ public class PlayerPortalGuardWreckingBall extends AbstractArrow {
 	   }
 
 	   protected ItemStack getPickupItem() {
-	      return null;
+	      return ItemStack.EMPTY;
 	   }
 
 	   @Nullable

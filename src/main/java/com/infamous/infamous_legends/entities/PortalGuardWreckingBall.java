@@ -145,7 +145,7 @@ public class PortalGuardWreckingBall extends AbstractArrow {
 		}
 
 	   protected ItemStack getPickupItem() {
-	      return null;
+	      return ItemStack.EMPTY;
 	   }
 
 	   @Nullable

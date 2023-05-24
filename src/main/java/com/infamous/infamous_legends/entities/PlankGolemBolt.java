@@ -73,7 +73,7 @@ public class PlankGolemBolt extends AbstractArrow {
 
 	@Override
 	protected ItemStack getPickupItem() {
-		return null;
+		return ItemStack.EMPTY;
 	}
 	
 	protected void defineSynchedData() {
