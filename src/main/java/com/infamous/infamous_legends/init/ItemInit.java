@@ -135,6 +135,12 @@ public class ItemInit {
 	public static final RegistryObject<Item> PIGMADILLO_SHELL = ITEMS.register("pigmadillo_shell",
 			() -> new PigmadilloShellItem(CustomArmorMaterials.PIGMADILLO_SHELL, EquipmentSlot.CHEST, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	
+	// FOOD
+	
+	public static final RegistryObject<Item> SPORKCHOP = ITEMS.register("sporkchop",
+			() -> new Item(new Item.Properties().food(FoodInit.SPORKCHOP).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	
+	
 	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
 		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));
 	}

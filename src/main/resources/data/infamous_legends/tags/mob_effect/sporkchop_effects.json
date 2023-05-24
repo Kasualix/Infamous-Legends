@@ -1,0 +1,24 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:absorption",
+		"minecraft:blindness",
+		"minecraft:haste",
+		"minecraft:glowing",
+		"minecraft:hunger",
+		"minecraft:jump_boost",
+		"minecraft:mining_fatigue",
+		"minecraft:nausea",
+		"minecraft:night_vision",
+		"minecraft:poison",
+		"minecraft:regeneration",
+		"minecraft:resistance",
+		"minecraft:saturation",
+		"minecraft:slowness",
+		"minecraft:speed",
+		"minecraft:strength",
+		"minecraft:water_breathing",
+		"minecraft:weakness",
+		"minecraft:wither"
+	]
+}

@@ -5,6 +5,7 @@ import com.infamous.infamous_legends.InfamousLegends;
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
+import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
@@ -26,6 +27,14 @@ public class TagInit {
     	
     	   private static TagKey<Block> tag(String p_203849_) {
     		      return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, p_203849_));
+    	   }
+    }
+    
+    public static class Effects {
+    	public static final TagKey<MobEffect> SPORKCHOP_EFFECTS = tag("sporkchop_effects");  	
+    	
+    	   private static TagKey<MobEffect> tag(String p_203849_) {
+    		      return TagKey.create(Registry.MOB_EFFECT_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, p_203849_));
     	   }
     }
     

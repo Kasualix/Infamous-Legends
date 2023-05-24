@@ -144,4 +144,12 @@ public class PigmadilloShellEvents {
 			event.getPoseStack().scale(0, 0, 0);
 		}
     }
+	
+	@SubscribeEvent
+    public static void rollCamera(ComputeCameraAngles event) {
+		if (Minecraft.getInstance().options.getCameraType().isFirstPerson() && event.getCamera().getEntity() instanceof Player && ((Player)event.getCamera().getEntity()).getItemBySlot(EquipmentSlot.CHEST).getItem() == ItemInit.PIGMADILLO_SHELL.get() && ((Player)event.getCamera().getEntity()).getCooldowns().getCooldownPercent(ItemInit.PIGMADILLO_SHELL.get(), 0) >= 0.84) {
+			event.setYaw(PigmadilloShellItem.getRollDegrees(((Player)event.getCamera().getEntity()).getItemBySlot(EquipmentSlot.CHEST)));
+			event.setPitch(SineWaveAnimationUtils.getTick(event.getCamera().getEntity().tickCount, false) * 750);
+		}
+    }
 }
