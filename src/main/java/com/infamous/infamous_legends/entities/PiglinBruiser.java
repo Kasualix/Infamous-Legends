@@ -90,7 +90,7 @@ public class PiglinBruiser extends AbstractPiglin {
 	@Override
 	protected void populateDefaultEquipmentSlots(RandomSource p_219209_, DifficultyInstance p_219210_) {
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemInit.PIGLIN_SAW.get()));
-		this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
+		this.setDropChance(EquipmentSlot.MAINHAND, 0.085F);
 		this.setItemSlot(EquipmentSlot.OFFHAND, new ItemStack(ItemInit.PIGLIN_SAW.get()));
 		this.setDropChance(EquipmentSlot.OFFHAND, 0.0F);
 	}

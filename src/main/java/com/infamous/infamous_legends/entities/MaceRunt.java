@@ -98,7 +98,7 @@ public class MaceRunt extends AbstractPiglin {
 	@Override
 	protected void populateDefaultEquipmentSlots(RandomSource p_219209_, DifficultyInstance p_219210_) {
 		this.setItemSlot(EquipmentSlot.MAINHAND, new ItemStack(ItemInit.PIGLIN_MACE.get()));
-		this.setDropChance(EquipmentSlot.MAINHAND, 0.0F);
+		this.setDropChance(EquipmentSlot.MAINHAND, 0.01F);
 	}
 	
 	@Override
