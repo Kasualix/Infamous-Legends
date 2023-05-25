@@ -16,6 +16,7 @@ import com.infamous.infamous_legends.items.SporeMedicMaskItem;
 
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.BlockItem;
+import net.minecraft.world.item.BucketItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
@@ -140,6 +141,10 @@ public class ItemInit {
 	public static final RegistryObject<Item> SPORKCHOP = ITEMS.register("sporkchop",
 			() -> new Item(new Item.Properties().food(FoodInit.SPORKCHOP).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	
+	// MISC
+	
+	public static final RegistryObject<Item> TAR_BUCKET = ITEMS.register("tar_bucket",
+			() -> new BucketItem(() -> FluidInit.SOURCE_TAR.get(), new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	
 	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
 		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));

@@ -26,6 +26,8 @@ import com.infamous.infamous_legends.init.BlockInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
 import com.infamous.infamous_legends.init.FirstOfOakWood1TypeInit;
 import com.infamous.infamous_legends.init.FirstOfOakWood2TypeInit;
+import com.infamous.infamous_legends.init.FluidInit;
+import com.infamous.infamous_legends.init.FluidTypeInit;
 import com.infamous.infamous_legends.init.ItemInit;
 import com.infamous.infamous_legends.init.LegendsSpawnerDataInit;
 import com.infamous.infamous_legends.init.MemoryModuleTypeInit;
@@ -35,10 +37,14 @@ import com.infamous.infamous_legends.init.SensorTypeInit;
 import com.infamous.infamous_legends.init.SoundEventInit;
 import com.infamous.infamous_legends.network.Messages;
 
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.common.ForgeMod;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
+import net.minecraftforge.fluids.FluidInteractionRegistry;
+import net.minecraftforge.fluids.FluidInteractionRegistry.InteractionInformation;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
@@ -69,6 +75,8 @@ public class InfamousLegends {
         ParticleTypeInit.PARTICLE_TYPES.register(bus);
         MemoryModuleTypeInit.MEMORY_MODULE_TYPES.register(bus);
         SensorTypeInit.SENSOR_TYPES.register(bus);
+        FluidInit.FLUIDS.register(bus);
+        FluidTypeInit.FLUID_TYPES.register(bus);
 
         bus.addListener(this::commonSetup);
 
@@ -105,6 +113,16 @@ public class InfamousLegends {
     public void commonSetup(final FMLCommonSetupEvent event) {    
     	Messages.register();
         event.enqueueWork(Messages::register);
+        
+        FluidInteractionRegistry.addInteraction(FluidTypeInit.TAR_FLUID_TYPE.get(), new InteractionInformation(
+                ForgeMod.WATER_TYPE.get(),
+                fluidState -> Blocks.MUD.defaultBlockState()
+        ));
+        
+        FluidInteractionRegistry.addInteraction(FluidTypeInit.TAR_FLUID_TYPE.get(), new InteractionInformation(
+                ForgeMod.LAVA_TYPE.get(),
+                fluidState -> Blocks.MAGMA_BLOCK.defaultBlockState()
+        ));
     }
 
     private void clientSetup(final FMLClientSetupEvent event) {
