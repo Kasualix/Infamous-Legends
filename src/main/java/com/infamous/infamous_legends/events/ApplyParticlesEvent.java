@@ -8,6 +8,7 @@ import com.infamous.infamous_legends.particles.SpawnerFlameParticle;
 import com.infamous.infamous_legends.particles.SpawnerMagicParticle;
 import com.infamous.infamous_legends.particles.SpawnerMagicSwirlParticle;
 import com.infamous.infamous_legends.particles.SporeCloudParticle;
+import com.infamous.infamous_legends.particles.TarBubbleParticle;
 import com.infamous.infamous_legends.particles.WaterParticle;
 import com.infamous.infamous_legends.particles.WaterSplashParticle;
 
@@ -37,5 +38,7 @@ public class ApplyParticlesEvent {
                 SpawnerMagicSwirlParticle.Provider::new);
     	event.register(ParticleTypeInit.SPAWNER_MAGIC.get(),
                 SpawnerMagicParticle.Provider::new);
+    	event.register(ParticleTypeInit.TAR_BUBBLE.get(),
+                TarBubbleParticle.Provider::new);
     }
 }

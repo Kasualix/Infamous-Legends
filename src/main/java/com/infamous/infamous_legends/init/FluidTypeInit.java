@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.init;
 
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.fluids.BaseFluidType;
+import com.infamous.infamous_legends.fluids.TarFluid;
 import com.mojang.math.Vector3f;
 
 import net.minecraft.resources.ResourceLocation;
@@ -21,7 +22,8 @@ public class FluidTypeInit {
     public static final DeferredRegister<FluidType> FLUID_TYPES =
             DeferredRegister.create(ForgeRegistries.Keys.FLUID_TYPES, InfamousLegends.MOD_ID);
 
-    public static final RegistryObject<FluidType> TAR_FLUID_TYPE = register("tar_fluid",
+    public static final RegistryObject<FluidType> TAR_FLUID_TYPE = FLUID_TYPES.register("tar_fluid", () -> new BaseFluidType(TAR_STILL, TAR_FLOWING, TAR_OVERLAY,
+    		0xFFFFFFFF, new Vector3f(0, 0, 0), 0, 1,
             FluidType.Properties.create()
             .canSwim(false)
             .canDrown(true)
@@ -31,14 +33,7 @@ public class FluidTypeInit {
             .sound(SoundActions.BUCKET_EMPTY, SoundEvents.BUCKET_EMPTY_LAVA)
             .density(3000)
             .viscosity(6000)
+            .motionScale(0.002)
             .canConvertToSource(true)
-            .motionScale(0.01)
-            .supportsBoating(true));
-
-
-
-    private static RegistryObject<FluidType> register(String name, FluidType.Properties properties) {
-        return FLUID_TYPES.register(name, () -> new BaseFluidType(TAR_STILL, TAR_FLOWING, TAR_OVERLAY,
-        		0xFFFFFFFF, new Vector3f(0, 0, 0), properties));
-    }
+            .supportsBoating(true)));
 }

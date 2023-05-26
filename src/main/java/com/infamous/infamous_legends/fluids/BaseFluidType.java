@@ -14,6 +14,9 @@ import net.minecraft.client.Camera;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.level.material.FluidState;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.client.extensions.common.IClientFluidTypeExtensions;
 import net.minecraftforge.fluids.FluidType;
 
@@ -26,7 +29,7 @@ import net.minecraftforge.fluids.FluidType;
  * Added overlayTexture and tintColor as well. Also converts tint color into fog color
  */
 
-// I copied this from a tutorial, I haven't stolen it
+// This is here because I copied it from a tutorial, I haven't stolen it
 
 public class BaseFluidType extends FluidType {
     private final ResourceLocation stillTexture;
@@ -34,15 +37,19 @@ public class BaseFluidType extends FluidType {
     private final ResourceLocation overlayTexture;
     private final int tintColor;
     private final Vector3f fogColor;
+    private final float fogStartDistance;
+    private final float fogEndDistance;
 
     public BaseFluidType(final ResourceLocation stillTexture, final ResourceLocation flowingTexture, final ResourceLocation overlayTexture,
-                         final int tintColor, final Vector3f fogColor, final Properties properties) {
+                         final int tintColor, final Vector3f fogColor, final float fogStartDistance, final float fogEndDistance, final Properties properties) {
         super(properties);
         this.stillTexture = stillTexture;
         this.flowingTexture = flowingTexture;
         this.overlayTexture = overlayTexture;
         this.tintColor = tintColor;
         this.fogColor = fogColor;
+        this.fogStartDistance = fogStartDistance;
+        this.fogEndDistance = fogEndDistance;
     }
 
     public ResourceLocation getStillTexture() {
@@ -97,8 +104,8 @@ public class BaseFluidType extends FluidType {
             @Override
             public void modifyFogRender(Camera camera, FogRenderer.FogMode mode, float renderDistance, float partialTick,
                                         float nearDistance, float farDistance, FogShape shape) {
-                RenderSystem.setShaderFogStart(0f);
-                RenderSystem.setShaderFogEnd(1f); // distance when the fog starts
+                RenderSystem.setShaderFogStart(fogStartDistance);
+                RenderSystem.setShaderFogEnd(fogEndDistance); // distance when the fog starts
             }
         });
     }

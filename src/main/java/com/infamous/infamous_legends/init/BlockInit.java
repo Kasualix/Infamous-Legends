@@ -30,7 +30,7 @@ public class BlockInit {
     public static final RegistryObject<Block> LEGENDS_SPAWNER_BLOCK = registerBlock("legends_spawner_block", () -> new LegendsSpawnerBlock(Block.Properties.of(Material.METAL).requiresCorrectToolForDrops().strength(5.0F).sound(SoundType.METAL).noOcclusion()));
     public static final RegistryObject<Block> BIG_BEAK_EGG = registerBlock("big_beak_egg", () -> new BigBeakEggBlock(Block.Properties.of(Material.EGG).strength(0.5F).sound(SoundType.METAL).randomTicks().noOcclusion()));
     public static final RegistryObject<Block> FUNGUS_BOMB = registerBlock("fungus_bomb", () -> new FungusBombBlock(Block.Properties.of(Material.MOSS).strength(0.3F).sound(SoundType.MOSS).noOcclusion()));
-    public static final RegistryObject<LiquidBlock> TAR_BLOCK = BLOCKS.register("tar_block", () -> new LiquidBlock(FluidInit.SOURCE_TAR, Block.Properties.copy(Blocks.WATER)));
+    public static final RegistryObject<LiquidBlock> TAR_BLOCK = BLOCKS.register("tar_block", () -> new LiquidBlock(FluidInit.SOURCE_TAR, Block.Properties.of(Material.WATER).noCollission().strength(100.0F).noLootTable()));
     
     private static RegistryObject<Block> registerBlock(String id, Supplier<Block> sup) {
         RegistryObject<Block> blockRegistryObject = BLOCKS.register(id, sup);
