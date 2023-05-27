@@ -21,6 +21,7 @@ import com.infamous.infamous_legends.entities.Sporeback;
 import com.infamous.infamous_legends.entities.WarBoar;
 import com.infamous.infamous_legends.events.MobHordeEvents;
 import com.infamous.infamous_legends.init.ActivityInit;
+import com.infamous.infamous_legends.init.BannerPatternInit;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 import com.infamous.infamous_legends.init.BlockInit;
 import com.infamous.infamous_legends.init.EntityTypeInit;
@@ -113,6 +114,7 @@ public class InfamousLegends {
     public void commonSetup(final FMLCommonSetupEvent event) {    
     	Messages.register();
         event.enqueueWork(Messages::register);
+        BannerPatternInit.bootstrap();
         
         FluidInteractionRegistry.addInteraction(FluidTypeInit.TAR_FLUID_TYPE.get(), new InteractionInformation(
                 ForgeMod.WATER_TYPE.get(),
