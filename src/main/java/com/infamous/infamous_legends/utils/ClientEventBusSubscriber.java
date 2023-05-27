@@ -65,6 +65,7 @@ import com.infamous.infamous_legends.renderers.SporebackRenderer;
 import com.infamous.infamous_legends.renderers.ThrownBlazeRodRenderer;
 import com.infamous.infamous_legends.renderers.WarBoarRenderer;
 import com.infamous.infamous_legends.renderers.blocks.LegendsSpawnerRenderer;
+import com.infamous.infamous_legends.renderers.blocks.PreservedMobRenderer;
 
 import net.minecraft.client.model.HumanoidModel;
 import net.minecraft.client.model.geom.LayerDefinitions;
@@ -194,6 +195,7 @@ public class ClientEventBusSubscriber {
 		event.registerEntityRenderer(EntityTypeInit.BOULDER_PROJECTILE.get(), BoulderProjectileRenderer::new);
 		
 		event.registerBlockEntityRenderer(BlockEntityTypeInit.LEGENDS_SPAWNER.get(), LegendsSpawnerRenderer::new);
+		event.registerBlockEntityRenderer(BlockEntityTypeInit.PRESERVED_MOB.get(), PreservedMobRenderer::new);
 	}
 	
 	@SubscribeEvent
