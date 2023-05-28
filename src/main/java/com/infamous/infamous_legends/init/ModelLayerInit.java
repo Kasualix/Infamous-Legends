@@ -67,6 +67,7 @@ public class ModelLayerInit {
     public static final ModelLayerLocation REGAL_TIGER_SADDLE = register("regal_tiger_saddle");
     public static final ModelLayerLocation REGAL_TIGER_INNER_ARMOUR = register("regal_tiger_inner_armour");
     public static final ModelLayerLocation REGAL_TIGER_OUTER_ARMOUR = register("regal_tiger_outer_armour");
+    public static final ModelLayerLocation BADGER = register("badger");
     public static final ModelLayerLocation THROWN_BLAZE_ROD = register("thrown_blaze_rod");
     public static final ModelLayerLocation PIGLIN_BOMB = register("piglin_bomb");
     public static final ModelLayerLocation EXPLOSIVE_FUNGUS = register("explosive_fungus");

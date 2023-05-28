@@ -3,6 +3,7 @@ package com.infamous.infamous_legends.blocks.entities;
 import java.util.List;
 
 import com.infamous.infamous_legends.blocks.PreservedMobBlock.FreeMethod;
+import com.infamous.infamous_legends.entities.Badger;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
 
 import net.minecraft.core.BlockPos;
@@ -109,11 +110,14 @@ public class PreservedMobBlockEntity extends BlockEntity {
 				}
 			}
 			
-			/*for (Badger livingentity : level.getEntities(Badger.class, new AABB(pos.offset(-9.5, -9.5, -9.5), pos.offset(10.5, 10, 10.5)))) {
-				if (livingentity.targetedPos != null) {
-					livingentity.targetedPos = pos;
+			for (Badger livingentity : level.getEntitiesOfClass(Badger.class, new AABB(pos.offset(-15, -15, -15), pos.offset(15, 15, 15)))) {
+				if (livingentity.alertPos == null) {
+					livingentity.alertPos = pos;
+					livingentity.timeUntilAlertPosReset = 10;
+				} else {
+					livingentity.timeUntilAlertPosReset = 10;
 				}
-			}*/
+			}
 		}
 		
 		public void freeMob(Level level, BlockPos pos, BlockState state, PreservedMobBlockEntity object) {

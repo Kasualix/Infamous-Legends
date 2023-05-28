@@ -1,5 +1,6 @@
 package com.infamous.infamous_legends;
 
+import com.infamous.infamous_legends.entities.Badger;
 import com.infamous.infamous_legends.entities.BigBeak;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.CobblestoneGolem;
@@ -109,6 +110,7 @@ public class InfamousLegends {
 	        event.put(EntityTypeInit.FIRST_OF_OAK.get(), FirstOfOak.createAttributes().build());
 	        event.put(EntityTypeInit.BIG_BEAK.get(), BigBeak.createAttributes().build());
 	        event.put(EntityTypeInit.REGAL_TIGER.get(), RegalTiger.createAttributes().build());
+	        event.put(EntityTypeInit.BADGER.get(), Badger.createAttributes().build());
 	}
 	
     public void commonSetup(final FMLCommonSetupEvent event) {    

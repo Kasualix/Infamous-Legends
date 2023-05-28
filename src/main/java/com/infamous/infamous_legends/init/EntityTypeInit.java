@@ -1,6 +1,7 @@
 package com.infamous.infamous_legends.init;
 
 import com.infamous.infamous_legends.InfamousLegends;
+import com.infamous.infamous_legends.entities.Badger;
 import com.infamous.infamous_legends.entities.BigBeak;
 import com.infamous.infamous_legends.entities.BlazeRunt;
 import com.infamous.infamous_legends.entities.BoulderProjectile;
@@ -123,6 +124,10 @@ public class EntityTypeInit {
 	public static final RegistryObject<EntityType<RegalTiger>> REGAL_TIGER = ENTITY_TYPES.register("regal_tiger",
 			() -> EntityType.Builder.<RegalTiger>of(RegalTiger::new, MobCategory.CREATURE).sized(1.3F, 1.2F)
 					.build(new ResourceLocation(InfamousLegends.MOD_ID, "regal_tiger").toString()));
+	
+	public static final RegistryObject<EntityType<Badger>> BADGER = ENTITY_TYPES.register("badger",
+			() -> EntityType.Builder.<Badger>of(Badger::new, MobCategory.CREATURE).sized(0.6F, 0.6F)
+					.build(new ResourceLocation(InfamousLegends.MOD_ID, "badger").toString()));
 	
 	// PROJECTILES
 
