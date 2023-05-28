@@ -261,4 +261,14 @@ public class SoundEventInit {
 	public static final RegistryObject<SoundEvent> BIG_BEAK_JUMP = SOUND_EVENTS.register("entity.big_beak.jump", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.jump")));
 	public static final RegistryObject<SoundEvent> BIG_BEAK_LAND = SOUND_EVENTS.register("entity.big_beak.land", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.land")));
 	public static final RegistryObject<SoundEvent> BIG_BEAK_STEP = SOUND_EVENTS.register("entity.big_beak.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.big_beak.step")));
+	
+	// BADGER
+	
+	public static final RegistryObject<SoundEvent> BADGER_ALERT = SOUND_EVENTS.register("entity.badger.alert", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.badger.alert")));
+	public static final RegistryObject<SoundEvent> BADGER_ANGRY = SOUND_EVENTS.register("entity.badger.angry", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.badger.angry")));
+	public static final RegistryObject<SoundEvent> BADGER_ATTACK = SOUND_EVENTS.register("entity.badger.attack", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.badger.attack")));
+	public static final RegistryObject<SoundEvent> BADGER_DEATH = SOUND_EVENTS.register("entity.badger.death", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.badger.death")));
+	public static final RegistryObject<SoundEvent> BADGER_HURT = SOUND_EVENTS.register("entity.badger.hurt", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.badger.hurt")));
+	public static final RegistryObject<SoundEvent> BADGER_IDLE = SOUND_EVENTS.register("entity.badger.idle", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.badger.idle")));
+	public static final RegistryObject<SoundEvent> BADGER_STEP = SOUND_EVENTS.register("entity.badger.step", () -> new SoundEvent(new ResourceLocation(InfamousLegends.MOD_ID, "entity.badger.step")));
 }

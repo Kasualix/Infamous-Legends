@@ -5798,5 +5798,183 @@
 				"stream": true
 			}
 		]
+	},
+	
+	
+	
+	
+	
+	
+	
+	"entity.badger.alert": {
+		"subtitle": "subtitles.entity.badger.alert",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/badger/alert1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/alert2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/alert3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/alert4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/alert5",
+				"stream": true
+			}
+		]
+	},
+	"entity.badger.angry": {
+		"subtitle": "subtitles.entity.badger.angry",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/badger/angry1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/angry2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/angry3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/angry4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/angry5",
+				"stream": true
+			}
+		]
+	},
+	"entity.badger.attack": {
+		"subtitle": "subtitles.entity.badger.attack",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/badger/attack1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/attack2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/attack3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/attack4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/attack5",
+				"stream": true
+			}
+		]
+	},
+	"entity.badger.death": {
+		"subtitle": "subtitles.entity.badger.death",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/badger/death1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/death2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/death3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/death4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/death5",
+				"stream": true
+			}
+		]
+	},
+	"entity.badger.hurt": {
+		"subtitle": "subtitles.entity.badger.hurt",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/badger/hurt1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/hurt2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/hurt3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/hurt4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/hurt5",
+				"stream": true
+			}
+		]
+	},
+	"entity.badger.idle": {
+		"subtitle": "subtitles.entity.badger.idle",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/badger/idle1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/idle2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/idle3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/idle4",
+				"stream": true
+			}
+		]
+	},
+	"entity.badger.step": {
+		"subtitle": "subtitles.entity.badger.step",
+		"sounds": [
+			{
+				"name": "infamous_legends:entities/badger/step1",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/step2",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/step3",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/step4",
+				"stream": true
+			},
+			{
+				"name": "infamous_legends:entities/badger/step5",
+				"stream": true
+			}
+		]
 	}
 }

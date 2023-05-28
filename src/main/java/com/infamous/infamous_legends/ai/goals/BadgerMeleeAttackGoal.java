@@ -53,6 +53,7 @@ public class BadgerMeleeAttackGoal extends Goal {
 
 		@Override
 		public void start() {
+			mob.playSound(SoundEventInit.BADGER_ATTACK.get());
 			mob.attackAnimationTick = mob.attackAnimationLength;
 			mob.level.broadcastEntityEvent(mob, (byte) 4);
 		}

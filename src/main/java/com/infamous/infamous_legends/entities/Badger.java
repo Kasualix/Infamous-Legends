@@ -5,9 +5,12 @@ import com.infamous.infamous_legends.ai.goals.BadgerGoToAlertPosGoal;
 import com.infamous.infamous_legends.ai.goals.BadgerMeleeAttackGoal;
 import com.infamous.infamous_legends.ai.goals.LookAtTargetGoal;
 import com.infamous.infamous_legends.init.EntityTypeInit;
+import com.infamous.infamous_legends.init.SoundEventInit;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AgeableMob;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -31,6 +34,7 @@ import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
 
 public class Badger extends Animal {
 
@@ -50,13 +54,27 @@ public class Badger extends Animal {
 
 	   protected void registerGoals() {
 			this.goalSelector.addGoal(0, new FloatGoal(this));
-			this.goalSelector.addGoal(1, new PanicGoal(this, 2.0D));
 			this.goalSelector.addGoal(2, new BreedGoal(this, 1.0D));
 			this.goalSelector.addGoal(3, new BadgerGoToAlertPosGoal(this));
 			this.goalSelector.addGoal(4, new TemptGoal(this, 1.25D, Ingredient.of(Items.RABBIT), false));
-			this.goalSelector.addGoal(5, new BadgerMeleeAttackGoal(this));
-			this.goalSelector.addGoal(6, new LookAtTargetGoal(this));
-			this.goalSelector.addGoal(7, new ApproachTargetGoal(this, 0, 1.2, true));
+			this.goalSelector.addGoal(5, new BadgerMeleeAttackGoal(this) {
+				@Override
+				public boolean canUse() {
+					return !Badger.this.isBaby() && super.canUse();
+				}
+			});
+			this.goalSelector.addGoal(6, new LookAtTargetGoal(this) {
+				@Override
+				public boolean canUse() {
+					return !Badger.this.isBaby() && super.canUse();
+				}
+			});
+			this.goalSelector.addGoal(7, new ApproachTargetGoal(this, 0, 1.2, true) {
+				@Override
+				public boolean canUse() {
+					return !Badger.this.isBaby() && super.canUse();
+				}
+			});
 			this.goalSelector.addGoal(8, new FollowParentGoal(this, 1.25D));
 			this.goalSelector.addGoal(9, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 			this.goalSelector.addGoal(10, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -64,6 +82,26 @@ public class Badger extends Animal {
 			this.targetSelector.addGoal(0, (new HurtByTargetGoal(this)).setAlertOthers());
 			this.targetSelector.addGoal(1, new NearestAttackableTargetGoal<>(this, Rabbit.class, false));
 		}
+	   
+	   protected SoundEvent getAmbientSound() {
+		   if (this.level.isClientSide) {
+			   return null;
+		   } else {
+		      return !this.isBaby() && this.getTarget() != null && !this.getTarget().isDeadOrDying() && !this.getTarget().isRemoved() ? SoundEventInit.BADGER_ANGRY.get() : SoundEventInit.BADGER_IDLE.get();
+		   }
+	   }
+
+		   protected SoundEvent getHurtSound(DamageSource pDamageSource) {
+		      return SoundEventInit.BADGER_HURT.get();
+		   }
+
+		   protected SoundEvent getDeathSound() {
+		      return SoundEventInit.BADGER_DEATH.get();
+		   }
+
+		   protected void playStepSound(BlockPos pPos, BlockState pBlock) {				  
+		      this.playSound(SoundEventInit.BADGER_STEP.get(), 0.15F, 1);
+		   }
 	   
 	   @Override
 	public boolean isFood(ItemStack pStack) {
@@ -95,11 +133,6 @@ public class Badger extends Animal {
 			this.timeUntilAlertPosReset --;
 		} else {
 			this.alertPos = null;
-		}
-		
-		if (!this.level.isClientSide && this.alertPos != null && !this.alertAnimationState.isStarted()) {
-			this.alertAnimationState.start(this.tickCount);
-			this.level.broadcastEntityEvent(this, (byte) 9);
 		}
 		
 		if (!this.level.isClientSide && this.alertPos == null && this.alertAnimationState.isStarted()) {

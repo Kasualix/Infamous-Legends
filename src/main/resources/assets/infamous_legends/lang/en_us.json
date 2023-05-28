@@ -287,6 +287,14 @@
 	"subtitles.entity.big_beak.land": "Big Beak lands",
 	"subtitles.entity.big_beak.step": "Big Beak steps",
 	
+	"subtitles.entity.badger.alert": "Badger finds something",
+	"subtitles.entity.badger.angry": "Badger growls",
+	"subtitles.entity.badger.attack": "Badger attacks",
+	"subtitles.entity.badger.death": "Badger dies",
+	"subtitles.entity.badger.hurt": "Badger hurts",
+	"subtitles.entity.badger.idle": "Badger chatters",
+	"subtitles.entity.badger.step": "Badger steps",
+	
 	"itemGroup.infamous_legends_mobs": "Infamous Legends: Mobs",
 	"itemGroup.infamous_legends_items": "Infamous Legends: Items",
 	"itemGroup.infamous_legends_blocks": "Infamous Legends: Blocks"

@@ -103,9 +103,7 @@ public class BadgerModel<T extends Badger> extends HierarchicalModel<T> {
 		this.animateHeadLookTarget(netHeadYaw, headPitch);
 		BadgerSineWaveAnimations.badgerWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 17.5F, shouldPlayWalkAnimation ? 1 : 0);
 		BadgerSineWaveAnimations.badgerIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
-		if (!shouldPlayWalkAnimation) {
-			this.animate(entity.alertAnimationState, BadgerKeyframeAnimations.BADGER_ALERT, ageInTicks);
-		}
+		this.animate(entity.alertAnimationState, BadgerKeyframeAnimations.BADGER_ALERT, ageInTicks);
 		this.animate(entity.attackAnimationState, BadgerKeyframeAnimations.BADGER_ATTACK, ageInTicks);
 	}
 	
