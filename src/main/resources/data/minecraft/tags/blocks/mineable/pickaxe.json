@@ -1,6 +1,7 @@
 {
 	"replace": false,
 	"values": [
-		"infamous_legends:legends_spawner_block"
+		"infamous_legends:legends_spawner_block",
+		"infamous_legends:preserved_badger"
 	]
 }

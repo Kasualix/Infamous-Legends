@@ -2,6 +2,7 @@ package com.infamous.infamous_legends.blocks.entities;
 
 import java.util.List;
 
+import com.infamous.infamous_legends.blocks.PreservedMobBlock;
 import com.infamous.infamous_legends.blocks.PreservedMobBlock.FreeMethod;
 import com.infamous.infamous_legends.entities.Badger;
 import com.infamous.infamous_legends.init.BlockEntityTypeInit;
@@ -35,6 +36,7 @@ public class PreservedMobBlockEntity extends BlockEntity {
 	public BlockPos renderScale;
 	public FreeMethod freeMethod;
 	public RandomSource random = RandomSource.create();
+	public int freeingFor;
 	
 	public PreservedMobBlockEntity(BlockPos pPos, BlockState pState) {
         super(BlockEntityTypeInit.PRESERVED_MOB.get(), pPos, pState);
@@ -79,6 +81,7 @@ public class PreservedMobBlockEntity extends BlockEntity {
 	   }
 	   
 		public static void tick(Level level, BlockPos pos, BlockState state, PreservedMobBlockEntity object) {
+			boolean beingFreed = false;
 			if (object.freeMethod == FreeMethod.WASH) {
 				List<BlockState> blockStates = level.getBlockStates(new AABB(pos.offset(-1, -1, -1), pos.offset(1, 1, 1))).toList();
 				int nearbyWater = 0;
@@ -89,29 +92,37 @@ public class PreservedMobBlockEntity extends BlockEntity {
 				}
 				
 				if (nearbyWater >= 4) {
+					beingFreed = true;
 					if (object.random.nextBoolean()) {
 						object.makeMeltOrWashParticles(state, level, pos, object.random, false);
 					}
 					
-					if (!level.isClientSide && object.random.nextInt(1200) == 0) {
+					if (!level.isClientSide && object.freeingFor >= 200 && (object.random.nextInt(600) == 0 || object.freeingFor >= 2400)) {
 						object.freeMob(level, pos, state, object);
 					}
 				}
 				
 			} else if (object.freeMethod == FreeMethod.MELT) {
 				if (level.getBlockState(pos.below()).getBlock() instanceof BaseFireBlock || level.getBlockState(pos.below()).getBlock() instanceof CampfireBlock) {
-					if (object.random.nextInt(10) == 0) {
+					beingFreed = true;
+					if (object.random.nextInt(5) == 0) {
 						object.makeMeltOrWashParticles(state, level, pos, object.random, true);
 					}
 					
-					if (!level.isClientSide && object.random.nextInt(1200) == 0) {
+					if (!level.isClientSide && object.freeingFor >= 200 && (object.random.nextInt(600) == 0 || object.freeingFor >= 2400)) {
 						object.freeMob(level, pos, state, object);
 					}
 				}
 			}
 			
+			if (beingFreed) {
+				object.freeingFor ++;
+			} else {
+				object.freeingFor = 0;
+			}
+			
 			for (Badger livingentity : level.getEntitiesOfClass(Badger.class, new AABB(pos.offset(-15, -15, -15), pos.offset(15, 15, 15)))) {
-				if (livingentity.alertPos == null) {
+				if (livingentity.alertPos == null || !(level.getBlockState(livingentity.alertPos).getBlock() instanceof PreservedMobBlock)) {
 					livingentity.alertPos = pos;
 					livingentity.timeUntilAlertPosReset = 10;
 				} else {

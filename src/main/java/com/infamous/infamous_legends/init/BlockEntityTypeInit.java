@@ -19,5 +19,5 @@ public class BlockEntityTypeInit {
     
     public static final RegistryObject<BlockEntityType<FungusBombBlockEntity>> FUNGUS_BOMB = BLOCK_ENTITY_TYPES.register("fungus_bomb", () -> BlockEntityType.Builder.of(FungusBombBlockEntity::new, BlockInit.FUNGUS_BOMB.get()).build(null));
     
-    public static final RegistryObject<BlockEntityType<PreservedMobBlockEntity>> PRESERVED_MOB = BLOCK_ENTITY_TYPES.register("preserved_mob", () -> BlockEntityType.Builder.of(PreservedMobBlockEntity::new, BlockInit.PRESERVED_REGAL_TIGER.get(), BlockInit.PRESERVED_BIG_BEAK_EGG.get()).build(null));
+    public static final RegistryObject<BlockEntityType<PreservedMobBlockEntity>> PRESERVED_MOB = BLOCK_ENTITY_TYPES.register("preserved_mob", () -> BlockEntityType.Builder.of(PreservedMobBlockEntity::new, BlockInit.PRESERVED_REGAL_TIGER.get(), BlockInit.PRESERVED_BIG_BEAK_EGG.get(), BlockInit.PRESERVED_BADGER.get()).build(null));
 }

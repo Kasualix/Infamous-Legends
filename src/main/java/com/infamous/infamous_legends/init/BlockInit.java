@@ -48,6 +48,11 @@ public class BlockInit {
     	CompoundTag tag = new CompoundTag();
     	return tag;
     }, new BlockPos(0, 8, 1), new BlockPos(-20, -40, 0), new BlockPos(10, 10, 10), FreeMethod.MELT, "infamous_legends:big_beak_egg", BlockBehaviour.Properties.copy(Blocks.SNOW_BLOCK).strength(0.8F)));
+    public static final RegistryObject<Block> PRESERVED_BADGER = registerBlock("preserved_badger", () -> new PreservedMobBlock("infamous_legends:badger", () -> {
+    	CompoundTag tag = new CompoundTag();
+    	tag.putInt("Age", -24000);
+    	return tag;
+    }, new BlockPos(0, 4, -1), new BlockPos(20, -15, 0), new BlockPos(10, 10, 10), FreeMethod.MELT, null, BlockBehaviour.Properties.copy(Blocks.ICE).strength(1.0F)));
     
     private static RegistryObject<Block> registerBlock(String id, Supplier<Block> sup) {
         RegistryObject<Block> blockRegistryObject = BLOCKS.register(id, sup);
@@ -59,6 +64,7 @@ public class BlockInit {
     public static void initRenderTypes(){
         ItemBlockRenderTypes.setRenderLayer(LEGENDS_SPAWNER_BLOCK.get(), RenderType.cutout());
         ItemBlockRenderTypes.setRenderLayer(FUNGUS_BOMB.get(), RenderType.cutout());
+        ItemBlockRenderTypes.setRenderLayer(PRESERVED_BADGER.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(FluidInit.SOURCE_TAR.get(), RenderType.translucent());
         ItemBlockRenderTypes.setRenderLayer(FluidInit.FLOWING_TAR.get(), RenderType.translucent());
     }
