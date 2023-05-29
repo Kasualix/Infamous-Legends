@@ -1,5 +1,6 @@
 {
   "name": "horde_of_the_hunt",
+  "biomes": "infamous_legends:horde_of_the_hunt_spawn_in",
   "attributes": [
         {
           "attribute": "minecraft:generic.movement_speed",

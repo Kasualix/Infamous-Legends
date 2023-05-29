@@ -1,14 +1,18 @@
 package com.infamous.infamous_legends.events;
 
+import java.util.List;
 import java.util.Random;
 import java.util.UUID;
 
+import org.apache.commons.compress.utils.Lists;
 import org.jetbrains.annotations.NotNull;
 
 import com.google.common.collect.ImmutableMultimap;
 import com.infamous.infamous_legends.InfamousLegends;
 import com.infamous.infamous_legends.capabilities.MobHorde;
 import com.infamous.infamous_legends.capabilities.MobHordeProvider;
+import com.infamous.infamous_legends.hordes.HordeType;
+import com.infamous.infamous_legends.hordes.MobHordeIdentity;
 import com.infamous.infamous_legends.init.HordeTypeInit;
 import com.infamous.infamous_legends.init.MobHordeIdentityInit;
 import com.infamous.infamous_legends.network.Messages;
@@ -39,7 +43,18 @@ public class GiveMobHordeEvent {
 	        event.getEntity().getCapability(MobHordeProvider.HORDE).ifPresent((capability) -> {
 	        	boolean shouldSetHealthToMax = event.getEntity() instanceof LivingEntity && ((LivingEntity)event.getEntity()).getHealth() >= ((LivingEntity)event.getEntity()).getMaxHealth();
 	        	if (!capability.hasSpawned() && capability.getHorde().getName().equals("empty")) {
-		        	capability.setHorde(HordeTypeInit.getHordeTypeByName(MobHordeIdentityInit.getMobHordeIdentitiesByEntityType(event.getEntity().getType()).get(random.nextInt(MobHordeIdentityInit.getMobHordeIdentitiesByEntityType(event.getEntity().getType()).size())).getHorde()));
+	        		List<HordeType> viableHordes = Lists.newArrayList();
+	        				for (MobHordeIdentity hordeIdentity : MobHordeIdentityInit.getMobHordeIdentitiesByEntityType(event.getEntity().getType())) {
+	        					viableHordes.add(HordeTypeInit.getHordeTypeByName(hordeIdentity.getHorde()));
+	        				}
+	        		if (viableHordes.size() > 0) {
+	        		HordeType biomeBasedHorde = event.getEntity().level.getBiome(event.getEntity().blockPosition()).get() != null ? HordeTypeInit.getHordeTypeByBiome(event.getEntity().level.getBiome(event.getEntity().blockPosition()), viableHordes) : null;
+		        		if (biomeBasedHorde != null) {
+		        			capability.setHorde(biomeBasedHorde);
+		        		} else {
+		        			capability.setHorde(viableHordes.get(random.nextInt(viableHordes.size())));
+		        		}
+	        		}
 		        	if (event.getEntity() instanceof LivingEntity && capability.getHorde() != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()) != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()).modifyAttributes()) {
 			        	ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 			        	capability.getHorde().getAttributes().forEach(attributeModifier -> {

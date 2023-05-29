@@ -1,5 +1,6 @@
 {
   "name": "horde_of_the_bastion",
+  "biomes": "infamous_legends:horde_of_the_bastion_spawn_in",
   "attributes": [
         {
           "attribute": "minecraft:generic.armor",

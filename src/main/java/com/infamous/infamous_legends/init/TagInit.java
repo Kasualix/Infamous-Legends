@@ -8,6 +8,7 @@ import net.minecraft.tags.TagKey;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
 
 public class TagInit {
@@ -46,6 +47,18 @@ public class TagInit {
     	
     	   private static TagKey<Item> tag(String p_203849_) {
     		      return TagKey.create(Registry.ITEM_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, p_203849_));
+    	   }
+    }
+    
+    public static class Biomes {
+    	//public static final TagKey<Biome> HORDE_OF_THE_BASTION_SPAWN_IN = tag("horde_of_the_bastion_spawn_in");  	
+    	
+	    	public static TagKey<Biome> createBiomeTag(String prefix, String name) {
+	    		return tag(prefix, name);
+	    	}
+    	
+    	   private static TagKey<Biome> tag(String prefix, String name) {
+    		      return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(prefix, name));
     	   }
     }
 }
