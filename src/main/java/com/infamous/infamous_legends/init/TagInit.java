@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class TagInit {
 	
@@ -51,14 +52,22 @@ public class TagInit {
     }
     
     public static class Biomes {
-    	//public static final TagKey<Biome> HORDE_OF_THE_BASTION_SPAWN_IN = tag("horde_of_the_bastion_spawn_in");  	
-    	
 	    	public static TagKey<Biome> createBiomeTag(String prefix, String name) {
 	    		return tag(prefix, name);
 	    	}
     	
     	   private static TagKey<Biome> tag(String prefix, String name) {
     		      return TagKey.create(Registry.BIOME_REGISTRY, new ResourceLocation(prefix, name));
+    	   }
+    }
+    
+    public static class Structures {
+	    	public static TagKey<Structure> createStructureTag(String prefix, String name) {
+	    		return tag(prefix, name);
+	    	}
+    	
+    	   private static TagKey<Structure> tag(String prefix, String name) {
+    		      return TagKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(prefix, name));
     	   }
     }
 }

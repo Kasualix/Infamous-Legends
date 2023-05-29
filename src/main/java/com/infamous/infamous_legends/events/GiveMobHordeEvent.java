@@ -15,9 +15,11 @@ import com.infamous.infamous_legends.hordes.HordeType;
 import com.infamous.infamous_legends.hordes.MobHordeIdentity;
 import com.infamous.infamous_legends.init.HordeTypeInit;
 import com.infamous.infamous_legends.init.MobHordeIdentityInit;
+import com.infamous.infamous_legends.init.TagInit;
 import com.infamous.infamous_legends.network.Messages;
 import com.infamous.infamous_legends.network.message.ServerToClientHordeSyncPacket;
 
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -43,18 +45,34 @@ public class GiveMobHordeEvent {
 	        event.getEntity().getCapability(MobHordeProvider.HORDE).ifPresent((capability) -> {
 	        	boolean shouldSetHealthToMax = event.getEntity() instanceof LivingEntity && ((LivingEntity)event.getEntity()).getHealth() >= ((LivingEntity)event.getEntity()).getMaxHealth();
 	        	if (!capability.hasSpawned() && capability.getHorde().getName().equals("empty")) {
-	        		List<HordeType> viableHordes = Lists.newArrayList();
-	        				for (MobHordeIdentity hordeIdentity : MobHordeIdentityInit.getMobHordeIdentitiesByEntityType(event.getEntity().getType())) {
-	        					viableHordes.add(HordeTypeInit.getHordeTypeByName(hordeIdentity.getHorde()));
-	        				}
-	        		if (viableHordes.size() > 0) {
-	        		HordeType biomeBasedHorde = event.getEntity().level.getBiome(event.getEntity().blockPosition()).get() != null ? HordeTypeInit.getHordeTypeByBiome(event.getEntity().level.getBiome(event.getEntity().blockPosition()), viableHordes) : null;
-		        		if (biomeBasedHorde != null) {
-		        			capability.setHorde(biomeBasedHorde);
-		        		} else {
-		        			capability.setHorde(viableHordes.get(random.nextInt(viableHordes.size())));
-		        		}
-	        		}
+					List<HordeType> viableHordes = Lists.newArrayList();
+
+					for (MobHordeIdentity hordeIdentity : MobHordeIdentityInit
+							.getMobHordeIdentitiesByEntityType(event.getEntity().getType())) {
+						viableHordes.add(HordeTypeInit.getHordeTypeByName(hordeIdentity.getHorde()));
+					}
+
+					if (viableHordes.size() > 0) {
+						HordeType structureBasedHorde = event.getEntity().level.getBiome(event.getEntity().blockPosition())
+								.get() != null
+										? HordeTypeInit.getHordeTypeByStructure(((ServerLevel)event.getEntity().level), event.getEntity().blockPosition(),  viableHordes)
+										: null;
+						if (structureBasedHorde != null) {
+							capability.setHorde(structureBasedHorde);
+						} else {
+							HordeType biomeBasedHorde = event.getEntity().level.getBiome(event.getEntity().blockPosition())
+									.get() != null
+											? HordeTypeInit.getHordeTypeByBiome(
+													event.getEntity().level.getBiome(event.getEntity().blockPosition()),
+													viableHordes)
+											: null;
+							if (biomeBasedHorde != null) {
+								capability.setHorde(biomeBasedHorde);
+							} else {
+								capability.setHorde(viableHordes.get(random.nextInt(viableHordes.size())));
+							}
+						}
+					}
 		        	if (event.getEntity() instanceof LivingEntity && capability.getHorde() != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()) != null && MobHordeIdentityInit.getMobHordeIdentityByEntityTypeAndHorde(event.getEntity().getType(), capability.getHorde()).modifyAttributes()) {
 			        	ImmutableMultimap.Builder<Attribute, AttributeModifier> builder = ImmutableMultimap.builder();
 			        	capability.getHorde().getAttributes().forEach(attributeModifier -> {
