@@ -150,6 +150,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> TAR_BUCKET = ITEMS.register("tar_bucket",
 			() -> new BucketItem(() -> FluidInit.SOURCE_TAR.get(), new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	
+	public static final RegistryObject<Item> PRIMORDIAL_HEART = ITEMS.register("primordial_heart",
+			() -> new Item(new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	
 	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
 		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));
 	}

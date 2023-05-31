@@ -1,5 +1,5 @@
 {
-  "planks": "minecraft:acacia_planks",
+  "wood": "minecraft:stripped_acacia_log",
   "name": "acacia",
   "textureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_acacia.png"
 }

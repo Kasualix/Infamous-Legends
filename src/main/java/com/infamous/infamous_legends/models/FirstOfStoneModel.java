@@ -169,11 +169,11 @@ public class FirstOfStoneModel<T extends FirstOfStone> extends HierarchicalModel
 		Vec3 velocity = entity.getDeltaMovement();
 		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
 		
-		boolean shouldPlayRunAnimation = speed > 0.15 && entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0;
+		boolean shouldPlayRunAnimation = speed > 0.15 && entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0 && entity.isAwakened();
 		
-		boolean shouldPlayWalkAnimation = !shouldPlayRunAnimation && speed > 0 && entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0;
+		boolean shouldPlayWalkAnimation = !shouldPlayRunAnimation && speed > 0 && entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0 && entity.isAwakened();
 		
-		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && !shouldPlayRunAnimation && entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0;	
+		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && !shouldPlayRunAnimation && entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0 && entity.isAwakened();	
 		
 		if (entity.attackAnimationTick <= 0 && entity.rangedAttackAnimationTick <= 0) {
 			this.animateHeadLookTarget(netHeadYaw, headPitch);
@@ -183,6 +183,8 @@ public class FirstOfStoneModel<T extends FirstOfStone> extends HierarchicalModel
 		FirstOfStoneSineWaveAnimations.firstOfStoneIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
 		this.animate(entity.attackAnimationState, FirstOfStoneKeyframeAnimations.FIRST_OF_STONE_ATTACK, ageInTicks);
 		this.animate(entity.rangedAttackAnimationState, FirstOfStoneKeyframeAnimations.FIRST_OF_STONE_RANGED_ATTACK, ageInTicks);
+		this.animate(entity.inactiveAnimationState, FirstOfStoneKeyframeAnimations.FIRST_OF_STONE_INACTIVE, ageInTicks);
+		this.animate(entity.awakenAnimationState, FirstOfStoneKeyframeAnimations.FIRST_OF_STONE_AWAKEN, ageInTicks);
 	}
 	
 	private void animateHeadLookTarget(float yRot, float xRot) {

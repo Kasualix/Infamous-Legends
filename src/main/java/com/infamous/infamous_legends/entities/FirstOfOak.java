@@ -22,6 +22,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.util.Mth;
 import net.minecraft.world.DifficultyInstance;
+import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.AnimationState;
 import net.minecraft.world.entity.EntityType;
@@ -37,15 +39,15 @@ import net.minecraft.world.entity.ai.goal.MoveBackToVillageGoal;
 import net.minecraft.world.entity.ai.goal.RandomLookAroundGoal;
 import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
-import net.minecraft.world.entity.animal.AbstractGolem;
 import net.minecraft.world.entity.monster.Creeper;
 import net.minecraft.world.entity.monster.Enemy;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
 import net.minecraft.world.level.block.state.BlockState;
 
-public class FirstOfOak extends AbstractGolem {
+public class FirstOfOak extends AbstractFirst {
 
 	private static final EntityDataAccessor<String> WOOD_1_TYPE = SynchedEntityData.defineId(FirstOfOak.class, EntityDataSerializers.STRING);
 	private static final EntityDataAccessor<String> WOOD_2_TYPE = SynchedEntityData.defineId(FirstOfOak.class, EntityDataSerializers.STRING);
@@ -60,6 +62,7 @@ public class FirstOfOak extends AbstractGolem {
 	}
 	
 	protected void registerGoals() {
+		super.registerGoals();
 		this.goalSelector.addGoal(0, new FirstOfOakShootAttackGoal(this));
 		this.goalSelector.addGoal(2, new LookAtTargetGoal(this));
 		this.goalSelector.addGoal(3, new ApproachTargetGoal(this, 40, 1.2, true));
@@ -77,14 +80,14 @@ public class FirstOfOak extends AbstractGolem {
 	@Override
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor pLevel, DifficultyInstance pDifficulty,
 			MobSpawnType pReason, SpawnGroupData pSpawnData, CompoundTag pDataTag) {
-		this.setWood1Type(FirstOfOakWood1TypeInit.FIRST_OF_OAK_WOOD_1_TYPE_REGISTRY.getData().values().stream().toList().get(this.random.nextInt(FirstOfOakWood1TypeInit.FIRST_OF_OAK_WOOD_1_TYPE_REGISTRY.getData().values().size())));
-		this.setWood2Type(FirstOfOakWood2TypeInit.FIRST_OF_OAK_WOOD_2_TYPE_REGISTRY.getData().values().stream().toList().get(this.random.nextInt(FirstOfOakWood2TypeInit.FIRST_OF_OAK_WOOD_2_TYPE_REGISTRY.getData().values().size())));
+		//this.setWood1Type(FirstOfOakWood1TypeInit.FIRST_OF_OAK_WOOD_1_TYPE_REGISTRY.getData().values().stream().toList().get(this.random.nextInt(FirstOfOakWood1TypeInit.FIRST_OF_OAK_WOOD_1_TYPE_REGISTRY.getData().values().size())));
+		//this.setWood2Type(FirstOfOakWood2TypeInit.FIRST_OF_OAK_WOOD_2_TYPE_REGISTRY.getData().values().stream().toList().get(this.random.nextInt(FirstOfOakWood2TypeInit.FIRST_OF_OAK_WOOD_2_TYPE_REGISTRY.getData().values().size())));
 		return super.finalizeSpawn(pLevel, pDifficulty, pReason, pSpawnData, pDataTag);
 	}
 	
 	protected void defineSynchedData() {
 	    super.defineSynchedData();
-		this.entityData.define(WOOD_1_TYPE, "oak");
+		this.entityData.define(WOOD_1_TYPE, "birch");
 		this.entityData.define(WOOD_2_TYPE, "oak");
 	}
 	
@@ -187,11 +190,53 @@ public class FirstOfOak extends AbstractGolem {
 		if (this.shootAnimationTick <= 0 && this.shootAnimationState.isStarted()) {
 			this.shootAnimationState.stop();
 		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 48 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 56 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 219 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 244 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 268) {
+			this.playSound(SoundEventInit.FIRST_OF_OAK_STEP.get(), 1, this.getVoicePitch());
+		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 65 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 285) {
+			this.playSound(SoundEventInit.FIRST_OF_OAK_IDLE.get(), 1.5F, this.getVoicePitch());
+		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 52 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 83 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 108 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 168) {
+			this.playSound(SoundEvents.BUCKET_FILL_LAVA, 1, this.getVoicePitch());
+		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 168) {
+			this.playSound(SoundEventInit.FIRST_OF_OAK_HURT.get(), 1.5F, this.getVoicePitch());
+		}
+	}
+	
+	@Override
+	protected InteractionResult mobInteract(Player pPlayer, InteractionHand pHand) {
+		if (this.isAwakened() && pPlayer.getItemInHand(pHand).getItem() != null && pPlayer.getItemInHand(pHand).getItem() instanceof BlockItem && ((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock() != null && this.getWood1Type().getPlanks() != ((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock() && FirstOfOakWood1TypeInit.getWood1TypeByWood(((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock()) != null) {
+			this.setWood1Type(FirstOfOakWood1TypeInit.getWood1TypeByWood(((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock()));
+			this.playSound(SoundEventInit.FIRST_OF_OAK_STEP.get(), 1, this.getVoicePitch());
+			if (!pPlayer.getAbilities().instabuild) {
+				pPlayer.getItemInHand(pHand).shrink(1);
+			}
+			return InteractionResult.SUCCESS;
+		} else if (this.isAwakened() && pPlayer.getItemInHand(pHand).getItem() != null && pPlayer.getItemInHand(pHand).getItem() instanceof BlockItem && ((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock() != null && this.getWood2Type().getWood() != ((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock() && FirstOfOakWood2TypeInit.getWood2TypeByWood(((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock()) != null) {
+			this.setWood2Type(FirstOfOakWood2TypeInit.getWood2TypeByWood(((BlockItem)pPlayer.getItemInHand(pHand).getItem()).getBlock()));
+			this.playSound(SoundEventInit.FIRST_OF_OAK_STEP.get(), 1, this.getVoicePitch());
+			if (!pPlayer.getAbilities().instabuild) {
+				pPlayer.getItemInHand(pHand).shrink(1);
+			}
+			return InteractionResult.SUCCESS;
+		} else {
+			return super.mobInteract(pPlayer, pHand);
+		}
+	}
+	
+	@Override
+	public int getAwakenAnimationLength() {
+		return 288;
 	}
 
 	@Nullable
 	protected SoundEvent getAmbientSound() {
-		return SoundEventInit.FIRST_OF_OAK_IDLE.get();
+		return this.isAwakened() ? SoundEventInit.FIRST_OF_OAK_IDLE.get() : null;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {

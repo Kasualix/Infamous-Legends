@@ -38,7 +38,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.phys.Vec3;
 
-public class FirstOfStone extends AbstractGolem {
+public class FirstOfStone extends AbstractFirst {
 
 	public AnimationState attackAnimationState = new AnimationState();
 	public int attackAnimationTick;
@@ -55,6 +55,7 @@ public class FirstOfStone extends AbstractGolem {
 	}
 	
 	protected void registerGoals() {
+		super.registerGoals();
 		this.goalSelector.addGoal(0, new FirstOfStoneMeleeAttackGoal(this));
 		this.goalSelector.addGoal(1, new FirstOfStoneRangedAttackGoal(this));
 		this.goalSelector.addGoal(2, new LookAtTargetGoal(this));
@@ -159,11 +160,36 @@ public class FirstOfStone extends AbstractGolem {
 		if (this.rangedAttackAnimationTick <= 0 && this.rangedAttackAnimationState.isStarted()) {
 			this.rangedAttackAnimationState.stop();
 		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 1 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 300) {
+			this.playSound(SoundEventInit.FIRST_OF_STONE_IDLE.get(), 1, this.getVoicePitch());
+		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 355) {
+			this.playSound(SoundEventInit.FIRST_OF_STONE_HURT.get(), 1, this.getVoicePitch());
+		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 355) {
+			this.playSound(SoundEventInit.FIRST_OF_STONE_STEP.get(), 1, this.getVoicePitch());
+		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 13 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 70 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 167 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 285) {
+			this.playSound(SoundEventInit.FIRST_OF_STONE_STEP.get(), 1, this.getVoicePitch());
+		}
+		
+		if (this.awakenAnimationTick == this.getAwakenAnimationLength() - 125 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 182 || this.awakenAnimationTick == this.getAwakenAnimationLength() - 243) {
+			this.playSound(SoundEventInit.FIRST_OF_STONE_STEP_RUNNING.get(), 1, this.getVoicePitch());
+		}
+	}
+	
+	@Override
+	public int getAwakenAnimationLength() {
+		return 360;
 	}
 	
 	@Nullable
 	protected SoundEvent getAmbientSound() {
-		return this.rangedAttackAnimationTick > 0 || this.attackAnimationTick > 0 ? null : SoundEventInit.FIRST_OF_STONE_IDLE.get();
+		return this.isAwakened() ? this.rangedAttackAnimationTick > 0 || this.attackAnimationTick > 0 ? null : SoundEventInit.FIRST_OF_STONE_IDLE.get() : null;
 	}
 
 	protected SoundEvent getHurtSound(DamageSource p_35498_) {

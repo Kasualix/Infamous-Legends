@@ -1,5 +1,5 @@
 {
-  "planks": "minecraft:warped_planks",
+  "wood": "minecraft:stripped_warped_stem",
   "name": "warped",
   "textureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_warped.png",
   "glowTextureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_nether_glow.png"

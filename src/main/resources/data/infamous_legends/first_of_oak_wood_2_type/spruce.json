@@ -1,5 +1,5 @@
 {
-  "planks": "minecraft:spruce_planks",
+  "wood": "minecraft:stripped_spruce_log",
   "name": "spruce",
   "textureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_spruce.png"
 }

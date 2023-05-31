@@ -1,5 +1,5 @@
 {
-  "planks": "minecraft:mangrove_planks",
+  "wood": "minecraft:stripped_mangrove_log",
   "name": "mangrove",
   "textureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_mangrove.png"
 }

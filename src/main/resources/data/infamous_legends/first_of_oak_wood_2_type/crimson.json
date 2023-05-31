@@ -1,5 +1,5 @@
 {
-  "planks": "minecraft:crimson_planks",
+  "wood": "minecraft:stripped_crimson_stem",
   "name": "crimson",
   "textureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_crimson.png",
   "glowTextureLocation": "infamous_legends:textures/entities/first_of_oak_wood_2_nether_glow.png"

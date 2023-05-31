@@ -94,13 +94,15 @@ public class FirstOfOakModel<T extends FirstOfOak> extends HierarchicalModel<T> 
 		Vec3 velocity = entity.getDeltaMovement();
 		float speed = Mth.sqrt((float) ((velocity.x * velocity.x) + (velocity.z * velocity.z)));				
 
-		boolean shouldPlayWalkAnimation = speed > 0 && entity.shootAnimationTick <= 0;
+		boolean shouldPlayWalkAnimation = speed > 0 && entity.shootAnimationTick <= 0 && entity.isAwakened();
 		
-		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.shootAnimationTick <= 0;	
+		boolean shouldPlayIdleAnimation = !shouldPlayWalkAnimation && entity.shootAnimationTick <= 0 && entity.isAwakened();	
 		
 		FirstOfOakSineWaveAnimations.firstOfOakWalkAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), speed * 12.5F, shouldPlayWalkAnimation ? 1 : 0);
 		FirstOfOakSineWaveAnimations.firstOfOakIdleAnimation(this, SineWaveAnimationUtils.getTick(entity.tickCount, true), 1, shouldPlayIdleAnimation ? 1 : 0);
 		this.animate(entity.shootAnimationState, FirstOfOakKeyframeAnimations.FIRST_OF_OAK_SHOOT, ageInTicks);
+		this.animate(entity.inactiveAnimationState, FirstOfOakKeyframeAnimations.FIRST_OF_OAK_INACTIVE, ageInTicks);
+		this.animate(entity.awakenAnimationState, FirstOfOakKeyframeAnimations.FIRST_OF_OAK_AWAKEN, ageInTicks);
 	}
 
 	@Override
