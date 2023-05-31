@@ -1,20 +1,23 @@
 {
   "type": "minecraft:crafting_shaped",
   "key": {
-    "N": {
-      "item": "minecraft:netherite_scrap"
-    },
-    "G": {
-      "item": "minecraft:gold_block"
+    "P": {
+      "item": "minecraft:prismarine_crystals"
     },
     "L": {
-      "tag": "minecraft:logs"
+      "item": "minecraft:lapis_block"
+    },
+    "T": {
+      "item": "minecraft:totem_of_undying"
+    },
+    "H": {
+      "item": "minecraft:heart_of_the_sea"
     }
   },
   "pattern": [
-    "LNL",
-    "NGN",
-    "LNL"
+    "PLP",
+    "THT",
+    "LPL"
   ],
   "result": {
     "item": "infamous_legends:primordial_heart"
