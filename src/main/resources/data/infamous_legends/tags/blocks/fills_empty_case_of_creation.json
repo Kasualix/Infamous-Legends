@@ -1,0 +1,7 @@
+{
+	"replace": false,
+	"values": [
+		"minecraft:spawner",
+		"infamous_legends:legends_spawner_block"
+	]
+}

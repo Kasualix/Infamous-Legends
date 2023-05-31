@@ -26,6 +26,7 @@ public class TagInit {
     
     public static class Blocks {
     	public static final TagKey<Block> UNBREAKABLE = tag("unbreakable");  	
+    	public static final TagKey<Block> FILLS_EMPTY_CASE_OF_CREATION = tag("fills_empty_case_of_creation");  
     	
     	   private static TagKey<Block> tag(String p_203849_) {
     		      return TagKey.create(Registry.BLOCK_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, p_203849_));

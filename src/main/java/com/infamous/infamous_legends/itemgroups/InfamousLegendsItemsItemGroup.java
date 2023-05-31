@@ -15,7 +15,7 @@ public class InfamousLegendsItemsItemGroup extends CreativeModeTab {
 
 	@Override
 	public ItemStack makeIcon() {
-		return new ItemStack(ItemInit.PIGLIN_MACE.get());
+		return new ItemStack(ItemInit.LIT_CASE_OF_CREATION.get());
 	}
 
 }

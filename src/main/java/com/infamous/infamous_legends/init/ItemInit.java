@@ -153,6 +153,12 @@ public class ItemInit {
 	public static final RegistryObject<Item> PRIMORDIAL_HEART = ITEMS.register("primordial_heart",
 			() -> new Item(new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	
+	public static final RegistryObject<Item> EMPTY_CASE_OF_CREATION = ITEMS.register("empty_case_of_creation",
+			() -> new Item(new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	
+	public static final RegistryObject<Item> LIT_CASE_OF_CREATION = ITEMS.register("lit_case_of_creation",
+			() -> new Item(new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	
 	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
 		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));
 	}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "C": {
+      "item": "infamous_legends:lit_case_of_creation"
+    },
+    "L": {
+      "item": "minecraft:lapis_lazuli"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+  "pattern": [
+    "ILI",
+    "LCL",
+    "ILI"
+  ],
+  "result": {
+    "item": "infamous_legends:legends_spawner_block"
+  }
+}
