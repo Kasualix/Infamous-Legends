@@ -10,6 +10,7 @@ import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.entity.BannerPattern;
 import net.minecraft.world.level.levelgen.structure.Structure;
 
 public class TagInit {
@@ -71,4 +72,14 @@ public class TagInit {
     		      return TagKey.create(Registry.STRUCTURE_REGISTRY, new ResourceLocation(prefix, name));
     	   }
     }
+
+	public static class BannerPatterns {
+		public static final TagKey<BannerPattern> BASTION_PATTERN = tag("pattern_item/bastion");
+		public static final TagKey<BannerPattern> HUNT_PATTERN = tag("pattern_item/hunt");
+		public static final TagKey<BannerPattern> SPORE_PATTERN = tag("pattern_item/spore");
+
+		private static TagKey<BannerPattern> tag(String name) {
+			return TagKey.create(Registry.BANNER_PATTERN_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, name));
+		}
+	}
 }

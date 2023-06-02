@@ -79,6 +79,7 @@ public class InfamousLegends {
         SensorTypeInit.SENSOR_TYPES.register(bus);
         FluidInit.FLUIDS.register(bus);
         FluidTypeInit.FLUID_TYPES.register(bus);
+        BannerPatternInit.BANNER_PATTERNS.register(bus);
 
         bus.addListener(this::commonSetup);
 
@@ -116,7 +117,7 @@ public class InfamousLegends {
     public void commonSetup(final FMLCommonSetupEvent event) {    
     	Messages.register();
         event.enqueueWork(Messages::register);
-        BannerPatternInit.bootstrap();
+//        BannerPatternInit.bootstrap();
         
         FluidInteractionRegistry.addInteraction(FluidTypeInit.TAR_FLUID_TYPE.get(), new InteractionInformation(
                 ForgeMod.WATER_TYPE.get(),

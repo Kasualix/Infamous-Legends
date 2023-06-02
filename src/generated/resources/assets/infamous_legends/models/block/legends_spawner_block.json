@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_top",
-  "textures": {
-    "side": "infamous_legends:block/legends_spawner_block",
-    "top": "infamous_legends:block/legends_spawner_block_top"
-  }
-}

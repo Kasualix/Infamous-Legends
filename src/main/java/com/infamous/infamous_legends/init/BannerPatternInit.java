@@ -1,24 +1,23 @@
 package com.infamous.infamous_legends.init;
 
-import com.infamous.infamous_legends.InfamousLegends;
-
 import net.minecraft.core.Registry;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.level.block.entity.BannerPattern;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.RegistryObject;
+
+import static com.infamous.infamous_legends.InfamousLegends.MOD_ID;
 
 public class BannerPatternInit {
-	   public static final ResourceKey<BannerPattern> BASTION = create("bastion");
-	   public static final ResourceKey<BannerPattern> HUNT = create("hunt");
-	   public static final ResourceKey<BannerPattern> SPORE = create("spore");
 
-	   private static ResourceKey<BannerPattern> create(String pName) {
-	      return ResourceKey.create(Registry.BANNER_PATTERN_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, pName));
-	   }
+	public static final DeferredRegister<BannerPattern> BANNER_PATTERNS = DeferredRegister.create(Registry.BANNER_PATTERN.key(), MOD_ID);
 
-	   public static void bootstrap() {
-	      Registry.register(Registry.BANNER_PATTERN, BASTION, new BannerPattern("bastion"));
-	      Registry.register(Registry.BANNER_PATTERN, HUNT, new BannerPattern("hunt"));
-	      Registry.register(Registry.BANNER_PATTERN, SPORE, new BannerPattern("spore"));
-	   }
+	public static final RegistryObject<BannerPattern> BASTION_PATTERN = registerPattern("bastion");
+	public static final RegistryObject<BannerPattern> HUNT_PATTERN = registerPattern("hunt");
+	public static final RegistryObject<BannerPattern> SPORE_PATTERN = registerPattern("spore");
+
+	private static RegistryObject<BannerPattern> registerPattern(String name) {
+		return BANNER_PATTERNS.register(name, () -> new BannerPattern("il:"+name));
+	}
 }

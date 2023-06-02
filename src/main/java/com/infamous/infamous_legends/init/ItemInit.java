@@ -14,12 +14,9 @@ import com.infamous.infamous_legends.items.PigmadilloShellItem;
 import com.infamous.infamous_legends.items.PortalGuardFlailItem;
 import com.infamous.infamous_legends.items.SporeMedicMaskItem;
 
+import net.minecraft.tags.BannerPatternTags;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.BlockItem;
-import net.minecraft.world.item.BucketItem;
-import net.minecraft.world.item.Item;
-import net.minecraft.world.item.SwordItem;
-import net.minecraft.world.item.Tiers;
+import net.minecraft.world.item.*;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.registries.DeferredRegister;
@@ -162,5 +159,11 @@ public class ItemInit {
 	public static RegistryObject<BlockItem> registerBlockItem(String id, RegistryObject<Block> block, Function<Supplier<Block>, BlockItem> itemCreatorFunction){
 		return ITEMS.register(id,  () -> itemCreatorFunction.apply(block));
 	}
+
+	// PATTERNS
+	public static final RegistryObject<Item> BASTION_BANNER_PATTERN = ITEMS.register("bastion_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.BASTION_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	public static final RegistryObject<Item> HUNT_BANNER_PATTERN = ITEMS.register("hunt_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.HUNT_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	public static final RegistryObject<Item> SPORE_BANNER_PATTERN = ITEMS.register("spore_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.SPORE_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+
 
 }

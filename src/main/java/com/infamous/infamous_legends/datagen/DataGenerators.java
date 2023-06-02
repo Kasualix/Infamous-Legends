@@ -12,10 +12,11 @@ public class DataGenerators {
     public static void gatherData(GatherDataEvent event) {
         DataGenerator generator = event.getGenerator();
         if (event.includeClient()) {
-            generator.addProvider(true, new ModBlockStateProvider(generator, event.getExistingFileHelper()));
+//            generator.addProvider(true, new ModBlockStateProvider(generator, event.getExistingFileHelper()));
             generator.addProvider(true, new ModItemModelProvider(generator, event.getExistingFileHelper()));
         }
         if (event.includeServer()) {
+            generator.addProvider(true, new ModBannerPatternTagsProvider(generator, event.getExistingFileHelper()));
         }
     }
 }

@@ -26,7 +26,7 @@ public class ModBlockStateProvider extends BlockStateProvider {
 
     public void cubeTop(Block block) {
         getVariantBuilder(block)
-                .partialState().setModels(new ConfiguredModel(models().cubeTop(name(block), blockTexture(block), extend(blockTexture(block), "_top"))));
+                .partialState().setModels(new ConfiguredModel(models().cubeBottomTop(name(block), blockTexture(block), extend(blockTexture(block), "_top"), extend(blockTexture(block), "_top"))));
     }
 
 

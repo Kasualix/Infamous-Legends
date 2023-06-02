@@ -153,6 +153,7 @@ dependencies {
     
     //Libraries
     implementation fg.deobf("dungeons_libraries:dungeons_libraries:${mc_version}-${libraries_version}")
+    implementation fg.deobf("faction_craft:faction_craft:${mc_version}-1.3.4")
     implementation fg.deobf("software.bernie.geckolib:geckolib-forge-1.19:${geckolib_version}")
 
     runtimeOnly    fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}")
