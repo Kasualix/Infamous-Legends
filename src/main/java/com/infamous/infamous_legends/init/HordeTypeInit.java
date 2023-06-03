@@ -48,7 +48,7 @@ public class HordeTypeInit {
     
     public static HordeType getHordeTypeByStructure(ServerLevel level, BlockPos pos, List<HordeType> viableHordes) {
     	for (HordeType horde : viableHordes) {
-    		if (horde.getStructures() != null && !horde.getBiomes().equals("")) {
+    		if (horde.getStructures() != null && !horde.getStructures().equals("")) {
 	    		int tagLocationColonIndex = horde.getStructures().indexOf(":");
 	    		String tagLocationPrefix = tagLocationColonIndex > 0 ? horde.getStructures().substring(0, tagLocationColonIndex) : null;
 	    		String tagLocationName = tagLocationColonIndex > 0 ? horde.getStructures().substring(tagLocationColonIndex + 1) : null;
