@@ -18,6 +18,7 @@ import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.RandomSource;
+import net.minecraft.world.Container;
 import net.minecraft.world.ContainerHelper;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.Entity;
@@ -40,7 +41,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
     private LegendsSpawnerData legendsSpawnerData;
     public int tickCount = 0;
     private boolean hasValidatedSpawnerData = false;
-    private NonNullList<ItemStack> addedItems = NonNullList.withSize(36, ItemStack.EMPTY);
+    private NonNullList<ItemStack> addedItems = NonNullList.withSize(27, ItemStack.EMPTY);
     private ResourceLocation levelOnLoad;
     private Set<Entity> spawns;
     private final List<UUID> spawnsUUID = new ArrayList<>();
@@ -120,6 +121,13 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         if (spawnerDataByBlocks == null || !spawnerDataByBlocks.equals(legendsSpawnerData)) {
             legendsSpawnerData = spawnerDataByBlocks;
         }
+    }
+
+    /**
+     * Returns the number of slots in the inventory.
+     */
+    public int getContainerSize() {
+        return 27;
     }
 
     private void ejectItems(Level level, BlockPos blockPos) {
@@ -249,7 +257,7 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         }
         
         if (addedItems.size() > 0) {
-            pCompound.put("AddedItems", ContainerHelper.saveAllItems(new CompoundTag(), addedItems));
+            ContainerHelper.saveAllItems(pCompound, this.addedItems);
         }
     }
 
@@ -259,12 +267,11 @@ public class LegendsSpawnerBlockEntity extends BlockEntity {
         if (pCompound.contains("LegendsSpawnerData")) {
             legendsSpawnerData = LegendsSpawnerDataInit.getSpawnerData(new ResourceLocation(pCompound.getString("LegendsSpawnerData")));
         }
-        
-        if (pCompound.contains("AddedItems")) {
-            addedItems = NonNullList.withSize(36, ItemStack.EMPTY);
-            ContainerHelper.loadAllItems(pCompound.getCompound("AddedItems"), addedItems);
-        }
-        ListTag minionsNBT = pCompound.getList("followers", 10);
+
+        this.addedItems = NonNullList.withSize(this.getContainerSize(), ItemStack.EMPTY);
+        ContainerHelper.loadAllItems(pCompound, this.addedItems);
+
+        ListTag minionsNBT = pCompound.getList("spawns", 10);
         List<UUID> minionUUIDs = new ArrayList<>();
         for (int i = 0; i < minionsNBT.size(); ++i) {
             CompoundTag compoundnbt = minionsNBT.getCompound(i);
