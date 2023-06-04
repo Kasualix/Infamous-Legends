@@ -164,6 +164,9 @@ public class ItemInit {
 	public static final RegistryObject<Item> BASTION_BANNER_PATTERN = ITEMS.register("bastion_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.BASTION_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	public static final RegistryObject<Item> HUNT_BANNER_PATTERN = ITEMS.register("hunt_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.HUNT_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
 	public static final RegistryObject<Item> SPORE_BANNER_PATTERN = ITEMS.register("spore_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.SPORE_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	public static final RegistryObject<Item> MACE_BANNER_PATTERN = ITEMS.register("mace_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.MACE_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+	public static final RegistryObject<Item> ROD_BANNER_PATTERN = ITEMS.register("rod_banner_pattern", () -> new BannerPatternItem(TagInit.BannerPatterns.ROD_PATTERN, new Item.Properties().stacksTo(1).tab(InfamousLegendsItemsItemGroup.INFAMOUS_LEGENDS_ITEMS)));
+
 
 
 }

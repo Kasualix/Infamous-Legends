@@ -16,6 +16,8 @@ public class BannerPatternInit {
 	public static final RegistryObject<BannerPattern> BASTION_PATTERN = registerPattern("bastion");
 	public static final RegistryObject<BannerPattern> HUNT_PATTERN = registerPattern("hunt");
 	public static final RegistryObject<BannerPattern> SPORE_PATTERN = registerPattern("spore");
+	public static final RegistryObject<BannerPattern> MACE_PATTERN = registerPattern("mace");
+	public static final RegistryObject<BannerPattern> ROD_PATTERN = registerPattern("rod");
 
 	private static RegistryObject<BannerPattern> registerPattern(String name) {
 		return BANNER_PATTERNS.register(name, () -> new BannerPattern("il:"+name));

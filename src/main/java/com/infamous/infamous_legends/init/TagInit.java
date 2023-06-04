@@ -77,6 +77,8 @@ public class TagInit {
 		public static final TagKey<BannerPattern> BASTION_PATTERN = tag("pattern_item/bastion");
 		public static final TagKey<BannerPattern> HUNT_PATTERN = tag("pattern_item/hunt");
 		public static final TagKey<BannerPattern> SPORE_PATTERN = tag("pattern_item/spore");
+		public static final TagKey<BannerPattern> MACE_PATTERN = tag("pattern_item/mace");
+		public static final TagKey<BannerPattern> ROD_PATTERN = tag("pattern_item/rod");
 
 		private static TagKey<BannerPattern> tag(String name) {
 			return TagKey.create(Registry.BANNER_PATTERN_REGISTRY, new ResourceLocation(InfamousLegends.MOD_ID, name));

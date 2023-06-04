@@ -42,6 +42,8 @@ public class ModItemModelProvider extends ItemModelProvider {
         bannerPatternItem(ItemInit.BASTION_BANNER_PATTERN.get());
         bannerPatternItem(ItemInit.HUNT_BANNER_PATTERN.get());
         bannerPatternItem(ItemInit.SPORE_BANNER_PATTERN.get());
+        bannerPatternItem(ItemInit.MACE_BANNER_PATTERN.get());
+        bannerPatternItem(ItemInit.ROD_BANNER_PATTERN.get());
     }
 
     private void bannerPatternItem(Item bannerPattern) {

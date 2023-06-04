@@ -23,5 +23,7 @@ public class ModBannerPatternTagsProvider extends TagsProvider<BannerPattern> {
         tag(TagInit.BannerPatterns.BASTION_PATTERN).add(BannerPatternInit.BASTION_PATTERN.get());
         tag(TagInit.BannerPatterns.HUNT_PATTERN).add(BannerPatternInit.HUNT_PATTERN.get());
         tag(TagInit.BannerPatterns.SPORE_PATTERN).add(BannerPatternInit.SPORE_PATTERN.get());
+        tag(TagInit.BannerPatterns.MACE_PATTERN).add(BannerPatternInit.MACE_PATTERN.get());
+        tag(TagInit.BannerPatterns.ROD_PATTERN).add(BannerPatternInit.ROD_PATTERN.get());
     }
 }
